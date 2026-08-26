@@ -2,11 +2,11 @@
 
 Private operational knowledge base for future research agents.
 
-The purpose of this repository is to preserve verified infrastructure and data-access procedures so future projects can use University of Waterloo compute and WRDS without reconstructing the setup from chat history.
+The purpose of this repository is to preserve verified infrastructure, data-access procedures, and research-agent methods so future projects can reuse them without reconstructing setup or prompting strategy from chat history.
 
 ## Canonical modules
 
-Future agents should read the relevant modules **before** configuring access or launching computation:
+Future agents should read the relevant modules **before** configuring access, launching computation, or assigning frontier mathematical work:
 
 1. [`modules/UW_CPU26.md`](modules/UW_CPU26.md)  
    Verified Waterloo CPU26 connection, hardware, resource policy, persistence, preflight, and six-hour overnight limits.
@@ -16,6 +16,19 @@ Future agents should read the relevant modules **before** configuring access or 
 
 3. [`modules/AUTONOMOUS_OVERNIGHT_EMPIRICS.md`](modules/AUTONOMOUS_OVERNIGHT_EMPIRICS.md)  
    Generic end-to-end workflow combining VPN, passwordless SSH, upfront WRDS/Duo authentication, bounded data streaming, remote computation, checkpointing, and compact-result retention.
+
+4. [`modules/PRO_MATH_RESEARCH_PROMPTING.md`](modules/PRO_MATH_RESEARCH_PROMPTING.md)  
+   CDC/Kerger-inspired playbook for assigning frontier mathematical research to a high-reasoning Pro model with minimal repository/context overhead, independent proof search, hostile audit, and repair/closure discipline.
+
+## Canonical Pro math prompts
+
+Use these as the default three-session workflow for important theorem work:
+
+1. [`prompts/pro_math/01_DISCOVERY.md`](prompts/pro_math/01_DISCOVERY.md) — fresh independent discovery/solve session.
+2. [`prompts/pro_math/02_HOSTILE_AUDIT.md`](prompts/pro_math/02_HOSTILE_AUDIT.md) — fresh falsification-first audit of the frozen proof.
+3. [`prompts/pro_math/03_REPAIR_CLOSURE.md`](prompts/pro_math/03_REPAIR_CLOSURE.md) — fresh minimal repair or full rebuild, followed by re-audit.
+
+The preferred interface is one scoped mathematical packet in, one standalone proof/audit note out. Do not ask Pro to survey the whole repository or manage the project unless absolutely necessary.
 
 ## Verification record
 
@@ -47,6 +60,7 @@ When a future prompt says to use the posterity modules:
 - perform any required WRDS password/Duo gate near the start while the user is present;
 - run long work persistently on CPU26 rather than the user's laptop;
 - preserve resumability and compact provenance;
-- fail closed rather than inventing unsafe authentication workarounds.
+- fail closed rather than inventing unsafe authentication workarounds;
+- for frontier math, isolate one exact theorem/gap, give Pro only the scoped packet it needs, and use fresh discovery/audit/repair sessions rather than one sprawling project chat.
 
-Last verified: **2026-08-26**.
+Last verified/updated: **2026-08-26**.
