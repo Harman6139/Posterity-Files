@@ -58,3 +58,15 @@ On every verified milestone, save the next unused numbered NN_DESCRIPTIVE_TITLE.
 There is no autonomous background activity or automatic GitHub synchronization between chat interactions; commits occur only when a research session is actively running and has permission to make them.
 
 For immutable review or citation, use the commit SHA from GitHub history rather than a moving branch link.
+
+
+## PROJECT-LEAD RESEARCH UPGRADE (2026-11-08): maximal-depth universality now PROVED
+
+The fixed-dense-kernel-to-combinatorial gap is COMPLETELY CLOSED for the **entire maximal facial-reduction degree stratum \(d=\nu\)**, every matrix nullity \(\nu\ge2\) and positive target rank:
+
+- [Checkpoint 89](../psd_joint_depth_20261108/89_UNIVERSAL_FIXED_MONOMIAL_DIKIN_CHART_DENSE.md) proves a fixed monomial Loewner chart for the canonical maxdet center of EVERY dense uniquely solvable PSD inverse problem, and gives a finite weighted linear-rank test for its exact recovery exponent.
+- [Checkpoint 90](../psd_joint_depth_20261108/90_COMPLETE_DENSE_MAXIMAL_DEPTH_CONVEX_GAME_UNIVERSALITY.md) proves that at d=nu the valuation grades are all one-dimensional and aligned with the facial chain; the weights are genuine rational harmonic midpoints with nondecreasing gaps, and the sharp exponent is a qualifying half-weight. Thus the bounded primitive **INTEGER-GAP** finite combinatorial iff previously proved only for incidence constructions in [Checkpoint 72](../psd_joint_depth_20261108/72_INTEGER_GAP_DIOPHANTINE_MAXDEPTH_CLASSIFICATION.md) is now UNIVERSALLY exact for **all arbitrary dense measurement kernels** at maximal depth. This includes nonreciprocal values at nullity six.
+
+**Still open:** the full necessary-and-sufficient combinatorial catalogue at NONMAXIMAL singularity degree d<nu, including all exact rank profiles. Do not interpret the maximal-depth theorem as a full solution of every (n,r,d,alpha) compatibility.
+
+**Audit:** Checkpoints 89–90 have self-contained mathematical proofs; they have not yet undergone independent external referee review or novelty/priority verification.
