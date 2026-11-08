@@ -71,3 +71,8 @@
 ## 2026-11-07: universal dense maximal-depth theorem in **all dimensions**
 
 - [22_UNIVERSAL_MAXIMAL_DEPTH_INVERSE_NULLITY_BOUND.md](22_UNIVERSAL_MAXIMAL_DEPTH_INVERSE_NULLITY_BOUND.md): NEW THEOREM for every arbitrary dense uniquely solvable PSD inverse problem with positive target rank and nullity nu≥2. If the minimal facial-reduction degree is maximal, d=nu, then **alpha≤1/nu**. The bound is universally sharp, attained by explicit rank-one sparse chains at every nu. The proof builds, for each nested face, a kernel matrix with a positive new diagonal and a vanishing adjacent cross-block, forced by maximal minimal facial degree; a coefficient-rescaling lemma produces a genuine positive definite polynomial perturbation of displacement t and residual t^nu. This proves the *exact largest possible exponent* at fixed (nu,d=nu) for all dense maps, without any unproved depth-preserving network equivalence. It does not yet prove the entire reciprocal arithmetic set of sparse exponents is universal.
+
+
+## 2026-11-07: universal primal–dual alignment and rank-sensitive arithmetic obstruction
+
+- [23_FIRST_STRESS_ALIGNMENT_DENOMINATOR.md](23_FIRST_STRESS_ALIGNMENT_DENOMINATOR.md): **PROVED for every dense PSD map**: the range of each first PSD exposing stress is contained in the *terminal (highest-order) null valuation block* of any sharp PSD arc. Thus if s1 is the rank of the maximal first exposing stress, the reduced denominator b of 2alpha obeys the improved necessary bound **b<=2^(nu-s1)**. Equality forces an acyclic dyadic harmonic network, unit-dimensional earlier null weight blocks and terminal dimension exactly s1. This is a joint geometric/arithmetic constraint; it does not prove complete dense depth-preserving sparse universality.
