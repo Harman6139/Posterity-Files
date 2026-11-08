@@ -78,6 +78,12 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 
 **Status after Milestone 23:** Milestone 21 solves exact two-basis dilation of arbitrary Parseval frames without a permitted ONB but allows zero target measurements and does NOT generally preserve non-Lipschitz moduli sharply. Milestone 23 explains this loss. Unrestricted N=O(m^2+p) positive-data, condition-faithful two-basis universality remains UNSOLVED.
 
+### Stage 5 — exact noise diagnosis and positive-data removal of the ONB obstruction
+
+22. TRANSVERSE_EXPOSING_DILATION_STABILITY — an arbitrary exposed PSD face has sharp source-residual O(delta) transfer whenever its compressed-output and cross-block-output spaces have positive principal-angle separation. Under an invisible target-support cross direction the full ambient modulus is omega_source(t)+sqrt(t); no reflection assumption is needed. A corrected projection/inverse formula is recorded in commit history.
+23. DOUBLE_ZERO_FIRST_ORDER_NO_GO — for a Parseval frame G, the cross-data map X -> diag(G^T X K) has exact rank M-c(Gamma), where Gamma is the graph of nonzero off-diagonal entries of P=G^T G. For connected Gamma, cross data fill the trace-zero source output in both bases, and the transversality margin in Milestone 22 vanishes whenever dim W>1. An explicit PSD Schur-repaired curve hides O(t) source variations behind O(t²) data, showing the first-stage square-root loss can be real.
+24. POSITIVE_TWO_BASIS_UNIVERSAL_FRAME_COMPOSITION — compose the exact double-zero ONB dilation (Milestone 21) with a signed-anchor lift of its intermediate TWO-BASIS measurement space. This gives all STRICTLY POSITIVE final observations, no zero overlaps, positive decoding, exact all-rank PSD fibre equivalence, rank amplification exactly one, and genuine nonreflection design at order N<=10M-5d+4 for ANY supplied d-dimensional M-vector rank-one Parseval compiler, even with no admissible source ONB. Quantitative source modulus is bounded between omega_source(c t) and C omega_source(C sqrt(t))+C sqrt(t); it does NOT preserve all non-Lipschitz exponents. Numerical audit AUDIT_POSITIVE_FRAME_COMPOSITION.py verifies a d=3,M=4->n=5->N=29 example with positive lists and exposing gap >2.
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
