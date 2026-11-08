@@ -45,3 +45,7 @@
 
 ## 2026-11-07: bounded nonsingleton feasible sets — exact extension
 - [15_NONSINGLETON_SET_DISTANCE_AND_DEPTH.md](15_NONSINGLETON_SET_DISTANCE_AND_DEPTH.md): chooses the relative-interior maximal-rank feasible X0, gauges away N=ker L∩S(range X0), proves the augmented singleton problem has **identical sharp set-distance exponent AND identical minimal facial-reduction degree**. Explicit two-sided modulus comparisons are proved for every ambient PSD competitor. Applying checkpoint 10 to the gauged problem gives a universal canonical Dikin–Hessian structural classifier for all bounded nonsingleton PSD feasibility problems.
+
+
+## 2026-11-07: exhaustive exact all-degree spectrum enumeration
+- [16_FINITE_EXHAUSTIVE_ALL_DEGREE_SPECTRA.md](16_FINITE_EXHAUSTIVE_ALL_DEGREE_SPECTRA.md): **proved** a computable finite rational candidate set at fixed (n,r), using a bounded-degree polynomial description of the unique canonical center determinant-ratio graph and an elementary two-monomial/Newton-polygon valuation bound. Running the checkpoint 14 real-algebraic compatibility test on the finite candidates yields the **entire** joint spectrum Σ_(n,r,d) for each fixed n,r,d. It is fully terminating and exact but may be astronomically expensive; it does not give a simple closed arithmetic list or resolve questions uniformly over unbounded n.
