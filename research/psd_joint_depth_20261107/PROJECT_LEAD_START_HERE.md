@@ -70,3 +70,10 @@ The fixed-dense-kernel-to-combinatorial gap is COMPLETELY CLOSED for the **entir
 **Still open:** the full necessary-and-sufficient combinatorial catalogue at NONMAXIMAL singularity degree d<nu, including all exact rank profiles. Do not interpret the maximal-depth theorem as a full solution of every (n,r,d,alpha) compatibility.
 
 **Audit:** Checkpoints 89–90 have self-contained mathematical proofs; they have not yet undergone independent external referee review or novelty/priority verification.
+
+
+## NEW COMPLETE STRATUM (2026-11-08) — arbitrary dense ν=5, d=3
+
+The arbitrary dense recovery spectrum at target nullity **five** and exact minimal singularity degree **three** has now been COMPLETELY classified: **51 rational exponent values**, independently of any conjectured dense-to-tied-game universality. [Checkpoint 97](../psd_joint_depth_20261108/97_COMPLETE_UNIVERSAL_DENSE_NULLITY_FIVE_DEGREE_THREE.md) contains the full list and proof; [checkpoint 98](../psd_joint_depth_20261108/98_NU5_D3_COMPLETE_EXACT_RATIONAL_AUDIT.py) contains exhaustive rational verification. Key prerequisite [95](../psd_joint_depth_20261108/95_DENSE_DUAL_CENTRAL_TWO_STEP_THRESHOLD.md) proves a universal two-step dual-center threshold. All 51 fractions are realized constructively: 49 independent-edge incidence systems and two tied-edge systems with α=3/22 and 3/20.
+
+**Still open:** full all-nullity/all-depth joint classification, notably the ν=5,d=4 stratum and nonmaximal degrees in dimensions ≥6. No background research or automatic commits occur between active sessions.
