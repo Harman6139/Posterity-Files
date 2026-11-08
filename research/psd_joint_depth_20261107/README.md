@@ -49,3 +49,12 @@
 
 ## 2026-11-07: exhaustive exact all-degree spectrum enumeration
 - [16_FINITE_EXHAUSTIVE_ALL_DEGREE_SPECTRA.md](16_FINITE_EXHAUSTIVE_ALL_DEGREE_SPECTRA.md): **proved** a computable finite rational candidate set at fixed (n,r), using a bounded-degree polynomial description of the unique canonical center determinant-ratio graph and an elementary two-monomial/Newton-polygon valuation bound. Running the checkpoint 14 real-algebraic compatibility test on the finite candidates yields the **entire** joint spectrum Σ_(n,r,d) for each fixed n,r,d. It is fully terminating and exact but may be astronomically expensive; it does not give a simple closed arithmetic list or resolve questions uniformly over unbounded n.
+
+
+## 2026-11-07 — new closed combinatorial milestones (do not extrapolate to dense kernels)
+
+- [17_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md](17_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md): **proved** the exact closed arithmetic exponent spectrum for sparse harmonic midpoint PSD systems at maximal singularity degree d=nu: all reciprocals 1/q and 1/(2q) for nu<=q<=2^(nu-1). Necessity via one-vertex-per-step peeling and positive integer gap recurrence; sufficiency via an explicit binary-halving induction producing every denominator. Applies to all positive target ranks (append a fully measured positive block). Does NOT prove dense necessity.
+- [18_MAX_DEPTH_RECIPROCAL_GENERATOR.py](18_MAX_DEPTH_RECIPROCAL_GENERATOR.py): exact rational generator and peeling verification for 4,028 constructions (nu=2..12). Independent exhaustive comparison with the prior generic sparse enumerator matches through nu=6.
+- [19_SHARP_DEPTH3_NULLITY_GAP.md](19_SHARP_DEPTH3_NULLITY_GAP.md): **proved** a sharp fixed-nullity gap for *all sparse harmonic systems at depth >=3*: alpha <= (2^(nu-2)-1)/(2^(nu-1)-1)<1/2 for nu>=3, attained at exact depth 3 by the feedback ladder. Equivalently, sparse degree >=3 iff the minimum internal harmonic weight is <1/2. A probabilistic source-absorption path supplies the sharp bound. Not yet a theorem for arbitrary dense PSD systems.
+
+**Current unsolved universal upgrade:** show a dense PSD instance of degree d>=3 must have a sharp harmonic certificate with a genuinely sub-1/2 internal weight (or derive another dense stress-flag obstruction). The earlier exponent-preserving weighted-flag extraction does not automatically preserve degree.
