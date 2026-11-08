@@ -27,6 +27,7 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 
 ### Stage 0 — original sharp transfer and early constructive universality (chat + archival notes)
 
+- **00_EARLY_GRAPH_TRANSFER_ARCHIVE.md:** self-contained reconstruction of the first all-ambient sharp graph-transfer theorem, including the PSD retraction, invisible cross-block lower bound, zero-target exception, and nonsingleton extension. This was added so the original mathematical result is not stranded solely in conversation text.
 - Original Track 02 research starts from an exact graph-completion embedding in the 25-page LAA manuscript. The first research response established an all-ambient reflection modulus law: omega_lift(t) ~ omega_graph(t)+sqrt(t) for nonzero targets, with a rank-one zero-target exception. A cross-block injectivity criterion describes when the added square-root term vanishes.
 - The next continuation developed general tensor-purification rank-one compilers with order O(m^4), positive partial-trace decoding and the same sharp non-Lipschitz modulus transfer. This was substantially more general than graph completion.
 - A subsequent effort investigated explicit algebraic conditioning, non-reflection basis rotations and a deterministic O(m^4) compiler. The width-adaptive companion construction improved this to O(m^2(w+1)^2), where w is the diagonal-cover width, and to O(m^2) for bounded-width systems. The complete prior companion memorandum is summarized in the dense_quadratic directory on this branch.
