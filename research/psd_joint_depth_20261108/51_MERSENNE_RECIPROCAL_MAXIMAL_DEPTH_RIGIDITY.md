@@ -70,3 +70,21 @@ An exhaustive Fraction check of all strict harmonic graphs through h=5 showed th
 This theorem depends on the earlier full dense weighted-flag/midpoint-extraction statement. Its determinant cycle argument and conic stress pairing are proved directly. It does not establish that every other nonreciprocal sharp exponent at maximal depth is excluded, nor that every dense sharp flag has a depth-preserving sparse representation. The exact high-dimensional joint spectrum remains open.
 
 Combinatorial functional graph determinant expansions, mediated graphs, and PSD facial reduction have prior literatures; bibliographic novelty and review of the load-bearing dense flag theorem remain essential.
+
+
+## Strengthened theorem: the denominator alone forces maximal depth
+
+The argument above actually proves a strictly stronger statement:
+\[
+\boxed{
+\operatorname{den}(2\alpha)=2^{\nu-1}-1
+\ \Longrightarrow\
+\alpha\in\left\{\frac1{2(2^{\nu-1}-1)},\frac1{2^{\nu-1}-1}\right\},
+\quad d=\nu,
+}
+\]
+for every uniquely solvable positive-rank PSD inverse problem of nullity ν≥3.
+
+**Proof:** If den(2α)=q, the same divisibility/counting argument gives det M=q, h=ν−1 and the unique doubling orbit S={1/q,2/q,...,2^(h−1)/q}. The leading full-state condition α≤min S=1/q and the required presence 2α∈S imply 2α∈{1/q,2/q}, i.e. the two displayed exponents. The triangular actual kernel coefficients H_i (i<h) force d=ν by the argument above, independently of which of the two choices supplies the leading displacement. Both are explicitly realizable by the unique sparse graph, with or without an independent offdiagonal leading variable on edge (source, first weight). QED.
+
+**Independent exact check:** for h=2,3,4,5 (nullity 3..6), exhaustive harmonic-parent network enumeration found precisely the one predicted valuation graph for each of these two exponents and exact peeling degree h+1. Full companion source 52_MERSENNE_RIGIDITY_EXACT_CHECK.py supplies the standard-library Fraction audit.
