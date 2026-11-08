@@ -1,0 +1,92 @@
+# Milestone 63 — even full entrywise SIGN PATTERNS do NOT determine sharp PSD exponent or facial depth
+
+**2026-11-08. PROVED, 3×3 rational examples.** This is a structural obstruction to overly simplistic combinatorial universality: sparse support hypergraphs, entrywise signs, or unchanged incidence data cannot by themselves classify arbitrary dense PSD recovery. A valid universal normal form must also record finite *determinantal dependencies* or equivalent richer conic rank information.
+
+## An explicit one-parameter pair
+
+Let X*=E00 in S^3, R=[[3/5,-4/5],[4/5,3/5]], B=(1,0), and
+\[
+C_\theta=\begin{pmatrix}1&1\\1&\theta\end{pmatrix},
+\qquad
+H_\theta=\begin{pmatrix}
+1 & BR\\
+R^T B^T & R^T C_\theta R
+\end{pmatrix}.
+\]
+Take two rational parameters theta_-=99/100 and theta_0=1. Set K_theta=span{H_theta}; let L_theta be orthogonal projection of S^3 onto K_theta^perp, with Frobenius measurement norm.
+
+Both kernel generators have precisely the **same nonzero entrywise sign pattern**:
+\[
+\begin{pmatrix}
++&+&-\\
++&+&-\\
+-&-&+
+\end{pmatrix}.
+\]
+Indeed BR=(3/5,-4/5), and their null-null blocks are
+\[
+R^T C_1 R=
+\begin{pmatrix}49/25&-7/25\\-7/25&1/25\end{pmatrix},
+\]
+\[
+R^T C_{99/100} R=
+\begin{pmatrix}1221/625&-178/625\\-178/625&91/2500\end{pmatrix}.
+\]
+All nine matrix entries are nonzero and have matching signs.
+
+## Theorem: sharp exponents 1 versus 1/2 and minimal facial degrees 1 versus 2
+
+For theta=99/100, the lower 2×2 compression C_theta is indefinite because det C_theta=theta-1<0. Consequently no nonzero multiple of H_theta belongs to the PSD tangent cone at E00 (that tangent cone requires only the lower null-null compression to be PSD). The exact first-order tangent criterion gives
+\[
+\boxed{\alpha(L_{99/100},X*)=1}.
+\]
+The feasible point is unique: for any nonzero scalar t, the lower 2×2 compression of X*+tH_theta is tC_theta, which is indefinite. Strict semidefinite separation of this one-dimensional indefinite span supplies a positive-definite null-space exposing stress in K_theta^perp, so
+\[
+\boxed{\operatorname{singdeg}(L_{99/100},X*)=1}.
+\]
+
+For theta=1, C_1 is rank-one PSD, with range spanned by (1,1) and kernel by v=(1,-1). The support-to-null cross block B satisfies Bv=1≠0. Therefore X*+tH_1 cannot be PSD for t>0: its null-block quadratic form vanishes on v, but its source-to-v cross entry is tBv≠0. Negative t gives a negative null block. Thus X* remains the **unique** PSD solution.
+
+For arbitrary residual competitor Y=X*+aH_1+E with ||E||_F<=delta, let v be the unit vector in the nullspace of C_1. Then v^TYv=O(delta) while the source-to-v entry of Y is a(Bv)+O(delta). Bounded trace and PSD Cauchy–Schwarz imply |a|<=C sqrt(delta), hence ||Y-X*||<=C' sqrt(delta). Conversely there is an explicit PSD quadratic perturbation
+\[
+X(t)=X_*+tH_1+t^2 M\,\operatorname{diag}(0,vv^T)
+\]
+for sufficiently large fixed M: the Schur complement of its positive source block is \(tC_1+t^2[Mvv^T-B^TB/(1+t)]\), positive for all small t>0 because C_1 is strictly positive on v^perp and M can dominate the correction on v. The measurement residual is O(t²) (since H1∈K), while displacement is Θ(t). Thus
+\[
+\boxed{\alpha(L_1,X*)=1/2}.
+\]
+
+Every globally PSD first exposing stress orthogonal to H1 must be supported on the one-dimensional nullspace of C1, so its rank is exactly one. After exposing this direction, the reduced kernel K∩S(W1) is zero because H1 has nonzero cross with that exposed null vector. A second compressed exposing stress therefore removes the final null direction. Hence
+\[
+\boxed{\operatorname{singdeg}(L_1,X*)=2}.
+\]
+
+## Quantitative degeneration law
+
+Let theta↑1 from below. The negative eigenvalue of the null compression is
+\[
+\lambda_-(C_\theta)
+=\frac{1+\theta-\sqrt{(1-\theta)^2+4}}{2}
+\asymp-(1-\theta).
+\]
+The PSD tangent cone at X* consists of all symmetric matrices with PSD lower 2×2 compression. The distance in Frobenius norm from H_theta to that tangent cone equals \(|\lambda_-(C_\theta)|\), since the support and cross blocks are unconstrained and orthogonal congruence preserves Frobenius norm.
+
+For the one-dimensional kernel span H_theta, the tangent separation constant
+\[
+\gamma_\theta=\min_{\substack{G\in T_{X_*}\\\|G\|_F=1}}
+\|P_{K_\theta^\perp}G\|_F
+\]
+is comparable to this distance divided by ||H_theta||, because -H_theta remains bounded away from the tangent cone as theta↑1. Thus
+\[
+\gamma_\theta\asymp1-\theta,
+\qquad
+\lim_{\delta\downarrow0}\frac{\omega_\theta(\delta)}{\delta}
+=\gamma_\theta^{-1}\asymp\frac1{1-\theta}.
+\]
+The exponent jumps from 1 to 1/2 exactly when det C_theta=0, while the asymptotic Lipschitz condition number diverges at the reciprocal distance rate.
+
+## Implication for the sought universal combinatorial classifier
+
+Even after fixing matrix size, target rank, measurement-kernel dimension, the zero/nonzero pattern of **every kernel generator entry** and its entire sign pattern, the sharp exponent and exposing degree can differ. Thus a universal classification by *unlabeled incidence supports alone* or by *entrywise signed edges alone* is impossible. Any complete finite combinatorial representation must register which determinants vanish (or equivalently conic rank/flag dependencies). An oriented matroid of sufficiently rich polynomial invariants could conceivably suffice; this result does NOT rule out all such richer finite combinatorial classifiers.
+
+The tangent-cone Lipschitz criterion and Gordan–Stiemke separation are established, not claimed new; the explicit sign-pattern obstruction and quantitative law are proved directly here.
