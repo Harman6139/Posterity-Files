@@ -131,13 +131,13 @@ single-action parent policies. Solve each 4×4 rational harmonic system and reta
 \text{single-action peeling layers}\\
 (3/11,6/11,7/11,9/11)&
 (0,2),(1,4),(1,5),(3,5)&
-\{5\},\{4\},\{2,3\},\{1\}\\
+\{5\},\{3,4\},\{2\},\{1\}\\
 (3/11,5/11,6/11,7/11)&
 (0,3),(1,4),(2,4),(1,5)&
 \{5\},\{4\},\{2,3\},\{1\}.
 \end{array}
 \]
-(The alternative first policy can be exposed with \(\{5\},\{3,4\},\{2\},\{1\}\) depending on equivalent listed orderings; BOTH have exactly four steps. The exact verifier computes the canonical peeling from the displayed pairs.)
+Both policies require EXACTLY four exposing steps; the first and second rows have different explicit peeling orders. The exact verifier computes these from the displayed parent pairs.
 
 Adding independent additional actions can **only DELAY** facial exposure, never advance a vertex: the all-actions closure conditions are strengthened when actions are added, and the monotone tropical exposing-time theorem (checkpoint 59) makes this explicit. Thus every independent-edge multiaction system containing either optimal harmonic policy has minimal degree at least FOUR. A two-policy subfamily certainly cannot achieve degree three. This contradicts the proposed realization.
 
