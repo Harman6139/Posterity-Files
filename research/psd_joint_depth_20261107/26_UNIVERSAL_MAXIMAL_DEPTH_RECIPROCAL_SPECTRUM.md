@@ -56,3 +56,18 @@ The set is nonempty for every q>=2: choose nu=ceil(log2(q/gcd(q,2)))+1, adjustin
 ## Audit, literature and remaining frontier
 
 The new mathematical point is the **match of all universal necessary conditions with explicit maximal-depth constructions** for the reciprocal subclass; no unproved dense/sparse equivalence is needed. The determinant bound relies on the previously proved dense weighted-flag result, and Sturm's bound and facial reduction are established literature. A closed full dense spectrum at nu>=4 remains open **only for nonreciprocal candidates**: already at nu=4 the unresolved maximal-depth fractions are 3/16 and 3/14. No assertion is made that these are impossible without proof.
+
+## Closed-form simplification of the optimal dimension
+
+The minimization over nu in the previous dimension corollary can be evaluated explicitly. For any integer q>=2, and **restricting to maximal-depth realizations with nu=d>=2**, define b=q/gcd(q,2). Then
+\[
+\boxed{
+\nu_{\min}^{\rm maxdepth}(1/q)
+ =\max\left\{2,\ 1+\lceil\log_2 b\rceil\right\},\qquad
+n_{\min}^{\rm maxdepth}(r,1/q)
+ =r+\nu_{\min}^{\rm maxdepth}(1/q).
+}
+\]
+**Proof:** The universal denominator obstruction requires nu>=1+ceil(log2 b), while our theorem is explicitly restricted to nu>=2. Setting nu to this maximum satisfies nu<=q (trivially q=2, and for q>=3 by 1+ceil(log2 q)<=q), so the constructive if-and-only-if theorem guarantees a realization at that nullity. QED.
+
+**Boundary convention:** If the maximal-depth constraint also permits nu=d=1, the case q=2 has a still smaller realization nu=1,d=1, as expected from ordinary square-root instability. The formula displayed above is deliberately for nu>=2.
