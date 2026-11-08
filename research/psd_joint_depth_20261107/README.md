@@ -91,3 +91,8 @@
 ## 2026-11-07: COMPLETE **universal dense** reciprocal spectrum at maximal depth
 
 - [26_UNIVERSAL_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md](26_UNIVERSAL_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md): **proved necessary and sufficient arithmetic formula for all arbitrary dense PSD problems** at prescribed target nullity nu≥2, minimal degree d=nu, and reciprocal sharp exponent alpha=1/q. Attainability holds **iff** q≥nu and q/gcd(q,2)≤2^(nu-1). Every allowable value is achieved by the explicit rank-one midpoint pencils, so dense kernels cannot enlarge the reciprocal part of the maximal-depth spectrum. Provides the exact minimum dimension subject to maximal depth for each 1/q. The only unresolved dense maximal-degree candidates at nu=4 are nonreciprocals 3/16 and 3/14. This is a complete *subclass* classification, not a proof of the full nonreciprocal spectrum.
+
+
+## 2026-11-07: first two explicit unresolved tests for dense sparse-depth universality
+
+- [27_FIRST_UNRESOLVED_DENSE_MAXDEPTH_TESTS.md](27_FIRST_UNRESOLVED_DENSE_MAXDEPTH_TESTS.md): combines **complete universal dense reciprocal maximal-depth classification** (checkpoint 26), universal maximal-depth alpha<=1/nu (checkpoint 22), and the previously proved unconditional nu4 midpoint exponent catalogue to show that the **only** unclassified dense sharp exponents at (nu,d)=(4,4) are exactly **3/16 and 3/14**. Three finite harmonic weight patterns could support them, and all three have sparse peeling depth3. A dense realization at depth4 of either would refute sparse network depth universality. This is an exhaustive reduction, not a theorem excluding them.
