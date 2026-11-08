@@ -1,3 +1,7 @@
+# Project-lead quickstart
+
+**Start here:** [PROJECT_LEAD_START_HERE.md](PROJECT_LEAD_START_HERE.md) — verified research branch, chronological map, main results, gaps, and future checkpoint convention.
+
 # Universal PSD stability / joint exponent-depth research (2026-11-07)
 
 **Current deliverables**
