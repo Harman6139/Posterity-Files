@@ -96,3 +96,10 @@
 ## 2026-11-07: first two explicit unresolved tests for dense sparse-depth universality
 
 - [27_FIRST_UNRESOLVED_DENSE_MAXDEPTH_TESTS.md](27_FIRST_UNRESOLVED_DENSE_MAXDEPTH_TESTS.md): combines **complete universal dense reciprocal maximal-depth classification** (checkpoint 26), universal maximal-depth alpha<=1/nu (checkpoint 22), and the previously proved unconditional nu4 midpoint exponent catalogue to show that the **only** unclassified dense sharp exponents at (nu,d)=(4,4) are exactly **3/16 and 3/14**. Three finite harmonic weight patterns could support them, and all three have sparse peeling depth3. A dense realization at depth4 of either would refute sparse network depth universality. This is an exhaustive reduction, not a theorem excluding them.
+
+
+## 2026-11-07: closed optimal dimension and exact ν4 exhaustive audit
+
+- [26_UNIVERSAL_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md](26_UNIVERSAL_MAXIMAL_DEPTH_RECIPROCAL_SPECTRUM.md) now includes the **closed exact dimension formula** for arbitrary dense PSD maps with reciprocal exponent alpha=1/q, under maximal depth d=nu>=2:
+  nu_min=max{2,1+ceil(log2(q/gcd(q,2)))} and n_min=r+nu_min. The q=2 rank-one-nullity-one boundary is stated separately.
+- [28_EXACT_NU4_FRONTIER_AUDIT.py](28_EXACT_NU4_FRONTIER_AUDIT.py): independently executable, self-contained standard-library Fraction program enumerating every h=3 mediated graph, computing its exact sparse peeling degree and checking that the *only* unresolved universal nu4,d4 fractions are 3/16,3/14. Local run passed all assertions. This is an exhaustive small-case audit **conditional on** the previously established universal dense fixed-nullity exponent catalogue and new upper bound; sparse peeling by itself is not a dense necessity theorem.
