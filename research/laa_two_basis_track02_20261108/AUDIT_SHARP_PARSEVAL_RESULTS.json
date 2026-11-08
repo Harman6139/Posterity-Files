@@ -36,5 +36,14 @@
       "residual_divided_by_t_squared": 0.8078256595400322
     }
   ],
-  "interpretation": "Floating-point sanity check only. O(1e-16) negative eigenvalues are numerical roundoff. The exact PSD curve is proved by factorization in Milestone 26."
+  "interpretation": "Floating-point sanity check only. O(1e-16) negative eigenvalues are numerical roundoff. The exact PSD curve is proved by factorization in Milestone 26.",
+  "compressed_operator_span_rank": 8,
+  "augmented_operator_span_rank": 13,
+  "retained_unrotated_operator_span_rank": 13,
+  "retained_analysis_least_positive_singular_value": 0.00035701768836689067,
+  "nonreflection_row_column_fourth_moment_multiset_gap": 2.832661772922407e-7,
+  "first_order_source_signal_norm": 1.0518826050363776,
+  "first_order_source_signal_after_best_outer_cross_cancellation": 1.051881862571136,
+  "first_order_cross_output_rank": 25,
+  "description_of_cross_test": "The optimal linear outer-face cross-block correction cannot cancel a nonzero source signal: source-only measurements survive in the reflected-even data."
 }
