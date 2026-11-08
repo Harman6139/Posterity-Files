@@ -1,0 +1,44 @@
+{
+  "hyperplane_m3": {
+    "span_rank": 5,
+    "lift_N_before_extra_asymmetry": 19,
+    "frame_error": 1.6130256125361672e-16
+  },
+  "dense_hyperplane_m3": {
+    "span_rank": 5,
+    "lift_N_before_extra_asymmetry": 20,
+    "frame_error": 3.494566916733853e-16
+  },
+  "block_double_m4": {
+    "span_rank": 8,
+    "lift_N_before_extra_asymmetry": 30,
+    "frame_error": 6.684499816710682e-16
+  },
+  "commuting_m3": {
+    "span_rank": 9,
+    "initial_columns": 55,
+    "sparse_columns": 16,
+    "signed_lift_N": 31,
+    "frame_error": 8.113936505344509e-16,
+    "exposing_gap": 2.067424332240877
+  },
+  "commuting_m5": {
+    "span_rank": 34,
+    "initial_columns": 359,
+    "sparse_columns": 64,
+    "signed_lift_N": 91,
+    "frame_error": 6.348402564008344e-16,
+    "exposing_gap": 2.0674243373592276
+  },
+  "commuting_m4_equal_diagonal": {
+    "span_rank": 7,
+    "initial_columns": 48,
+    "sparse_columns": 13,
+    "signed_lift_N": 28,
+    "frame_error": 4.668770872383141e-16
+  },
+  "codimension_two_obstruction": {
+    "dimension_L": 8,
+    "allowable_rankone_span_at_most": 3
+  }
+}
