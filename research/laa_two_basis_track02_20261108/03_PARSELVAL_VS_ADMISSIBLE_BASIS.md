@@ -33,11 +33,11 @@ But |<u_i,u_j>|=1/3 for i!=j, so no two allowable lines are orthogonal. No admis
 
 ## Theorem 3 (direct reflection certificate must use a maximal isotropic signature)
 
-Let F in R^{d x N} satisfy FF^T=I, let P=F^T F, Q=I-P and R=P-Q. Suppose a diagonal D obeys
+Let F in R^{d x N} satisfy FF^T=I, let P=F^T F, Q=I-P and R=P-Q. Suppose an INVERTIBLE diagonal D obeys
   FDF^T=0,  D+RDR=2QDQ>=gamma Q, gamma>0.
-Then D has at least d negative eigenvalues and at least d positive eigenvalues. If D has more than d strictly negative diagonal entries, QDQ cannot be positive semidefinite: the negative coordinate subspace has dimension >d, so intersects V^perp (V=range P, dim d) nontrivially. Therefore D must have EXACTLY d negative diagonal entries, apart from possible zero weights, and the negative-coordinate columns of F must span V.
+Then D has at least d negative eigenvalues and at least d positive eigenvalues. If D has more than d strictly negative diagonal entries, QDQ cannot be positive semidefinite: the negative coordinate subspace has dimension >d, so intersects V^perp (V=range P, dim d) nontrivially. Therefore D must have EXACTLY d negative diagonal entries, and the negative-coordinate columns of F must span V.
 
-Proof. A d-dimensional totally D-isotropic subspace forces both positive and negative inertia of D to be at least d by Sylvester inertia/Witt index. If the negative coordinate subspace has dimension d+1, its intersection with V^perp has dimension at least (d+1)+(N-d)-N=1, giving a negative D-quadratic form on V^perp, contradicting QDQ>=0. QED.
+Proof. For NONSINGULAR D, a d-dimensional totally D-isotropic subspace forces both positive and negative inertia of D to be at least d by Sylvester inertia/Witt index. If the negative coordinate subspace has dimension d+1, its intersection with V^perp has dimension at least (d+1)+(N-d)-N=1, giving a negative D-quadratic form on V^perp, contradicting QDQ>=0. QED.
 
 This explains why duplicating every allowable Parseval atom and assigning opposite signs to each duplicate cannot yield the required exposing certificate: such a scheme typically uses >d negative coordinates.
 
@@ -46,3 +46,5 @@ This explains why duplicating every allowable Parseval atom and assigning opposi
 This is not an impossibility theorem for all non-reflection two-basis dilations; a non-reflection design could admit a different stress or several exposure steps. It proves that the commonly proposed immediate Naimark/whitening shortcut is unjustified and identifies the precise missing requirement.
 
 A successful unrestricted construction must (a) prove an admissible ONB after a controlled lift, (b) design a different positive two-basis stress without that ONB, or (c) change the source positive embedding architecture.
+
+**Zero-weight caution.** The invertibility hypothesis is essential: taking V spanned by d coordinate axes, F=[I_d 0], and D=diag(0_d,2I) gives a positive exposing certificate with no negative entries. Our signed-frame construction uses strictly nonzero weights, so the corrected theorem applies exactly to the architecture being audited.
