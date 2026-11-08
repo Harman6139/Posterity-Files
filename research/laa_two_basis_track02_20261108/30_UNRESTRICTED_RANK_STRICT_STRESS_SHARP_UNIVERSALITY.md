@@ -111,6 +111,39 @@ Thus **EVERY non-Lipschitz strict-stress finite-dimensional real PSD inverse pro
 
 The construction is effective in algebraic arithmetic given the target support, source strict stress and a finite rank-one compiler. The positive singular gaps and certificate gaps enter constants explicitly. This is NOT a uniform polynomial-Turing-bit algorithm that finds unknown targets/certificates or handles unbounded codimension at order O(m²+p).
 
+## 5b. Explicit source conditioning and finite certificate algorithm
+
+The source Parseval frame has the uniform operator norm bound
+  ||M_G||_(F->2) <= 1.
+Indeed ||g_j||²<=1 and
+  (g_j^T H g_j)² <=||g_j||² g_j^T H² g_j,
+so after summation
+  ||M_G(H)||² <=sum_j g_j^T H² g_j=tr(H² GG^T)=||H||_F².
+
+Let S=sum_j a_j g_jg_j^T>=gamma Q, let kappa=||a||/gamma, and put T0=tr Z_*+sqrt(M). For any PSD Z with delta=||M_G(Z-Z_*)||<=1,
+  ||QZQ||_F<=kappa delta,
+  ||PZQ||_F<=sqrt(T0 kappa delta).
+If the tangent map T of Section 2 is injective with least singular value sigma_T>0 when its domain has Frobenius norm ||A+C+C^T||, then
+  ||Z-Z_*||_F <=[(1+kappa)/sigma_T+kappa] delta.      (5.1)
+This is an explicit Lipschitz constant: the measured data of the tangent block have norm <=(1+kappa)delta, and the Q-Q block adds at most kappa delta.
+
+If T has kernel, choose a unit Frobenius-norm tangent H=A+C+C^T in kerT. Let lambda_*=lambda_min(Z_*|_E)>0. Fix b=1+4||C||_op²/lambda_*, and restrict t>0 so ||tA||_op<=lambda_*/2. The PSD quadratic repair
+  Z(t)=[D+tA,tC;tC^T,t²b I_Q]
+has ||Z(t)-Z_*||_F>=t and
+  ||M_G(Z(t)-Z_*)||_2=t² b ||M_G(Q)||_2.
+Because the data measure trace, ||M_G(Q)||_2>=tr(Q)/sqrt(M)>0. Thus the lower sqrt-rate constant is at least
+  1/sqrt(b||M_G(Q)||_2)
+after choosing t=(delta/[b||M_G(Q)||])^(1/2) sufficiently small. The strict-stress upper sqrt constant is obtained by using the least nonzero singular value sigma_E of M_G restricted to S(E), together with the block estimates above.
+
+The algebraic target-certified procedure is therefore:
+(i) verify Parseval tightness and a source strict stress S with gamma>0;
+(ii) compute support P, the tangent-analysis matrix T and its exact rank;
+(iii) if T is injective, choose any P-adapted ONB; otherwise find a nonzero tangent null vector (A,C), note tr A=0, and hollowize A by recursive real 2-by-2 eigenspace rotations;
+(iv) conically sparsify the frame to <=2q columns, retain the stress via a new coefficient representation, append the chosen ONB and form the signed anchored two-basis dilation;
+(v) compute the final inverse-frame singular gap and exposing gap to obtain explicit all-ambient constants.
+
+With rational/algebraic supplied target/support/stress, the algorithm has polynomially many real-algebraic operations and finite verification tests, but its Turing bit complexity depends on algebraic separation and conditioning of these certified inputs. It is NOT a solver for arbitrary unknown-target SDP recovery.
+
 ## 6. Sharp scope and adversarial audit
 
 - The key hollowization is for ONE unmeasured tangent-support matrix A, not simultaneous hollowization of the entire annihilator operator system. Therefore it is always possible, independent of rank r and dimension of ker T.
