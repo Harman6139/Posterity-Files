@@ -109,6 +109,22 @@ Thus ||H||=O(sqrt(delta)). Combining blocks gives
   ||Z-Z_*||_F=O(sqrt(delta)).
 The semialgebraic source modulus has an attained exponent alpha>=1/2. The PSD tangent-cone dichotomy (proved in previous Track 02 work) implies alpha is either 1 or at most 1/2; hence alpha in {1/2,1}. The lifted modulus t^alpha+sqrt(t) has sharp exponent 1/2, preserving the source exponent in the non-Lipschitz case.
 
+## 4b. Dimension optimality up to a constant factor in the data-faithful class
+
+Put q=dim W. The supplied Parseval frame may have M>>q columns, but the conic Caratheodory compression reduces it to at most 2q WITHOUT changing its projector span or tightness. Precisely: reserve epsilon>0 of each of q linearly independent frame projectors P_i (small enough that all original weights remain positive). Represent the residual identity as a positive combination of the original projectors. Whenever more than q residual coefficients are active, use a linear dependence of the projectors and move in one sign direction until one coefficient reaches zero. Since the trace of each nonzero rank-one projector is positive, every nonzero dependence has both signs, so the reduction preserves positivity. Continue to at most q residual terms. Adding the q reserved terms leaves at most 2q columns, preserves Parseval and spans all of W. The measured stress S retains a coefficient representation in the new frame, although its coefficient norm may deteriorate; the rate theorem remains valid with the updated explicit constants.
+
+Also q>=d: to express I_d as a positive combination of q independent rank-one generators requires at least d nonzero generators because rank(I_d)=d and each generator has rank one.
+
+Apply the rate-neutral ONB augmentation and signed-anchor lift to the compressed frame. The resulting final order obeys
+  N<=2q+4d+4<=6q+4.
+Thus the certified target-adapted sharp-transfer representation has size O(q), LINEAR in the number q of independent source rank-one measurements, not merely O(M).
+
+For comparison, any two-basis encoding that faithfully retains q independent source measurements as linear functionals on the full embedded symmetric matrix space must satisfy
+  q<=2N-1,
+because the two complete basis diagonals have one shared trace linear relation. Therefore
+  N>=(q+1)/2.
+Our construction is within an absolute factor at most approximately 12 of this elementary information lower bound (ignoring the additive constant). This near-optimality comparison is for DATA-FAITHFUL encodings; target-specific exact singleton recovery without full measurement fidelity need not obey the same q-based lower bound.
+
 ## 5. Nontrivial example with NO admissible original ONB
 
 Take d=3 and four tetrahedral unit vectors
