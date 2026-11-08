@@ -29,6 +29,14 @@ The project lead should first read this handoff, then the master README, then th
 
 In this list, the 20261107 and 20261108 prefixes abbreviate the folders research/psd_joint_depth_20261107/ and research/psd_joint_depth_20261108/ respectively.
 
+## URGENT UPDATE — 2026-11-08: the former two-policy universality conjecture is DISPROVED
+
+The previously open assertion that every arbitrary dense PSD exponent/depth pair can be realized by a strict independent-edge **two-policy** midpoint graph is now **FALSE**. The proof is [Milestone 75](../psd_joint_depth_20261108/75_SIX_BY_SIX_COUNTEREXAMPLE_TO_TWO_POLICY_UNIVERSALITY.md): an explicit rational **6x6** uniquely solvable PSD problem has target rank one, nullity five, exact minimal facial-reduction degree three, and sharp recovery exponent **3/22**, whereas every strict independent-edge Bellman graph at the same nullity and exponent requires at least four exposing steps. This is proved by a direct full-PSD modulus bound, matching PD curve, explicit dual stresses, and exhaustive exact enumeration of only **576** harmonic parent assignments. [Exact audit](../psd_joint_depth_20261108/76_TIED_EDGE_TWO_POLICY_COUNTEREXAMPLE_EXACT_AUDIT.py).
+
+A new, stronger and still UNPROVED universal candidate is the [tied-edge MIN–MAX stochastic-game incidence model](../psd_joint_depth_20261108/74_TIED_EDGE_MINMAX_GAME_PSD_RECOVERY_AND_FACIAL_PEELING.md), which couples multiple parent edges to each scalar kernel generator. Its exact exponent and exposing-degree rules are proved **within that explicit class**; a reduction from every arbitrary dense PSD kernel is not established.
+
+This correction supersedes older README sections and handoff statements referring to the independent-edge two-policy universality conjecture as merely open. Its **internal incidence-family compression theorem remains valid**, but that family is now known to be universally incomplete.
+
 ## Mathematical status — key distinction
 
 **Proved within explicit construction families:** Bellman exponent/peeling theorem, two-action compression, finite two-policy spectrum, graph blow-ups and realization examples.
