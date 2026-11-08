@@ -41,7 +41,7 @@ Since h=ν−1, every internal valuation block and the terminal valuation block 
 Let U=range X*, and write an orthogonal sharp null valuation basis e_1,...,e_h,e_ν with weights w_1,...,w_h,1 respectively. For each i≤h, the **actual** Puiseux kernel coefficient H_i∈K=ker L at exponent w_i has positive diagonal entry (H_i)_(i,i)>0 and obeys the PSD support-order restriction
     (H_i)_(j,k)=0 whenever w_j+w_k>2w_i,
 where w_0=0 on U and w_ν=1. Because w_(i+1)=2w_i for i<h and 2w_h<1,
-**every null-null block of H_i with either index>i vanishes**: the smallest null weight w_1>0, and w_(i+1)+w_1>2w_i. Its support-to-U entries may reach e_(i+1), but never further; this is harmless in the compressed stress pairing.
+**for each i<h, every null-null block of H_i with either index>i vanishes**: the smallest null weight w_1>0, and w_(i+1)+w_1>2w_i. Its support-to-U entries may reach e_(i+1), but never further; this is harmless in the compressed stress pairing. The top coefficient H_h can instead have an e_1–terminal offdiagonal block, since w_1+1=2w_h; H_h is NOT used in the subsequent support-restriction induction.
 
 Let Z_1∈K^⊥∩PSD be any nonzero first exposing stress, <Z_1,X*>=0. From its PSD positivity and measurement orthogonality,
     tr(Z_1 X(t))=O(t^Q)
