@@ -1,0 +1,23 @@
+{
+  "kind": "independent numerical diagnostics; exact proof in Milestone 28",
+  "results": [
+    {
+      "m": 2,
+      "ancilla_r": 3,
+      "tensor_order_d": 6,
+      "twirl_size": 12,
+      "one_twirl_parseval_error": 3.857783777028118e-16,
+      "projector_span_rank": 20,
+      "expected_operator_system_rank": 20
+    },
+    {
+      "m": 3,
+      "ancilla_r": 4,
+      "tensor_order_d": 12,
+      "twirl_size": 16,
+      "one_twirl_parseval_error": 4.535067510423901e-16,
+      "projector_span_rank": 74,
+      "expected_operator_system_rank": 74
+    }
+  ]
+}
