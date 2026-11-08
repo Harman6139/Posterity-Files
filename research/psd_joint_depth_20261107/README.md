@@ -58,3 +58,11 @@
 - [19_SHARP_DEPTH3_NULLITY_GAP.md](19_SHARP_DEPTH3_NULLITY_GAP.md): **proved** a sharp fixed-nullity gap for *all sparse harmonic systems at depth >=3*: alpha <= (2^(nu-2)-1)/(2^(nu-1)-1)<1/2 for nu>=3, attained at exact depth 3 by the feedback ladder. Equivalently, sparse degree >=3 iff the minimum internal harmonic weight is <1/2. A probabilistic source-absorption path supplies the sharp bound. Not yet a theorem for arbitrary dense PSD systems.
 
 **Current unsolved universal upgrade:** show a dense PSD instance of degree d>=3 must have a sharp harmonic certificate with a genuinely sub-1/2 internal weight (or derive another dense stress-flag obstruction). The earlier exponent-preserving weighted-flag extraction does not automatically preserve degree.
+
+
+## 2026-11-07: universal **dense** joint-depth classification at nullity three
+
+- [20_UNIVERSAL_DENSE_NULLITY3_DEPTH3.md](20_UNIVERSAL_DENSE_NULLITY3_DEPTH3.md): NEW theorem holding for **all arbitrary dense** PSD measurement kernels: if target nullity nu=3 and minimal singularity degree d=3, then the optimal full-state recovery exponent satisfies alpha<=1/3. Proof requires only the two exposing stress stages plus elementary primal–dual linear-algebra; constructs a genuine cubic-residual PSD arc using two kernel modes. Combined with established nullity-three unconditional exponent spectrum and degree-two classification, derives **complete dense joint spectra**: d1={1,1/2}, d2={1/2,3/8,1/4}, d3={1/3,1/4,1/6,1/8}. No unproved dense-to-sparse depth preservation is invoked for the new upper bound. Includes an explicit 4x4 nonsparse kernel and sharp PSD curve.
+- [21_DENSE_NULLITY3_SYMBOLIC_AUDIT.py](21_DENSE_NULLITY3_SYMBOLIC_AUDIT.py): passed exact SymPy validation of that curve's principal minors, kernel relations and three dual exposing stresses.
+
+**Precise frontier:** the corresponding closed joint spectrum at nu>=4, arbitrary d, remains unsolved; the sparse maximal-degree formula and sparse high-degree gap are not yet universal necessity results. This checkpoint *does* validate dense compatibility in the first nontrivial case, rather than relying on sparse peeling.
