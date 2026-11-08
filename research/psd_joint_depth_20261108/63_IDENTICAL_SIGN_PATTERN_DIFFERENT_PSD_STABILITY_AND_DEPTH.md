@@ -90,3 +90,31 @@ The exponent jumps from 1 to 1/2 exactly when det C_theta=0, while the asymptoti
 Even after fixing matrix size, target rank, measurement-kernel dimension, the zero/nonzero pattern of **every kernel generator entry** and its entire sign pattern, the sharp exponent and exposing degree can differ. Thus a universal classification by *unlabeled incidence supports alone* or by *entrywise signed edges alone* is impossible. Any complete finite combinatorial representation must register which determinants vanish (or equivalently conic rank/flag dependencies). An oriented matroid of sufficiently rich polynomial invariants could conceivably suffice; this result does NOT rule out all such richer finite combinatorial classifiers.
 
 The tangent-cone Lipschitz criterion and Gordan–Stiemke separation are established, not claimed new; the explicit sign-pattern obstruction and quantitative law are proved directly here.
+
+## Exact leading constant in the condition-number blow-up
+
+The tangent cone is \(T=\{H:H_{\mathrm{null,null}}\succeq0\}\). For a one-dimensional kernel, Moreau projection onto this closed convex cone shows
+\[
+\gamma_\theta=
+\frac{\min\{\operatorname{dist}(H_\theta,T),\operatorname{dist}(-H_\theta,T)\}}
+{\|H_\theta\|_F}.
+\]
+For \(\theta\uparrow1\), the first distance is strictly smaller, and is exactly the magnitude of the unique negative eigenvalue of \(C_\theta\) (the other blocks are free). Since
+\[
+\lambda_-(C_\theta)=-(1-\theta)/2+O((1-\theta)^2),
+\qquad
+\|H_1\|_F^2=1+2+4=7,
+\]
+we obtain the **sharp exact asymptotic law**
+\[
+\boxed{
+\gamma_\theta\sim\frac{1-\theta}{2\sqrt7},
+\quad
+\lim_{\theta\uparrow1}(1-\theta)
+\lim_{\delta\downarrow0}\frac{\omega_\theta(\delta)}{\delta}
+=2\sqrt7.
+}
+\]
+The zero pattern and ALL entry signs remain unchanged along the interval \(\theta\in[99/100,1]\).
+
+**Padding:** Taking the direct sum with fully measured positive support coordinates and fully measured null coordinates extends the same sign-pattern obstruction (for the nonzero kernel generator) to any prescribed positive target rank and any nullity at least two. The optimal exponents and singularity degrees stay as above.
