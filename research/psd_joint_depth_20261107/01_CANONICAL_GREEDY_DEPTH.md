@@ -31,3 +31,5 @@ The earlier weighted-flag theorem gives the sharp exponent through finitely many
 
 ## Research next target
 Derive a necessary-compatible graph/flag layer invariant from \mathscr C(W_j) acting on sharp weighted-flag coefficients, and either prove sparse-network realization preserving depth or produce an explicit dense counterexample.
+## Bibliographic attribution correction (audited)
+The maximal-rank / relative-interior exposing-stress rule giving a shortest facial-reduction sequence is **established prior literature**, not a new theorem. In particular see Sremac, Woerdeman, Wolkowicz, *Error Bounds and Singularity Degree in Semidefinite Programming* (SIAM J. Optim. 31 (2021), doi:10.1137/19M1289327), and discussions of relative-interior exposing vectors in work on facial reduction. The proof here is included for self-containment, and its new role is as the depth half of the **joint** exact classification. No novelty of the greedy rule itself is claimed.
