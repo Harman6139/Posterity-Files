@@ -2,13 +2,13 @@
 
 Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-quadratic-20261108**.
 
-**Share THIS document with the project lead**. It links the original research brief, earlier dense-quadratic branch, all subsequent milestones and the remaining unsolved question. The upstream main branch is NOT the current research branch.
+**Share THIS document with the project lead**. It links the original research brief, earlier dense-quadratic branch, all subsequent milestones and the remaining unsolved question. The upstream main branch is NOT the current research branch. The link is stable by branch and path; each update has a separate immutable commit hash in Git history.
 
 ## Canonical locations
 
 - Repository: https://github.com/Harman6139/Posterity-Files
 - Current active research branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108
-- Current active milestone directory (21 numbered milestone files): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
+- Current active milestone directory (00 archive plus 23 numbered milestones): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
 - Previous dense-quadratic research directory, inherited into this branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261107/dense_quadratic
 - Original pinned research brief, inherited into this branch: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-unrestricted-quadratic-20261108/prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md
 - Earlier separate branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-quadratic-dense-20261108
@@ -71,6 +71,13 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 
 21. TWO_ZERO_BASIS_UNIVERSAL_FRAME_DILATION — any supplied d-dimensional rank-one Parseval measurement compiler of M vectors admits an exact two-basis PSD dilation of order N=2M-d, with a positive isometric decoder and rank preservation, requiring NO admissible ONB in the original operator system. The two bases can have no zero overlaps. The exact support is exposed by complementary zero observations; N=2M-d is dimension-optimal within this zero-only exposing architecture for two M-vector frames. The full-ambient noisy bound is omega_lift(delta)<=omega_source(C sqrt(delta))+C sqrt(delta), not the previously sharp omega_source(delta)+sqrt(delta). It cannot be advertised as strictly-positive-observation or exponent-preserving universality. AUDIT_TWO_ZERO_NAIMARK.py tests the tetrahedral d=3,M=4,N=5 instance whose operator system has no admissible ONB.
 
+### Stage 5 — newer stability and first-order obstruction results
+
+22. TRANSVERSE_EXPOSING_DILATION_STABILITY — a finite-dimensional cross-image transversality condition for arbitrary PSD face-exposing measurements gives O(delta) recovery of compressed measurements from all ambient PSD competitors. If an invisible support-to-exterior cross block exists, a same-rank PSD quadratic curve gives the matching sqrt(delta) lower bound. A small audit correction was committed to the output projection used in the decoder.
+23. DOUBLE_ZERO_FIRST_ORDER_NO_GO — the cross-image map of the two-zero Naimark dilation has rank M-c(P), where c(P) counts connected components of the Gram projector support graph. For a connected Gram graph, source trace-free data overlap the first-order cross image, so the linear transversality condition of Milestone 22 fails for all nontrivial source signals; a quadratic-residual cancellation curve shows the potential extra square-root instability is real.
+
+**Status after Milestone 23:** Milestone 21 solves exact two-basis dilation of arbitrary Parseval frames without a permitted ONB but allows zero target measurements and does NOT generally preserve non-Lipschitz moduli sharply. Milestone 23 explains this loss. Unrestricted N=O(m^2+p) positive-data, condition-faithful two-basis universality remains UNSOLVED.
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -78,7 +85,7 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 - Genuine O(m²) surjective TWO-BASIS quotient with gigantic auxiliary slack: established for the TRACE-ONLY source case (Milestone 19). This proves the escape mechanism is geometrically realizable, but it does not encode arbitrary noncommuting source constraints.
 - Symmetric-square quotient: exact universal PSD shadow without a positive linear section (Milestone 15), but impossible as a fixed-basis diagonal fibre even for trace-only data (Milestone 16).
 - Maxent-first-basis hybrid: universally handles marginal source constraints as separate observables, but the two-MASA commutator no-go blocks replacing them by one second ONB whenever source operators fail to commute (Milestone 20).
-- Unrestricted universal N=O(m²+p) two-basis quotient with efficient robust positive decoder: still UNSOLVED. Milestone 21 removes the admissible-ONB bottleneck at the price of zero observations and potentially slower recovery; it does not evade the generic quartic lower bounds for strong positive retracts.
+- Unrestricted universal N=O(m²+p) two-basis quotient with efficient robust positive decoder: still UNSOLVED. Milestone 21 removes the admissible-ONB bottleneck at the price of zero observations and potentially slower recovery; Milestones 22-23 characterize a transversality route and prove why it fails generically in the two-zero construction. None evade the generic quartic lower bounds for strong positive retracts.
 - Strong exact positive retract N=O(m²+p) universal theorem: FALSE for generic dense instances by Milestones 07-08, which show N=Omega(m^(8/3)).
 - No claim of unconditional exact SDP feasibility polynomial time or generic rational ONBs without algebraic conditioning promises.
 
@@ -87,11 +94,11 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 1. This MASTER_INDEX.md.
 2. CODIMENSION_TWO_UNIVERSAL_THEOREM.md and RIGIDITY_OPEN_QUADRATIC_THEOREM.md in dense_quadratic for positive quadratic constructions.
 3. 06_FULL_CLASSIFICATION_POSITIVE_LINEAR_RETRACTS.md, then 07_GENERIC_SUPERQUADRATIC_LOWER_BOUND_POSITIVE_RETRACT.md and 09_SURJECTIVE_KRAUS_SLACK_TRADEOFF.md for sharp scope of negative results.
-4. 15_SYMMETRIC_EXTENSION_ESCAPES_POSITIVE_RETRACT.md, 16_SYMMETRIC_EXTENSION_NO_BASIS_DIAGONAL.md, 19_TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW.md and 20_TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO.md, and 21_TWO_ZERO_BASIS_UNIVERSAL_FRAME_DILATION.md for the newest approach and its precise weakness.
+4. 15_SYMMETRIC_EXTENSION_ESCAPES_POSITIVE_RETRACT.md, 16_SYMMETRIC_EXTENSION_NO_BASIS_DIAGONAL.md, 19_TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW.md and 20_TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO.md, and 21_TWO_ZERO_BASIS_UNIVERSAL_FRAME_DILATION.md, 22_TRANSVERSE_EXPOSING_DILATION_STABILITY.md and 23_DOUBLE_ZERO_FIRST_ORDER_NO_GO.md for the newest approach, stability criterion, and precise obstruction.
 5. The original pinned brief and the LAA manuscript before making publication or novelty claims.
 
 ## Update convention for future research turns
 
-Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
+Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 24) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
 
 Every statement is self-audited rather than externally peer-reviewed; numerical checks are supporting diagnostics only. No manuscript-ready novelty or publication-priority certification is asserted.
