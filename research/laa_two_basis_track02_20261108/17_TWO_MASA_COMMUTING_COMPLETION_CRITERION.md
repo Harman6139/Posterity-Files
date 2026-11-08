@@ -14,7 +14,7 @@ pairwise commute.
 
 Proof. (i)=>(ii): for each a choose a decomposition H_a=Delta_a+B_a with Delta_a in D1 and B_a in D2. Since D2 consists of matrices diagonal in one basis, all B_a commute. (ii)=>(i): pairwise commuting real symmetric matrices admit a common orthonormal eigenbasis B2. Its diagonal subspace D2 contains every B_a=H_a-Delta_a, proving inclusion. QED.
 
-Thus two-MASA compatibility with a prescribed first basis is an exact finite collection of quadratic polynomial equations in at most pn real diagonal variables. It can be checked by real algebraic elimination in principle, although no polynomial-time algorithm for arbitrary p,n is asserted.
+Thus two-MASA compatibility with a prescribed first basis is an exact finite LINEAR system of at most binom(p,2)*binom(n,2) scalar equations in pn real diagonal variables, because diagonal corrections commute and their mutual commutator vanishes. It can be checked by Gaussian elimination in polynomial arithmetic time for a specified first basis. See Milestone 20 for the explicit coefficient matrix, quantitative commutator gap, and maximally entangled first-basis no-go.
 
 ## Theorem 2 — a three-vertex path obstructs a product first basis
 
@@ -47,3 +47,7 @@ on that minimal support. Theorem 1 characterizes this NECESSARY linear inclusion
 - The commutator [Delta_12,Delta_23] need not vanish if group-local rotations differ; only its (1,3) group block is used.
 - The lemma is valid for REAL symmetric matrices; common orthogonal eigenvectors exist by the real spectral theorem.
 - The theorem is not an impossibility for ALL possible first bases, nor for other positive/nonlinear decoders.
+
+## Audit correction (2026-11-08)
+
+The original prose described the commuting-completion equations as quadratic. This was a classification error: their dependence on the diagonal corrections is LINEAR. Theorem 1 itself was correct, but its computational interpretation is substantially stronger. The fully explicit linear formula and the dimension-independent maximal-entanglement obstruction appear in 20_TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO.md.
