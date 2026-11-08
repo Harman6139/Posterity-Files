@@ -122,3 +122,7 @@
 - [34_DENSE_NU4_EXACT_GORDAN_DEFORMATIONS.py](34_DENSE_NU4_EXACT_GORDAN_DEFORMATIONS.py): fully exact rational audit of all nine deformations, checking **every** originally allowable dense matrix block and all possible PSD-null-compression blocks. Independently executed locally and passed all nine tests.
 
 The full dense joint ν=4,d=3 spectrum is **not yet completed**. Relative to the sparse catalogue, the potential extra α are 1/7 and 1/2; the separately proved ν=4,d=4 maximal-depth spectrum is complete. This checkpoint is not a generic all-nullity theorem.
+
+
+## 2026-11-08: dense nullity-four exponent 1/7 forces four facial steps
+- [35_DENSE_NU4_ONE_SEVENTH_FORCES_MAX_DEPTH.md](35_DENSE_NU4_ONE_SEVENTH_FORCES_MAX_DEPTH.md): **PROVED for every arbitrary dense PSD kernel** that a sharp exponent α=1/7 at target nullity ν=4 forces **exact minimal facial-reduction degree d=4**. The sharp harmonic valuation weights are uniquely (1/7,2/7,4/7,1). The *actual* first two kernel coefficients H1,H2 have tightly restricted null-null support, and pairing them with any PSD exposing stress in successive reduced faces forces second and third stresses to be supported solely on e3 and e2. A fourth exposing step for e1 is unavoidable. This theorem does not split simultaneous first-order diagonal/cross coefficients and does not assume sparsification. A more general triangular-kernel-support forcing lemma is also proved. This resolves 1/7 as one of two previously possible additional values at ν=4,d=3; **α=1/2 at d≥3 remains unresolved**.
