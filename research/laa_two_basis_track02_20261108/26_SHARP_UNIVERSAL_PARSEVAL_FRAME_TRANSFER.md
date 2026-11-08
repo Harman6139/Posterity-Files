@@ -138,7 +138,16 @@ Averaging the TWO measured lists annihilates the outer cross block exactly:
 Thus the compressed frame residual satisfies
   ||diag(F^T(Z-Z_*)F)||_2
     <=(1/sqrt2+kappa_1)delta.                       (7)
-For the nonreflection angle, the unrotated coordinate measurements and the retained duplicate define the same augmented operator system and have a finite positive analysis singular value. Replace the constant in (7) by the corresponding explicit inverse singular value; the argument is unchanged.
+For the nonreflection angle, let J be all output coordinates except the rotated selected weight-4 frame coordinate i and the rotated weight-4 pure-anchor coordinate k. The split weight-4 columns have EXACTLY identical full compressed vectors f_i=f_j (the old T vector was split equally and both assigned anchor coefficient z=1); coordinate j remains in J. Removing i therefore does not reduce the compressed span. Removing k does not reduce it either because the other two pure-anchor columns have nonzero anchor coordinates and already give e_ce_c^T. Hence the unrotated compressed projectors {f_l f_l^T:l in J} still span W_aug.
+
+For every l in J, U e_l=R e_l and the measured even residual obeys
+  (r_first,l+r_second,l)/2 = f_l^T (Z-Z_*) f_l +(Q_1 Y Q_1)_(l,l).
+Let gamma_ret>0 be the least positive singular value of the retained analysis map
+  Z ->(f_l^T Z f_l)_(l in J)
+restricted to W_aug. Then, WITHOUT assuming anything about the other two rotated outcomes,
+  ||P_(W_aug)(Z-Z_*)||_F
+    <=gamma_ret^(-1)(delta/sqrt(2)+kappa_1 delta).   (7a)
+This is the promised explicit inversion constant for the rotated nonreflection case; the full-rank retained-map verification is exact, not based on numerical genericity.
 
 Let gamma_aug>0 be the least positive singular value of the compressed frame analysis map on W_aug. Because W_aug contains every pure-source x_jx_j^T, pure-exterior h_a h_a^T, anchor cross and anchor scalar functional, finite-dimensional inversion gives a computable C_aug>0 such that
   ||M_G(G W G^T)-c||_2 <= C_aug delta,             (8)
