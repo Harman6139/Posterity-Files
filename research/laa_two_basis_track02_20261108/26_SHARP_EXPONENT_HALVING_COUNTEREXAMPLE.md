@@ -128,6 +128,34 @@ while the original source exponent was 1/2.
 
 This is a strictly-positive-data, all-overlap-nonzero, rank-three final two-basis counterexample showing that composing an exact two-zero frame dilation with a signed positive anchor does NOT preserve non-Lipschitz recovery exponents. It is distinct from the canonical graph-reflection embedding, which DOES preserve this graph source's exponent.
 
+## 4b. Exact constant-trace counterexample
+
+The preceding bad curve has trY(t)=2+16t⁴. It can be normalized to the EXACT target trace without changing any exponent:
+  Yhat(t)=[2/(2+16t⁴)]Y(t).
+Then rank Yhat(t)=2 and trYhat(t)=2 for all t. Expanding the measured residual, using (3.1), gives
+  A_(U0)(Yhat(t)-Y_*)
+    =t⁴[A_(U0)(vv^T)-8 A_(U0)(Y_*)]+O(t⁸).
+The leading coefficient is nonzero: Y_* has zero observations on the six first-basis exterior coordinates, whereas vv^T has a strictly positive sum of those six outcomes (||Kc||²=8). Thus the normalized curve still has data residual Theta(t⁴) and decoded source error sqrt(2)t+O(t⁵). This proves the extra square-root loss is not an artifact of the ambient trace drift. The final signed-anchor lift of this normalized curve has fixed trace 3 and the same optimal exponent 1/4.
+
+## 4c. The singularity-depth increase is exactly one step
+
+The source graph problem has facial-reduction depth one: the measured PSD stress
+  S_src=e_3e_3^T+e_4e_4^T
+annihilates Z_* and has kernel span(e_1,e_2), exactly ran Z_*. The target is singular, so depth cannot be zero.
+
+For the two-zero lift, the sum of the projectors of the six zero-outcome coordinates in each basis is
+  S_0=Q=I-F_0^T F_0.
+It is measured, PSD, annihilates Y_*, and exposes the full embedded four-dimensional face V=ran F_0^T in one step. On that support, a measured coefficient representation of S_src (available because the frame projector span is W) performs the second reduction and exposes ranY_*. Thus ambient facial depth is at most two.
+
+It is NOT one. Suppose a single measured PSD stress S>=0 annihilated Y_* and had kernel exactly ranY_*. Since S>=0 and <S,Y_*>=0, S annihilates the two vectors F_0^T e_1 and phi=F_0^T e_2. For our rank-two curve
+  <S,Y(t)> =
+     ||S^(1/2) F_0^T w(t)||²
+     +||S^(1/2)(phi+t²v)||²
+   = t² ||S^(1/2)F_0^T e_3||² + t⁴||S^(1/2)v||².
+On the other hand, S is a measured linear functional and A_(U0)(Y(t)-Y_*)=t⁴ A_(U0)(vv^T), so <S,Y(t)>=O(t⁴). Comparing leading powers forces S F_0^T e_3=0. Therefore ker S properly contains ranY_*, and no one-step stress exposes the target. Hence depth_zero=2.
+
+The positive second-stage reflection lift preserves every positive facial-reduction depth (as proved in the previous Track 02 theorem), so depth_final=2. The final rank-three, strictly-positive-data two-basis example therefore ATTAINS the canonical depth-two exponent 2^(-2)=1/4 while its source graph problem had depth one and exponent 1/2.
+
 ## 5. Why this does not refute general sharp universality
 
 The counterexample rules out claiming that Milestones 21 and 24 automatically preserve any non-Lipschitz source modulus. It does NOT prove that no other two-basis representation of the same graph/source can preserve alpha=1/2. In fact the earlier signed-reflection graph lift does preserve non-Lipschitz moduli: the issue here is the specific universal frame compiler with independent exterior cross blocks.
