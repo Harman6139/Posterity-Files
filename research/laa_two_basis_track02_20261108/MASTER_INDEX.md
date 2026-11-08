@@ -94,6 +94,10 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 
 The first-stage zero-only rate loss of Milestones 21/23/25 is a flaw of THAT particular measurement architecture, **not a universal cost of lacking an admissible ONB**. Milestone 26 replaces it by a source-only/exterior-only balanced compiler and repairs the loss. The second-stage composition of Milestone 24 is a valid but now superseded less-sharp construction.
 
+### Stage 8 — universal sharpness synthesis for arbitrary PSD inverse problems
+
+27. GENERAL_SHARP_SDP_UNIVERSALITY_SYNTHESIS — combine the codimension-adaptive rank-one PSD compiler from the previous dense_quadratic research with Milestone 26 to obtain a SHARP two-orthonormal-basis embedding for EVERY trace-controlled real PSD linear inverse problem. Let s be the codimension of the original measurement operator space and r=2max{k:k(k+1)/2<=s+1}+1. There is a finite algebraic two-basis model of dimension N<=150m²(s+1)=O(m⁴), rank amplification r rank(X)+1, strictly positive observations, no zero basis overlaps, exact all-rank PSD fibres and exact objective identity. The worst-case feasible-set modulus obeys omega_final(t)~omega_original(t)+sqrt(t) for nonzero source data, while the zero source stays Lipschitz. This SOLVES the sharp stability-transfer part of universality for all bounded PSD linear inverse problems at polynomial dimension. It DOES NOT solve unrestricted universal N=O(m²+p), nor unconditional polynomial Turing bit complexity without conditioning promises. Milestone 26 is the new load-bearing breakthrough; Milestone 27 is its general-SDP synthesis.
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -101,7 +105,7 @@ The first-stage zero-only rate loss of Milestones 21/23/25 is a flaw of THAT par
 - Genuine O(m²) surjective TWO-BASIS quotient with gigantic auxiliary slack: established for the TRACE-ONLY source case (Milestone 19). This proves the escape mechanism is geometrically realizable, but it does not encode arbitrary noncommuting source constraints.
 - Symmetric-square quotient: exact universal PSD shadow without a positive linear section (Milestone 15), but impossible as a fixed-basis diagonal fibre even for trace-only data (Milestone 16).
 - Maxent-first-basis hybrid: universally handles marginal source constraints as separate observables, but the two-MASA commutator no-go blocks replacing them by one second ONB whenever source operators fail to commute (Milestone 20).
-- Unrestricted universal N=O(m²+p) two-basis quotient with efficient robust positive decoder: still UNSOLVED. Milestone 21 removes the admissible-ONB bottleneck at the price of zero observations and potentially slower recovery; Milestones 22-23 characterize a transversality route and prove why it fails generically in the two-zero construction. None evade the generic quartic lower bounds for strong positive retracts.
+- The previously unresolved UNIVERSAL SHARP MODULUS transfer is SOLVED at N=O(m⁴) by Milestones 26-27, without an original admissible ONB or an alpha/2 loss. The separate unrestricted N=O(m²+p) dimension challenge remains UNSOLVED for weak many-to-one reductions and is generically impossible in the strong positive exact-retract model. Milestone 21 removes the admissible-ONB bottleneck at the price of zero observations and potentially slower recovery; Milestones 22-23 characterize a transversality route and prove why it fails generically in the two-zero construction. None evade the generic quartic lower bounds for strong positive retracts.
 - Strong exact positive retract N=O(m²+p) universal theorem: FALSE for generic dense instances by Milestones 07-08, which show N=Omega(m^(8/3)).
 - No claim of unconditional exact SDP feasibility polynomial time or generic rational ONBs without algebraic conditioning promises.
 
