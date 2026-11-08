@@ -149,3 +149,13 @@ The newest proofs are in [../psd_joint_depth_20261108](../psd_joint_depth_202611
 - [47 — complete d=2 *rank-profile-specific* rational spectrum](../psd_joint_depth_20261108/47_COMPLETE_DEGREE_TWO_RANK_PROFILE_SPECTRUM.md). At profile (s1,s2), alpha=a/b reduced is attainable iff 1/4<=alpha<=1/2 and b/gcd(b,4)<=2^(s2-1). Sufficiency explicit, while dense necessity uses the earlier weighted-flag theorem.
 
 **PRECISE REMAINING TARGET:** the formula in milestone 45 is the **maximal attainable exponent for each profile**; a complete *set of all attainable smaller rational exponents* for profiles of d>=3 and larger nullity is still unproved. These endpoint results do **not** imply depth-preserving sparse universality for every exponent. The key new bounds and the strict high-depth square-root exclusion do not depend on weighted-flag extraction, while the full small-nullity rational lists do.
+
+
+## 2026-11-08 continued: the exact *maximal* Hölder exponent is now completely combinatorial at any dimension and depth
+
+- [48 — extremal primal-ray rigidity](../psd_joint_depth_20261108/48_EXTREMAL_RANK_PROFILE_CONIC_RAY_RIGIDITY.md): if d>=3 and alpha attains the universal rank-profile endpoint beta, every positive-semidefinite projected kernel cone in the iterative Gordan construction is a UNIQUE rank-one ray, forcing canonical one-dimensional primal cone flags. A quantified near-endpoint rigidity gap is also proved.
+- [49 — exact polynomial-size fixed-(nullity,degree) endpoint DP](../psd_joint_depth_20261108/49_POLYNOMIAL_DP_SHARP_FIXED_NULLITY_DEPTH_ENDPOINT.md): explicit O(d*nu^2) rational recurrence computing the **largest possible sharp exponent** B_(nu,d) over all positive facial rank-drop profiles, without optimizing any SDP, enumerating exponentially many profiles or running real quantifier elimination. Every output is attained by the exact layered sparse PSD construction.
+- [50 — exact DP implementation](../psd_joint_depth_20261108/50_PROFILE_ENDPOINT_EXACT_DP.py): standalone Fraction arithmetic dynamic program with exhaustive-composition cross-check.
+- The sharp full profile endpoint formula was already proved in [45](../psd_joint_depth_20261108/45_UNIVERSAL_SHARP_ALL_DEPTH_RANK_PROFILE_ENDPOINT.md); it applies to all arbitrary dense maps and all d>=2. The *entire spectrum of smaller rational exponents* for each fixed (nu,d) remains the unresolved stronger objective.
+
+**Latest verified universality:** alpha=1/2 if and only if d<=2 is NOT quite correct as written because d=1 can also have alpha=1, and d=2 can have alpha<1/2. The rigorously proved implication is **alpha=1/2 => d<=2** and **d>=3 => alpha<1/2**. Do not claim the biconditional without qualifications.
