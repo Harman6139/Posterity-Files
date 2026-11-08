@@ -76,3 +76,8 @@
 ## 2026-11-07: universal primal–dual alignment and rank-sensitive arithmetic obstruction
 
 - [23_FIRST_STRESS_ALIGNMENT_DENOMINATOR.md](23_FIRST_STRESS_ALIGNMENT_DENOMINATOR.md): **PROVED for every dense PSD map**: the range of each first PSD exposing stress is contained in the *terminal (highest-order) null valuation block* of any sharp PSD arc. Thus if s1 is the rank of the maximal first exposing stress, the reduced denominator b of 2alpha obeys the improved necessary bound **b<=2^(nu-s1)**. Equality forces an acyclic dyadic harmonic network, unit-dimensional earlier null weight blocks and terminal dimension exactly s1. This is a joint geometric/arithmetic constraint; it does not prove complete dense depth-preserving sparse universality.
+
+
+## 2026-11-07: full dual–primal dyadic stress filtration for arbitrary dense maps
+
+- [24_ALL_STAGES_DUAL_PRIMAL_DYADIC_FILTRATION.md](24_ALL_STAGES_DUAL_PRIMAL_DYADIC_FILTRATION.md): NEW universal structural theorem for **every** exposing step of **every** PSD facial-reduction chain. Along a sharp orthogonal null-valuation flag (weights 0<wi<=1), the total subspace F_j removed by the first j stresses must lie in the sum of primal valuation blocks with weights >=2^{-(j-1)}. Consequently, if s1,...,sd are the ranks removed at successive steps, then for each j the number of null coordinates with weight <2^{-(j-1)} is at most nu-(s1+...+sj). This is a finite **rank-profile/valuation-weight combinatorial obstruction** valid for dense maps without sparse reduction, refining the usual depth-only constraint and the first-stress denominator bound. It is necessary, not sufficient, for a full joint classification.
