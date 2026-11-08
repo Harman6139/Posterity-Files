@@ -65,7 +65,7 @@ Since the P/Q decomposition is Frobenius-orthogonal,
   ||Y-A||_F²=2||K||_F²+||B0||_F²,
 which implies (2).
 
-Let Pi be the map from R^k to V_out which first projects orthogonally to K_out^perp and then inverts that projection on V_out. The transversality condition gives ||Pi||<=1/sigma. It satisfies Pi v=v for v in V_out and Pi u=0 for u in K_out. Apply Pi to the measurement decomposition:
+Let S_out=P_(K_out^perp)(V_out). Define Pi=(P_(K_out^perp)|_(V_out))^(-1) P_(S_out) P_(K_out^perp), where the inverse is the bijection S_out -> V_out. The transversality condition gives ||Pi||<=1/sigma. The intermediate orthogonal projection P_(S_out) is necessary because a general data vector need not project directly into S_out. It satisfies Pi v=v for v in V_out and Pi u=0 for u in K_out. Apply Pi to the measurement decomposition:
   Pi B(Y-Y_*)=B_V(Z-Z_*)+Pi B(B0).
 Thus
   ||B_V(Z-Z_*)||<=sigma^(-1)[delta+beta||B0||_F]
