@@ -8,7 +8,7 @@ Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-qua
 
 - Repository: https://github.com/Harman6139/Posterity-Files
 - Current active research branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108
-- Current active milestone directory (20 numbered files): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
+- Current active milestone directory (21 numbered milestone files): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
 - Previous dense-quadratic research directory, inherited into this branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261107/dense_quadratic
 - Original pinned research brief, inherited into this branch: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-unrestricted-quadratic-20261108/prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md
 - Earlier separate branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-quadratic-dense-20261108
@@ -67,6 +67,10 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 19. TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW — GENUINE two-basis order N=2m² trace-only universal quotient, both lists strictly positive, all basis overlaps nonzero, CP positive Lipschitz decoder and Theta(m⁴) auxiliary slack. Does not impose nontrivial source measurements.
 20. TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO — polynomial-time linear system deciding two-MASA inclusion for a fixed first basis; a dimension-independent commutator inequality proves that the maximally entangled first basis CANNOT be completed by any second basis to detect two noncommuting source observables via partial trace. The reproducible diagnostic TWO_MASA_LINEAR_TEST.py is in this directory.
 
+### Stage 4 — universal two-basis dilation without an admissible orthonormal basis
+
+21. TWO_ZERO_BASIS_UNIVERSAL_FRAME_DILATION — any supplied d-dimensional rank-one Parseval measurement compiler of M vectors admits an exact two-basis PSD dilation of order N=2M-d, with a positive isometric decoder and rank preservation, requiring NO admissible ONB in the original operator system. The two bases can have no zero overlaps. The exact support is exposed by complementary zero observations; N=2M-d is dimension-optimal within this zero-only exposing architecture for two M-vector frames. The full-ambient noisy bound is omega_lift(delta)<=omega_source(C sqrt(delta))+C sqrt(delta), not the previously sharp omega_source(delta)+sqrt(delta). It cannot be advertised as strictly-positive-observation or exponent-preserving universality. AUDIT_TWO_ZERO_NAIMARK.py tests the tetrahedral d=3,M=4,N=5 instance whose operator system has no admissible ONB.
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -74,7 +78,7 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 - Genuine O(m²) surjective TWO-BASIS quotient with gigantic auxiliary slack: established for the TRACE-ONLY source case (Milestone 19). This proves the escape mechanism is geometrically realizable, but it does not encode arbitrary noncommuting source constraints.
 - Symmetric-square quotient: exact universal PSD shadow without a positive linear section (Milestone 15), but impossible as a fixed-basis diagonal fibre even for trace-only data (Milestone 16).
 - Maxent-first-basis hybrid: universally handles marginal source constraints as separate observables, but the two-MASA commutator no-go blocks replacing them by one second ONB whenever source operators fail to commute (Milestone 20).
-- Unrestricted universal N=O(m²+p) two-basis quotient with efficient robust positive decoder: still UNSOLVED.
+- Unrestricted universal N=O(m²+p) two-basis quotient with efficient robust positive decoder: still UNSOLVED. Milestone 21 removes the admissible-ONB bottleneck at the price of zero observations and potentially slower recovery; it does not evade the generic quartic lower bounds for strong positive retracts.
 - Strong exact positive retract N=O(m²+p) universal theorem: FALSE for generic dense instances by Milestones 07-08, which show N=Omega(m^(8/3)).
 - No claim of unconditional exact SDP feasibility polynomial time or generic rational ONBs without algebraic conditioning promises.
 
@@ -83,7 +87,7 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 1. This MASTER_INDEX.md.
 2. CODIMENSION_TWO_UNIVERSAL_THEOREM.md and RIGIDITY_OPEN_QUADRATIC_THEOREM.md in dense_quadratic for positive quadratic constructions.
 3. 06_FULL_CLASSIFICATION_POSITIVE_LINEAR_RETRACTS.md, then 07_GENERIC_SUPERQUADRATIC_LOWER_BOUND_POSITIVE_RETRACT.md and 09_SURJECTIVE_KRAUS_SLACK_TRADEOFF.md for sharp scope of negative results.
-4. 15_SYMMETRIC_EXTENSION_ESCAPES_POSITIVE_RETRACT.md, 16_SYMMETRIC_EXTENSION_NO_BASIS_DIAGONAL.md, 19_TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW.md and 20_TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO.md for the latest approaches.
+4. 15_SYMMETRIC_EXTENSION_ESCAPES_POSITIVE_RETRACT.md, 16_SYMMETRIC_EXTENSION_NO_BASIS_DIAGONAL.md, 19_TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW.md and 20_TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO.md, and 21_TWO_ZERO_BASIS_UNIVERSAL_FRAME_DILATION.md for the newest approach and its precise weakness.
 5. The original pinned brief and the LAA manuscript before making publication or novelty claims.
 
 ## Update convention for future research turns
