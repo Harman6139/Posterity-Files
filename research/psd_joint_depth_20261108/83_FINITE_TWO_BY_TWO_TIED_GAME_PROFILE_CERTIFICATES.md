@@ -42,7 +42,7 @@ For the recovery exponent, take:
 - \(\alpha=w_1\) without a leading edge when h>=1; OR
 - \(\alpha=\min(w_1,w_v/2)\) with an allowed independent edge (0,v).
 
-Equivalently, the candidate \(\alpha\) can be any half-weight \(w_v/2\le w_1\) for an available independent edge; \(w_1\) is itself a half-weight from its primal minimizing mode because its lower parent must be source0. At h=0 the usual square-root exponent 1/2 is realized (terminal only).
+Equivalently, the candidate \(\alpha\) can be any half-weight \(w_v/2\le w_1\) for an available independent edge; \(w_1\) is itself a half-weight from its primal minimizing mode because its lower parent must be source0. At h=0 there are no internal modes: with **no optional leading edge**, the kernel is {0} and the exponent is **1** (injective recovery); adding the independent leading source-to-terminal edge G gives the usual **square-root exponent 1/2**. Both have degree one, and terminal clones realize arbitrary first-step rank.
 
 Call the resulting finite rational set for the prescribed profile s **T_s**.
 
@@ -109,3 +109,5 @@ This is a compact purely combinatorial classification for the largest explicitly
 This is NOT proved. The existing dimension-five tied-edge example shows T_s strictly contains the old two-policy independent-edge list, but does not establish T_s equals the full dense list. The signed/determinantal obstructions in checkpoints63 and65 show why that last implication cannot simply be inferred from support signs. The universal analytic-center/Hessian exact classifier and finite algebraic spectrum enumeration remain fallback general results.
 
 Prior combinatorial stochastic-game algorithms and SDP facial reduction are established techniques; no unchecked publication-priority claim is made.
+## Audit correction: h=0 boundary
+If h=0, the data consist of one terminal vertex (possibly blown up). With no optional kernel edge, L is injective and alpha=1. If the independent edge (source,terminal) is added, K has one offdiagonal direction, every exact PSD competitor has terminal diagonal zero so uniqueness holds, and the sharp rate is alpha=1/2 from the principal 2x2 minor. The exposing rank profile has one stage, removing all terminal clones. In particular **do not classify the no-edge h=0 pencil as square-root stable**.
