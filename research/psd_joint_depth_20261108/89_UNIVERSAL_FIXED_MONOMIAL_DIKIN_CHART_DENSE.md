@@ -63,6 +63,8 @@ implies \(C_\epsilon\succeq(\epsilon/n)I\).
 
 Start with U0=range X*. Compress Cε to U0^\perp. Its first nonzero Puiseux coefficient is a nonzero PSD matrix A_{w1}, because the compression is PSD for every ε and tends to zero. Let U1 be the range of that coefficient, a fixed positive-dimensional subspace; its restriction to U1 is PD. Compress to the kernel of A_{w1} inside U0^\perp and repeat, defining U2,...,Uk. Every stage strictly lowers dimension, so k<=n-r. Since Cε≽εI/n, all positive diagonal orders are <=1; since Cε→X*, they are >0. Successive nonzero leading orders strictly increase, giving 0<w1<...<wk<=1. In each Ui the first diagonal coefficient at ε^{wi} is positive definite and all lower powers vanish.
 
+**Why the final weight is exactly one.** Suppose \(w_k<1\). Truncate the Puiseux series at \(w_k\) and rescale its coefficients as in the finite PSD coefficient-rescaling lemma in the next section. Every positive diagonal block has its strictly PD leading coefficient by weight \(\le w_k\); all offdiagonal entries meet the order restrictions. The resulting polynomial is PD for small ε, but ALL of its nonconstant coefficients have orders \(e\le w_k<1\) and hence lie in \(K\) by the shifted affine equation. It would be a **nonconstant exact feasible PSD curve** \(X_*+K\), contradicting uniqueness. Therefore \(w_k=1\). This step is indispensable for the monomial chart and is not inferred merely from \(C_\epsilon\succeq\epsilon I/n\), which gives only \(w_k\le1\).
+
 For any fixed vectors u∈Ui, v∈Uj, PSD Cauchy–Schwarz gives
 \[
 |u^\top C_\epsilon v|
