@@ -74,6 +74,15 @@ is not identically zero on any neighbourhood of I in SO(2z). It is a fixed scala
 
 This proves the nonzero-overlap assertion without any admissible ONB inside W.
 
+
+## 3b. Sharp ambient order for zero-only two-list exposure
+
+Suppose a target support V of dimension d in R^N is exposed SOLELY by zero outcomes: the first basis has z_1 zero-outcome vectors and M_1=N-z_1 surviving vectors, while the second has z_2 zeros and M_2=N-z_2 survivors. If the spans of all zero-outcome vectors together equal V^perp (which is necessary for the zeros alone to force support V against arbitrary PSD competitors), then
+  N-d=dim V^perp <=z_1+z_2=2N-M_1-M_2,
+so
+  N>=M_1+M_2-d.
+Our more general construction, using any two allowed Parseval frames of sizes M_1 and M_2 (complete their row isometries independently), realizes equality N=M_1+M_2-d: put their orthogonal-complement directions in complementary, initially orthogonal subspaces of V^perp. The explicit symmetric case M_1=M_2=M from Section 2 has N=2M-d. Thus the dimension bound is EXACTLY optimal among zero-only exposing constructions with these two surviving-frame lengths. This statement does not constrain signed certificates with strictly positive observations.
+
 ## 4. Explicit full-ambient quantitative bound
 
 Let delta=||A_(U_R)(Y)-A_(U_R)(E(Z_*))||_2 with Y>=0 and delta<=1. Write
