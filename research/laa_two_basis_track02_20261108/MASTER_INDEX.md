@@ -65,7 +65,7 @@ For arbitrary rational trace-controlled A:S^m->R^p, prove or disprove a polynomi
 17. TWO_MASA_COMMUTING_COMPLETION_CRITERION — an operator space lies in two MASA spans iff diagonal corrections make generators commute. **CORRECTION:** for FIXED first basis, these conditions are LINEAR, not quadratic; see Milestone 20.
 18. PURE_STATE_LIFTS_MUST_BE_MIXED — any real fixed-diagonal PSD fibre mapping onto the entire density-body requires mixed input lifts for all but finitely many source pure states.
 19. TWO_BASIS_TRACE_CONE_QUADRATIC_SHADOW — GENUINE two-basis order N=2m² trace-only universal quotient, both lists strictly positive, all basis overlaps nonzero, CP positive Lipschitz decoder and Theta(m⁴) auxiliary slack. Does not impose nontrivial source measurements.
-20. TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO — polynomial-time linear system deciding two-MASA inclusion for a fixed first basis; a dimension-independent commutator inequality proves that the maximally entangled first basis CANNOT be completed by any second basis to detect two noncommuting source observables via partial trace.
+20. TWO_MASA_LINEAR_TEST_AND_MAXENT_NO_GO — polynomial-time linear system deciding two-MASA inclusion for a fixed first basis; a dimension-independent commutator inequality proves that the maximally entangled first basis CANNOT be completed by any second basis to detect two noncommuting source observables via partial trace. The reproducible diagnostic TWO_MASA_LINEAR_TEST.py is in this directory.
 
 ## Current best mathematical understanding
 
