@@ -141,6 +141,30 @@ Our theorem appends the eigenbasis of Z_* at a small positive frame weight, with
   N<=M+4d+4=4+12+4=20
 with exact full-PSD target uniqueness and sharp modulus omega_final~omega_source+sqrt(t). This bypasses the tetrahedral ONB obstruction without the two-zero stage and without its possible alpha/2 loss.
 
+## 5b. A genuinely NON-LIPSCHITZ example whose original frame has NO admissible ONB
+
+To demonstrate that sharp preservation is not vacuous in the no-ONB class, take the orthogonal direct sum of the three-dimensional tetrahedral operator system and a two-dimensional diagonal system. Thus d=5, with
+  W={A direct-sum diag(x,y): A in S^3, A_11=A_22=A_33}.
+A rank-one Parseval frame consists of the four tetrahedral vectors (scaled by sqrt(3/4)) in the first three coordinates, together with e4 and e5. Hence M=6 and dimW=6. The rank-one allowable lines in W belong entirely to one of the two blocks, since a mixed vector would have nonzero forbidden cross-block entries. In the tetrahedral block, no two allowable rank-one lines are orthogonal. Therefore W admits NO full admissible orthonormal basis of R^5.
+
+Choose
+  Z_*=e4e4^T
+of rank one. The measured PSD stress
+  S=I_3 direct-sum diag(0,1)
+belongs to W, has kernel span(e4) and satisfies S>=Q=I-Z_*.
+Thus Z_* is unique among all PSD matrices with its data: the stress confines any exact competitor to span(e4), and measured trace fixes its coefficient.
+
+The source optimal exponent is EXACTLY 1/2. For arbitrary PSD Z with data residual delta, the tetrahedral frame measures its upper 3-by-3 trace, and the last frame vector measures Z_55; both have target zero, so tr(QZ)=O(delta). Trace fixes Z_44=1+O(delta), and positivity gives ||PZQ||_F=O(sqrt(delta)). Hence ||Z-Z_*||_F=O(sqrt(delta)).
+For sharpness take
+  Z(t)=(sqrt(1-t²)e4+t e5)(sqrt(1-t²)e4+t e5)^T.
+Its source data residual is Theta(t²) (only the e4/e5 diagonal outcomes change), while ||Z(t)-Z_*||_F=sqrt(2)t. Its rank remains one and its trace is exactly one.
+
+The rate-neutral ONB augmentation in this theorem adds any eigenbasis of Z_* (e4 plus an orthonormal basis of its four-dimensional kernel). It changes every source measurement residual by at most a fixed factor because S controls kernel mass and trace controls the one support diagonal. Applying the ONE-STAGE signed-anchor lift gives
+  N<=M+4d+4=6+20+4=30,
+strictly positive two-basis target observations, no zero basis overlaps, full-PSD uniqueness, target rank two, and sharp exponent 1/2, exactly the original exponent.
+
+This explicit construction demonstrates that an admissible source ONB is genuinely unnecessary for sharp transfer when a strict measured stress is available; the two-zero construction's quarter-root loss can be avoided in a nontrivially unstable source problem.
+
 ## 6. Scope and hostile audit
 
 - The stress must be globally PSD on R^d with a POSITIVE GAPPED restriction to the target kernel. A merely compressed facial-reduction certificate after earlier steps is not enough.
