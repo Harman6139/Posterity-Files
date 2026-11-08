@@ -1,0 +1,40 @@
+{
+  "test": "tetrahedral Parseval source system with no admissible orthonormal basis",
+  "source_order_d": 3,
+  "source_frame_columns_M": 4,
+  "enriched_frame_columns_with_split": 10,
+  "two_basis_final_order_N": 25,
+  "min_absolute_basis_overlap": 1.999999998750345e-9,
+  "min_target_observation": 9.99999999654518e-10,
+  "two_list_difference_norm": 0.0000016462784617429404,
+  "pure_source_moment_errors": [
+    -2.220446049250313e-16,
+    -1.1102230246251565e-16,
+    -1.1102230246251565e-16,
+    -1.1102230246251565e-16
+  ],
+  "invisible_cross_curve": [
+    {
+      "t": 0.01,
+      "smallest_eigenvalue": -1.3040776050298954e-16,
+      "measured_residual": 0.00008078256609294592,
+      "off_face_distance_lower_bound": 0.014142135623730958,
+      "residual_divided_by_t_squared": 0.8078256609294592
+    },
+    {
+      "t": 0.001,
+      "smallest_eigenvalue": -1.386891986279664e-16,
+      "measured_residual": 8.078256609399745e-7,
+      "off_face_distance_lower_bound": 0.001414213562373096,
+      "residual_divided_by_t_squared": 0.8078256609399745
+    },
+    {
+      "t": 0.0001,
+      "smallest_eigenvalue": -1.47631169940694e-16,
+      "measured_residual": 8.078256595400322e-9,
+      "off_face_distance_lower_bound": 0.0001414213562373096,
+      "residual_divided_by_t_squared": 0.8078256595400322
+    }
+  ],
+  "interpretation": "Floating-point sanity check only. O(1e-16) negative eigenvalues are numerical roundoff. The exact PSD curve is proved by factorization in Milestone 26."
+}
