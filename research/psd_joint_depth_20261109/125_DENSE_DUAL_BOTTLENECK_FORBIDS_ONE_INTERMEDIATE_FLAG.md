@@ -113,3 +113,32 @@ The companion checkpoint126 checks the harmonic weights, both integer recurrence
 **NOT proved:** That any candidate exponent–degree pair inside the universal interval fails, or that every intermediate depth fails at fixed nullity. Here a DIFFERENT dimension-preserving schedule succeeds for the SAME weights and degree. This distinction is crucial for the project's primary exponent–degree classification.
 
 The statement depends on the canonical center theorem's genuine Puiseux coefficients, whose specialist external audit is still required.
+
+## Supplemental direct verification of the ALTERNATE realizing system
+
+The alternate (1/4, d=4) realization in Theorem B can be checked without invoking any general stochastic-game lemma.
+
+Put \(z_2=e^{\sigma w_2^2},z_3=e^{\sigma w_3^2},z_4=e^{\sigma w_4^2}\), with a sufficiently large fixed \(\sigma>0\), and \(c=1/(2\lambda)\). Its four exposing stresses may be chosen:
+\[
+\begin{aligned}
+Z_1&=E_{66},\\
+Z_2&=E_{55}-cF_{26},\\
+Z_3&=z_2E_{22}+z_3E_{33}+z_4E_{44}
+   -c(z_2F_{05}+z_3F_{06}+z_3F_{24}+z_4F_{35}),\\
+Z_4&=E_{11}-cF_{03}.
+\end{aligned}
+\]
+Pair each with the six kernel generators in Theorem B: every pairing is exactly zero. Their successive compressed supports are \(\{6\}\), \(\{5\}\), \(\{2,3,4\}\), \(\{1\}\), respectively. The only within-face offdiagonal in the third stress is \(Z_{24}=-cz_3\); its normalized modulus is
+\[
+c\frac{z_3}{\sqrt{z_2z_4}}
+=c\exp\left[-\sigma\left(\frac{w_2^2+w_4^2}{2}-w_3^2\right)\right]
+=c\exp(-41\sigma/1568)\longrightarrow0.
+\]
+Thus its compression is strictly PD on \(\{2,3,4\}\) for sufficiently large \(\sigma\). The other compressed stresses are diagonal PSD. The minimality (rather than merely existence) of the four steps follows from the exact AND–OR closure proof of checkpoint74, or by sequentially pairing an arbitrary compressed PSD stress with the six unique parent-edge equations.
+
+An explicit matching positive-definite recovery arc is
+\[
+X(s)=E_{00}+s^7H_1+s^{12}H_2+s^{14}H_3
+          +s^{17}H_4+s^{20}H_5+s^{28}E_{66}.
+\]
+After diagonal normalization, the five tight edges remain \(O(\lambda)\), and H2's additional source-to-5 edge has normalized size \(O(\lambda s^2)\). The source diagonal tends to one and all other diagonals are positive; for fixed small \(\lambda\), strict diagonal dominance proves \(X(s)\succ0\). Its residual is \(\Theta(s^{28})\) and its displacement \(\Theta(s^7)\). The global upper recovery bound comes from the min–max principal-minor inequalities, which control all arbitrary PSD competitors. Therefore its exponent is exactly \(1/4\).
