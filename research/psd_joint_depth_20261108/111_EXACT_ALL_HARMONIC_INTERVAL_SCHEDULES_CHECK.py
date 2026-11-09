@@ -87,7 +87,7 @@ def build_schedule(P,w,js):
     return tuple(modes),total_clones
 
 def run():
-    expected={1:(1,1),2:(3,3),3:(18,20),4:(165,219),
+    expected={1:(1,1),2:(3,3),3:(18,24),4:(165,310),
               5:(2099,5833)}
     for h in range(1,6):
         valid=0;checked=0;max_clones=0;depth_ranges=Counter()
@@ -106,7 +106,7 @@ def run():
                 checked+=1;max_clones=max(max_clones,c)
             depth_ranges[min(depths),max(depths)]+=1
         assert valid==expected[h][0]
-        if h==5:assert checked==expected[h][1]
+        assert checked==expected[h][1]
         print(f'PASS h={h} strict={valid} schedules={checked} '
               f'max_extra_clones={max_clones} depth_ranges={dict(depth_ranges)}')
     print('PASS all 2,099 h=5 harmonic graphs and all 5,833 admissible depth schedules')
