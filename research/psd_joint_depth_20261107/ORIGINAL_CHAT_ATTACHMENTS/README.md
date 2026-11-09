@@ -2,7 +2,7 @@
 
 These are the original standalone file artifacts generated during the first stage of the PSD Hölder stability / minimal facial-depth research thread, **before the numbered GitHub milestone branch was established**. They are preserved separately from later revised/expanded milestone proofs so a future researcher can distinguish early hypotheses from subsequently corrected statements.
 
-**Research branch:** \`research/psd-joint-depth-universal-20261107\`
+**Research branch:** `research/psd-joint-depth-universal-20261107`
 **Successor handoff:** [OPUS 5.5 research handoff](../../psd_joint_depth_20261109/OPUS_5_5_SUCCESSOR_RESEARCH_HANDOFF.md)
 **Master research index:** [README](../README.md)
 
