@@ -2,6 +2,8 @@
 
 Track 02, 2026-11-09. This turns the exact and robust two-MASA commutator results of Milestones 49–50 into a condition-controlled lower bound on an ACTUAL SDP recovery soundness error. It is independent of the basis design and tensor ancilla dimension. It does NOT rule out quotients with a singular lifted feasible face, nonpartial-trace positive decoders, or arbitrarily ill-conditioned basis decompositions.
 
+**Threshold update:** Source spaces dimL>=m+3, m>=4, generically have gamma_4(L)>0 by Milestone 53; all the error-floor formulae below therefore apply at that stronger threshold.
+
 ## Theorem (interiority/conditioning/error tradeoff)
 
 Let m>=4, r>=1, N=mr, and let L⊂S^m be a real measurement space with gamma_4(L)>0 as in Milestone 50. For example generic L containing I_m with dim L>=2m+1 satisfies this hypothesis by Milestone 49.
