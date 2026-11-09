@@ -8,7 +8,7 @@ Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-qua
 
 - Repository: https://github.com/Harman6139/Posterity-Files
 - Current active research branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108
-- Current active milestone directory (00 archive and numbered milestones through 42): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
+- Current active milestone directory (00 archive and numbered milestones through 48): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
 - Previous dense-quadratic research directory, inherited into this branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261107/dense_quadratic
 - Original pinned research brief, inherited into this branch: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-unrestricted-quadratic-20261108/prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md
 - Earlier separate branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-quadratic-dense-20261108
@@ -151,6 +151,17 @@ Preferred latest constructive statement remains 35_BALANCED_TWO_BLOCK_FINAL_SHAR
 
 **Crucial scope:** None of Milestones 37–42 proves or refutes the unrestricted N=O(m²+p) two-basis normal form. They give complete NO-GO results for broad low-Kraus, low-dimensional, zero-exposure, or ill-conditioned effect architectures, including nonlinear many-to-one projections. Large-Kraus CP decoders with well-conditioned full-rank effects and decoder-invisible auxiliary freedom remain viable candidates. The strong globally positive exact-retract version is independently GENERICALLY FALSE by the earlier Omega(m^(8/3)) theorem, while the general polynomial-size sharp construction remains O(m^4).
 
+### Stage 13 — positive-decoder support effects and tensor-fibre geometry
+
+43. ALL_POSITIVE_DECODERS_JORDAN_EXTREMALITY — a unital positive-map rigidity proof upgrades n>=2m+1 fixed-diagonal density-body shadows from CP to ANY positive trace-preserving decoder, and gives a compactness-derived nonzero weak-recovery error floor at smaller n. Equality n=2m forces a 2-fold Jordan amplification.
+44. SUPPORT_FAMILY_SPECTRAL_EFFECT_OBSTRUCTION — arbitrary-rank source supports P_X impose tr(P_X D(f_jf_j^T))>=a_j/tau on every positive basis output effect; Ky Fan spectral sums give CP Kraus lower bounds when the source fibre contains all rank-r projector states.
+45. NONTP_FAITHFUL_JORDAN_DIMENSION_BARRIER — the n>=2m+1 lower bound also holds for faithful NON-trace-preserving positive decoders after congruence normalization; an all-tolerance error floor survives uniform effect spectral conditioning.
+46. RANK_TWO_AVOIDANCE_BALANCED_COMPANION_NO_GO — if L contains no nonzero rank<=2 symmetric matrix, the balanced two-block lift J(X)=alpha X⊕(beta trX I−alpha X) has only allowed rank-one vectors (a,+/-a). Their projector span has dimension m(m+1), deficient from the required 2m²+m−s by m²−s. Generic such L exist for measurement codimension s>2m−2. Thus this specific O(m)-order complement cannot be used directly on arbitrary dense non-rank-one-generated L.
+47. GENERIC_QUARTIC_LOWER_BOUND_FOR_MULTI_TRACE_COMPLEMENT_LIFTS — any k-block trace-plus-signed-congruence positive EXACT INJECTIVE encoding has rank-one pullbacks differing from scalar trace by matrices of rank<=k. For generic dense L of codimension floor(m²/4), no nonzero rank<=c m matrices occur for any c<1−1/sqrt2. Thus k=Omega(m) and full-face two-basis ambient N=Omega(m⁴) in this architecture. **Critical audit correction:** at least one source coefficient alpha_j MUST be nonzero; without this, a trace-only map collapses the source and the exact-fibre contradiction would be false. The corrected theorem is committed with full provenance.
+48. TENSOR_FIBRE_RIGIDITY_AND_IMPROVED_CP_DIMENSION_BOUND — a SHARP polynomial-syzygy lemma: if V⊂R^m⊗R^t has product fibres for generic source rays and dim V<=2m−2, then V contains a whole tensor factor R^m⊗w0. The bound is sharp at dim2m−1. Applying it twice to a CP Stinespring subspace of order n=2m+1 with generic pure-output fibre dimension>=2 forces a fixed two-copy tensor core, impossible with constant first-basis diagonal and m>=3 due to rank-two output effects. This improves the CPTP fixed-diagonal density-shadow input lower bound to n>=2m+2 (m>=3), with a compactness error floor. The arbitrary positive non-CP bound is still n>=2m+1.
+
+**Open after this stage:** unrestricted near-quadratic N=O(m²+p) universality with many-to-one positively decodable two-basis spectrahedral fibres remains unsolved. The new generic quartic bounds are architectural, not general SDP complexity impossibility. The general sharp all-facial-depth O(m⁴) construction remains Milestone 35 (after the separate rank-one compiler).
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -172,6 +183,6 @@ Preferred latest constructive statement remains 35_BALANCED_TWO_BLOCK_FINAL_SHAR
 
 ## Update convention for future research turns
 
-Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 43) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
+Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 49) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
 
 Every statement is self-audited rather than externally peer-reviewed; numerical checks are supporting diagnostics only. No manuscript-ready novelty or publication-priority certification is asserted.
