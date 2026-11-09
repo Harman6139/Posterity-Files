@@ -14,11 +14,10 @@ Assume a soundness error guarantee
   ||P_L(D(Y)-D(Y_0))||_F <=eta_s
 for EVERY Y∈T. Here P_L is Frobenius-orthogonal projection to the original measurement subspace L, so this is precisely the normalized ORIGINAL source-data residual error. The number eta_s may be any nonnegative real.
 
-Define the two-MASA decomposition condition number
-  kappa_B = sup_{X∈D1+D2, ||X||_F=1}
-        min_{A∈D1,B∈D2,A+B=X}
-           (||A||_op+||B||_op),
-where D1,D2 are the two diagonal matrix spaces. This is a finite positive number for each fixed pair; it may diverge along degenerating pairs of nearly parallel MASAs. No dimension-only uniform bound is presumed.
+Define the addition map Sigma:D1⊕D2→D1+D2 by Sigma(A,B)=A+B, and let S_B=Sigma^dagger be its Moore–Penrose (Frobenius) right inverse. Define the explicit LINEAR splitting condition number
+  kappa_B =sup_{X∈D1+D2, ||X||_F=1}
+              (||(S_B X)_1||_op+||(S_B X)_2||_op).
+This is a finite, computable positive number for each fixed basis pair, but may diverge along degenerating pairs of nearly parallel MASAs. No dimension-only uniform bound is presumed.
 
 Put
   x=eta_s/rho,
@@ -47,21 +46,17 @@ It obeys
    ||H tensor I_r−R(H)||_op<=x||H||_F,
    ||R(H)||_F<=sqrt(r)||H||_F.
 
-4. By the definition of kappa_B, each R(H) admits a decomposition R(H)=A_H+B_H with A_H∈D1, B_H∈D2 and coefficient norm <=kappa_B||R(H)||_F. A LINEAR decomposition with the same bound up to a fixed harmless factor can be selected by taking the Moore–Penrose least-Frobenius-norm right inverse of the sum map D1⊕D2→D1+D2. To keep the stated constant exact, interpret kappa_B as the operator norm of this FIXED linear splitting in the ||A||op+||B||op norm (or take the infimum over linear right inverses; the infimum is attained in finite dimension). Then
-   ||A_H||op+||B_H||op<=kappa_B sqrt(r)||H||_F.
+4. Apply the FIXED LINEAR splitting S_B to R(H) to obtain A_H=(S_B R(H))_1 and B_H=(S_B R(H))_2. By its definition this gives
+   ||A_H||op+||B_H||op<=kappa_B||R(H)||_F<=kappa_B sqrt(r)||H||_F.
+The linear splitting hypothesis of Milestone 50 is therefore met without any pointwise-to-linear selection step.
 
 5. Apply the quantitative two-MASA theorem from Milestone 50 with approximation error epsilon=x and splitting coefficient K=kappa_B sqrt(r). It gives
    8Kx+2x²>=gamma_4(L)c_mr,
 which is (1). If x<=1, use 2x²<=2x to obtain (2). QED.
 
-## Norm-definition correction / precise implementation
+## Implementation of the conditioning constant
 
-For an exact numerical implementation, define kappa_B using the following LINEAR-splitting convention, rather than the pointwise minimum over decompositions:
-  kappa_B :=
-   inf_{S linear right inverse of (A,B)->A+B}
-       sup_{X in D1+D2,||X||_F=1}
-             (||S_1(X)||op+||S_2(X)||op).
-This infimum is attained after eliminating the scalar intersection kernel by choosing its orthogonal complement; the Moore–Penrose solution is an explicit feasible splitter. In the statement and formulae, kappa_B ALWAYS means this linear-splitting quantity. The pointwise-minimum expression in the introductory line would be <=kappa_B and is NOT substituted into (1) without proof of a simultaneous linear selection.
+The Frobenius Moore–Penrose inverse S_B of the addition map Sigma is an explicit, canonical LINEAR splitting on D1+D2. Its operator norm into the sum of the two matrix operator norms is precisely the kappa_B used throughout. This prevents the invalid replacement of a pointwise minimal decomposition by a uniformly bounded linear splitting without proof.
 
 ## What this does and does not show
 
