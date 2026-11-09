@@ -1,3 +1,11 @@
+# SUCCESSOR ALERT — OPUS 5.5
+
+**[New complete Opus 5.5 successor research handoff](../psd_joint_depth_20261109/OPUS_5_5_SUCCESSOR_RESEARCH_HANDOFF.md)** — START HERE for taking over the actual open all-nullity frontier. [Original 16 early chat research attachments](ORIGINAL_CHAT_ATTACHMENTS/README.md) are now archived separately alongside all numbered checkpoints.
+
+**Public visibility is NOT enabled:** GitHub repository visibility was checked and is PRIVATE; the connected GitHub action cannot change it. Making the *entire* Posterity-Files repository public would expose unrelated files, branches, and history. The repo owner must use GitHub Settings → General → Danger Zone → Change repository visibility, or release only these PSD research folders in a new public repository. No public-release success has been claimed.
+
+---
+
 # Project-lead handoff: Sharp PSD inverse-problem stability
 
 **Private repository:** Harman6139/Posterity-Files
