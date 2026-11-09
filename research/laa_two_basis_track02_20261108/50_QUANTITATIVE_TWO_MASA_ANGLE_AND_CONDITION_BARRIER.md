@@ -2,6 +2,8 @@
 
 Track 02, 2026-11-09. Builds directly on the complete generic geometric obstruction in Milestone 49. This is an analytic quantitative theorem: any approximate two-MASA representation of a generically rich source measurement space must have a nontrivial approximation error OR a large coefficient splitting norm. The result holds for arbitrary first and second orthonormal bases and every tensor ancilla order r. It is not a lower bound for arbitrary positive decoders or singular-face quotients.
 
+**Threshold update:** The rank-four commutator margin gamma_4(L)>0 holds on an open dense family already when dimL>=m+3, m>=4, by Milestone 53. The p>=2m+1 threshold originally cited here is obsolete.
+
 ## 1. Statement
 
 Let m>=3, r>=1, N=mr, and L⊂S^m be a real linear operator space. For T∈so(m) define the bilinear commutator form
