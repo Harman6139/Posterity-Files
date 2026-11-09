@@ -8,7 +8,7 @@ Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-qua
 
 - Repository: https://github.com/Harman6139/Posterity-Files
 - Current active research branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108
-- Current active milestone directory (00 archive and numbered milestones through 36): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
+- Current active milestone directory (00 archive and numbered milestones through 42): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
 - Previous dense-quadratic research directory, inherited into this branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261107/dense_quadratic
 - Original pinned research brief, inherited into this branch: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-unrestricted-quadratic-20261108/prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md
 - Earlier separate branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-quadratic-dense-20261108
@@ -140,6 +140,17 @@ Via the already committed codimension-adaptive tensor rank-one compiler, Milesto
 
 Preferred latest constructive statement remains 35_BALANCED_TWO_BLOCK_FINAL_SHARP_DEPTH_NORMAL_FORM.md: J(Z)=(Z/2)⊕(tr(Z)I−Z/2) preserves both arbitrary-rank sharp worst-case moduli and source facial depth (final depth=max(1,k)); its signed two-basis output order is N≤4d²+8d+4 for a d-dimensional rank-one Parseval compiler. It does not prove N=O(m²+p) for arbitrary dense source SDPs. For original m×m trace-controlled linear SDPs, combining with the earlier rank-one compiler gives a general N=O(m²(s+1)) bound in measurement codimension s, not the open unrestricted near-quadratic bound.
 
+### Stage 12 — architecture-independent trace-only obstructions for arbitrary positive quotients
+
+37. KRAUS_RANK_LOWER_BOUND_FIXED_DIAGONAL — any complete fixed-basis PSD fibre that projects onto the full trace-tau density matrix body under a globally CPTP decoder requires at least m Kraus operators, even with nonlinear many-to-one lifts. If t<m, a universal explicit weak-recovery floor epsilon+eta>=tau/N holds. The Kraus threshold is attained for all m=2^k by real Pauli orthogonal-error bases.
+38. NONMINIMAL_ZERO_EXPOSURE_TRANSVERSALITY_NO_GO — closes the Milestone 25 minimality loophole: ALL zero-only exposed two-basis faces, even with arbitrary redundant exterior dimensions and overlapping zero subspaces, have at most c_1+c_2−1<=2d−1 source data directions that can be linearly separated from first-order exterior cross contamination. A strictly feasible Schur-repaired PSD curve proves the O(delta) source residual failure whenever q exceeds the threshold. No overlap-zeros or reflection assumption is made.
+39. POSITIVE_TRACE_PRESERVING_EFFECT_LOWER_BOUND — strengthens Milestone 37 to ANY globally POSITIVE, trace-preserving real decoder, CP or not: if a full trace-tau PSD body is the image of a fixed-basis diagonal fibre, EVERY output basis effect E_j=D(f_jf_j^T) satisfies E_j>=(a_j/tau)I. A positive target diagonal therefore forces full-rank output effects; the CP Kraus t>=m condition follows. Singular effects obey an explicit approximate-recovery error floor.
+40. FAITHFUL_NONTP_DECODER_NORMALIZATION_NO_GO — removes trace preservation for globally positive decoders whose trace effect E=D*(I) is POSITIVE DEFINITE. Congruence-normalizing by E gives E^-1-rescaled full-rank basis effects and a weak-recovery floor N epsilon+eta tr(E^-1)>=sum_j a_j when all normalized effects are singular. The singular-trace-effect decoder case remains an explicit possible escape.
+41. QUANTITATIVE_EFFECT_CONDITIONING_FOR_APPROXIMATE_SHADOWS — for positive TP decoders with all-pure-state approximate completeness, the output basis effect E_j obeys the sharp spectral inequality sqrt((a_j-epsilon)_+)<=sqrt((tau+eta)lambda_min(E_j))+sqrt(eta); an E^-1-weighted version covers faithful nonTP decoders. This quantifies the required effect conditioning in near-universal weak reductions, independent of complete positivity.
+42. PURE_STATE_FIBRE_DIMENSION_LOWER_BOUND — every CPTP shadow with one fixed orthonormal-basis diagonal surjecting onto the full trace-tau m-dimensional PSD body has input order n>=2m. For m>=3 equality is IMPOSSIBLE: if n=2m the 2-dimensional pure-output Stinespring fibres for m independent source directions force an effective 2-Kraus decoder, contradicting t>=m. Thus n>=2m+1 for m>=3; n=4 for m=2 is sharp via the real Bell basis. Compactness also proves a strictly positive, although non-explicit, universal approximation-error floor at n<=2m for m>=3, even if the basis and CP decoder vary with tolerance.
+
+**Crucial scope:** None of Milestones 37–42 proves or refutes the unrestricted N=O(m²+p) two-basis normal form. They give complete NO-GO results for broad low-Kraus, low-dimensional, zero-exposure, or ill-conditioned effect architectures, including nonlinear many-to-one projections. Large-Kraus CP decoders with well-conditioned full-rank effects and decoder-invisible auxiliary freedom remain viable candidates. The strong globally positive exact-retract version is independently GENERICALLY FALSE by the earlier Omega(m^(8/3)) theorem, while the general polynomial-size sharp construction remains O(m^4).
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -161,6 +172,6 @@ Preferred latest constructive statement remains 35_BALANCED_TWO_BLOCK_FINAL_SHAR
 
 ## Update convention for future research turns
 
-Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 37) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
+Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 43) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
 
 Every statement is self-audited rather than externally peer-reviewed; numerical checks are supporting diagnostics only. No manuscript-ready novelty or publication-priority certification is asserted.
