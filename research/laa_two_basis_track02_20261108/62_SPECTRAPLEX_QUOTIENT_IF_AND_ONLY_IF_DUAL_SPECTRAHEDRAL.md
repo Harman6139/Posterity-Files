@@ -69,8 +69,15 @@ The usual source matrix trace is
   trX(t,x,y)=2t+x+y.
 Fix τ=6 and the compact strictly feasible rational source fibre
   F={X(t,x,y)⪰0 : trX(t,x,y)=6}.
-It contains X(2,1,1)>0. Choose a rational linear measurement operator A:S⁴→R⁸ whose kernel is the 2-dimensional trace-zero subspace of the 3-dimensional pencil span, and set b=A(X(2,1,1)). Then
-  F={X⪰0:A(X)=b}.
+It contains X(2,1,1)>0. Explicitly choose the rational source measurement map A:S⁴→R⁸ with coordinates
+  A(X)=(X_13,X_14,X_23,X_24,X_34,
+        X_11−X_22−2X_33, X_12−X_44, trX),
+and the rational datum b=(0,0,0,0,0,0,0,6). Its exact feasible fibre is
+  F={X⪰0:A(X)=b}
+   ={X(t,x,y)⪰0:2t+x+y=6}.
+The strictly feasible rational matrix is
+  X(2,1,1)=[[3,1,0,0],[1,1,0,0],[0,0,1,0],[0,0,0,1]]>0.
+The measurements are trace-controlled by the last coordinate, and the first seven force exactly the displayed three-dimensional linear pencil span.
 The source is bounded and trace-controlled. Its conical hull is exactly the injective image of K by the pencil X, because trX is positive on every nonzero X⪰0.
 
 **Theorem B (no unconstrained spectraplex quotient).** There is NO integer n and NO real linear decoder D:S^n→S⁴ such that
