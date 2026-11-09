@@ -2,6 +2,8 @@
 
 Track 02, 2026-11-09. Complete finite-dimensional theorem and compactness corollary. This resolves one of the two escape alternatives left by the general CP-channel two-MASA commutator-distortion bound in Milestone 54: a completely positive decoder that covers all pure PSD source rays CANNOT annihilate any nonzero skew-symmetric source direction. Thus a well-conditioned true PSD-cone quotient must pay nonzero commutator distortion when its source measurement space is generically rich. The result is independent of any basis design, positive encoder, linear right inverse, fixed fibre or trace-preservation assumption.
 
+**Quantitative strengthening (Milestone 56):** The compactness-based positive skew singular-value margin in Corollary 2 is now explicitly bounded below by sin(pi/(t+2))/(t sqrt(m)) for every CPTP cone quotient of Kraus rank t, with an inverse Kraus-stack singular-value factor for nonTP CP maps. See 56_EXPLICIT_POLYNOMIAL_SKEW_MARGIN_CP_QUOTIENTS.md.
+
 ## Theorem 1 — exact skew-injectivity of every pure-ray-surjective CP decoder
 
 Let m>=2,N>=1 and let D:S^N→S^m be REAL completely positive:
