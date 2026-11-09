@@ -8,7 +8,7 @@ Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-qua
 
 - Repository: https://github.com/Harman6139/Posterity-Files
 - Current active research branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108
-- Current active milestone directory (00 archive plus 23 numbered milestones): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
+- Current active milestone directory (00 archive and numbered milestones through 36): https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261108
 - Previous dense-quadratic research directory, inherited into this branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-unrestricted-quadratic-20261108/research/laa_two_basis_track02_20261107/dense_quadratic
 - Original pinned research brief, inherited into this branch: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-unrestricted-quadratic-20261108/prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md
 - Earlier separate branch: https://github.com/Harman6139/Posterity-Files/tree/laa-track02-quadratic-dense-20261108
@@ -134,6 +134,12 @@ The preceding Milestone 27 has also been sharpened: any d-dimensional source ran
 
 Via the already committed codimension-adaptive tensor rank-one compiler, Milestone 35 yields a NEW general conclusion: for ANY real trace-controlled PSD linear inverse problem of measurement codimension s, including nonsingleton fibres, arbitrary rank, all facial depths, noncommuting dense operators and no strict stress, there is a positive-data two-ONB representation of order O(m²(s+1)) that preserves the full non-Lipschitz recovery modulus and transforms depth exactly k->max(1,k). For every FIXED codimension s this is quadratic O_s(m²). It does NOT prove generic O(m²+p) dimension when s=Theta(m²); the generic positive-retract lower bound already rules that strong size claim out.
 
+### Stage 11 — two-block final sharp transfer and small positive-shadow obstruction
+
+36. LINEAR_SIZE_CP_SHADOW_NO_FIXED_BASIS_NO_GO — constructs a real completely positive, trace-preserving quotient from PSD matrices of order 2m−1 onto the full m×m PSD cone, without a positive linear right inverse. Its rank-one pure-state lifts are generically unique, which proves that NO fixed complete first-basis diagonal can project surjectively onto the full trace-one density cone through this decoder. This is an architecture-specific obstruction, not a general quadratic-size impossibility.
+
+Preferred latest constructive statement remains 35_BALANCED_TWO_BLOCK_FINAL_SHARP_DEPTH_NORMAL_FORM.md: J(Z)=(Z/2)⊕(tr(Z)I−Z/2) preserves both arbitrary-rank sharp worst-case moduli and source facial depth (final depth=max(1,k)); its signed two-basis output order is N≤4d²+8d+4 for a d-dimensional rank-one Parseval compiler. It does not prove N=O(m²+p) for arbitrary dense source SDPs. For original m×m trace-controlled linear SDPs, combining with the earlier rank-one compiler gives a general N=O(m²(s+1)) bound in measurement codimension s, not the open unrestricted near-quadratic bound.
+
 ## Current best mathematical understanding
 
 - General O(m^4) exact positive-retract two-basis universality with sharp non-Lipschitz modulus transfer: established in earlier Track 02 work.
@@ -155,6 +161,6 @@ Via the already committed codimension-adaptive tensor rank-one compiler, Milesto
 
 ## Update convention for future research turns
 
-Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 24) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
+Use the SAME active branch and THIS directory. Add sequentially numbered XX_DESCRIPTIVE_NAME.md (next free number: 37) for each newly verified milestone, amend older files when an audit finds a correction, and update this MASTER_INDEX.md with scope and remaining gaps. Use GitHub commit history for provenance and versioned changes. This plan is a path convention, not a claim that work will continue automatically in the background.
 
 Every statement is self-audited rather than externally peer-reviewed; numerical checks are supporting diagnostics only. No manuscript-ready novelty or publication-priority certification is asserted.
