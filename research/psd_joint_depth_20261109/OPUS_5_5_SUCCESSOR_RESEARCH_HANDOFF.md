@@ -2,13 +2,13 @@
 
 **Prepared:** 2026-11-09
 **Repository:** Harman6139/Posterity-Files
-**Research branch (all work, numbered milestones 01–127):** \`research/psd-joint-depth-universal-20261107\`
-**Research index:** \`research/psd_joint_depth_20261107/README.md\`
-**Project-lead index:** \`research/psd_joint_depth_20261107/PROJECT_LEAD_START_HERE.md\`
-**First-day checkpoint directory:** \`research/psd_joint_depth_20261107/\`
-**Second-day checkpoint directory:** \`research/psd_joint_depth_20261108/\`
-**Latest directory:** \`research/psd_joint_depth_20261109/\`
-**Original stand-alone conversation attachments:** \`research/psd_joint_depth_20261107/ORIGINAL_CHAT_ATTACHMENTS/\` (see manifest for included exact snapshots).
+**Research branch (all work, numbered milestones 01–127):** `research/psd-joint-depth-universal-20261107`
+**Research index:** `research/psd_joint_depth_20261107/README.md`
+**Project-lead index:** `research/psd_joint_depth_20261107/PROJECT_LEAD_START_HERE.md`
+**First-day checkpoint directory:** `research/psd_joint_depth_20261107/`
+**Second-day checkpoint directory:** `research/psd_joint_depth_20261108/`
+**Latest directory:** `research/psd_joint_depth_20261109/`
+**Original stand-alone conversation attachments:** `research/psd_joint_depth_20261107/ORIGINAL_CHAT_ATTACHMENTS/` (see manifest for included exact snapshots).
 **Visibility at handoff:** GitHub reported the repository PRIVATE. The connector in this conversation can commit files, but has NO repository-visibility mutation endpoint. Do NOT tell the project lead it is public. The owner must change visibility via GitHub Settings or make a scoped public copy, after inspecting other repository material.
 
 ## I. The EXACT user research question
@@ -111,7 +111,7 @@ Both routes require one missing uniform constructive/structural theorem. An EFFE
 2. Independently RUN the committed audit programs (if possible): 104 (Python exact ν6), 106 (C++ Boost ν7), 111 (all schedule path checks), 115 (rank-one collisions), 117 (shared-edge lock), 124 (clone-free upper), 126 (forbidden aligned schedule).
 3. Check potential proof flaws and update with explicit ERRATA. In particular, check all cases where a compression-annihilator stress is lifted and where a generator's off-face entries influence other stages. Check the P1/P2 prime assumptions of the original harmonic/center lemmas. A finite test or broad "positive rebalancing" invocation is not a substitute for the exact PSD inequalities.
 4. Pursue Route A and Route B fully. Either produce a complete self-contained all-ν proof and exact optimal-dimension formula; OR produce a rigorous counterexample and the next correct richer complete model; OR, if both approaches genuinely stall, document the failed lemmas and explicit surviving gap. Do NOT make unsupported claims of solvability or impossibility.
-5. SAVE EVERY VERIFIED MILESTONE on the SAME branch \`research/psd-joint-depth-universal-20261107\` under \`research/psd_joint_depth_20261109/\` as next numbered \`NN_TOPIC.md\` with scripts nearby. Append verified status and **counterexamples/errata** to \`research/psd_joint_depth_20261107/README.md\` and the project-lead handoff.
+5. SAVE EVERY VERIFIED MILESTONE on the SAME branch `research/psd-joint-depth-universal-20261107` under `research/psd_joint_depth_20261109/` as next numbered `NN_TOPIC.md` with scripts nearby. Append verified status and **counterexamples/errata** to `research/psd_joint_depth_20261107/README.md` and the project-lead handoff.
 6. When reporting to the user and PL, distinguish PROVED (subject to audit), CONDITIONAL, COMPUTATION, COUNTEREXAMPLE, and OPEN. Cite commit hashes for immutable review.
 
 ## VII. Compact ready-to-paste prompt for Opus 5.5
