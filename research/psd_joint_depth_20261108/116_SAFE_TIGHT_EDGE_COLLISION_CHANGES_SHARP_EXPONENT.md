@@ -16,7 +16,7 @@ The corresponding strict harmonic weights are
 (w_0,w_1,\ldots,w_6)
 =(0,\tfrac16,\tfrac7{24},\tfrac13,\tfrac12,\tfrac7{12},1).
 \]
-The canonical grade-only primal/dual peeling bounds are \(L(w)=3,\ U(w)=4\).
+**Audit correction (2026-11-09):** The canonical grade-only primal/dual peeling bounds for THESE EXACT displayed weights are actually \(L(w)=U(w)=4\), not 3 and 4. The exact recurrence is \(6\to5\to3\to1\to0\) for both. The example still demonstrates that shared edges can change the recovery exponent; it is **not** a counterexample or test of interpolating distinct depth bounds for this particular weight vector.
 The **safe** nearest-parent edge at child 2 is
 \[
 e_2=(1,4),\qquad
