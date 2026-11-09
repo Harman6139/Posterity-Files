@@ -2,6 +2,8 @@
 
 Track 02, 2026-11-09. Complete self-contained real-matrix theorem and incidence proof. It is a genuine strengthening of the maximally-entangled-first-basis obstruction in Milestone 20: **BOTH measured ONBs may now be arbitrary**, with NO condition on their individual reduced states, and the auxiliary tensor dimension is unlimited. This rules out a large class of quadratic many-to-one proposals that relied on ordinary partial trace with a strictly feasible ambient lift. It does NOT exclude arbitrary positive/CP decoders, positive-dimensional singular support reductions, or unrestricted O(m²+p) universality.
 
+**Threshold update (Milestone 53):** The generic source dimension hypothesis p>=2m+1 proved below has now been strengthened to p>=m+3 for m>=4 by the exact symplectic degeneracy-stratum count in 53_GENERIC_M_PLUS_THREE_TWO_MASA_NO_GO_VIA_EXACT_SYMPLECTIC_DEGENERACY.md. All structural two-MASA lemmas in this document remain unchanged.
+
 ## 1. Pure two-MASA algebraic criterion
 
 Let L⊂S^m be any real linear subspace. For T∈so(m) define the alternating bilinear form on L
