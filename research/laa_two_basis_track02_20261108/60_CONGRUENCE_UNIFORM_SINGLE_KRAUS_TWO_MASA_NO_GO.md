@@ -83,13 +83,14 @@ This extends the ordinary tensor-amplification lemma of Milestone 49 to every ge
   D(Y)=CYC^T
 be the CP decoder. Suppose a nonempty two-basis PSD fibre
   T={Y>=0:B_U(Y)=y}
-contains a POSITIVE-DEFINITE feasible matrix Y0>0 and satisfies
-  A(D(Y))=b for EVERY Y∈T.
+contains a POSITIVE-DEFINITE feasible matrix Y0>0, satisfies
+  A(D(Y))=b for EVERY Y∈T,
+and has at least one decoded positive-definite source point D(Y1)>0 for some Y1∈T (in particular this follows automatically if D(T)=F_b).
 Then the hypotheses are mutually contradictory; no such U,C,y,N exist, at ANY N.
 
 Proof. Soundness on a full-rank feasible point implies, by +/- small symmetric perturbations in the kernel of the two-basis measurement map,
   D*(L)={C^T H C:H in L} ⊂D1+D2.          (7)
-Because b=A(I_m), the source I_m is positive definite and belongs to the decoded feasible set in an exact surjective representation, and therefore C has full row rank. More generally a sound fibre need not be surjective: to apply the theorem assume explicitly D(T) contains one positive-definite source matrix; this guarantees rank C=m. (The conclusion of Theorem C is for such full-source-rank sound designs.)
+The explicit decoded-positive-definite hypothesis ensures C has full row rank. In an EXACT SURJECTIVE normal form it follows automatically because I_m belongs to F_b. Soundness alone would not force it; the hypothesis is essential.
 
 Let G=CC^T>0 and V0=G^(-1/2)C, so V0 V0^T=I_m. Write
   C^T H C=V0^T (G^(1/2) H G^(1/2)) V0.
