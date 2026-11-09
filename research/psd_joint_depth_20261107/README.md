@@ -1,3 +1,15 @@
+# FINAL SUCCESSOR RESEARCH HANDOFF — OPUS 5.5
+
+**[READ THE COMPLETE OPUS 5.5 RESEARCH HANDOFF](../psd_joint_depth_20261109/OPUS_5_5_SUCCESSOR_RESEARCH_HANDOFF.md)** — precise unsolved theorem, two research routes, existing proofs and counterexamples, exact script pointers, audit warnings, next-milestone protocol, and repository visibility instructions.
+
+**[Original first-stage research attachments — 16 archived snapshots](ORIGINAL_CHAT_ATTACHMENTS/README.md)** — historical source manuscripts, code and nullity-six data that predate the GitHub checkpoint sequence.
+
+**Research branch:** \`research/psd-joint-depth-universal-20261107\`. **GitHub visibility verified PRIVATE on 2026-11-09**; the connected tool can commit files but cannot change repository visibility. Do not claim the branch is public; public release needs a GitHub settings change or a separate scoped public repository.
+
+**Final mathematical status:** A uniform effective signed-conic/matroid/QE classifier is formulated in [120](../psd_joint_depth_20261109/120_UNIFORM_SIGNED_CONIC_MATROID_ALL_N_CLASSIFIER.md), and the exact-nullity construction of both depth endpoints \(L(w)\) and \(U(w)\) is proved in [114](../psd_joint_depth_20261108/114_ALL_HALFWEIGHTS_LOWER_PEELING_EXACT_NULLITY_RANK_ONE.md) and [123](../psd_joint_depth_20261109/123_CLONE_FREE_UPPER_PEELING_BY_MULTICHILD_DIAGONAL_GENERATORS.md). The **compact all-nullity purely combinatorial classification at intermediate depths remains OPEN**. See [127](../psd_joint_depth_20261109/127_POSITIVE_CIRCUIT_ELIMINATION_AND_FACE_GORDAN_CRITERION.md) for the precise face-level positive-circuit obstruction. All claims require independent proof audit before journal submission.
+
+---
+
 # Project-lead quickstart
 
 **Start here:** [PROJECT_LEAD_START_HERE.md](PROJECT_LEAD_START_HERE.md) — verified research branch, chronological map, main results, gaps, and future checkpoint convention.
