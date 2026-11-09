@@ -2,6 +2,8 @@
 
 Track 02, 2026-11-09. This is a complete improvement of the new commutator-incidence theorem of Milestone 49 and immediately strengthens the quantitative Milestone 50 and soundness Milestone 51. The improvement is genuinely substantial for high-dimensional sources: only m+4 independent source observables are needed, despite allowing arbitrarily large tensor ancillas and arbitrary choices of BOTH measured orthonormal bases.
 
+**Superseded threshold:** Milestone 53 proves the stronger generic threshold p>=m+3 using an exact rank-two symplectic degeneracy-locus count. This milestone remains a valid, independently auditable earlier incidence argument.
+
 ## Theorem 1 — generic real two-MASA obstruction at p>=m+4
 
 Let m>=4 and p be an integer satisfying
