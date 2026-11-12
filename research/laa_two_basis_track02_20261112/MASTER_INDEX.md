@@ -1,86 +1,111 @@
-# Unrestricted two-basis SDP universality — completed analytic normal form
+# Two-basis SDP universality — full-strength quadratic normal form
 
 Branch: laa-track02-gptpro-analytic-frontier-20261112
 Date: 2026-11-12
 Historical handoff/corpus: ff6117295c329dc88d5bc280ee18adfe64cda8b0.
 
-## Resolution
+## Current strongest result
 
-**The positive alternative of the handoff's unrestricted quadratic-size quotient frontier is proved.** Read 02 for the construction and complete algebraic proof, 03–04 for all conditioning and exact-representation guarantees, and 05 for the adversarial and historical audit. This supersedes the earlier open-status entries preserved in this branch's commit history.
+**The unrestricted quadratic positive-quotient frontier is proved, and milestones 06–08 strengthen it to one construction preserving the full facial and dual structure and admitting complete-positive matrix amplification.** The strongest unified statement is 08_DENSE_NONREFLECTION_FULL_STRENGTH_THEOREM.md.
 
-For every trace-controlled rational A:S^m->R^p, m,p>=1, there are explicit E,D,Phi and a real orthogonal U of order
+For every rational trace-controlled A:S^m->R^p, m,p>=1, the final construction has
 
-  N=9m^2+4m+3+2p <=16m^2+2p
-
-with
-
+  N=11m^2+8m+14+2p,
   D(Y)=VYV^T, VV^T=I_m,
-  D E=id, B_U E=Phi A,
-  D({Y>=0:B_U(Y)=Phi b})={X>=0:A(X)=b} for EVERY b,
-  ||A(D(Y))-b||_2<=K_r||B_U(Y)-Phi b||_2 for EVERY Y>=0.
+  E(X)=E_lin(X)+Y_0,
+  y_b=Phi b+y_0,
+  D E=id, B_U E=Phi A+y_0,
+  D({Y>=0:B_U(Y)=y_b})={X>=0:A(X)=b} for EVERY b.
 
-E and D are globally PSD-positive, D is a Frobenius contraction, every objective is represented exactly by D*C with unchanged Frobenius norm, and all observations are positive for every nonzero feasible datum. Zero and infeasible data are covered by the same formulas. There is no source-rank, strict-feasibility, commutation, sparsity, unique-fibre or facial-depth restriction.
+The linear part E_lin and D are completely positive, Y_0 is fixed rank-one PSD, and D(Y_0)=0. Every basis overlap is nonzero, with an explicit inverse-polynomial margin. U is not equivalent to any symmetric matrix under independent signed row and column permutations. All target observations are positive, including zero-source data. There are exactly two complete REAL basis lists, no extra measurements.
 
-The explicit reverse constant is
+For every ambient Y>=0, with delta=||B_U(Y)-y_b||,
 
-  S_A=sum_i||A_i||_F^2,
-  L=4m^2+6m+2p+6+2S_A,
-  T=33m^2+10m+9+8p,
-  K_r=3sqrt(2)L(1+sqrt(T))sqrt(9S_A/16+p/8).
+  ||A(D(Y))-b||<=K_+ delta,
+  dist(D(Y),F_b)<=omega_b(K_+ delta) when F_b is nonempty.
 
-The crucial distinction is that the ENTIRE lifted fibre maps onto the source fibre, but is generally much larger than E(F_b). Free auxiliary covariance supplies the large slack dimension allowed by the historical lower bounds. This is not a disguised exact-bijection claim.
+K_+ is explicitly polynomial in dimensions and source coefficient magnitudes, without source Slater/rank/face-gap assumptions. Source objective pullback V^T C V preserves the entire spectrum of C with additional zeros, its rank, operator norm and Frobenius norm. Both SDP dual suprema and finite dual attainment are preserved.
 
-## Computational and quantitative scope
+For nonzero feasible b, let E_b be the maximum source support, r_b its dimension, and k_b the source singularity degree. Then
 
-Given a rational trace certificate z with H=A*z>0, the exact construction takes polynomial bit time in the rational input and certificate lengths. Every individual coefficient of U,V,E,D and every rational-cost pullback is rational or a rational multiple of the square root of a positive rational: individual degree at most TWO, polynomial bit length. Phi and Phi b are rational.
+  maximum lifted rank = r_b+m^2+m+3,
+  singularity degree of the lifted fibre = max(1,k_b).
 
-Without a supplied trace certificate, 03 proves an elementary rational certificate-finding algorithm polynomial in input length and the declared numerical inverse positive-cone margin kappa. This is a polynomial-conditioned algorithm, not a claim of unconditioned polynomial-time exact SDP solving. The mathematical existence theorem covers every trace-controlled input.
+The maximum rank formula also applies pointwise to the positive preimages of any nonzero feasible X, with r_b replaced by rank X. The minimum lifted support is explicitly described in 08. The zero source is represented by the unique rank-one Y_0, with lifted depth one.
 
-Decoded source recovery obeys dist(D(Y),F_b)<=omega_b(K_r delta), with delta the full two-basis residual. Exact objectives, relaxed-optimization errors and two-sided weak-feasibility gap transfer are proved. The optional prescribed rank/depth transformation, nonreflection U, all-nonzero overlaps and sharp whole-ambient bi-Hölder law are not claimed or needed for the handoff's minimal quotient normal form.
+The exact full-ambient modulus is controlled by an intrinsic ORIGINAL-SOURCE quantity:
 
-## Proof files and immutable commits
+  mu_b(t)=max{tr(P_(E_b^perp) X):X>=0,||A(X)-b||<=t},
+  Omega_b(t) asymp sqrt(t+mu_b(t)) for nonzero feasible b,
+  Omega_0(t) asymp t.
+
+Omega uses all ambient PSD competitors and distance to the ENTIRE lifted fibre, not to the encoder image. Its constants include explicit, genuine source relative-interior and restricted-analysis condition parameters. The rational depth-k family in 06 proves that source exponent 2^{-(k-1)} can become ambient exponent 2^{-k} even though depth is exactly preserved. This is a proved separation, not a failure hidden by a source-only residual claim.
+
+At every ancillary level n, complete positivity, exact entire-fibre surjectivity, cost identities and the global residual constant persist with NO ancillary-dimension factor. The observations at n>1 are explicitly two lists of n-by-n blocks, not two scalar rank-one diagonal lists on the entire Nn-dimensional space. No ancillary-level facial-depth formula is silently assumed.
+
+## Computational model
+
+Given a rational z with H=A*z>0, exact construction takes polynomial bit time in the ordinary input and certificate lengths. Each individual output coefficient is rational or a rational multiple of a positive rational square root, with degree at most two and polynomial bit length. The target map is rational affine. The deterministic finite grids in 08 use rational comparisons and have polynomially controlled overlap/observation margins. No general algebraic sign oracle or expanded multiquadratic number field is used.
+
+Without a supplied certificate, 03 gives a rational certificate-finding algorithm polynomial in the input length and the declared numerical inverse cone margin. This is a conditioned algorithm, not an unconditional exact SDP solver. Whole-ambient stability constants are distinguished from the rank-independent decoded residual constant.
+
+## Stronger proof milestones
+
+### 06_FACIAL_DUAL_AND_SHARP_AMBIENT_STRENGTHENING.md
+Proof commit: f152760f6e4f2cd47a50384206bf0115ac34e6c0.
+
+Strict auxiliary positivity, exact minimum-face and pointwise maximum-preimage-rank formulas, inner depth equality and outer depth max(1,k), both standard SDP dual transformations including attainment, the source-leakage modulus, matching whole-ambient upper/lower laws, and the explicit rational all-depth separation family. The minimal shielded reflection has order 9m^2+4m+6+2p.
+
+### 07_COMPLETE_POSITIVITY_AND_ANCILLA_UNIFORM_UNIVERSALITY.md
+Proof commit: 2b0f214d0dba60b4540bc529d5d3a8970fe41700.
+
+Explicit positive Choi/Gram matrices prove a real completely positive encoder extension. A sum-of-squares identity controls the entry-copy arrow. At most m^3+m^2+2m+1 real Kraus matrices suffice. Matrix-valued PSD stress and Frobenius estimates prove exact fibre and residual transfer at every ancillary level with the same constants.
+
+### 08_DENSE_NONREFLECTION_FULL_STRENGTH_THEOREM.md
+Proof commit: c69aefea9cd2b74dfff238287dd65e987356ad32.
+
+One uniform order-11m^2+8m+14+2p construction combines all the above. A rational factored-column anchor supplies positive zero data and dense overlaps; an equal-weight, equal-radical-factor plane rotation gives a genuinely nonreflection transition. Finite polynomial root counts and interpolation produce explicit margins, rather than unquantified generic choices. The retained observations preserve the exact extraction, facial, dual, CP and sharp ambient results.
+
+### 09_STRENGTHENING_AUDIT_REPORT.md
+
+Adversarial scope audit, full diagnostic results, exact certificate identification, and reproducibility. The accompanying strengthening_audit/ directory contains both constructor modules, the numerical/symbolic suite, the independent Fraction suite, complete JSON outputs, and run instructions. Numerical evidence is not used as a premise of the all-dimensional theorems.
+
+## Original frontier proof, retained unchanged
 
 ### 01_EXACT_LIPSCHITZ_CERTIFICATES_AND_FIRST_EXPOSURE.md
-Commit: 22b8075cf1455c7d0212b690d8f89b089d72eaa4.
+Proof commit: 22b8075cf1455c7d0212b690d8f89b089d72eaa4.
 
-Exact two-sided attained dual certificates characterize all-PSD Lipschitz residual control, without Slater. Local control extends globally. Stable observables are precisely range(M*)+S(R), where R is the range of a maximum-rank first globally PSD measured zero stress. This is the soundness invariant; 02 supplies explicit certificates meeting it.
+All-PSD Lipschitz residual control is equivalent to attained two-sided bounded dual certificates without Slater. Stable observables are range(M*)+S(R), where R is the range of a maximum-rank first globally PSD measured zero stress.
 
 ### 02_UNIVERSAL_QUADRATIC_TWO_BASIS_NORMAL_FORM.md
-Commit: 9030a69bab7f5358065f836a826e9f5a9bbe2c86.
+Proof commit: 9030a69bab7f5358065f836a826e9f5a9bbe2c86.
 
-The unified construction: a positive bounded-entry lift, four-character anchor copies of every source entry, two anchor observations per source equation, block-respecting Parseval completion, and a strict signed reflection exposure. It proves the full theorem above, exact source identities and both signed dual certificates. No finite-case classification or proof-route search is used.
+The original exact entire-fibre positive quotient at N=9m^2+4m+3+2p: bounded-entry lift, four-character anchor copies, two source-equation observations, block-respecting Parseval completion and strict signed reflection exposure. Its free auxiliary covariance is essential; the full lifted fibre is larger than E(F_b).
 
 ### 03_CONDITIONING_COMPLEXITY_AND_RECOVERY.md
-Commit: b91ba45c2dd85bd5712e032456623488474065f3.
+Proof commit: b91ba45c2dd85bd5712e032456623488474065f3.
 
-Explicit encoder/data norms, source-modulus transfer, optimization errors, YES/NO weak-feasibility gap transfer, exact rational/radical construction, finite-precision bounds and a rational O(kappa^2)-iteration trace-certificate finder with a full termination/bit-complexity proof.
+Encoder/data norms, decoded recovery, optimization errors, two-sided weak-feasibility gaps, finite precision, polynomial-bit certificate-input construction, and conditioned rational trace-certificate discovery.
 
 ### 04_QUADRATIC_ALGEBRAIC_OUTPUT_AND_EXACT_CERTIFICATION.md
-Commit: cee61d6d1482cfbf5dea43d54e248460b2eee6d3.
+Proof commit: cee61d6d1482cfbf5dea43d54e248460b2eee6d3.
 
-Strengthens general radical-expression output to individually quadratic algebraic coefficients. Every coisometry column is sqrt(s_j)u_j with rational s_j,u_j. This common factorization makes exact verification reduce to rational identities without expanding a large joint number field.
+Column-factor structure proves individually quadratic algebraic coefficients and rational exact verification. The final nonreflection compiler preserves this representation by matching the two rotated column factors.
 
 ### 05_ADVERSARIAL_AND_HISTORICAL_AUDIT.md
-Commit: d82c889cc5e420c58101d0c3d3258a9635ffffed.
+Proof commit: d82c889cc5e420c58101d0c3d3258a9635ffffed.
 
-Checks every load-bearing quantifier and algebraic step, hostile Schur-repaired perturbations, zero/redundant/inconsistent data, exact and approximate objectives, and the historical nonspectrahedral-dual counterexample. It explains why every historical architectural obstruction leaves this construction admissible, proves a genuinely non-section feasible lift exists, and records historical proof/script errata.
+Original full-cone, objective, infeasibility, nonspectrahedral-dual and historical obstruction audit. Earlier NOT CLOSED status entries remain preserved in Git history; they preceded the proved construction.
 
-## Reproducible diagnostics
+Original reproducible diagnostics: audit_quadratic_quotient.py (c3f80deaaebcfd9b3e1788616250b99e798c8c40), audit_adversarial.py (811c02f761e3e47c735554fdab6c6ffbc720f445), ADVERSARIAL_RESULTS.json (1d0209ca30beb92425901f5a0a2638e8f8c3200f), audit_historical_corrections.py (c9c44eb8d0e186195ed9d5a67614ee1c371ed63e).
 
-- audit_quadratic_quotient.py — commit c3f80deaaebcfd9b3e1788616250b99e798c8c40. Exact rational source-adjoint check and m=1,2,3,4 construction diagnostics, source ranks zero/one/full.
-- audit_adversarial.py — commit 811c02f761e3e47c735554fdab6c6ffbc720f445. Full-cone residual, both signed certificates, costs, infeasible data and non-section fibre checks.
-- ADVERSARIAL_RESULTS.json — commit 1d0209ca30beb92425901f5a0a2638e8f8c3200f. Passing output, including historical Milestone 62 at N=179.
-- audit_historical_corrections.py — commit c9c44eb8d0e186195ed9d5a67614ee1c371ed63e. Proper symmetric commutator sampling and exact symbolic real-domain skew-Kraus checks.
+## Historical coverage and limits
 
-Run instructions and observed tolerances are in 05. Numerical tests are diagnostics, not premises of the universal theorem.
+The initial continuation read the complete handoff, original brief, archive 00, all canonical numbered manuscripts 01–64, six additional 26–28 variants, and the original dense-quadratic, rigidity-open, codimension-two and rational-obstruction proofs. Actual correction diffs for 17,47,51,60 were inspected. Historical scripts were read but not all rerun. The new strengthening suites were run, including exact rational and symbolic checks. No assertion is made that every historical proof or repository revision has been independently referee-certified.
 
-## Historical reading coverage
-
-Read the complete handoff and original brief, archive 00, all canonical numbered manuscripts 01–64, all six additional 26–28 variants, and the original dense-quadratic, rigidity-open, codimension-two and rational-obstruction proofs. Inspected the actual critical correction diffs for 17,47,51,60. Read the principal historical audit scripts listed in 05; they were not all rerun. No claim is made that every old proof or every repository revision has been independently referee-certified.
-
-Inherited canonical index: ../laa_two_basis_track02_20261108/MASTER_INDEX.md.
+Inherited index: ../laa_two_basis_track02_20261108/MASTER_INDEX.md.
 Original brief: ../../prompts/laa_two_basis_significance_20261107/02_UNIVERSAL_STABILITY_TRANSFER.md.
 Complete handoff: ../../prompts/laa_two_basis_frontier_20261112/FRESH_GPT_PRO_COMPLETE_ANALYTIC_FRONTIER_HANDOFF.md.
-Original dense work: ../laa_two_basis_track02_20261107/dense_quadratic/.
+Dense source work: ../laa_two_basis_track02_20261107/dense_quadratic/.
 
-No external novelty certification or independent refereeing has occurred. Those are distinct from the completed algebraic normal-form proof and its explicitly declared computational model.
+External literature priority and independent refereeing are not certified. Those are distinct from the explicit algebraic proofs and the declared computational model.
