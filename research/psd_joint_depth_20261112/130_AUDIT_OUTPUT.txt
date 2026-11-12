@@ -1,0 +1,14 @@
+no_internal_grade_boundary weights= ['0', '1'] PASS {'policies': 1, 'cuts': 1, 'stresses': 1, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+one_internal_grade weights= ['0', '1/2', '1'] PASS {'policies': 1, 'cuts': 4, 'stresses': 8, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+quarter_chain weights= ['0', '1/4', '1/2', '1'] PASS {'policies': 1, 'cuts': 6, 'stresses': 18, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+leading_release_collision weights= ['0', '2/5', '3/5', '4/5', '1'] PASS {'policies': 1, 'cuts': 9, 'stresses': 27, 'repairs': 1, 'switch_blockers': 0, 'switch_merges': 0}
+milestone_107_increase weights= ['0', '1/4', '1/2', '5/8', '3/4', '7/8', '1'] PASS {'policies': 1, 'cuts': 10, 'stresses': 44, 'repairs': 0, 'switch_blockers': 4, 'switch_merges': 0}
+milestone_107_decrease weights= ['0', '3/11', '6/11', '8/11', '9/11', '10/11', '1'] PASS {'policies': 1, 'cuts': 10, 'stresses': 44, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+milestone_116_collision weights= ['0', '1/6', '7/24', '1/3', '1/2', '7/12', '1'] PASS {'policies': 1, 'cuts': 12, 'stresses': 48, 'repairs': 3, 'switch_blockers': 0, 'switch_merges': 0}
+milestone_125_forbidden_schedule weights= ['0', '1/4', '3/7', '1/2', '17/28', '5/7', '1'] PASS {'policies': 1, 'cuts': 15, 'stresses': 66, 'repairs': 3, 'switch_blockers': 6, 'switch_merges': 0}
+switch_merge_and_leading_collision weights= ['0', '1/3', '1/2', '7/12', '2/3', '5/6', '1'] PASS {'policies': 1, 'cuts': 16, 'stresses': 60, 'repairs': 2, 'switch_blockers': 12, 'switch_merges': 4}
+dyadic_family 4 PASS {'policies': 1, 'cuts': 8, 'stresses': 32, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+dyadic_family 8 PASS {'policies': 1, 'cuts': 16, 'stresses': 128, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+dyadic_family 16 PASS {'policies': 1, 'cuts': 32, 'stresses': 512, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+dyadic_family 32 PASS {'policies': 1, 'cuts': 64, 'stresses': 2048, 'repairs': 0, 'switch_blockers': 0, 'switch_merges': 0}
+TOTAL {'policies': 13, 'cuts': 203, 'stresses': 3036, 'repairs': 9, 'switch_blockers': 22, 'switch_merges': 4}
