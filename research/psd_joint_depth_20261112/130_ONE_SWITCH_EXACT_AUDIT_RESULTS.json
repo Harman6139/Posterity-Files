@@ -1,0 +1,4842 @@
+{
+  "status": "PASS",
+  "method": "Exact identities and strict rational positivity inequalities; no exhaustive graph search",
+  "family_count": 17,
+  "construction_checks": 225,
+  "families": [
+    {
+      "family": "Milestone 125 forbidden-schedule regression",
+      "weights": [
+        "0",
+        "1/4",
+        "3/7",
+        "1/2",
+        "17/28",
+        "5/7",
+        "1"
+      ],
+      "upper_path": [
+        6,
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        4,
+        5,
+        5
+      ],
+      "checks": 12,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/4",
+          "path": [
+            6,
+            5,
+            2,
+            0
+          ],
+          "extra_children": {
+            "5": 3
+          },
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/8",
+          "path": [
+            6,
+            5,
+            2,
+            0
+          ],
+          "extra_children": {
+            "5": 3
+          },
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "3/14",
+          "path": [
+            6,
+            5,
+            2,
+            0
+          ],
+          "extra_children": {
+            "5": 3
+          },
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "1/4",
+          "path": [
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "1/8",
+          "path": [
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "3/14",
+          "path": [
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 9
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/4",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/8",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "3/14",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 8
+        },
+        {
+          "s": 4,
+          "depth": 5,
+          "alpha": "1/4",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 4,
+          "depth": 5,
+          "alpha": "1/8",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 4,
+          "depth": 5,
+          "alpha": "3/14",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 8
+        }
+      ]
+    },
+    {
+      "family": "Milestone 123 early collision regression",
+      "weights": [
+        "0",
+        "3/32",
+        "3/16",
+        "3/8",
+        "1/2",
+        "9/16",
+        "3/4",
+        "1"
+      ],
+      "upper_path": [
+        7,
+        6,
+        5,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        5,
+        5,
+        6,
+        6,
+        6
+      ],
+      "checks": 10,
+      "records": [
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "3/32",
+          "path": [
+            7,
+            6,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "6": 5
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "3/64",
+          "path": [
+            7,
+            6,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "6": 5
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "3/32",
+          "path": [
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "3/64",
+          "path": [
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "3/32",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "3/64",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "3/32",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "3/64",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "3/32",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "3/64",
+          "path": [
+            7,
+            6,
+            5,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 4
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        }
+      ]
+    },
+    {
+      "family": "Uniform nonadjacent anchors k=6",
+      "weights": [
+        "0",
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3",
+        "5/6",
+        "1"
+      ],
+      "upper_path": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        4,
+        5,
+        5,
+        6,
+        6
+      ],
+      "checks": 10,
+      "records": [
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "4": 3
+          },
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "4": 3
+          },
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        }
+      ]
+    },
+    {
+      "family": "Uniform nonadjacent anchors k=8",
+      "weights": [
+        "0",
+        "1/8",
+        "1/4",
+        "3/8",
+        "1/2",
+        "5/8",
+        "3/4",
+        "7/8",
+        "1"
+      ],
+      "upper_path": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        4,
+        5,
+        6,
+        7,
+        7,
+        8,
+        8
+      ],
+      "checks": 14,
+      "records": [
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 3,
+            "6": 5
+          },
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {
+            "5": 3,
+            "6": 5
+          },
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 4,
+          "depth": 7,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 4,
+          "depth": 7,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 5,
+          "depth": 7,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 5,
+          "depth": 7,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 6,
+          "depth": 8,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 6,
+          "depth": 8,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 7,
+          "depth": 8,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 7,
+          "depth": 8,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        }
+      ]
+    },
+    {
+      "family": "Uniform nonadjacent anchors k=12",
+      "weights": [
+        "0",
+        "1/12",
+        "1/6",
+        "1/4",
+        "1/3",
+        "5/12",
+        "1/2",
+        "7/12",
+        "2/3",
+        "3/4",
+        "5/6",
+        "11/12",
+        "1"
+      ],
+      "upper_path": [
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        5,
+        6,
+        7,
+        8,
+        8,
+        9,
+        10,
+        11,
+        11,
+        12,
+        12
+      ],
+      "checks": 22,
+      "records": [
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "7": 3,
+            "8": 5,
+            "9": 7,
+            "10": 9
+          },
+          "leading_collision_repair": false,
+          "generator_count": 16
+        },
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {
+            "7": 3,
+            "8": 5,
+            "9": 7,
+            "10": 9
+          },
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 3,
+          "depth": 7,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 3,
+          "depth": 7,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 4,
+          "depth": 8,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 4,
+          "depth": 8,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 5,
+          "depth": 8,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 5,
+          "depth": 8,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 6,
+          "depth": 9,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 6,
+          "depth": 9,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 8,
+          "depth": 11,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 8,
+          "depth": 11,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 9,
+          "depth": 11,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 9,
+          "depth": 11,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 10,
+          "depth": 12,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 10,
+          "depth": 12,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 11,
+          "depth": 12,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 11,
+          "depth": 12,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=2",
+      "weights": [
+        "0",
+        "1/2",
+        "1"
+      ],
+      "upper_path": [
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        2
+      ],
+      "checks": 2,
+      "records": [
+        {
+          "s": 1,
+          "depth": 2,
+          "alpha": "1/2",
+          "path": [
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 1
+        },
+        {
+          "s": 1,
+          "depth": 2,
+          "alpha": "1/4",
+          "path": [
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 2
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=3",
+      "weights": [
+        "0",
+        "1/3",
+        "2/3",
+        "1"
+      ],
+      "upper_path": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        3
+      ],
+      "checks": 4,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/3",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 2
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/6",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        },
+        {
+          "s": 2,
+          "depth": 3,
+          "alpha": "1/3",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 2
+        },
+        {
+          "s": 2,
+          "depth": 3,
+          "alpha": "1/6",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=4",
+      "weights": [
+        "0",
+        "1/4",
+        "1/2",
+        "3/4",
+        "1"
+      ],
+      "upper_path": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        4,
+        4
+      ],
+      "checks": 6,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/4",
+          "path": [
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/8",
+          "path": [
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 5
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "1/4",
+          "path": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "1/8",
+          "path": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        },
+        {
+          "s": 3,
+          "depth": 4,
+          "alpha": "1/4",
+          "path": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        },
+        {
+          "s": 3,
+          "depth": 4,
+          "alpha": "1/8",
+          "path": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=6",
+      "weights": [
+        "0",
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3",
+        "5/6",
+        "1"
+      ],
+      "upper_path": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        4,
+        5,
+        5,
+        6,
+        6
+      ],
+      "checks": 10,
+      "records": [
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 6
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 5
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 6
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/6",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 5
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 6
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=8",
+      "weights": [
+        "0",
+        "1/8",
+        "1/4",
+        "3/8",
+        "1/2",
+        "5/8",
+        "3/4",
+        "7/8",
+        "1"
+      ],
+      "upper_path": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        4,
+        5,
+        6,
+        7,
+        7,
+        8,
+        8
+      ],
+      "checks": 14,
+      "records": [
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 1,
+          "depth": 4,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 2,
+          "depth": 5,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 4,
+          "depth": 7,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 4,
+          "depth": 7,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 5,
+          "depth": 7,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 5,
+          "depth": 7,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 6,
+          "depth": 8,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 6,
+          "depth": 8,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 7,
+          "depth": 8,
+          "alpha": "1/8",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 7,
+          "depth": 8,
+          "alpha": "1/16",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=12",
+      "weights": [
+        "0",
+        "1/12",
+        "1/6",
+        "1/4",
+        "1/3",
+        "5/12",
+        "1/2",
+        "7/12",
+        "2/3",
+        "3/4",
+        "5/6",
+        "11/12",
+        "1"
+      ],
+      "upper_path": [
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        5,
+        6,
+        7,
+        8,
+        8,
+        9,
+        10,
+        11,
+        11,
+        12,
+        12
+      ],
+      "checks": 22,
+      "records": [
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 1,
+          "depth": 5,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 19
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 3,
+          "depth": 7,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 3,
+          "depth": 7,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 19
+        },
+        {
+          "s": 4,
+          "depth": 8,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 4,
+          "depth": 8,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 5,
+          "depth": 8,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 16
+        },
+        {
+          "s": 5,
+          "depth": 8,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 6,
+          "depth": 9,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 15
+        },
+        {
+          "s": 6,
+          "depth": 9,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 16
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 14
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 15
+        },
+        {
+          "s": 8,
+          "depth": 11,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 8,
+          "depth": 11,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 14
+        },
+        {
+          "s": 9,
+          "depth": 11,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 9,
+          "depth": 11,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 10,
+          "depth": 12,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 10,
+          "depth": 12,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 11,
+          "depth": 12,
+          "alpha": "1/12",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 11,
+          "depth": 12,
+          "alpha": "1/24",
+          "path": [
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        }
+      ]
+    },
+    {
+      "family": "Uniform harmonic chain k=20",
+      "weights": [
+        "0",
+        "1/20",
+        "1/10",
+        "3/20",
+        "1/5",
+        "1/4",
+        "3/10",
+        "7/20",
+        "2/5",
+        "9/20",
+        "1/2",
+        "11/20",
+        "3/5",
+        "13/20",
+        "7/10",
+        "3/4",
+        "4/5",
+        "17/20",
+        "9/10",
+        "19/20",
+        "1"
+      ],
+      "upper_path": [
+        20,
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        6,
+        7,
+        8,
+        9,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        16,
+        17,
+        18,
+        19,
+        19,
+        20,
+        20
+      ],
+      "checks": 38,
+      "records": [
+        {
+          "s": 1,
+          "depth": 6,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 36
+        },
+        {
+          "s": 1,
+          "depth": 6,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 37
+        },
+        {
+          "s": 2,
+          "depth": 7,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 35
+        },
+        {
+          "s": 2,
+          "depth": 7,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 36
+        },
+        {
+          "s": 3,
+          "depth": 8,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 34
+        },
+        {
+          "s": 3,
+          "depth": 8,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 35
+        },
+        {
+          "s": 4,
+          "depth": 9,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 33
+        },
+        {
+          "s": 4,
+          "depth": 9,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 34
+        },
+        {
+          "s": 5,
+          "depth": 9,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 32
+        },
+        {
+          "s": 5,
+          "depth": 9,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 33
+        },
+        {
+          "s": 6,
+          "depth": 10,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 31
+        },
+        {
+          "s": 6,
+          "depth": 10,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 32
+        },
+        {
+          "s": 7,
+          "depth": 11,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 30
+        },
+        {
+          "s": 7,
+          "depth": 11,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 31
+        },
+        {
+          "s": 8,
+          "depth": 12,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 29
+        },
+        {
+          "s": 8,
+          "depth": 12,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 30
+        },
+        {
+          "s": 9,
+          "depth": 13,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 28
+        },
+        {
+          "s": 9,
+          "depth": 13,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 29
+        },
+        {
+          "s": 10,
+          "depth": 14,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 27
+        },
+        {
+          "s": 10,
+          "depth": 14,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 28
+        },
+        {
+          "s": 11,
+          "depth": 15,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 26
+        },
+        {
+          "s": 11,
+          "depth": 15,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 27
+        },
+        {
+          "s": 12,
+          "depth": 16,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 25
+        },
+        {
+          "s": 12,
+          "depth": 16,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 26
+        },
+        {
+          "s": 13,
+          "depth": 16,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 24
+        },
+        {
+          "s": 13,
+          "depth": 16,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 25
+        },
+        {
+          "s": 14,
+          "depth": 17,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 23
+        },
+        {
+          "s": 14,
+          "depth": 17,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 24
+        },
+        {
+          "s": 15,
+          "depth": 18,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 22
+        },
+        {
+          "s": 15,
+          "depth": 18,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 23
+        },
+        {
+          "s": 16,
+          "depth": 19,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 16,
+          "depth": 19,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 22
+        },
+        {
+          "s": 17,
+          "depth": 19,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 17,
+          "depth": 19,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 21
+        },
+        {
+          "s": 18,
+          "depth": 20,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 19
+        },
+        {
+          "s": 18,
+          "depth": 20,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        },
+        {
+          "s": 19,
+          "depth": 20,
+          "alpha": "1/20",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 19
+        },
+        {
+          "s": 19,
+          "depth": 20,
+          "alpha": "1/40",
+          "path": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15,
+            14,
+            13,
+            12,
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 20
+        }
+      ]
+    },
+    {
+      "family": "Dyadic harmonic chain k=3",
+      "weights": [
+        "0",
+        "1/4",
+        "1/2",
+        "1"
+      ],
+      "upper_path": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        3
+      ],
+      "checks": 4,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/4",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "1/8",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        },
+        {
+          "s": 2,
+          "depth": 3,
+          "alpha": "1/4",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 3
+        },
+        {
+          "s": 2,
+          "depth": 3,
+          "alpha": "1/8",
+          "path": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        }
+      ]
+    },
+    {
+      "family": "Dyadic harmonic chain k=6",
+      "weights": [
+        "0",
+        "1/32",
+        "1/16",
+        "1/8",
+        "1/4",
+        "1/2",
+        "1"
+      ],
+      "upper_path": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "checks": 10,
+      "records": [
+        {
+          "s": 1,
+          "depth": 6,
+          "alpha": "1/32",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 1,
+          "depth": 6,
+          "alpha": "1/64",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/32",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 2,
+          "depth": 6,
+          "alpha": "1/64",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/32",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 3,
+          "depth": 6,
+          "alpha": "1/64",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/32",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "1/64",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/32",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 9
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "1/64",
+          "path": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        }
+      ]
+    },
+    {
+      "family": "Dyadic harmonic chain k=10",
+      "weights": [
+        "0",
+        "1/512",
+        "1/256",
+        "1/128",
+        "1/64",
+        "1/32",
+        "1/16",
+        "1/8",
+        "1/4",
+        "1/2",
+        "1"
+      ],
+      "upper_path": [
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "checks": 18,
+      "records": [
+        {
+          "s": 1,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 1,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 2,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 2,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 3,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 3,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 4,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 4,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 5,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 5,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 6,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 6,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 7,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 8,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 8,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        },
+        {
+          "s": 9,
+          "depth": 10,
+          "alpha": "1/512",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 17
+        },
+        {
+          "s": 9,
+          "depth": 10,
+          "alpha": "1/1024",
+          "path": [
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 18
+        }
+      ]
+    },
+    {
+      "family": "Closed-form depth helper d=4, M=2",
+      "weights": [
+        "0",
+        "3/8",
+        "5/8",
+        "3/4",
+        "7/8",
+        "1"
+      ],
+      "upper_path": [
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        4,
+        4
+      ],
+      "checks": 9,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "3/8",
+          "path": [
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 6
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "3/16",
+          "path": [
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "5/16",
+          "path": [
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 7
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "3/8",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "3/16",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 5
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "5/16",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 5
+        },
+        {
+          "s": 3,
+          "depth": 4,
+          "alpha": "3/8",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 4
+        },
+        {
+          "s": 3,
+          "depth": 4,
+          "alpha": "3/16",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 5
+        },
+        {
+          "s": 3,
+          "depth": 4,
+          "alpha": "5/16",
+          "path": [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 5
+        }
+      ]
+    },
+    {
+      "family": "Closed-form depth helper d=6, M=3",
+      "weights": [
+        "0",
+        "7/18",
+        "11/18",
+        "13/18",
+        "7/9",
+        "5/6",
+        "8/9",
+        "17/18",
+        "1"
+      ],
+      "upper_path": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        1,
+        0
+      ],
+      "one_switch_depths": [
+        3,
+        4,
+        5,
+        6,
+        6
+      ],
+      "checks": 20,
+      "records": [
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "7/18",
+          "path": [
+            8,
+            7,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "7/36",
+          "path": [
+            8,
+            7,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "11/36",
+          "path": [
+            8,
+            7,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 13
+        },
+        {
+          "s": 1,
+          "depth": 3,
+          "alpha": "13/36",
+          "path": [
+            8,
+            7,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 13
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "7/18",
+          "path": [
+            8,
+            7,
+            6,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "7/36",
+          "path": [
+            8,
+            7,
+            6,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "11/36",
+          "path": [
+            8,
+            7,
+            6,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 12
+        },
+        {
+          "s": 2,
+          "depth": 4,
+          "alpha": "13/36",
+          "path": [
+            8,
+            7,
+            6,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 12
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "7/18",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 10
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "7/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "11/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 11
+        },
+        {
+          "s": 3,
+          "depth": 5,
+          "alpha": "13/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 11
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "7/18",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "7/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "11/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 8
+        },
+        {
+          "s": 4,
+          "depth": 6,
+          "alpha": "13/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "7/18",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 7
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "7/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "11/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": true,
+          "generator_count": 8
+        },
+        {
+          "s": 5,
+          "depth": 6,
+          "alpha": "13/36",
+          "path": [
+            8,
+            7,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          "extra_children": {},
+          "leading_collision_repair": false,
+          "generator_count": 8
+        }
+      ]
+    }
+  ]
+}

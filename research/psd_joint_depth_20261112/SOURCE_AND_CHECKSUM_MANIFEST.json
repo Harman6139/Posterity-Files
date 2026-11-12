@@ -1,0 +1,17 @@
+{
+  "source_repository": "Harman6139/Posterity-Files",
+  "source_branch": "research/psd-joint-depth-universal-20261107",
+  "reviewed_source_commit": "48bcfb75063cb8674f3505384cbcd5e8ddc8af75",
+  "remote_commit_made": false,
+  "result": "Fixed-nullity one-switch interpolation and complete attainable (n,r,d,alpha) arithmetic spectrum",
+  "independent_referee_review": false,
+  "files": {
+    "128_ONE_SWITCH_FIXED_NULLITY_UNIVERSAL_CLASSIFICATION.md": "3eff4a5f2ac0fbddd696e5f920662132444346503a511997cd8f5170f1d1a3b5",
+    "129_ONE_SWITCH_EXACT_CERTIFICATE_AUDIT.py": "71417fcd0c545ca7f424c0f11eda8e55e6ad1eb82424719585176d48e04fd034",
+    "130_ONE_SWITCH_EXACT_AUDIT_RESULTS.json": "d9fbcf46c1d91d7c1161f2048641a2422f65cdb3cbc6884fdf7e64c8064685c4",
+    "EXAMPLE_125_DEGREE_FOUR_CERTIFICATE.json": "e8320277197a54037cbea2794c478e33ff37e5045a89a5bc9fa533eac48889c0",
+    "EXAMPLE_125_DEGREE_FOUR_INPUT.json": "bb102fc15601490d20aab49e1284a166c4e3d2138a71576c1950ca15b3d61f3c",
+    "INDEX_APPEND.md": "2861241f601180c2460788c35eacd98211e8b161074099c067cabc02a66d1f13",
+    "README.md": "9a4b455e3d0e0a742015977a0ec1b78eaeece4add63cb7b5bfa675ba8083cb00"
+  }
+}

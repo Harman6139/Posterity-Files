@@ -17,3 +17,8 @@
 The [chronological master index through milestone 127](README_THROUGH_127_20261109.md) is an exact preserved copy of the former README at commit `48bcfb75063cb8674f3505384cbcd5e8ddc8af75`. Its old open-problem statements describe the status at their dates. All linked milestone files and original chat-attachment archives remain unchanged.
 
 The [original Opus 5.5 handoff](../psd_joint_depth_20261109/OPUS_5_5_SUCCESSOR_RESEARCH_HANDOFF.md) and [previous project-lead handoff](PROJECT_LEAD_START_HERE_THROUGH_127_20261109.md) are preserved. The old forbidden-schedule and cancellation examples remain valid; the new construction avoids their hypotheses rather than overturning them.
+
+## Parallel one-switch proof and exact-rational certificates (2026-11-12)
+
+A second, independently prepared research write-up is archived as [128 — fixed-nullity universal classification](../psd_joint_depth_20261112/128_ONE_SWITCH_FIXED_NULLITY_UNIVERSAL_CLASSIFICATION.md), with its [rational constructor/audit](../psd_joint_depth_20261112/129_ONE_SWITCH_EXACT_CERTIFICATE_AUDIT.py), [recorded results](../psd_joint_depth_20261112/130_ONE_SWITCH_EXACT_AUDIT_RESULTS.json), [manifest](../psd_joint_depth_20261112/SOURCE_AND_CHECKSUM_MANIFEST.json), and [original pre-push packet notes](../psd_joint_depth_20261112/README_PARALLEL_ONE_SWITCH_PROOF.md). Its internal milestone numbering overlaps the earlier Nov 12 package; filenames are intentionally distinct and no existing proofs or historical checkpoints were overwritten. The original auditor was rerun on 2026-11-12 and reported PASS on 225 constructions in 17 families. This is a research proof, not an independently refereed or validated journal result.
+

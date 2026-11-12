@@ -7,3 +7,8 @@ Read [128: one-switch interpolation](128_ONE_SWITCH_EXACT_NULLITY_INTERPOLATION.
 [130: exact certificate program](130_EXACT_ONE_SWITCH_CERTIFICATE.py) and [its recorded output](130_AUDIT_OUTPUT.txt) provide supplementary regression checks.
 
 Status: complete research proof, not independently refereed. The classification concerns existence of `(n,r,d,alpha)`, not every exact exposing rank profile or every dense kernel's normal form.
+
+## Parallel proof packet — additional exact certificates
+
+The companion [fixed-nullity classification proof](128_ONE_SWITCH_FIXED_NULLITY_UNIVERSAL_CLASSIFICATION.md), [standard-library constructor/auditor](129_ONE_SWITCH_EXACT_CERTIFICATE_AUDIT.py), [225 exact audit records](130_ONE_SWITCH_EXACT_AUDIT_RESULTS.json), [example input](EXAMPLE_125_DEGREE_FOUR_INPUT.json) and [example certificate](EXAMPLE_125_DEGREE_FOUR_CERTIFICATE.json) were prepared independently in another research continuation. The original [pre-push README](README_PARALLEL_ONE_SWITCH_PROOF.md), [index text](INDEX_APPEND.md), and [source checksum manifest](SOURCE_AND_CHECKSUM_MANIFEST.json) are preserved as produced; their historical 'not committed' statements refer to the packet before this GitHub push. Both sets of numbered milestone files coexist without overwriting each other. Status: unrefereed research proof and exact-rational regression checks.
+
