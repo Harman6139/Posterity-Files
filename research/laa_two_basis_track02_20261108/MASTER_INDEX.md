@@ -1,3 +1,13 @@
+> **NEW FRESH GPT PRO HANDOFF — 2026-11-12**
+>
+> Full analytical frontier research prompt: https://github.com/Harman6139/Posterity-Files/blob/laa-track02-gptpro-analytic-frontier-20261112/prompts/laa_two_basis_frontier_20261112/FRESH_GPT_PRO_COMPLETE_ANALYTIC_FRONTIER_HANDOFF.md
+>
+> The fresh working branch is **laa-track02-gptpro-analytic-frontier-20261112**, forked from **laa-track02-unrestricted-quadratic-20261108**. This branch inherits the *entire* milestone 00–64 history and the earlier dense-quadratic theorem directory. The older links and branch name in the historical index below are retained for provenance. Future Pro research should use research/laa_two_basis_track02_20261112/ and a new index.
+>
+> **Frontier status at handoff: UNSOLVED.** Do not confuse architectural lower bounds or the dual-spectrahedral positive subclass with the unrestricted two-basis quotient theorem.
+
+---
+
 # LAA Paper — Research Track 02: canonical GitHub index and status ledger
 
 Last updated: 2026-11-08. Current working branch: **laa-track02-unrestricted-quadratic-20261108**.
