@@ -32,7 +32,7 @@ Let
 F=\{x\in C:A x=b\}\ne\varnothing,
 \]
 
-and let r be the largest Jordan rank of a point of F. Equivalently, r is the rank of the minimal face containing F. Assume initially 1 <= r < N and put nu=N-r.
+and let r be the largest Jordan rank of a point of F. Equivalently, r is the rank of the minimal face containing F. Assume initially 1 <= r < N and put nu=N-r. The number of linear constraints and their real coefficients are unrestricted; this is not a classification at fixed measurement codimension.
 
 Define the sharp bounded-set error exponent alpha(F) as the largest beta in (0,1] such that, on every bounded set, for all sufficiently small residuals,
 
@@ -72,11 +72,11 @@ For 1<=j<k set
 \]
 \[
 p(j)=\min\{1\le i\le j:2w_i>w_j+w_{i-1}\},\qquad
-u(j)=p(j)-1.
+u_j=p(j)-1.
 \tag{1.4}
 \]
 
-In this display the letter u in u(j) denotes the upper successor; it is unrelated to nullity nu. Let L(w), respectively U(w), count transitions from k to k-1 and then repeatedly using ell, respectively u, until zero. For k=1, L=U=1.
+Write u(j)=u_j for the upper successor in (1.4). Let L(w), respectively U(w), count transitions from k to k-1 and then repeatedly using ell, respectively u, until zero. For k=1, L=U=1.
 
 For fixed parents, the harmonic boundary system is nonsingular. A nonzero solution with zero boundary values would have a nonzero extreme value propagated along strictly increasing upper parents to the terminal boundary. Thus its solution is rational, and only finitely many parent assignments occur at fixed k. The weights can be written as ratios of integer determinants.
 
@@ -99,7 +99,7 @@ This is the **same set as for real positive semidefinite matrices of order N**. 
 
 Every admissible pair can already be realized by a singleton section. Consequently the exact minimum-nullity characterization from Milestone 128 is also the exact minimum-rank-defect characterization for the real, complex, and quaternionic matrix series. The phrase "minimum dimension" must be translated to **Jordan rank** in this statement: ambient vector-space dimensions differ between cone types.
 
-When r=N the bounded-set exponent is 1 and d=0. When F={0}, homogeneity gives exponent 1 and d=1. The theorem is not a classification of empty or weakly infeasible sections.
+When r=N, the gauge in Section 2 has zero kernel, giving exponent 1; strict feasibility gives d=0. When F={0}, K cap C={0}; compactness of the unit cone section gives ||Ax||>=c||x|| on C, and a strictly positive separator in K^perp exposes {0} in one step. Thus alpha=1 and d=1. The theorem is not a classification of empty or weakly infeasible sections.
 
 **Irreducibility is essential.** In an orthant, uniquely feasible sections have only exponent 1. Indeed, at a feasible x_0 the tangent cone consists of vectors nonnegative on zero coordinates. Uniqueness implies that this tangent cone meets ker A only at zero, since every such tangent vector is feasible for a sufficiently small positive displacement. Compactness of its unit section gives ||Ah||>=c||h|| for every tangent vector h. All x-x_0 with x in the orthant are tangent vectors, so the recovery bound is linear. In contrast S_+^2 has exponent 1/2 at a rank-one target. Thus total Jordan rank alone does not classify spectra for reducible symmetric cones.
 
@@ -367,7 +367,7 @@ Let K_0 be a real-symmetric measurement kernel and x_* in S_+ a uniquely feasibl
 
 **Proof.** An ambient residual-delta positive competitor has pi x in S_+, old residual O(delta), and ||x-pi x||=O(delta). The old sharp error upper bound thus bounds its displacement with the same exponent, since alpha<=1. Embedded old sharp competitors give the converse. Exact feasible points lie in S, so uniqueness is unchanged.
 
-For facial depth, consider a current face whose idempotent c is in S. Let p<=c be the largest support of an original valid compressed positive stress. Such a largest support exists: a finite positive sum of stresses realizes the union of all their exposed ranges. For any new valid ambient stress Z, the compressed element T=Q_c Z is positive. Its projection pi T=Q_c pi Z is an old valid compressed positive stress, hence supported on p. Thus
+For facial depth, consider a current face whose idempotent c is in S. Let p<=c be the largest support of an original valid compressed positive stress. Such a largest support exists: a finite positive sum of stresses realizes the union of all their exposed supports. For any new valid ambient stress Z, the compressed element T=Q_c Z is positive. Its projection pi T=Q_c pi Z is an old valid compressed positive stress, hence supported on p. Thus
 
 \[
 \langle c-p,T\rangle=\langle c-p,\pi T\rangle=0.
@@ -375,13 +375,13 @@ For facial depth, consider a current face whose idempotent c is in S. Let p<=c b
 
 Positivity forces T to be supported on p, including all cross-Peirce components. Therefore no new ambient stress can expose anything beyond the old maximal support. The embedded old stress attains p. Induction identifies all greedy faces and their ranks.
 
-For completeness, greedy maximal-stress facial reduction has minimum length: if f<=g, restriction of any valid stress on g is a valid stress on f, and positivity makes its kernel on f the intersection with the old kernel. Hence the greedy survivor map is inclusion-preserving. Induction shows its survivor after t steps is contained in the survivor of any other t-step chain. It reaches the minimal face in the fewest possible steps. Thus equality of greedy faces gives equality of minimum degrees, not merely equality of one chosen chain length.
+Here is a cone-level proof that these greedy chains have minimum length. For a current face D, let G(D) be its intersection with the zero sets of all valid nonnegative stress functionals. A finite positive sum realizes this intersection in a symmetric cone. If D is contained in D', every valid nonnegative stress on D' restricts to one on D, so G(D) is contained in G(D'). For any alternative step D' to E, G(D') is contained in E. Induction therefore puts the greedy face after t steps inside every alternative face after t steps. The greedy chain reaches the minimal face in the fewest possible steps. Thus equality of greedy faces gives equality of minimum degrees, not merely equality of one chosen chain length.
 
 Finally, the shifted affine slice x_*+te+K_0 lies entirely in S because the embedding is unital. Its positivity and determinant are the original ones. Therefore its determinant maximizer is exactly the embedded original maximizer. QED.
 
 ### Completion of Theorem A
 
-Necessity follows from Lemma 2.1 and Sections 4–5. For sufficiency apply the established real-PSD Milestone 128 at order N and rank r, and then Lemmas 6.1–6.2. This proves the equality of attainable spectra for every simple cone. The minimum rank-defect formula is the identical finite arithmetic minimum from Milestone 128; its explicit finite cutoff carries over unchanged in the matrix series. No change of ambient coordinates, scalar field, or Jordan multiplication can improve that minimum. QED.
+Necessity follows from Lemma 2.1 and Sections 4–5. For sufficiency apply the established real-PSD Milestone 128 at order N and rank r, and then Lemmas 6.1–6.2. This proves the equality of attainable spectra for every simple cone. The minimum rank-defect formula is the identical finite arithmetic minimum from Milestone 128; its explicit finite cutoff carries over unchanged in the matrix series. No change of scalar field or irreducible cone type of the same rank can improve that minimum. QED.
 
 ---
 
@@ -607,7 +607,7 @@ The central narrative should fit one substantial article. There is no reason to 
 
 # Part VI. Primary-source references and provenance
 
-The literature and journal-policy check was performed on 12 November 2026. Preprints are identified as preprints. The attached BibTeX file contains persistent identifiers.
+The literature and journal-policy check was performed on 12 November 2026. Preprints are identified as preprints. The [BibTeX bibliography](132_PRIMARY_SOURCES.bib) contains persistent identifiers.
 
 [FK94] J. Faraut and A. Korányi, *Analysis on Symmetric Cones*, Oxford Mathematical Monographs, Oxford University Press, 1994. DOI: 10.1093/oso/9780198534778.001.0001. Standard spectral, Peirce, quadratic-representation, and classification inputs.
 
