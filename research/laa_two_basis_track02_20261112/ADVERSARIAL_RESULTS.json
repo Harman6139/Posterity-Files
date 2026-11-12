@@ -1,0 +1,122 @@
+{
+  "seed": 6139,
+  "exact_raw_identity": {
+    "m": 2,
+    "p": 3,
+    "source_operator_identity": "exact rational equality verified"
+  },
+  "cases": [
+    {
+      "label": "historical_62_nonspectrahedral_dual",
+      "m": 4,
+      "p": 8,
+      "N": 179,
+      "K_proved": 45904.15909676461,
+      "max_tested_residual_ratio": 0.2431888881359488,
+      "max_cost_error": 5.684341886080802e-14,
+      "min_relative_certificate_eigenvalue": -6.402113820294705e-16,
+      "max_relative_certificate_pairing_error": 9.473351948138878e-18,
+      "section_error": 1.9261657145981912e-15,
+      "relative_forward_data_error": 2.8296412690749285e-16,
+      "inner_min_eigenvalue": 0.5857864376269013,
+      "non_section_witness": {
+        "auxiliary_constraint_rank": 27,
+        "auxiliary_kernel_dimension": 109,
+        "perturbation_norm": 0.23517211934377055,
+        "relative_data_error": 2.763559327737201e-16,
+        "decoder_error": 1.9261657145981912e-15,
+        "inner_min_eigenvalue": 0.5857864376269013
+      }
+    },
+    {
+      "label": "rank_one_redundant_zero_rows",
+      "m": 2,
+      "p": 4,
+      "N": 55,
+      "K_proved": 6716.327132511964,
+      "max_tested_residual_ratio": 0.24576475207364396,
+      "max_cost_error": 7.105427357601002e-15,
+      "min_relative_certificate_eigenvalue": -4.801393748321809e-16,
+      "max_relative_certificate_pairing_error": 2.0544907037055351e-19,
+      "section_error": 2.220449739952514e-16,
+      "relative_forward_data_error": 2.727256554463361e-16,
+      "inner_min_eigenvalue": 0.0
+    },
+    {
+      "label": "zero_fibre_redundant_rows",
+      "m": 2,
+      "p": 4,
+      "N": 55,
+      "K_proved": 6716.327132511964,
+      "max_tested_residual_ratio": 0.31561794409308036,
+      "max_cost_error": 1.4210854715202004e-14,
+      "min_relative_certificate_eigenvalue": -4.801393748321809e-16,
+      "max_relative_certificate_pairing_error": 0.0,
+      "section_error": 0.0,
+      "relative_forward_data_error": 0.0,
+      "inner_min_eigenvalue": 0.0
+    },
+    {
+      "label": "infeasible_duplicate_equation",
+      "m": 2,
+      "p": 4,
+      "N": 55,
+      "K_proved": 6716.327132511964,
+      "max_tested_residual_ratio": 0.32257721407621864,
+      "max_cost_error": 2.220446049250313e-16,
+      "min_relative_certificate_eigenvalue": -4.801393748321809e-16,
+      "max_relative_certificate_pairing_error": 2.054491259479137e-19
+    },
+    {
+      "label": "infeasible_zero_equation",
+      "m": 2,
+      "p": 4,
+      "N": 55,
+      "K_proved": 6716.327132511964,
+      "max_tested_residual_ratio": 0.3259414115958293,
+      "max_cost_error": 3.552713678800501e-15,
+      "min_relative_certificate_eigenvalue": -4.801393748321809e-16,
+      "max_relative_certificate_pairing_error": 2.0544901479323843e-19
+    },
+    {
+      "label": "infeasible_negative_trace",
+      "m": 2,
+      "p": 4,
+      "N": 55,
+      "K_proved": 6716.327132511964,
+      "max_tested_residual_ratio": 0.32695219333950426,
+      "max_cost_error": 1.7763568394002505e-15,
+      "min_relative_certificate_eigenvalue": -4.801393748321809e-16,
+      "max_relative_certificate_pairing_error": 2.0544907037055351e-19
+    },
+    {
+      "label": "minimal_m1_p1_complement_singular",
+      "m": 1,
+      "p": 1,
+      "N": 18,
+      "K_proved": 615.3333001348999,
+      "max_tested_residual_ratio": 0.23159206590284276,
+      "max_cost_error": 7.105427357601002e-15,
+      "min_relative_certificate_eigenvalue": -1.8338042605397374e-16,
+      "max_relative_certificate_pairing_error": 2.487537763552384e-17,
+      "section_error": 0.0,
+      "relative_forward_data_error": 1.3991702827225145e-16,
+      "inner_min_eigenvalue": 0.0
+    },
+    {
+      "label": "nonscalar_trace_control_rank_one",
+      "m": 2,
+      "p": 3,
+      "N": 53,
+      "K_proved": 17314.317046951317,
+      "max_tested_residual_ratio": 0.30825790050910523,
+      "max_cost_error": 4.440892098500626e-16,
+      "min_relative_certificate_eigenvalue": -4.3911025168295837e-16,
+      "max_relative_certificate_pairing_error": 1.5701180398059282e-17,
+      "section_error": 5.551115123125783e-16,
+      "relative_forward_data_error": 2.822351114336793e-16,
+      "inner_min_eigenvalue": 2.5671916623255477e-15
+    }
+  ],
+  "scope": "All assertions passed. Floating-point cases are diagnostics; the algebraic manuscript is the proof."
+}
