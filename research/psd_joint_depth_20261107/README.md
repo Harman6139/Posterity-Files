@@ -28,7 +28,7 @@ A second, independently prepared research write-up is archived as [128 — fixed
 
 The same file contains the adversarial primary-literature audit, proposed title and abstract, draft introduction, economical theorem/proof architecture, and recommendation to consolidate one Transactions AMS submission rather than pursue a separate rank-profile program. The [primary-source BibTeX bibliography](../psd_joint_depth_20261112/132_PRIMARY_SOURCES.bib) records the literature and current journal-policy sources.
 
-**Scope:** Jordan rank is not ambient vector-space dimension; irreducibility is essential. The spectral result concerns external maximum-determinant regularization, not every SDP central path, full Puiseux ramification, or algorithmic iteration rates. No classification of all exposing rank profiles is claimed. The arguments assume Milestone 128 and standard Jordan algebra facts; they remain unrefereed research proofs, and worldwide bibliographic priority is not certified.
+**Scope:** Jordan rank is not ambient vector-space dimension; irreducibility is essential. The spectral result concerns external maximum-determinant regularization, not every SDP central path, full Puiseux ramification, or algorithmic iteration rates. No classification of all exposing rank profiles is claimed in 132. The arguments assume Milestone 128 and standard Jordan algebra facts; they remain unrefereed research proofs, and worldwide bibliographic priority is not certified.
 
 ## Milestones 133–135 — uniform prefix profiles and a sharp boundary to rank universality
 
@@ -38,4 +38,12 @@ The same file contains the adversarial primary-literature audit, proposed title 
 
 [135: exact audit code](../psd_joint_depth_20261112/135_PROFILE_CHANNEL_EXACT_AUDIT.py) and [recorded results](../psd_joint_depth_20261112/135_PROFILE_CHANNEL_EXACT_AUDIT_RESULTS.json) verify 999 exponent–schedule certificates using rational arithmetic, including 454 redundant-collision cases, the explicit real/complex witness pairings, and the scope counterexamples. These checks supplement, rather than establish, the all-dimensional theorem.
 
-**Remaining gap:** a compact arithmetic iff for every real `(n,r,s_1,...,s_d,alpha)` with unrestricted canonical weights and arbitrary greedy flags is NOT proved. The prefix theorem must not be described as that full classification. All new mathematical arguments remain unrefereed research proofs.
+## Milestones 136–138 — complete arbitrary-profile classification over C and H
+
+[136: simultaneous central/facial flag congruence](../psd_joint_depth_20261112/136_SIMULTANEOUS_FLAG_CONGRUENCE_NORMAL_FORM.md) makes both flags coordinate flags while preserving the full central order vector, exponent, greedy profile and minimum degree. The identity-shift centers are compared by the two maxdet envelopes; no false commutation of congruence with the identity shift is assumed.
+
+[137: complete complex/quaternionic profile classification](../psd_joint_depth_20261112/137_COMPLETE_COMPLEX_QUATERNIONIC_FACIAL_PROFILE_CLASSIFICATION.md) gives a finite arithmetic iff for every joint central-weight, multiplicity, survivor-table, exponent and **arbitrary** greedy rank-drop profile over C and H. It handles non-prefix flags and repeated grades split across steps. The construction has the exact prescribed rank and nullity. The new mechanism uses source releases only when a smaller weight is exposed, and otherwise a distinct self-release edge joining the child to an already removed coordinate. This makes each release belong to one stage; tight and blocker ownership uses the two real coordinates of a Hermitian entry.
+
+[138: self-contained general-table audit](../psd_joint_depth_20261112/138_GENERAL_PROFILE_TABLE_EXACT_AUDIT.py) and [results](../psd_joint_depth_20261112/138_GENERAL_PROFILE_TABLE_EXACT_AUDIT_RESULTS.json) record 7,572 labelled exponent–schedule checks, 1,590 split-grade cases, 404 non-prefix cases, 2,707 redundant-source-blocker cases, and 247,749 exact generator/stress pairings. These are supplementary checks of the uniform proof.
+
+**Precisely remaining real gap:** the conditions of 137 are necessary over R, but their fixed-central-data converse is false by 134. The complete coarse real spectrum `(n,r,s_1,...,s_d,alpha)`, allowing different central weights, is NOT proved: the fixed-weight obstruction does not decide whether another weight vector realizes the same real exponent/profile tuple. No full real-profile closure is claimed. All new arguments remain unrefereed research proofs.
