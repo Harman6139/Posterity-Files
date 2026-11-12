@@ -25,3 +25,17 @@ Proposed title: **Sharp error exponents and facial depth in irreducible symmetri
 **Recommendation:** incorporate these compact structural strengthenings into the SAME paper, target Transactions AMS first (JLMS a strong alternative), and stop expanding into a full rank-profile classification or unrelated applications. The next priority is independent hostile proof review and manuscript consolidation. Advances in Mathematics is an ambitious editorial possibility, not a promised outcome.
 
 **Scope to preserve:** irreducible cones only for rank-universal equality; bounded-set error exponents for possibly unbounded feasible sets; Jordan rank rather than ambient dimension; this particular maximum-determinant path rather than all central paths or algorithmic complexity. The full facial-profile problem is not claimed solved. None of the new proofs has been independently refereed, and the primary-literature comparison is not a guarantee of worldwide novelty.
+
+## Requested profile continuation — Milestones 133–135
+
+The follow-on request to solve the profile problem produced a uniform positive theorem and a sharp obstruction, not a full real-profile classification.
+
+[133: two-channel prefix-profile theorem](../psd_joint_depth_20261112/133_TWO_CHANNEL_PREFIX_PROFILE_THEOREM.md) proves that every arithmetically admissible sorted-grade-prefix greedy schedule is realizable over complex and quaternionic Hermitian PSD at unchanged nullity, with arbitrary grade multiplicities and every admissible exponent. It uses the real and imaginary components of each offdiagonal entry separately, with one rigorously redundant blocker deleted. Both the global recovery bound and exact greedy maximality are proved.
+
+[134: real/complex profile separation](../psd_joint_depth_20261112/134_REAL_COMPLEX_PROFILE_SEPARATION.md) proves that the refined **central-spectrum plus greedy-profile** data need not be cone-type universal. For null grades `(1/4,3/7,1/2,17/28,5/7,1)`, the profile `(1,2,2,1)` is impossible over real PSD with rank-one target, even allowing arbitrary dense kernels and rotated intermediate faces. An explicit complex order-seven pencil realizes it. The proof also gives a real rank-two realization and the exact threshold `r dim_R(F)>=2` for this datum. It classifies all profiles for that separating spectrum and disproves the tempting endpoint-only profile rule.
+
+[135: audit program](../psd_joint_depth_20261112/135_PROFILE_CHANNEL_EXACT_AUDIT.py) and [results](../psd_joint_depth_20261112/135_PROFILE_CHANNEL_EXACT_AUDIT_RESULTS.json) record 999 exact exponent–schedule checks, including 454 redundant-collision checks, plus the explicit witness and scope-counterexample certificates. The finite audit is supplementary, not a substitute for the general proofs.
+
+**Paper implication:** the field-sensitive obstruction supplies a sharp, compact boundary to the rank-universality theorem. The two-channel theorem is a related structural extension, not a separate application program. The earlier theorem 132 is not retracted or contradicted.
+
+**Precisely still unproved:** a compact arithmetic necessary-and-sufficient formula for every real `(n,r,s_1,...,s_d,alpha)` with unrestricted central weights and arbitrary greedy flags. Genuine non-prefix flags occur, so the prefix theorem cannot be advertised as that full solution. All new manuscripts are research proofs pending independent review.
