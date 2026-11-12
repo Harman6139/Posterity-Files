@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; no floating-point tests",
+  "scope": "finite supplementary certificate audit, not the all-dimensional proof",
+  "families": [
+    {
+      "internal_vertices": 1,
+      "parent_assignments": 1,
+      "strict_policies": 1,
+      "prefix_schedules": 1,
+      "exponent_schedule_checks": 2
+    },
+    {
+      "internal_vertices": 2,
+      "parent_assignments": 4,
+      "strict_policies": 3,
+      "prefix_schedules": 3,
+      "exponent_schedule_checks": 7
+    },
+    {
+      "internal_vertices": 3,
+      "parent_assignments": 36,
+      "strict_policies": 18,
+      "prefix_schedules": 24,
+      "exponent_schedule_checks": 64
+    },
+    {
+      "internal_vertices": 4,
+      "parent_assignments": 576,
+      "strict_policies": 165,
+      "prefix_schedules": 310,
+      "exponent_schedule_checks": 926
+    }
+  ],
+  "total_exponent_schedule_checks": 999,
+  "redundant_three_way_collision_cases": 454,
+  "optimized_complex_witness": {
+    "weights": [
+      "0",
+      "1/4",
+      "3/7",
+      "1/2",
+      "17/28",
+      "5/7",
+      "1"
+    ],
+    "profile": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "alpha": "1/4",
+    "kernel_dimension": 7,
+    "pairings_checked": 28,
+    "separator_row_bound": "25/128",
+    "real_obstruction_dual_order": "11/28"
+  },
+  "complete_real_profile_family": [
+    {
+      "profile": [
+        1,
+        3,
+        2
+      ],
+      "exponents": [
+        "1/8",
+        "3/14",
+        "1/4"
+      ],
+      "kernel_dimension_without_leading_edge": 5
+    },
+    {
+      "profile": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "exponents": [
+        "1/8",
+        "3/14",
+        "1/4"
+      ],
+      "kernel_dimension_without_leading_edge": 6
+    },
+    {
+      "profile": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "exponents": [
+        "1/8",
+        "3/14",
+        "1/4"
+      ],
+      "kernel_dimension_without_leading_edge": 6
+    },
+    {
+      "profile": [
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "exponents": [
+        "1/8",
+        "3/14",
+        "1/4"
+      ],
+      "kernel_dimension_without_leading_edge": 6
+    }
+  ],
+  "nonprefix_scope_warning": {
+    "weights": [
+      "0",
+      "1/4",
+      "2/5",
+      "1/2",
+      "3/5",
+      "4/5",
+      "1"
+    ],
+    "real_layers": [
+      [
+        6
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        2,
+        4
+      ]
+    ],
+    "sorted_prefix_schedule_fails_at": {
+      "j": 3,
+      "q": 0,
+      "ell": 1
+    }
+  },
+  "denominator_seven_endpoint_obstruction": {
+    "weights": [
+      "0",
+      "3/7",
+      "5/7",
+      "6/7",
+      "1"
+    ],
+    "exponents": [
+      "3/14",
+      "5/14"
+    ],
+    "excluded_profile": [
+      1,
+      1,
+      2
+    ],
+    "attained_profile": [
+      1,
+      2,
+      1
+    ],
+    "profile_upper_endpoint": "2/5",
+    "forced_second_rank_at_least": 2
+  }
+}
