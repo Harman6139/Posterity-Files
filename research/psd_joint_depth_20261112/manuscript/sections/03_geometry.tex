@@ -1,0 +1,132 @@
+\section{The shared analytic geometry}\label{sec:geometry}
+We use the spectral theorem, Peirce decomposition, self-duality, and quadratic representations of Euclidean Jordan algebras \cite{FK94}. Write $Q_a=2L(a)^2-L(a^2)$, where $L(a)x=a\circ x$. If $a$ is positive and invertible, $Q_a$ is a self-adjoint cone automorphism with inverse $Q_{a^{-1}}$, and
+\[
+ \det(Q_ax)=(\det a)^2\det x,\qquad
+ \nabla^2(-\log\det)(x)=Q_{x^{-1}}.
+\]
+A positive element has norm at most its trace. For mutually orthogonal idempotents $c_i$ summing to $e$, let $E_{ii}=E_{c_i}$ and $E_{ij}$ be the cross-Peirce spaces. If $a=\sum a_i c_i$, $Q_a$ acts by $a_i^2$ on $E_{ii}$ and by $a_i a_j$ on $E_{ij}$.
+
+\begin{lemma}[Positive block bound]\label{lem:block}
+If $x\succeq0$ and $s_i=\ip{c_i}x$, then $\norm{x_{ij}}\le(k+1)\sqrt{s_i s_j}$. In particular, a zero positive diagonal block forces every touching cross block to vanish.
+\end{lemma}
+\begin{proof}
+For all $s_i>0$, apply $Q_a$ with $a=\sum s_i^{-1/2}c_i$. The result is positive and has trace $k+1$, so its norm, and hence the norm of each Peirce component, is at most $k+1$. Approximation by $x+\epsilon e$ treats zero $s_i$.
+\end{proof}
+
+\begin{lemma}[Greedy reduction has minimum length]\label{lem:greedy}
+The maximum exposed support is unique at each face, and the resulting greedy chain has minimum length among all valid facial-reduction chains.
+\end{lemma}
+\begin{proof}
+A finite positive sum of stresses realizes the union of their supports: the kernel of a sum of positive elements is the intersection of their kernels. Let $G(D)$ be the common zero face of all valid nonnegative stress functionals on a current face $D$. If $D\subset D'$, a valid stress on $D'$ restricts to a valid stress on $D$, so $G(D)\subset G(D')$. Also $G(D')$ is contained in the result of any single valid reduction from $D'$. Inductively, the greedy face after $t$ steps lies inside the face reached by any other chain after $t$ steps. The minimal feasible face belongs to every such face. A shorter chain reaching it would therefore force the greedy chain to have reached it too.
+\end{proof}
+
+\subsection{From affine sections to a singleton}
+\begin{lemma}[Exact feasible-direction gauge]\label{lem:gauge}
+Let $F=\{x\in C:Ax=b\}$ be nonempty, $x_0\in\ri F$, and $c=\supp x_0$. Set $M=\ker A\cap E_c$ and $\widehat A h=(Ah,P_Mh)$. Then $x_0$ is uniquely feasible for $\widehat A$. The two systems have the same sharp bounded-set exponent and exactly the same valid exposing stresses at every face containing $c$. In particular, their greedy profiles agree.
+\end{lemma}
+\begin{proof}
+For $y\in F$, relative interior gives $x_0+\epsilon(x_0-y)\in F$ for some $\epsilon>0$. Pairing with $e-c$ and using positivity gives $\ip{e-c}y=0$, so $y\in E_c$. Conversely $x_0$ is positive definite in $E_c$, and $x_0\pm s h\in F$ for small $s$ and $h\in M$. Thus $\operatorname{aff}F=x_0+M$, and the added gauge makes the target unique.
+
+On a bounded test region write $x-x_0=n+h$, where $n\in M$, $h\perp M$, and $\norm n\le M_0$. Put $\eta=\norm h$ and choose $\mu>0$ with $x_0\succeq\mu c$. For $x\in C$, its affine projection $z=x_0+n$ satisfies $z\succeq-\eta c$. Therefore $(1-\theta)z+\theta x_0\in F$ for $\theta=\eta/(\mu+\eta)$, and
+\begin{equation}\label{eq:gauge-distance}
+ \eta\le\dist(x,F)\le(1+M_0/\mu)\eta.
+\end{equation}
+Choose a fixed $\lambda>0$ with $(1-\lambda)\mu\ge\lambda M_0$. Then
+\[
+ \widehat x=x_0+\lambda h
+ =\lambda x+(1-\lambda)x_0-\lambda n\in C.
+\]
+Its gauge residual is zero and its original residual is $\lambda\norm{Ax-b}$. Conversely, an augmented residual-$\delta$ competitor has $\norm n\le\delta$, and hence $\norm{x-x_0}\le\dist(x,F)+\delta$. The singleton residual sublevels are bounded and converge to $x_0$, as proved below; these comparisons give equality of the sharp exponents locally and on every bounded original region. Projection of an arbitrary $x$ onto $C$ changes the affine residual by at most $\norm A\dist(x,C)$, giving \eqref{eq:set-error} with the same exponent.
+
+An augmented stress is $Z=Y+T$, with $Y\in K^\perp$, $T\in M$. On a current face containing $c$, positivity and annihilation of $x_0$ force the whole $c$-compression to vanish. Thus $0=\ip ZT=\norm T^2$, since $\ip YT=0$. Therefore $T=0$, proving the exact stress assertion. No assertion about equality of the ungauged central curves is required.
+\end{proof}
+
+\subsection{The center controls every competitor}
+\begin{lemma}[Maximum-determinant envelope]\label{lem:envelope}
+For a singleton section, \eqref{eq:center} exists uniquely, is semialgebraic in $t>0$, and converges to $x_*$. There is a constant $\kappa$ such that every $y\in C$ with residual at most $\delta$ satisfies
+\begin{equation}\label{eq:envelope}
+ 0\preceq y\preceq N(1+\kappa\delta/t)c_t,
+ \qquad c_t\succeq(t/N)e.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Uniqueness implies $K\cap C=\{0\}$. Strict separation of $K$ from the compact trace-one section of $C$ gives $W\in\operatorname{int}C\cap K^\perp$. Pairing with $W$ bounds the positive part of every fixed shifted affine slice and every bounded-residual sublevel. The slice contains $x_*+te\succ0$. Strict concavity of $\log\det$ and its divergence to $-\infty$ at the boundary give a unique maximum. Stationarity yields $c_t^{-1}\in K^\perp$ and
+\begin{equation}\label{eq:trace}
+ N=\ip{c_t^{-1}}{x_*}+t\tr(c_t^{-1}).
+\end{equation}
+Both summands are nonnegative. Hence $c_t\succeq(t/N)e$, while $z_t=tc_t^{-1}$ has trace and norm at most $N$ and $\ip{z_t}{x_*}\le Nt$. A bounded right inverse of $A^*$ on $K^\perp$ gives
+\[
+ \ip{z_t}y\le Nt+\kappa N\delta.
+\]
+Apply $Q_{c_t^{-1/2}}$ and bound a positive element by its trace times $e$; undoing the normalization gives \eqref{eq:envelope}.
+
+The inverse is a rational Jordan-algebraic function. Clearing its determinant in the central equations gives polynomial equations and inequalities with a unique positive solution. Their graph is semialgebraic. Thus its entries have convergent Puiseux expansions near zero; this standard semialgebraic fact is used over the fixed real coefficients of the instance \cite{BCR98}. Boundedness and uniqueness force every cluster point to equal $x_*$. The same compactness argument proves convergence of all small-residual singleton competitors.
+\end{proof}
+
+\begin{lemma}[Positive coefficient rescaling]\label{lem:rescale}
+Let a finite generalized polynomial $P(t)=\sum_qt^q A_q$ have, on each block $E_{ii}$, a positive-definite first diagonal coefficient at a distinct exponent $w_i$. Suppose $(A_q)_{ij}=0$ whenever $2q<w_i+w_j$. For sufficiently large fixed $\sigma$, the polynomial $\sum_qe^{\sigma q^2}t^qA_q$ is positive definite for small $t$, and is bounded below by a positive multiple of $\sum_i t^{w_i}c_i$.
+\end{lemma}
+\begin{proof}
+Normalize with $Q_b$, $b=\sum_i e^{-\sigma w_i^2/2}t^{-w_i/2}c_i$. The diagonal limit is positive definite on every block. A cross term survives only at $q=(w_i+w_j)/2$, when its constant multiplier is $e^{-\sigma(w_i-w_j)^2/4}$. All higher terms vanish. Choose $\sigma$ so large that the finite cross perturbation of the positive block-diagonal limit remains in the cone interior, and then choose $t$ small. The normalization gives the quantitative lower bound.
+\end{proof}
+
+\begin{proposition}[Fixed central chart and harmonicity]\label{prop:chart}
+Every positive-rank singleton section has the fixed chart \eqref{eq:chart-statement}, with $0<w_1<\cdots<w_k=1$ and $k\le N-r$. Each internal grade has a nonzero cross block of the actual coefficient $H_i=A_{w_i}\in K$ joining $a<i<b$ with $2w_i=w_a+w_b$. In particular, the grades satisfy \eqref{eq:harmonic}.
+\end{proposition}
+\begin{proof}
+Start with $c_0=\supp x_*$. Compress $c_t$ to the complementary face, take the support of its first nonzero positive Puiseux coefficient, and repeat in the remaining complementary face. This yields fixed orthogonal idempotents $c_i$ of positive ranks, strictly increasing diagonal orders $w_i>0$, and positive-definite first coefficients on $E_{ii}$. The lower eigenvalue bound in \eqref{eq:envelope} gives $w_i\le1$. Lemma~\ref{lem:block} gives the coefficient support rule
+\begin{equation}\label{eq:support}
+ (A_q)_{ij}=0\quad\text{if }w_i+w_j>2q.
+\end{equation}
+If $w_k<1$, truncate through $w_k$ and apply Lemma~\ref{lem:rescale}. All its nonconstant coefficients belong to $K$, because $c_t-x_*-te\in K$. This would yield a positive-definite exact feasible curve, contradicting uniqueness. Thus $w_k=1$.
+
+Apply the same lemma to the truncation through one. Its residual is $O(t)$, since $A_q\in K$ for $q<1$ and $A_1-e\in K$. The envelope transfers its thick lower chart to $c_t$. The upper chart follows from the bounded trace of its positive normalization. The normalized center is semialgebraic, bounded and bounded away from the cone boundary, so it has a positive-definite limit.
+
+For $i<k$, $H_i$ is in $K$, is positive definite on $E_{ii}$, and satisfies \eqref{eq:support}. If it had no tight cross-grade block of midpoint $w_i$, every nonzero cross-grade midpoint would be strictly smaller. Lower the whole grade $w_i$ slightly to $w'_i\in(w_{i-1},w_i)$, preserving the finitely many support inequalities, and add $t^{w'_i}H_i$ to the finite central expansion. The old support inequalities only become weaker. Lemma~\ref{lem:rescale} makes the new curve positive with residual $O(t)$ and $i$-th diagonal bounded below by $ct^{w'_i}$. This contradicts \eqref{eq:envelope} and the original $O(t^{w_i})$ diagonal. Tight cross-grade midpoints must straddle $i$. Choosing one at each grade gives \eqref{eq:harmonic}.
+\end{proof}
+
+\begin{proposition}[Sharp modulus from the restricted Hessian]\label{prop:dikin}
+For $K\ne0$ put
+\[
+ \rho_t=\max\{\norm h:h\in K,\ \norm{Q_{c_t^{-1/2}}h}\le1\},
+ \qquad
+ \tau=\min_{0\ne h\in K}\max_{h_{ij}\ne0}(w_i+w_j)/2.
+\]
+Then $\omega(\norm{Ae}t)\asymp t+\rho_t$, $\rho_t=\Theta(t^\tau)$, and $\alpha=\min(1,\tau)$. For $K=0$, $\alpha=1$. If $k\ge2$, $\alpha=w_v/2\le w_1$ for some $v$; if $k=1$, $\alpha\in\{1,1/2\}$.
+\end{proposition}
+\begin{proof}
+An admissible $h$ gives $c_t\pm h\in C$ with the same residual as $c_t$, so at least one has distance at least $\norm h$ from $x_*$. The point $x_*+te$ gives a linear lower bound. Conversely, a residual-$O(t)$ competitor can be written $y=c_t+h+E$, with $h\in K$ and $\norm E=O(t)$, using a bounded right inverse of $A$. The envelope bounds the normalized positive $y$, and $c_t\succeq(t/N)e$ bounds the normalization of $E$. Thus $\norm{Q_{c_t^{-1/2}}h}=O(1)$. Apply the same argument to $c_t-x_*-te\in K$, obtaining the upper bound $O(t+\rho_t)$.
+
+Write $a_t=\sum_i t^{w_i/2}c_i$ and $c_t=Q_{a_t}M_t$, where $M_t$ stays in a compact subset of the cone interior. Differentiating the determinant identity gives Hessian covariance, and hence
+\begin{equation}\label{eq:hessian}
+ \ip h{Q_{c_t^{-1}}h}\asymp\norm{Q_{a_t^{-1}}h}^2
+ =\sum_{i\le j}t^{-(w_i+w_j)}\norm{h_{ij}}^2.
+\end{equation}
+This uses covariance, not an unproved order-monotonicity assertion for $Q_a$. The finite support threshold $\tau$ is attained. A fixed vector attaining it gives one norm estimate. Projection of $K$ onto entries of weight at least $\tau$ is injective, since a vector in its kernel would have smaller maximum support weight. This finite-dimensional injectivity gives the opposite estimate uniformly in $K$, proving $\rho_t=\Theta(t^\tau)$.
+
+For $k\ge2$, the actual nonzero coefficient $H_1$ has maximum support weight $w_1$, so $\alpha\le w_1$. Equality is a half-weight by harmonicity of the lowest grade, whose lower parent is zero. If $\alpha<w_1$, a minimizing kernel vector has no null--null block. It cannot be supported entirely on $c_0$, since small signed perturbations there preserve positivity and violate uniqueness. Its largest support-to-null block gives $\alpha=w_v/2$. For $k=1$, the only entry weights outside $c_0$ are $1/2$ and one.
+\end{proof}
+
+\begin{proposition}[Primal and dual facial bounds]\label{prop:sandwich}
+The first maximum exposure is exactly the terminal grade, and every singleton section satisfies $L(w)\le d\le U(w)$.
+\end{proposition}
+\begin{proof}
+A first PSD stress annihilating $x_*$ has zero source row. Pair successively with $H_1,\ldots,H_{k-1}$. Once lower rows vanish, the only possible pairing of $H_i$ is its positive-definite $i$-th diagonal against a positive diagonal stress block; higher--higher entries are forbidden by \eqref{eq:support}. Therefore this block, and then its row, vanish. Only the terminal grade can be exposed. The constant coefficient of $z_t=t c_t^{-1}$ is positive definite there and zero elsewhere, so that exposure is attained.
+
+More generally, if a current face contains the grade prefix through $j$, every $H_i$ with $i\le\ell(j)$ is supported in that prefix because $2w_i<w_{j+1}$. Successive pairings force the prefix through $\ell(j)$ to survive the next step. This remains valid when the whole current face is not a grade prefix. Induction gives $d\ge L(w)$.
+
+By the fixed chart, the dual diagonal orders are $1-w_i$ with positive-definite first coefficients, and the cross order is at least $1-(w_i+w_a)/2$. Every full dual coefficient lies in $K^\perp$. On the prefix through $j$, set $p=u(j)+1$ and truncate through $E=1-w_p$. All rows below $p$ vanish: a lower--upper cross order is at least $1-(w_{p-1}+w_j)/2>E$, and lower--lower orders are larger too. All suffix diagonal leading coefficients are included. Lemma~\ref{lem:rescale}, now for the dual orders, produces a positive-definite suffix and a zero lower prefix. This is a fixed linear combination of actual ambient dual coefficients, not an unjustified zero extension. All orders used are below one, so the stress annihilates $x_*$. Repeating gives a valid chain of length $U(w)$.
+\end{proof}
+
+\subsection{A common verification lemma for the constructions}
+The following compact argument will replace repeated estimates for each realizing pencil.
+\begin{lemma}[Graded positive separation]\label{lem:realization}
+Let $D_t$ be a fixed diagonal power matrix with weights in $[0,1]$, zero exactly on the positive target support. Let $H_g$ be a basis of a matrix kernel $K$, with assigned positive degrees $\gamma_g$, such that
+\[
+ t^{\gamma_g}D_t^{-1}H_gD_t^{-1}\longrightarrow B_g
+\]
+exist and are linearly independent. Suppose there is $W\succ0$ orthogonal to every $B_g$. Then every PSD residual-$t$ competitor satisfies $X\preceq C D_t^2$, and its coefficient on $H_g$ is $O(t^{\gamma_g})$, up to an $O(t)$ residual correction. A thick PSD curve of residual $O(t)$ supplies the converse central-chart bound. If that curve has displacement $\Theta(t^\alpha)$ and all $\gamma_g\ge\alpha\le1$, the sharp exponent is $\alpha$.
+\end{lemma}
+\begin{proof}
+The normalized kernels converge in the Grassmannian to $\spanof\{B_g\}$, with fixed dimension. Write $X=X_*+H+E$, $\norm E\le Ct$. Then $D_t^{-1}(X_*+E)D_t^{-1}$ is bounded. If a sequence of normalized positive competitors were unbounded, divide by its norm and take a subsequential limit. The result would be a nonzero positive element in the limiting kernel, contradicting strict positivity of $W$. Hence normalized competitors are uniformly bounded. The normalized basis has smallest singular value bounded away from zero, so its coefficients, namely the old coefficients divided by $t^{\gamma_g}$, are bounded. A thick curve is bounded above by a constant multiple of the actual center by Lemma~\ref{lem:envelope}; this gives the central lower chart. The other assertions follow from the coefficient bounds and the matching displacement.
+\end{proof}

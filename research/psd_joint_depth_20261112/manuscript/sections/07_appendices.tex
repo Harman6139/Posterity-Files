@@ -1,0 +1,58 @@
+\section{Exact minimum rank defect}\label{app:minimum}
+For $\alpha<1$ and an attainable $(d,\alpha)$, Theorem A gives
+\begin{equation}\label{eq:minrank}
+\nu_{\min}(d,\alpha)=\min\{k:\text{a harmonic certificate has }
+\alpha=w_v/2\le w_1,\ L(w)\le d\le U(w)\}.
+\end{equation}
+The minimum total matrix order at positive target rank $r$ is $r+\nu_{\min}$. The formula is arithmetic, since the weights solve $(2I-B)w=c$ and hence are ratios of integer determinants. Here is an explicit finite cutoff, included to distinguish \eqref{eq:minrank} from an unbounded enumeration.
+
+If $0<\alpha<1/2$ is rational, put $e=\lceil\log_2(1/\alpha)\rceil$, $c=2^{-(e-1)}$, and write $(2\alpha-c)/(1-c)=a/b$ in lowest terms, including $0/1$. A base harmonic certificate uses the dyadic spine $1/2,1/4,\ldots,c$, the affine grid $c+j(1-c)/b$ for $1\le j<b$, and terminal one, omitting duplicates. Spine parents are zero and double the weight; new grid parents are its two grid neighbors. The vertex $2\alpha$ is present and all internal weights are at least $c\ge\alpha$. The lower peeling removes the spine levels successively, together with all intervening grid weights, so $L=e$. The real lower-endpoint construction realizes $(e,\alpha)$ with nullity at most $e+b-1$.
+
+To realize a prescribed $d>e$, choose $M\ge1$ with
+\[
+(2^M-1)(1-2\alpha)>\alpha(d-2).
+\]
+Set $A=2^M-1$, $\Delta=(2A+d-2)^{-1}$, $\beta=A\Delta>\alpha$, $T_0=2\beta+\Delta$, and $k=M+d-1$. Define
+\[
+w_1=\beta,\qquad
+w_i=T_0-(T_0-\beta)2^{-(i-1)}\ (2\le i\le M+1),
+\qquad
+w_i=2\beta+(i-M-1)\Delta\ (M+2\le i\le k).
+\]
+Then $w_{M+1}=2\beta$ and $w_k=1$. Parents are $(0,M+1)$ for vertex one, $(i-1,M+2)$ for $2\le i\le M+1$, and the two neighbors for the remaining internal vertices. The upper recurrence removes the top arithmetic-spine coordinates one at a time, then the $M$ middle coordinates, then vertex one. Thus $U=d$ and this helper has exponent $\beta$ at depth $d$ and nullity $M+d-1$.
+
+Glue the base and helper only at their positive source, keeping all null coordinates and edges separate and measuring each terminal. Their generator equations decouple in every compressed stress because its source row is zero. Hence maximum exposure acts componentwise and the degree is the maximum of the two degrees. The positive leading separators combine after diagonal scaling, and a sufficiently small common edge coefficient makes the combined normalized sharp curves positive. Equivalently, Lemma~\ref{lem:realization} applies to their union, whose leading pivots outside the source are disjoint. The exponent is the smaller one, $\alpha$. Therefore the search in \eqref{eq:minrank} may be restricted to
+\[
+d\le k\le
+B(d,\alpha):=
+\begin{cases}
+e+b-1,&d=e,\\
+e+b+M+d-2,&d>e.
+\end{cases}
+\]
+This cutoff is not asserted optimal; the finite minimum is exact.
+
+For completeness, the dimension-unrestricted spectra are $\{1,1/2\}$ at depth one, $\Q\cap[1/4,1/2]$ at depth two, and $\Q\cap[2^{-d},1/2)$ at $d\ge3$. Rationality follows from the harmonic system. The guaranteed lower bound $\alpha\ge2^{-d}$ is the classical facial-reduction bound \cite{Sturm00,Lourenco21}; the constructions above attain every listed rational value. If $\alpha=1/2$, the half-weight rule requires $w_1\ge1/2$, and the upper recurrence has at most two steps. The special minima are $\nu_{\min}(1,1)=\nu_{\min}(1,1/2)=1$ and $\nu_{\min}(2,1/2)=2$. All constructions can use rational positive scales: clear the weight denominators and replace $e^{\sigma w_i^2}$ by integer powers of a sufficiently large integer. The finitely many strict convex-square inequalities used for diagonal dominance then remain strict. A substitution $t=s^Q$ clears all curve exponents.
+
+\section{Reproducibility and the separate minimality assertion}\label{app:computation}
+The proofs of Theorems A--C are analytic. The supplied standard-library exact programs test their certificates, not floating-point fits of exponents. The one-switch audit checks 225 constructions in 17 families. The general-table audit checks 7,572 labelled exponent--schedule cases, including 1,590 split-grade and 404 non-prefix cases, with 247,749 exact generator/stress pairings. These are finite checks and do not establish the all-dimensional statements.
+
+A separate audit of Theorem C solves the determinant-27 candidate systems and verifies the explicit witness. It also compares the complete complex candidate spectrum through nullity five, as given by Theorem B, with exact real constructions. The counts of distinct $(\text{profile},\alpha)$ pairs for $\nu=1,\ldots,5$ are $2,4,11,48,292$. Each candidate is covered by a one-switch construction, a documented real tied-edge witness, or fully observed padding. Conditional on this reproducible finite enumeration, nullity six is the first field-separating nullity. This last assertion is \emph{computer-assisted}; omitting it leaves every principal theorem unchanged. The machine-readable certificates and historical witness specifications are retained with the research packet, not used as substitutes for the proofs in the text.
+
+A newly written independent checker additionally verifies the two determinant-27 graph types on 3,125 anchored Hamiltonian graphs, solves both boundary matrices by exact elimination, and checks all 24 pairings and all face compressions of the six-generator witness. It confirms that the only permitted off-face pair at the obstructed cut is $(0,5)$. It also records the terminal exception described next. The checker is structurally independent of the supplied witness audit, but neither an automated check nor this internal audit is an external referee review.
+
+\section{Scope boundaries, audit correction, and disclosure}\label{app:scope}
+\subsection{An essential correction to the cut-rank formulation}
+The weighted consequence \eqref{eq:cutjump} is only asserted for internal $0<\tau<1$. To see why, take $X_*=E_{00}$ and $K=\spanof(R_{01})$ in $\Sym^2$. The center is $\operatorname{diag}(1+t,t)$ and the first stress $E_{11}$ exposes the terminal grade one. At the initial full face, $O_f=0$, so both cut ranks are zero and no strict jump occurs. The central coefficient at order one is $I$, not an element of $K$. The unrestricted version of the weighted jump in the earlier research note was therefore false. Lemma~\ref{lem:cut} itself is valid without this restriction, and Theorem C uses it at the internal order $10/27$, so its proof is unaffected.
+
+\subsection{What the statements do not assert}
+The full unrestricted real facial-profile spectrum remains unclassified. It is not a missing hypothesis in Theorems A--C. The survivor inequalities alone are not sufficient over $\R$, and the cut-rank jumps have not been proved sufficient for all real kernels. No simple universal capacity threshold is inferred from the exact threshold for the family in Theorem C.
+
+Irreducibility is necessary for Theorem A. An orthant admits only linear singleton recovery: its tangent cone at the target intersects the measurement kernel only at zero, and compactness of the unit tangent section gives a uniform linear residual bound. The rank-two PSD example in the introduction has exponent $1/2$. Coupled products require their Peirce support and feasible-rank distribution to be retained. Their classification and quotient-encoding questions are outside this paper.
+
+The identity-shift central curve is not an arbitrary optimization central path. Eigenvalue orders are not full Puiseux ramification data. The gauge reduction is not claimed to preserve the ungauged central spectrum. The flag theorem is a congruence statement, not simultaneous orthogonal diagonalization or classification of Euclidean angles. Construction at rational coefficients does not imply genericity or uniform conditioning constants. These distinctions are maintained in every use of the results.
+
+\subsection{Pre-submission status and research-process disclosure}
+This consolidated text contains the complete research arguments for the stated principal results and the correction above. It is not a report of independent specialist certification or worldwide bibliographic priority. Before submission, the responsible authors must verify authorship, institutional information, the bibliography, the computational appendix, and the proofs, especially the Jordan transfer and the two edge-ownership constructions. No author names or affiliations have been supplied in this draft.
+
+Generative AI was used in the project's mathematical exploration, proposed proofs and constructions, code development, literature searching, auditing, and consolidation of this manuscript. This draft and its internal audit were produced with ChatGPT; the exact model/tool history of earlier sessions must be verified from the project record by the submitting authors. No human proof verification or external peer review is represented as having occurred. The final submission should contain an accurate journal-compliant AI declaration rather than treating this provisional statement as a substitute for author responsibility.

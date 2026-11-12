@@ -1,0 +1,99 @@
+\section{Invariants and main results}\label{sec:statements}
+Let $E$ be a finite-dimensional Euclidean Jordan algebra, $e$ its unit, $N$ its rank, and $C$ its closed cone of squares. We use the trace inner product and its norm. Write $x\succeq0$ for $x\in C$. In the matrix cases $E=\Herm_n(\F)$, $\F\in\{\R,\C,\HH\}$, the inner product is $\operatorname{Re}\tr(XY)$ and $N=n$. For an idempotent $f$, $E_f$ denotes its face span and $Q_f$ its orthogonal face compression. In matrices, $Q_fX=fXf$.
+
+Suppose $Ax=Ax_*$ has the unique solution $x_*\in C$, of rank $0<r<N$, and set $K=\ker A$. Define
+\begin{equation}\label{eq:modulus}
+\omega(\delta)=\sup\{\norm{x-x_*}:x\in C,\ \norm{A(x-x_*)}\le\delta\}.
+\end{equation}
+The sharp exponent $\alpha$ is characterized by $\omega(\delta)=\Theta(\delta^\alpha)$ as $\delta\downarrow0$. Our proof establishes existence and attainment of this exponent. Equivalent fixed norms and fixed invertible changes of measurement coordinates do not affect it.
+
+A valid exposing stress on the current face $E_f$ is $Z\in K^\perp$ with $\ip Z{x_*}=0$ and $Q_fZ\succeq0$. The next face is the zero face of this compressed positive element inside $E_f$. A maximum-rank stress exists: a finite positive sum of available stresses has the union of their supports. Its kernel is unique. Iteration defines the \emph{greedy facial flag} and its rank drops $(s_1,\ldots,s_d)$. Lemma~\ref{lem:greedy} proves that $d$ is the minimum facial-reduction length. Put $\nu=N-r$.
+
+The canonical center and its dual are
+\begin{equation}\label{eq:center}
+ c_t=\arg\max\{\log\det x:x\in\operatorname{int}C,\ x-x_*-te\in K\},
+ \qquad z_t=t c_t^{-1}.
+\end{equation}
+Its \emph{central orders and multiplicities} are the $w_i,m_i$ for which a fixed orthogonal idempotent decomposition satisfies
+\begin{equation}\label{eq:chart-statement}
+ c\sum_{i=0}^k t^{w_i}c_i\preceq c_t\preceq C\sum_{i=0}^k t^{w_i}c_i,
+ \quad w_0=0,\quad c_0=\supp x_*,\quad \rank c_i=m_i.
+\end{equation}
+The positive orders are strictly increasing, and $m_0=r$. In particular, there are $m_i$ eigenvalues of order $t^{w_i}$ and $m_i$ corresponding dual eigenvalues of order $t^{1-w_i}$. This is an order comparison, not simultaneous diagonalization or a complete Puiseux expansion.
+
+\subsection{Harmonic certificates}
+For $k\ge1$ choose parents
+\begin{equation}\label{eq:harmonic}
+0\le a_i<i<b_i\le k,\qquad
+0=w_0<w_1<\cdots<w_k=1,\qquad
+2w_i=w_{a_i}+w_{b_i}\quad(1\le i<k).
+\end{equation}
+For fixed parents the boundary system is nonsingular. A nonzero extreme value of a homogeneous solution propagates along increasing upper parents to the zero terminal boundary, a contradiction. Thus its solution is rational. There are at most $((k-1)!)^2$ parent assignments. Retain only those giving strict weights.
+
+For $1\le j<k$, set
+\begin{equation}\label{eq:peeling}
+\ell(j)=\#\{1\le i<j:2w_i<w_{j+1}\},\qquad
+u(j)=\min\{1\le p\le j:2w_p>w_j+w_{p-1}\}-1.
+\end{equation}
+Let $L(w)$ and $U(w)$ be the numbers of transitions in the paths beginning $k\to k-1$ and then repeatedly using $\ell$ and $u$, respectively, until zero. For $k=1$, both are one.
+
+\begin{theoremA}[Rank-universal central and coarse spectra]\label{thm:A}
+Fix an irreducible symmetric cone of rank $N$, $1\le r<N$, positive integers $m_1,\ldots,m_k$ summing to $N-r$, and $k\ge2$. The joint data consisting of the central orders $w_i$ with multiplicities $m_i$, sharp exponent $\alpha$, and minimum facial depth $d$ are attainable by a singleton section if and only if \eqref{eq:harmonic} holds and
+\begin{equation}\label{eq:coarse}
+ \alpha=w_v/2\le w_1\quad\text{for some }1\le v\le k,
+ \qquad L(w)\le d\le U(w).
+\end{equation}
+For $k=1$, the orders are $0,1$, the depth is one, and $\alpha\in\{1,1/2\}$. Every allowed datum has a construction with rational coefficients in the usual real coordinates of the standard cone model.
+
+Consequently, at fixed $N,r$, the attainable $(d,\alpha)$ spectrum is identical for all irreducible symmetric cones of rank $N$. It is the finite union of \eqref{eq:coarse} over $k\le N-r$ and all harmonic certificates, together with $(1,1)$.
+\end{theoremA}
+
+For a nonempty affine section $F=\{x\in C:Ax=b\}$ of maximum feasible rank $r$, define its bounded-set error exponent as the largest $\beta\in(0,1]$ such that
+\begin{equation}\label{eq:set-error}
+ \dist(x,F)\le C_B\bigl(\dist(x,C)+\norm{Ax-b}\bigr)^\beta
+\end{equation}
+on each bounded set for sufficiently small residuals. The coarse conclusion of Theorem A holds for these sections as well. The constants are not asserted uniform on unbounded sets. If $r=N$, the exponent is one and the depth zero; for the singleton zero target they are one and one.
+
+Theorem A also gives an exact minimum rank defect: for permitted $d,\alpha<1$, minimize $k$ among certificates satisfying \eqref{eq:coarse}. The positive target rank is arbitrary. Appendix~\ref{app:minimum} makes this minimum finite with an explicit cutoff. This is a finite arithmetic characterization, not a claim of an elementary closed function or a polynomial-time algorithm.
+
+\subsection{Relative flags and survivor tables}
+For matrix cones write $F_i=U_0\oplus\cdots\oplus U_i$ for the ascending central flag and $V_t$ for the greedy survivor after $t$ steps. Their relative position is recorded by
+\[
+ x_i^t=\dim_{\F}(F_i\cap V_t)-\dim_{\F}(F_{i-1}\cap V_t),\qquad i\ge1.
+\]
+A simultaneous-flag congruence makes $x_i^t$ the number of grade-$i$ coordinates remaining after step $t$. This is a discrete relative-position invariant, not a specification of Euclidean angles.
+
+An admissible table starts at $x_i^0=m_i$, ends at $x_i^d=0$, is nonincreasing in $t$, and has positive column rank drops
+\begin{equation}\label{eq:margins}
+ s_t=\sum_i(x_i^{t-1}-x_i^t)>0.
+\end{equation}
+Its first step satisfies
+\begin{equation}\label{eq:terminal}
+ x_k^1=0,\qquad x_i^1=m_i\quad(i<k).
+\end{equation}
+For $t\ge2$, define
+\[
+ b_t=\max\{i:x_i^{t-1}>0\},\qquad
+ a_t=\min\{i:x_i^{t-1}<m_i\},
+\]
+and for $x_i^t>0$ put $p_t(i)=\max(\{0\}\cup\{j<i:x_j^t>0\})$. The local rules are
+\begin{align}
+ x_i^{t-1}>x_i^t&\ \Longrightarrow\ 2w_i\ge w_{a_t},\tag{L}\label{eq:L}\\
+ x_i^t>0&\ \Longrightarrow\ 2w_i\le w_{p_t(i)}+w_{b_t}.\tag{U}\label{eq:U}
+\end{align}
+Rule (U) forces the entire greatest remaining grade to disappear at each step; hence $d\le k$.
+
+\begin{theoremB}[Complete Hermitian flag spectrum]\label{thm:B}
+For $\F=\C$ or $\HH$, $r\ge1$, and $k\ge2$, the central orders, positive multiplicities, relative flag table, and sharp exponent are simultaneously attainable in $\Herm_{r+\nu}(\F)$ if and only if \eqref{eq:harmonic}, \eqref{eq:margins}, \eqref{eq:terminal}, (L), (U), and $\alpha=w_v/2\le w_1$ hold. The greedy profile is exactly $(s_1,\ldots,s_d)$, and $d$ is the minimum facial depth. The construction uses no additional rank or nullity and has rational real and imaginary coefficients. For $k=1$, the only profile is $(\nu)$, with exponent one or one half.
+\end{theoremB}
+The same rules are necessary over $\R$, but their fixed-central-data converse is false. Taking the finite union over certificates and tables gives the complete coarse exponent/profile spectrum over $\C$ and $\HH$. It does not give the unrestricted real spectrum.
+
+\begin{theoremC}[Field dependence after forgetting central orders]\label{thm:C}
+Let $m,r\ge1$ and $\F\in\{\R,\C,\HH\}$. There is a singleton section in $\Herm_{r+m+5}(\F)$ with feasible rank $r$, sharp exponent $5/27$, and greedy facial profile $(m,1,2,2)$ if and only if
+\begin{equation}\label{eq:capacity}
+ r\dim_{\R}\F\ge2.
+\end{equation}
+The affirmative cases have rational coefficients. The negative case excludes all dense real kernels and all central certificates, not merely one prescribed spectrum. The same iff holds for general nonempty affine sections with maximum feasible rank $r$, using \eqref{eq:set-error}.
+\end{theoremC}
+
+For $m=1$, Theorem C separates real and complex rank-one problems of order seven. Real-to-complex positive embedding preserves exponent and greedy profile, so this is a strict inclusion, not just a comparison of unrelated examples. The minimum separating nullity is six under the supplementary finite verification in Appendix~\ref{app:computation}; that minimality assertion is not used in Theorem C.

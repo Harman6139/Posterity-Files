@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; no floating-point tests",
+  "scope": "Finite supplementary construction audit, not a proof by enumeration.",
+  "multiplicity_family": "All simple grades, plus one extra coordinate in each grade.",
+  "counting_convention": "Labelled coordinate schedules; not distinct attainable tuples.",
+  "families": [
+    {
+      "internal_grades": 1,
+      "parent_assignments": 1,
+      "strict_policies": 1,
+      "labelled_schedules": 3,
+      "exponent_schedule_checks": 6
+    },
+    {
+      "internal_grades": 2,
+      "parent_assignments": 4,
+      "strict_policies": 3,
+      "labelled_schedules": 12,
+      "exponent_schedule_checks": 28
+    },
+    {
+      "internal_grades": 3,
+      "parent_assignments": 36,
+      "strict_policies": 18,
+      "labelled_schedules": 136,
+      "exponent_schedule_checks": 360
+    },
+    {
+      "internal_grades": 4,
+      "parent_assignments": 576,
+      "strict_policies": 165,
+      "labelled_schedules": 2420,
+      "exponent_schedule_checks": 7178
+    }
+  ],
+  "total_exponent_schedule_checks": 7572,
+  "split_grade_cases": 1590,
+  "non_prefix_cases": 404,
+  "redundant_source_blocker_cases": 2707,
+  "generator_stress_pairings_checked": 247749,
+  "explicit_examples": {
+    "non_prefix": {
+      "weights": [
+        "0",
+        "1/4",
+        "2/5",
+        "1/2",
+        "3/5",
+        "4/5",
+        "1"
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "layers": [
+        [
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "omitted_blockers": 0,
+      "split_grade": false,
+      "non_prefix": true,
+      "kernel_dimension": 10,
+      "profile": [
+        1,
+        2,
+        3
+      ],
+      "alpha": "1/4",
+      "generator_stress_pairings": 30
+    },
+    "split_grade": {
+      "weights": [
+        "0",
+        "1/4",
+        "1/2",
+        "3/4",
+        "1"
+      ],
+      "multiplicities": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "layers": [
+        [
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "omitted_blockers": 0,
+      "split_grade": true,
+      "non_prefix": false,
+      "kernel_dimension": 8,
+      "profile": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "alpha": "1/4",
+      "generator_stress_pairings": 32
+    }
+  }
+}

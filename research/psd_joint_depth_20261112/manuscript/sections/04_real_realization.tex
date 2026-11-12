@@ -1,0 +1,133 @@
+\section{Real realization and rank universality}\label{sec:real}
+The converse in Theorem A is proved first with one real coordinate per positive grade and a rank-one target. A multiplicity lift and a positive Jordan retraction then give the full statement.
+
+\subsection{One switch fills the depth interval}
+Both $\ell(j)$ and $u(j)$ are nondecreasing and $0\le\ell(j)\le u(j)<j$. Indeed, if $2w_i<w_{j+1}$, tight parents give $b_i\le j$ and
+$2w_i\le w_{i-1}+w_j$; hence $i\le u(j)$. The other assertions follow directly from the thresholds in \eqref{eq:peeling}.
+
+Set $a(0)=0$ and $a(j)=1+a(\ell(j))$. Induction gives that $a$ is nondecreasing. Write the entire upper path as $j_0=k$, $j_1=k-1$, $j_{t+1}=u(j_t)$, $j_D=0$, where $D=U(w)$. For $1\le s\le D-1$, follow its first $s$ transitions and then use the lower recurrence. The resulting length is
+\[
+ d_s=s+a(j_s),\qquad d_1=L(w),\qquad d_{D-1}=U(w).
+\]
+Since $a(j)-1=a(\ell(j))\le a(u(j))\le a(j)$,
+\begin{equation}\label{eq:one-switch}
+ d_{s+1}-d_s\in\{0,1\}.
+\end{equation}
+Every integer in the interval is therefore a one-switch length. This does not assume that adding one edge changes depth by at most one.
+
+Fix such an $s$, and put $q=j_s>0$, $J=j_{s-1}>q$. Call $i>q$ early and $i\le q$ delayed. We work on coordinates $0,\ldots,k$ with $X_*=E_{00}$ and $F_{ab}=e_ae_b^T+e_be_a^T$. Fix tight parents $P_i=(a_i,b_i)$ and a sufficiently small positive rational $\lambda$; $1/[100(k+1)^2]$ suffices. Tight physical edges are distinct, since their midpoint weights determine their children.
+
+\subsection{Release edges, blockers, and ownership}
+For each lower transition $j\to\ell(j)$, assign to its children $\ell(j)<i\le j$ the release
+\[
+ R_i=(0,j+1).
+\]
+It has midpoint at most $w_i$. For $i<j$ this is the definition of $\ell(j)$, and for $i=j$ it follows from a tight upper parent of $j$. Early children have no release.
+
+For early $i>q$, define a minimal safe blocker
+\[
+ B_i=(i-1,c_i),\qquad c_i=\min\{b>i:w_{i-1}+w_b\ge2w_i\}.
+\]
+For delayed $2\le i\le q$, define instead
+\begin{equation}\label{eq:common-blocker}
+ B_i=(i-1,J).
+\end{equation}
+There is no additional blocker for child one. All blockers are safe: the minimal one exists by harmonicity; for \eqref{eq:common-blocker}, either $J=k$ or $q=u(J)$, both of which give $w_{i-1}+w_J\ge2w_i$. Their lower endpoints are distinct, so the blockers are pairwise distinct and non-source.
+
+Start with $E_{ii}-E_{00}+\lambda F_{P_i}$ and add $\lambda F_{R_i}$ when a distinct release exists. If $B_i=P_i$, no separate blocker is needed. If $B_i=P_j$ for $j\ne i$, add $E_{ii}-E_{00}$ to the \emph{existing} tight generator at $j$. Safety implies $j>i$. Otherwise add $N_i=E_{ii}-E_{00}+\lambda F_{B_i}$. Each tight generator has at most one extra child, denoted $c(i)$ when present. Thus
+\begin{equation}\label{eq:real-generators}
+ H_i=\sum_{a\in S_i}E_{aa}-|S_i|E_{00}
+       +\lambda F_{P_i}+\lambda F_{R_i},
+ \qquad S_i=\{i\}\text{ or }\{i,c(i)\},
+\end{equation}
+with absent and duplicate releases omitted. Each main edge has one owner, not two independent coefficients.
+
+If $\alpha=w_v/2<w_1$, also add $G=\lambda F_{0v}$. This cannot be a tight edge or a blocker. If it equals a release, the corresponding step has $j=v-1$ and $\ell(j)=0$, since $w_v<2w_1$. Omit the release from \emph{all} tight generators in that final layer. A replacement final stress is constructed below. Let $K$ be the span of the displayed generators and measure $K^\perp$. Their traces and terminal diagonals vanish, so $I,E_{kk}\in K^\perp$.
+
+\begin{lemma}[Collision synchronization]\label{lem:collisions}
+The construction has the following properties.
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item If an early blocker $B_i=P_j$ with $j>i$, its children $i,j$ belong to the same upper layer.
+\item If a delayed blocker $B_i=P_j$ with $j>i$, then $\ell(q)<j\le q$ and the edge has upper endpoint $J>q$.
+\item If a tight edge $P_i=(0,b)$ equals a lower release from $j=b-1$, then $i$ lies in that very lower layer and its own release equals $P_i$. A source-tight generator has no extra child; any other generator sharing that release has strictly larger weight.
+\item Child one's tight source edge and every delayed source release are active throughout all noninitial upper-prefix steps.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For (i), suppose $j$ is removed from prefix $T$ while $i$ survives. Then $i<p(T):=u(T)+1$, so $c_i\le T$. Thus
+\[
+2w_j=w_{i-1}+w_{c_i}\le w_{p(T)-1}+w_T<2w_{p(T)}\le2w_j,
+\]
+a contradiction. Since $j>i$, a suffix schedule cannot remove $j$ later.
+For (ii), $j\le q$ is automatic when $s=1$. Otherwise $q=u(J)$, and $j>q$ would give $2w_j\le w_q+w_J<2w_{q+1}\le2w_j$. Also $2w_j=w_{i-1}+w_J\ge w_{q+1}$, giving $j>\ell(q)$.
+For (iii), $2w_i=w_b$ and $i<b$ give $\ell(b-1)<i\le b-1$. Non-source blockers cannot add a child to a source-tight generator. A distinct sharing child has strictly larger weight because its release midpoint is at most its weight.
+For (iv), when $s\ge2$, $q=u(J)\ge1$ gives $2w_1\le w_J$, so the upper endpoint of $P_1$ is at most $J$. Every delayed release has upper endpoint at most $q+1\le J$. Earlier prefixes contain these endpoints. For $s=1$ there is no such step.
+\end{proof}
+
+\subsection{Sharp recovery and the entire central chart}
+Assign degree $w_i$ to $H_i$, degree $\eta_i=(w_{i-1}+w_{b(B_i)})/2\ge w_i$ to $N_i$, and degree $\alpha$ to $G$. The normalized leading form of $H_i$ is $E_{ii}+\lambda F_{P_i}$, with any additional tight release retained; an extra child diagonal vanishes because it has smaller weight. The form of $N_i$ is either $E_{ii}+\lambda F_{B_i}$ or just $\lambda F_{B_i}$, according as $\eta_i=w_i$ or $\eta_i>w_i$. Each tight pivot is unique in the leading forms by Lemma~\ref{lem:collisions}(iii), and all other main pivots are unique. Thus these limits are independent.
+
+Set $z_i=e^{\sigma w_i^2}$, $W_{ii}=z_i$, and $W_{P_i}=-z_i/(2\lambda)$. At a new blocker of midpoint $w_i$ use the same assignment; at a strictly safe blocker use zero. All other entries, including additional releases and $G$, are zero. There is no conflicting assignment: an additional release of the same degree could equal another tight edge only if its owner had the same strict weight, in which case it was already counted once. Every leading form pairs to zero with $W$. Each nonzero normalized offdiagonal is a fixed multiple of
+\[
+ \exp\{-\sigma(w_a-w_b)^2/4\},
+\]
+so $W\succ0$ for large fixed $\sigma$. Lemma~\ref{lem:realization} gives the uniform full-ambient upper bound.
+
+For sharpness activate only tight generators:
+\begin{equation}\label{eq:real-arc}
+ X(t)=E_{00}+\sum_{i=1}^{k-1}t^{w_i}H_i+tE_{kk}
+       +\begin{cases}t^\alpha G,&\alpha<w_1,\\0,&\alpha=w_1.\end{cases}
+\end{equation}
+Every internal diagonal is $t^{w_i}$ plus nonnegative higher-order terms, and the source tends to one. After diagonal normalization, limiting offdiagonals are small multiples of $\lambda$. Strict diagonal dominance proves $X(t)\succ0$ and $X(t)\succeq cD_t^2$. Its residual is exactly $t$ and its displacement is $\Theta(t^\alpha)$. Thus the target is unique, the exponent is sharp, and the actual central chart has precisely the prescribed grades. This proof does not infer positivity of the full matrix from its two-by-two minors.
+
+\subsection{Ambient stresses and exact minimum depth}
+At the full face, source annihilation gives a zero source row. If an internal stress diagonal were positive, choose its smallest index. Its tight lower parent, source release, and any smaller extra child all have zero rows or diagonals, so pairing with its own generator is impossible. The first maximum exposure is therefore exactly $e_k$, attained by $E_{kk}$.
+
+At a later upper prefix $0,\ldots,T$, put $p=u(T)+1$. No index below $p$ can have a positive stress diagonal. Choose the smallest one if it exists. Child one is forbidden by Lemma~\ref{lem:collisions}(iv). For $i\ge2$ its blocker is active: its upper endpoint is at most $T$, and its lower endpoint $i-1$ has zero row. A separate blocker equation forces $Z_{ii}=0$. If the blocker belongs to a tight owner, both children are still on the face by (i)--(ii), its source release is active, and a positive sum of nonnegative child diagonals would have to vanish. This is again impossible.
+
+To attain the whole suffix $C=\{p,\ldots,T\}$, put positive diagonals $z_i=e^{\sigma w_i^2}$ on $C$ and zero elsewhere, and assign
+\begin{equation}\label{eq:upper-stress}
+ Z_{P_j}=-\frac{1}{2\lambda}\sum_{i\in S_j\cap C}z_i,
+ \qquad Z_{B_i}=-\frac{z_i}{2\lambda}\one_{i\in C}
+\end{equation}
+for new blockers. Set releases and $G$ to zero. A release has upper endpoint at most $q+1$, so cannot coincide with an edge whose early owner is exposed; a delayed extra child cannot be carried by an early owner. Hence every generator pairing is zero. If an assigned edge is active and has a child in $C$, both endpoints belong to $C$: otherwise safety contradicts $w_{p-1}+w_T<2w_p$. For every contributing child,
+\begin{equation}\label{eq:convex-square}
+ (w_a^2+w_b^2)/2-w_i^2\ge(w_b-w_a)^2/4>0.
+\end{equation}
+Large $\sigma$ makes the compression positive definite on precisely $C$. Thus the first $s$ greedy steps are exactly the upper prefix and reach $0,\ldots,q$.
+
+For an ordinary lower step $j\to\ell(j)$, put diagonal one on $C=\{\ell(j)+1,\ldots,j\}$ and zero elsewhere. Give the current release $f=(0,j+1)$ entry $-1/(2\lambda)$ and every other release zero. On a tight edge not equal to a retained release put
+\[
+ Z_{P_i}=-\one_{c(i)\in C}/(2\lambda),
+\]
+with zero numerator when no extra child exists. Give a new blocker's edge $-1/(2\lambda)$ exactly when its child is in $C$. The leading edge is zero. Own diagonals are canceled by the current release, or the identical source-tight anchor; extra diagonals are canceled by their owner edges. Lemma~\ref{lem:collisions}(iii) makes all shared assignments consistent. All nonzero offdiagonals are off-face: current releases touch $j+1$, delayed blockers touch $J>q$, and delayed owner collisions have that same off-face endpoint. Early owner children were removed together and contribute zero. The current compression is exactly the diagonal identity on $C$.
+
+If the optional $G$ collided with the final release, that release was omitted. On the last prefix $j=v-1$, use positive diagonals $z_i=e^{\sigma w_i^2}$ on all remaining null coordinates, put
+\[
+ Z_{P_i}=-(z_i+z_{c(i)})/(2\lambda)
+\]
+with zero values outside the current block, and put $-z_i/(2\lambda)$ on current new blockers. Other releases and $G$ are zero. Earlier release owners have zero own diagonal and no extra child. Delayed extra-child corrections remain off-face. No nonzero active tight anchor touches the source: such an anchor would give $2w_i\le w_j<w_v<2w_1\le2w_i$. All pairings vanish, and \eqref{eq:convex-square} makes the final compression positive definite. This handles every leading half-weight at rank one.
+
+Finally, every tight $H_i$ is supported on entries of weight at most $w_i$ and has positive $i$-th diagonal. If $i\le\ell(j)$, it is supported in the prefix through $j$. The same successive-pairing argument as Proposition~\ref{prop:sandwich} forces that prefix through $\ell(j)$ to survive one more step, even for rotated intermediate faces. From the greedy state $q$, at least $a(q)$ more steps are necessary. The explicit lower chain attains $a(q)$. By Lemma~\ref{lem:greedy}, the total minimum depth is exactly $s+a(q)$, completing the scalar real converse.
+
+\subsection{Multiplicities and other irreducible cones}
+\begin{lemma}[Multiplicity lift]\label{lem:multiplicity}
+The scalar construction can be replaced by one with arbitrary positive grade multiplicities $m_i$, preserving the sharp exponent, complete central orders, and grouped greedy schedule. Its rank drop on a layer $C_t$ becomes $\sum_{i\in C_t}m_i$.
+\end{lemma}
+\begin{proof}
+Replace $E_{ii}$ in every null diagonal by $I_{m_i}$, retain every physical edge on chosen group representatives, and subtract the new total diagonal trace from $E_{00}$. Observe every omitted coordinate. Choose $\lambda$ small relative to the new order. The independent main pivots are unchanged. In the leading separator use $z_iI_{m_i}$ and tight-edge entry $-m_i z_i/(2\lambda)$; the fixed multiplicity factors are dominated by the same convex-square exponential. Lemma~\ref{lem:realization} and the lifted version of \eqref{eq:real-arc}, with $tI_{m_k}$, give the full-ambient exponent and exact thick chart.
+
+For stress equations replace $Z_{ii}$ by the trace of its group compression. A positive block with zero trace has its entire row zero, so the smallest-positive-child and forced-survivor arguments apply to arbitrary stresses and prevent premature partial exposure. To realize a scalar stress with diagonal trace $z_i$, put $(z_i/m_i)I_{m_i}$ on its group and retain its edge entries. All pairings are the old pairings. Ordinary lower stresses remain diagonal on the face. For upper and final stresses, diagonal normalization only introduces fixed factors $\sqrt{m_a m_b}$; increasing $\sigma$ in \eqref{eq:convex-square} restores positivity on every whole intended group. This proves both maximality and attainability. Fully observed positive support padding gives any $r\ge1$.
+\end{proof}
+
+\begin{lemma}[Rank-preserving positive retraction]\label{lem:retraction}
+Every simple Euclidean Jordan algebra of rank $N$ contains a unital real-symmetric subalgebra $S\cong\Sym^N$ preserving rank, trace, and determinant. Its orthogonal projection $\pi$ is positive and commutes with $Q_f$ for every idempotent $f\in S$. Embedding a real kernel in $S$ and observing its entire orthogonal complement preserves the sharp exponent, central curve, and all greedy facial ranks.
+\end{lemma}
+\begin{proof}
+Use the classification of simple algebras \cite{FK94}. In real, complex, and quaternionic Hermitian matrices take real symmetric entries; in $\Herm_3(\mathbb O)$ take real symmetric three-by-three matrices; in a rank-two spin factor use two spatial directions; rank one is $\R$. Real primitive idempotents stay primitive, and the determinant and trace restrict correctly. For $x\in C$, $y\in S_+$, $\ip{\pi x}y=\ip xy\ge0$, so $\pi x\in S_+$ by self-duality. The self-adjoint $Q_f$ preserves $S$, hence commutes with $\pi$.
+
+An ambient residual-$\delta$ competitor has real projection satisfying the old residual bound and perpendicular component $O(\delta)$. The exponent is preserved because $\alpha\le1$; embedded old sharp competitors give the converse. The shifted affine slice lies entirely in the unital $S$, so the central curve itself is the old one.
+
+At an old greedy face supported by $f\in S$, let $p$ be its maximal exposed support. For a new positive compressed stress $T$, $\pi T$ is an old valid stress, hence supported on $p$. Therefore $\ip{f-p}T=\ip{f-p}{\pi T}=0$. Positivity forces $T$ to be supported on $p$, including cross-Peirce components. No larger exposure is possible; the old stress attains $p$. Induction preserves the entire greedy chain, and Lemma~\ref{lem:greedy} preserves its minimum length.
+\end{proof}
+Propositions~\ref{prop:chart}--\ref{prop:sandwich}, the one-switch construction, and Lemmas~\ref{lem:multiplicity}--\ref{lem:retraction} prove Theorem A. The coarse affine-section conclusion follows from Lemma~\ref{lem:gauge}. Unused null directions can instead be fully observed: they join the first step and do not alter exponent or depth. The $k=1$ boundary cases are fully observed singular targets or an invisible support-to-null entry with all null diagonals observed.

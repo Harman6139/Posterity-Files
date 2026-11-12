@@ -1,0 +1,470 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; no numerical PSD tests",
+  "main_result": "Coarse real/complex profile spectra first separate at nullity six.",
+  "not_claimed": "Complete all-dimensional real-profile or arbitrary-product classification.",
+  "denominator_27_certificate": {
+    "integer_subsets_checked": 5985,
+    "surviving_spectra": [
+      {
+        "numerators": [
+          0,
+          5,
+          8,
+          10,
+          12,
+          16,
+          27
+        ],
+        "determinant": 27,
+        "parents": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "admissible_profile_tables": [
+          [
+            [
+              6
+            ],
+            [
+              5
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        ]
+      },
+      {
+        "numerators": [
+          0,
+          5,
+          10,
+          13,
+          16,
+          20,
+          27
+        ],
+        "determinant": 27,
+        "parents": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "admissible_profile_tables": []
+      }
+    ],
+    "real_cut_coordinates_at_10_over_27": [
+      [
+        0,
+        5
+      ]
+    ],
+    "mandatory_lower_mode": "H_(8/27), unique tight entry (0,5)"
+  },
+  "analytic_graph_normal_form_checks": {
+    "proof": "Five bad parent selections force precisely these two graph types; see manuscript.",
+    "independent_model_checks": [
+      {
+        "type": "one_skip_three_chord",
+        "coefficient_matrix": [
+          [
+            8,
+            4,
+            10,
+            5
+          ],
+          [
+            14,
+            7,
+            4,
+            2
+          ],
+          [
+            1,
+            14,
+            8,
+            4
+          ],
+          [
+            2,
+            1,
+            16,
+            8
+          ],
+          [
+            4,
+            2,
+            5,
+            16
+          ]
+        ],
+        "patterns_containing_10": [
+          {
+            "bits": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "numerators": [
+              10,
+              4,
+              8,
+              16,
+              5
+            ]
+          },
+          {
+            "bits": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "numerators": [
+              13,
+              16,
+              5,
+              10,
+              20
+            ]
+          }
+        ],
+        "barrier_admissible_sets": [
+          [
+            5,
+            10,
+            13,
+            16,
+            20
+          ]
+        ]
+      },
+      {
+        "type": "two_adjacent_skip_two_chords",
+        "coefficient_matrix": [
+          [
+            12,
+            10,
+            5
+          ],
+          [
+            9,
+            12,
+            6
+          ],
+          [
+            15,
+            8,
+            4
+          ],
+          [
+            3,
+            16,
+            8
+          ],
+          [
+            6,
+            5,
+            16
+          ]
+        ],
+        "patterns_containing_10": [
+          {
+            "bits": [
+              0,
+              1,
+              0
+            ],
+            "numerators": [
+              10,
+              12,
+              8,
+              16,
+              5
+            ]
+          }
+        ],
+        "barrier_admissible_sets": [
+          [
+            5,
+            8,
+            10,
+            12,
+            16
+          ]
+        ]
+      }
+    ]
+  },
+  "explicit_main_witness": {
+    "complex_order": 7,
+    "real_two_source_order": 8,
+    "nullity": 6,
+    "profile": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "alpha": "5/27",
+    "kernel_dimension": 6,
+    "exact_pairings": 48,
+    "real_rank_one_comparison": {
+      "profile": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "alpha": "5/27",
+      "degree": 4,
+      "exact_pairings": 20
+    },
+    "separator_max_normalized_row_sum": "419430425/2147483648",
+    "arc_integer_orders": [
+      0,
+      5,
+      8,
+      10,
+      12,
+      16,
+      27
+    ],
+    "residual_arc_order": 27,
+    "greedy_minimality": "proved by source-row zero and N_2 equation in manuscript"
+  },
+  "four_small_nullity_real_witnesses": [
+    {
+      "w": [
+        "0",
+        "2/7",
+        "4/7",
+        "5/7",
+        "6/7",
+        "1"
+      ],
+      "parents": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "profile": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "alpha": "2/7"
+    },
+    {
+      "w": [
+        "0",
+        "3/8",
+        "5/8",
+        "3/4",
+        "7/8",
+        "1"
+      ],
+      "parents": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "profile": [
+        1,
+        2,
+        2
+      ],
+      "alpha": "5/16"
+    },
+    {
+      "w": [
+        "0",
+        "4/9",
+        "2/3",
+        "7/9",
+        "8/9",
+        "1"
+      ],
+      "parents": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "profile": [
+        1,
+        2,
+        2
+      ],
+      "alpha": "7/18"
+    },
+    {
+      "w": [
+        "0",
+        "4/9",
+        "2/3",
+        "7/9",
+        "8/9",
+        "1"
+      ],
+      "parents": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "profile": [
+        1,
+        2,
+        2
+      ],
+      "alpha": "4/9"
+    }
+  ],
+  "minimum_nullity_certificate": {
+    "status": "PASS (computer-assisted finite minimum-nullity certificate)",
+    "depends_on": "Milestone 137 necessity; 128/132 one-switch multiplicity realization; standard single-policy construction",
+    "distinct_harmonic_weight_sets": {
+      "1": 1,
+      "2": 3,
+      "3": 16,
+      "4": 130
+    },
+    "rows": [
+      {
+        "nullity": 1,
+        "complex_necessary_tuples": 2,
+        "real_one_switch_or_single_policy": 2,
+        "additional_tied_edge_witnesses": 0,
+        "equality_verified": true
+      },
+      {
+        "nullity": 2,
+        "complex_necessary_tuples": 4,
+        "real_one_switch_or_single_policy": 4,
+        "additional_tied_edge_witnesses": 0,
+        "equality_verified": true
+      },
+      {
+        "nullity": 3,
+        "complex_necessary_tuples": 11,
+        "real_one_switch_or_single_policy": 11,
+        "additional_tied_edge_witnesses": 0,
+        "equality_verified": true
+      },
+      {
+        "nullity": 4,
+        "complex_necessary_tuples": 48,
+        "real_one_switch_or_single_policy": 48,
+        "additional_tied_edge_witnesses": 0,
+        "equality_verified": true
+      },
+      {
+        "nullity": 5,
+        "complex_necessary_tuples": 292,
+        "real_one_switch_or_single_policy": 288,
+        "additional_tied_edge_witnesses": 4,
+        "equality_verified": true
+      }
+    ],
+    "first_separation_nullity": 6
+  },
+  "product_checks": {
+    "rank_two_boundary_product_cases": 62,
+    "exact_pairings": 524,
+    "scope": "supplementary tests of the all-q proof; q<=5"
+  }
+}

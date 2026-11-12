@@ -1,0 +1,148 @@
+\section{Field dependence after erasing the central spectrum}\label{sec:separation}
+We now prove Theorem C analytically. The issue is not whether a particular complex pencil can be made real, but whether \emph{any} real kernel with any central certificate can have the specified exponent and profile.
+
+\subsection{Off-face saturation}
+\begin{lemma}[Occupied off-face space]\label{lem:cut}
+Let $f$ be a current face idempotent in a Euclidean Jordan algebra and $g\le f$ an intended exposed subface. Write $O_f=\Id-Q_f$. Suppose $A_1,\ldots,A_l,B\in K$ satisfy
+\[
+ Q_gA_j=0,\qquad 0\ne Q_gB\succeq0,\qquad
+ O_fB\in\spanof\{O_fA_1,\ldots,O_fA_l\}.
+\]
+No ambient measurement stress can have positive compression supported exactly on $g$ and positive definite there.
+\end{lemma}
+\begin{proof}
+Cancel the off-face component to obtain $J=B-\sum_jc_jA_j\in K\cap E_f$. Then $Q_gJ=Q_gB$ is nonzero positive. An alleged stress $Z\in K^\perp$, with compression $S$ positive definite exactly on $g$, would give $0=\ip ZJ=\ip S{Q_gJ}>0$.
+\end{proof}
+
+The exact linear-algebra alternative behind this obstruction is
+\[
+ Q_g(K\cap E_f)\cap C_g=\{0\}
+ \quad\Longleftrightarrow\quad
+ \exists S_g\in\operatorname{int}C_g:\ S_g\perp Q_g(K\cap E_f).
+\]
+Strict separation of the trace-one positive section proves the equivalence. The identity $(K\cap E_f)^\perp_{E_f}=Q_fK^\perp$ lifts its zero-extended positive separator to an actual ambient stress. Lemma~\ref{lem:cut} is the concrete positive-circuit use of this alternative.
+
+There is a useful weighted form with an important restriction. In aligned coordinates let $K_{\le u}$ consist of kernel elements supported on entries of weight at most $u$, and put $R_f(u)=\dim_{\R}O_f(K_{\le u})$. If $\tau$ is the smallest grade in the intended exposed block and
+\begin{equation}\label{eq:internal-restriction}
+ 0<\tau<1,
+\end{equation}
+then its actual central coefficient $H_\tau\in K$ has nonzero PSD compression to that block, whereas every element of $K_{<\tau}$ has zero compression there. Therefore
+\begin{equation}\label{eq:cutjump}
+ R_f(\tau)>R_f(\tau^-)
+\end{equation}
+is necessary. This is not asserted sufficient. The restriction \eqref{eq:internal-restriction} cannot be dropped: at the first terminal exposure $O_e=0$, and $A_1$ need not belong to $K$. Only $A_1-e\in K$. Appendix~\ref{app:scope} records the simplest counterexample to the unrestricted jump formulation.
+
+\subsection{The denominator restricts every possible certificate}
+Let $h=k-1$ be the number of internal harmonic grades and $Q=2I-B$ their integer midpoint matrix. Its determinant counts selections of one of the two parents at each internal vertex that contain no internal directed cycle. Indeed, determinant expansion over disjoint directed cycles equals inclusion--exclusion for the bad parent selections. Thus
+\begin{equation}\label{eq:detbudget}
+ 1\le\det Q\le2^h,\qquad \den(2\alpha)\mid\det Q.
+\end{equation}
+Positivity of the determinant also follows from nonsingularity and the existence of acyclic selections. Since the first rank drop is precisely the terminal multiplicity,
+\begin{equation}\label{eq:profilebudget}
+ h\le\nu-s_1,\qquad \den(2\alpha)\le2^{\nu-s_1}.
+\end{equation}
+
+For $\nu=m+5$, $s_1=m$, and $\alpha=5/27$, the certificate contains $2\alpha=10/27$. Hence $h\le5$, but $27>2^4$, so $h=5$ and $\det Q=27$, the only positive multiple of 27 at most 32. Every internal grade is simple; the terminal grade has multiplicity $m$. Every internal weight is an integer divided by 27, the list contains $10/27$, and its minimum is at least $5/27$.
+
+\begin{lemma}[Five-vertex determinant rigidity]\label{lem:27}
+A strict harmonic certificate with five internal vertices, determinant 27, a weight $10/27$, and minimum weight at least $5/27$ has one of the two ordered numerator lists
+\begin{equation}\label{eq:two-lists}
+ A=(0,5,10,13,16,20,27),\qquad
+ B=(0,5,8,10,12,16,27).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Exactly five of the 32 parent selections contain a cycle. A two-cycle alone occurs in eight selections, so none exists. Distinct cycles of length at least three cannot coexist in one functional graph on five vertices. If $c_j$ counts directed $j$-cycles in the full parent graph, their selection events are disjoint and
+\[
+ 4c_3+2c_4+c_5=5.
+\]
+In particular a Hamiltonian five-cycle exists. Fix one and label it $1\to2\to3\to4\to5\to1$. Each vertex has at most one additional internal edge. A chord of forward distance four would create a forbidden two-cycle. A chord of distance three creates a three-cycle, whose four bad selections, together with the Hamiltonian cycle, exhaust the budget. In this case there is exactly one such chord and every other second edge goes to a boundary. If there is no distance-three chord, every chord has distance two and creates a four-cycle costing two selections. There must be two chords; their tails must be adjacent, since nonadjacent tails create an additional three-cycle. Three or more chords already exceed the budget. Thus, up to cyclic relabeling, the two types are a single chord $1\to4$, or the two chords $1\to3$, $2\to4$.
+
+The boundary endpoints of the remaining second edges are bits. Solving the two five-variable midpoint systems gives, in cycle order,
+\begin{equation}\label{eq:bitmatrices}
+27x=
+\begin{pmatrix}8&4&10&5\\14&7&4&2\\1&14&8&4\\2&1&16&8\\4&2&5&16\end{pmatrix}b,
+\quad b\in\{0,1\}^4;
+\qquad
+27x=
+\begin{pmatrix}12&10&5\\9&12&6\\15&8&4\\3&16&8\\6&5&16\end{pmatrix}b,
+\quad b\in\{0,1\}^3.
+\end{equation}
+These identities are obtained by substituting $2x_i=x_{i+1}+b_i$ at boundary rows and the displayed chord equation at the other rows; they can also be verified by direct multiplication by $Q$. In the first matrix a row has subset sum ten only when $b=(0,0,1,0)$ or $(1,0,0,1)$. The former yields a numerator four and violates the minimum barrier. The latter has sorted list $(5,10,13,16,20)$. In the second matrix the only such bit vector is $(0,1,0)$, giving $(5,8,10,12,16)$. Including the boundaries proves \eqref{eq:two-lists}. This is an analytic restriction on all parent graphs, not an enumeration of measurement kernels.
+\end{proof}
+
+\subsection{The profile forces a saturated real cut}
+Apply Lemma~\ref{lem:flags}. All five internal grades are simple, and the first layer is the whole terminal grade. Rule (U) forces the next unit drop to remove the greatest internal grade, coordinate five.
+
+For list $A$, the next layer must contain numerator 16. Pairing it with five violates (L), since $10<20$. Pairing it with ten leaves surviving numerators five and thirteen, violating (U), since $26>16+5$. Pairing it with thirteen leaves a last exposure of five, violating (L), since $10<13$. Therefore list $A$ cannot realize $(m,1,2,2)$ over any field.
+
+For list $B$, the next layer must contain numerator 12. Pairing it with five violates (L), since $10<16$. Pairing it with eight leaves ten and five, violating (U), since $20>12+5$. The only possible schedule is consequently
+\begin{equation}\label{eq:forcedschedule}
+ \{\text{terminal grade}\},\quad\{5\},\quad\{3,4\},\quad\{1,2\}.
+\end{equation}
+At its third step the current face consists of the source and coordinates $1,2,3,4$, and the proposed exposed block is $g=\spanof(e_3,e_4)$. Let $H_2,H_3$ be the actual central coefficients of orders $8/27,10/27$. Their only possible off-face component is the source-to-5 block: the source-to-terminal weight is $1/2$, and the lightest null-to-5 weight is $21/54>10/27$.
+
+The unique tight midpoint for $8/27$ in list $B$ is $(0,5)$, so $H_2$ has a nonzero component in that cut. Its compression to $g$ is zero. The $g$-compression of $H_3$ is a positive multiple of $E_{33}$, and its only possible off-face component is in the same cut. The cut has real dimension $r\dim_{\R}\F$. If this dimension is one, its nonzero $H_2$ component spans it, and Lemma~\ref{lem:cut} forbids the intended exposure. Equivalently, in the real rank-one case
+\[
+ J=H_3-\frac{(H_3)_{05}}{(H_2)_{05}}H_2
+\]
+is supported on the current face and has nonzero positive compression to $g$. This proves necessity of \eqref{eq:capacity}. Lemma~\ref{lem:27} shows why choosing different central orders cannot avoid it.
+
+\subsection{A six-generator witness and its full-ambient estimate}
+For $m=r=1$ over $\C$, put $\lambda=1/100$, $X_*=E_{00}$, and let $K$ be the real span of
+\begin{align}
+ H_1&=E_{11}-E_{00}+\lambda R_{03},&
+ H_2&=E_{22}-E_{00}+\lambda R_{05},\notag\\
+ H_3&=E_{33}-E_{00}+\lambda(R_{24}+I_{05}),&
+ H_4&=E_{44}-E_{00}+\lambda R_{25},\label{eq:witness}\\
+ H_5&=E_{55}-E_{00}+\lambda R_{16},&
+ N_2&=E_{22}-E_{00}+\lambda R_{14}.\notag
+\end{align}
+Measure $K^\perp$. Its orthogonal projection has rational coefficients in standard real Hermitian coordinates. Each generator has trace zero and terminal diagonal zero.
+
+Let $X\succeq0$ have residual at most $\delta$. Write $X=Y+E$, $\norm E\le\delta$, and
+\[
+Y=E_{00}+aH_1+bH_2+cH_3+dH_4+eH_5+fN_2.
+\]
+Then $Y+\delta I\succeq0$, $\tr Y=1$, and $Y_{66}=0$. Put $U_j=|Y_{jj}|+\delta$. Trace bounds give $U_0=O(1)$ and $U_6=\delta$. Principal two-by-two positivity and the generator coordinates give
+\begin{equation}\label{eq:witnessineq}
+\begin{split}
+U_1&\le C\sqrt{U_3},\qquad
+U_2\le C\bigl(\sqrt{U_5}+\sqrt{U_1U_4}\bigr),\\
+U_3&\le C\sqrt{U_2U_4},\qquad
+U_4\le C\sqrt{U_2U_5},\qquad
+U_5\le C\sqrt{U_1\delta}.
+\end{split}
+\end{equation}
+The additive $\delta$ terms are absorbed since $U_j\ge\delta$ and the relevant square roots dominate $\delta$ up to fixed constants. The sum in the second inequality is required: $Y_{22}=b+f$, so neither coefficient is assumed nonnegative or equal to that diagonal.
+
+Successive substitution gives
+\[
+ U_1\le C\delta^{1/15}U_2^{2/5},\qquad
+ U_2\le C\bigl(\delta^{4/15}U_2^{1/10}+\delta^{1/6}U_2^{1/2}\bigr).
+\]
+One summand controls $U_2$ up to a fixed factor. It gives respectively $U_2=O(\delta^{8/27})$ or $O(\delta^{1/3})$, both implying the former. Consequently
+\begin{equation}\label{eq:witnessorders}
+(U_1,\ldots,U_5)=
+\bigl(O(\delta^{5/27}),O(\delta^{8/27}),O(\delta^{10/27}),
+O(\delta^{12/27}),O(\delta^{16/27})\bigr).
+\end{equation}
+Also $|f|\le C\sqrt{U_1U_4}=O(\delta^{17/54})$ and $|b|\le C\sqrt{U_5}$. Thus all coefficients and the unstructured error are controlled, proving $\norm{X-X_*}=O(\delta^{5/27})$ for every ambient competitor.
+
+A sharp thick curve is
+\begin{equation}\label{eq:witnessarc}
+X(s)=E_{00}+s^5H_1+s^8H_2+s^{10}H_3+s^{12}H_4+s^{16}H_5+s^{27}E_{66}.
+\end{equation}
+Its null diagonal entries are the displayed powers and its source tends to one. The normalized tight edges are small constants, while the extra imaginary entry is smaller by $s^2$. Hence $X(s)\succ0$ for small $s$. Its residual is exactly $s^{27}$ and displacement $\Theta(s^5)$. Equations~\eqref{eq:witnessorders} and \eqref{eq:witnessarc}, together with the envelope, establish the actual center's weights $B$ and sharp exponent $5/27$.
+
+With $c=50$, ambient measurement stresses are
+\begin{align}
+Z_1&=E_{66},& Z_2&=E_{55}-cR_{16},\notag\\
+Z_3&=E_{33}+E_{44}-c(I_{05}+R_{25}),&
+Z_4&=E_{11}+E_{22}-c(R_{03}+R_{05}+R_{14}).\label{eq:witnessstress}
+\end{align}
+Their 24 generator pairings vanish, and the successive compressions expose $\{6\},\{5\},\{3,4\},\{1,2\}$. For maximality, a first PSD stress has zero source row; $H_1,H_2$ kill rows one and two, then $H_3,H_4$ kill rows three and four, and $H_5$ kills row five. After removing six, the same first four equations still kill rows one through four. After removing five, $H_1$ kills row one and $N_2$ kills row two. The displayed stresses attain all remaining allowed ranks. Thus the profile is exactly $(1,1,2,2)$ and its length is minimal.
+
+The same complex-subfield witness works over $\HH$ with all other components observed. For a real rank-two witness, add positive source coordinate seven, replace $I_{05}$ by $R_{57}$ in \eqref{eq:witness} and \eqref{eq:witnessstress}, and take target $E_{00}+E_{77}$. Source annihilation and bounded positive source diagonals leave every argument unchanged. Positive support padding gives larger $r$; $m-1$ fully observed null coordinates with all added crosses observed join the first exposure and have central order one. These operations preserve the exponent and every later rank drop. All affirmative cases of Theorem C follow.
+
+Embedding a real kernel into a complex Hermitian space and observing its imaginary complement preserves all invariants by Lemma~\ref{lem:retraction}. The separation is therefore a strict inclusion of attainable coarse profile spectra. Lemma~\ref{lem:gauge} proves the general affine-section assertion. Theorem C is complete without any computation-assisted minimality claim.

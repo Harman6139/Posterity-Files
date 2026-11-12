@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "scope": "independent finite checks, not an all-dimensional proof",
+  "graph_types": {
+    "anchored_hamiltonian_graphs_checked": 3125,
+    "determinant_27_graphs_by_type": {
+      "single_distance_three_chord": 80,
+      "adjacent_distance_two_chords": 40
+    }
+  },
+  "boundary_systems": [
+    [
+      [
+        "5/27",
+        "10/27",
+        "13/27",
+        "16/27",
+        "20/27"
+      ]
+    ],
+    [
+      [
+        "5/27",
+        "8/27",
+        "10/27",
+        "4/9",
+        "16/27"
+      ]
+    ]
+  ],
+  "witness": {
+    "exact_pairings": 24,
+    "successive_compressions": "exact coordinate identities",
+    "sharp_arc_source_lower_bound_at_s=1/4": "4290703103/4294967296",
+    "off_face_cut": [
+      [
+        0,
+        5
+      ]
+    ]
+  },
+  "terminal_exception": {
+    "counterexample": "X*=E00, K=span(R01) in S^2",
+    "first_exposure": "E11",
+    "terminal_weight": 1,
+    "cut_rank_before": 0,
+    "cut_rank_after": 0,
+    "required_repair": "restrict weighted jump to internal 0<tau<1"
+  }
+}

@@ -1,0 +1,104 @@
+\section{The complete complex and quaternionic flag spectrum}\label{sec:fine}
+We prove Theorem B. The necessity is valid over all three matrix fields; only the two-coordinate construction uses $\C$ or $\HH$.
+
+\subsection{Simultaneous flags without changing the central orders}
+\begin{lemma}[Congruence normal form]\label{lem:flags}
+For a matrix singleton section, one fixed congruence makes the central and greedy facial flags coordinate flags, preserving all central orders and multiplicities, the sharp exponent, and the entire greedy rank-drop profile. The relative position is precisely the table in Section~\ref{sec:statements}.
+\end{lemma}
+\begin{proof}
+For the ascending central flag $F_i$ and the reversed survivor flag $G_j$, work modulo their common initial source space. In each $F_i\cap G_j$ choose a complement $E_{ij}$ of
+\[
+ (F_{i-1}\cap G_j)+(F_i\cap G_{j-1}).
+\]
+Induction in $i+j$ gives $F_i\cap G_j=\bigoplus_{a\le i,b\le j}E_{ab}$. A basis of all these complements is adapted to both flags; this argument works over the division rings $\R,\C,\HH$. Lift the basis and include the source. Its matrix $S$, with columns grouped by central grade, preserves each $F_i$ and is upper block triangular. Then $T=S^{-1}$ preserves those prefixes and makes every survivor coordinate.
+
+Let $C'_t$ be the identity-shift center for $K'=TKT^*$, $X'_* = TX_*T^*$, and $A'(Y)=A(T^{-1}YT^{-*})$. The pullback $T^{-1}C'_tT^{-*}$ has original residual $tA(T^{-1}T^{-*})=O(t)$. The original envelope bounds it by a constant multiple of $C_t$. Conversely $TC_tT^*$ has transformed residual $tA(I)=O(t)$, so the new envelope bounds it by a constant multiple of $C'_t$. Thus
+\begin{equation}\label{eq:congr-center}
+ C'_t\asymp TC_tT^*.
+\end{equation}
+The identity shift is not assumed to commute with congruence. Upper triangularity gives
+\[
+ (D_t^{-1}TD_t)_{ab}=t^{(w_b-w_a)/2}T_{ab}\quad(a\le b),
+\]
+with invertible constant diagonal blocks. This matrix and its inverse are uniformly bounded. Hence $TD_t^2T^*\asymp D_t^2$, and \eqref{eq:congr-center} preserves the central chart and its flag.
+
+Residuals correspond exactly under the congruence and norms are equivalent, preserving $\alpha$. Stresses transform by $Z'=T^{-*}ZT^{-1}$. Their restrictions to $TV$ are pullbacks of the old quadratic forms on $V$, so positivity, kernel, and compressed rank are preserved on every current face. This identifies the greedy flags and all ranks. A final source-only congruence normalizes the target to $\operatorname{diag}(I_r,0)$ without affecting the coordinate survivors.
+\end{proof}
+
+\subsection{Necessity of the two table inequalities}
+The central chart and half-weight rule follow from Section~\ref{sec:geometry}. The first exposure is the entire terminal grade. At a later coordinate face let $\mu$ be the smallest weight already removed. If $2w_i<\mu$, the actual coefficient $H_i=A_{w_i}\in K$ has no entry touching a removed coordinate. All its own and lower-grade coordinates are still present. Successive pairing with the positive leading coefficients forces their rows to vanish in every PSD exposing stress. No part of grade $i$ can be removed, proving (L).
+
+For (U), let $V$ be the current face, $W$ its greedy survivor, and $C=V\cap W^\perp$ the actual exposed subspace. Suppose a surviving grade $i$ has $2w_i>M+w_p$, where $M$ is the greatest current weight and $w_p$ the greatest strictly smaller surviving weight (zero when none). Compress the actual dual series to $V$ and truncate through $1-w_i$. Every lower surviving row is zero throughout the truncation, since its cross order with any current coordinate is at least
+\[
+ 1-(w_p+M)/2>1-w_i.
+\]
+The first positive-definite diagonal coefficients on the surviving grades of weight at least $w_i$ are all included. Lemma~\ref{lem:rescale} gives a genuine ambient stress $T$ whose compression is positive definite on that high surviving subspace and zero on the lower surviving rows. This remains true for a partially surviving grade, since a principal submatrix of its positive-definite leading block is positive definite.
+
+Let $S$ be a current stress positive definite on $C$. The entries of $T$ within $C$ and between $C$ and the high survivor may be arbitrary. Nevertheless $T+\lambda S$ is positive definite on their sum for sufficiently large fixed $\lambda$: the positive block on the high survivor remains fixed, while the Schur correction from the increasingly positive $C$ block tends to zero. All lower surviving rows remain zero. This exposes more than $C$, contradicting maximality. Thus (U) holds. In particular the greatest current grade cannot survive even partially.
+
+\subsection{Release and blocker coordinates}
+For the converse, label the null coordinates in increasing weight order, breaking ties by label, and realize the table as an ordered partition $C_1,\ldots,C_d$. Let $S_t$ be the survivor set after step $t$, including a selected source coordinate $0$, and let $t(a)$ be the removal time of coordinate $a$. Pick one representative in each grade. A tight physical pair $P_i$ joins the representatives of the parent grades in \eqref{eq:harmonic}; distinct grades have distinct tight pairs.
+
+For $t\ge2$, choose a previously removed coordinate $q_t$ of minimum weight, breaking ties by earliest removal and then label. Keep the same choice while the minimum does not decrease. For $a\in C_t$ define
+\begin{equation}\label{eq:selfrelease}
+ R_a=\begin{cases}
+ \{0,q_t\},&\theta_a<\theta_{q_t},\\
+ \{q_t,a\},&\theta_a\ge\theta_{q_t}.
+ \end{cases}
+\end{equation}
+The second case is a self-release. Every release is off-face at time $t$ and has midpoint at most $\theta_a$, by (L) in the first case and directly in the second.
+
+Let $p_a$ be the immediate predecessor of $a$ in the total order restricted to $S_{t-1}$, allowing predecessor zero. Let $b_a$ be a fixed representative of the greatest-weight grade in $S_{t-2}$. Put
+\begin{equation}\label{eq:fineblocker}
+ B_a=\{p_a,b_a\}.
+\end{equation}
+The top-grade conclusion above implies that $b_a$ was removed at step $t-1$ and $\theta_{p_a}\le\theta_a<\theta_{b_a}$. If $p_a$ has the same weight as $a$, the blocker is strictly safe. Otherwise (U) at step $t-1$ gives $\theta_{p_a}+\theta_{b_a}\ge2\theta_a$; at $t=2$ the same assertion follows from harmonicity and the largest terminal weight. It is active at every earlier step and off-face at time $t$.
+
+Blocker physical pairs are distinct. At one time the predecessor map is injective; at different times their greater-weight endpoints have strictly decreasing weights. A self-release pair is unique, because its earlier-removed endpoint cannot later exchange its role with the child. A source-release pair is assigned to only one stage: when it is used, that stage removes a strictly smaller weight, so the minimum removed weight subsequently decreases. It can, and may, be shared among children of that same stage.
+
+For $u<v$ write
+\[
+ R_{uv}=e_ue_v^*+e_ve_u^*,\qquad
+ I_{uv}=i e_ue_v^*-i e_ve_u^*.
+\]
+These are orthogonal real entry coordinates of squared norm two. Over $\HH$, fix one imaginary unit and observe all other components. Assign tight edges to real coordinates and releases to imaginary coordinates. Assign a blocker's real coordinate when its physical pair is not tight; otherwise use its imaginary coordinate if it is not a release pair.
+
+\begin{lemma}[The only unavailable blocker is redundant]\label{lem:triple}
+A blocker cannot coincide with a self-release pair. If it coincides with both a tight pair and a source release, its own tight and release pairs are that pair, and its separate blocker can be omitted.
+\end{lemma}
+\begin{proof}
+The higher-weight endpoint of a blocker was removed before its child, while its lower endpoint survives to that child's stage. In a self-release the lower-or-equal-weight endpoint is removed first. These orders are incompatible; equal endpoint weights cannot form a blocker.
+
+For a triple collision write $B_a=\{0,q\}$, with $q=b_a$ removed at step $t(a)-1$. A source release using $q$ can occur only at a stage $u\ge t(a)$. If $u>t(a)$, the smaller-weight coordinate $a$, removed at $t(a)$, would have decreased the historical minimum before $u$, a contradiction. Thus $u=t(a)$. Blocker safety and (L) give $\theta_a\le\theta_q/2\le\theta_a$. The tight owner is therefore in the same grade as $a$, all of whose coordinates use that same tight pair. Hence $P_{\mathrm{grade}(a)}=B_a=R_a$. Before time $t(a)$, $q$ is still present and both coordinates of that source pair vanish in any PSD stress annihilating the source. Its own tight-generator equation already forces the child's diagonal to vanish, so the extra blocker is redundant.
+\end{proof}
+Every nonomitted blocker now has a unique real entry coordinate absent from every tight-real or release-imaginary coordinate. There is no identification of independent coefficients.
+
+\subsection{The rational pencil and its sharp exponent}
+For every internal coordinate $a$, use
+\begin{align}
+ H_a&=E_{aa}-E_{00}+\lambda R_{P_{\mathrm{grade}(a)}}+\lambda I_{R_a},\label{eq:fineH}\\
+ N_a&=E_{aa}-E_{00}+\lambda F_{B_a}\quad\text{when not omitted},\label{eq:fineN}
+\end{align}
+where $F_{B_a}$ is the assigned component. When $\alpha=w_v/2<w_1$, add $G=\lambda R_{0,\mathrm{rep}(v)}$. Its real coordinate is unused because its midpoint is smaller than every tight or blocker midpoint; a release there is imaginary. Take $X_*=\operatorname{diag}(I_r,0)$, $K$ the real span, and $A=P_{K^\perp}$. Choose $\lambda=1/[100(r+\nu)^2]$. All generators have trace zero and zero terminal diagonal.
+
+Assign degrees $\theta_a$ to $H_a$, the safe midpoint to $N_a$, and $\alpha$ to $G$. Their scaled limits are independent. First eliminate the unique blocker pivots and the optional leading pivot; then each $H_a$ has its own null diagonal, even when several children share one tight edge.
+
+Set $W_{aa}=e^{\sigma\theta_a^2}$, the source diagonals equal to one, and on a tight real pair of grade $i$ set $W_{P_i}=-e^{\sigma w_i^2}/(2\lambda)$. This is consistent for all children sharing the pair. Assign the same value at a blocker whose midpoint equals its child's weight and zero at a strictly safe blocker. All release-imaginary and leading entries are zero. Lemma~\ref{lem:triple} prevents conflicts. Every leading generator is orthogonal to $W$. A leading self-release can join equal weights, but its separator entry is zero; every \emph{nonzero} separator edge joins distinct weights and its normalized size tends to zero as $\sigma\to\infty$. Thus $W\succ0$ for large $\sigma$, also over $\HH$ by the norm bound on cross terms. Lemma~\ref{lem:realization} proves the all-competitor upper bound.
+
+The thick sharp curve is
+\[
+ X(t)=X_*+\sum_{a\text{ internal}}t^{\theta_a}H_a
+       +tI_{\mathrm{terminal}}+[t^\alpha G\text{ when present}].
+\]
+Every null diagonal has exactly its assigned power, the selected source diagonal tends to one, and every normalized edge is bounded by a fixed multiple of $(r+\nu)\lambda$. Strict diagonal dominance gives positivity and thickness. Its residual is exactly $t\norm{I_{\mathrm{terminal}}}$, since the entire terminal diagonal is measured, and its displacement is $\Theta(t^\alpha)$. The central envelope and the common verification lemma establish the exact orders, multiplicities, and sharp exponent.
+
+\subsection{Exact maximal exposures}
+Put $c=1/(2\lambda)$ and take $Z_1=I_{\mathrm{terminal}}$. For $t\ge2$ use the ambient stress
+\begin{equation}\label{eq:fine-stress}
+ Z_t=\sum_{a\in C_t}E_{aa}
+ -c\sum_{\substack{\text{distinct release pairs }e\\\text{assigned to }C_t}} I_e
+ -c\sum_{\substack{a\in C_t\\N_a\text{ present}}}F_{B_a}.
+\end{equation}
+Every original generator pairing is zero. A release belongs to exactly one stage, where it cancels the unit diagonal pairing of each sharing child. Each blocker coordinate is unique and cancels its child's diagonal. Tight-real and optional leading entries receive zero. All the offdiagonal entries in \eqref{eq:fine-stress} are off-face, so its compression is exactly the identity on $C_t$.
+
+To prove maximality at an earlier stage, take the first future coordinate $a$ in the total order with positive diagonal in a purported larger PSD stress. Its blocker predecessor is another earlier future coordinate or the source, so its whole row is zero. The blocker's upper endpoint is still on-face because it is removed only at $t(a)-1$. The equation for $N_a$ forces $Z_{aa}=0$, a contradiction. If the blocker was omitted, Lemma~\ref{lem:triple} uses the still-active source-tight pair in $H_a$ for the same contradiction. This argument also applies at the initial face and kills every internal coordinate. Therefore the prescribed faces are the actual greedy faces, not just a valid chain. Lemma~\ref{lem:greedy} proves the minimum degree assertion. This completes Theorem B.

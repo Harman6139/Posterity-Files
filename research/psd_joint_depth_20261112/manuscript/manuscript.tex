@@ -1,0 +1,58 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,mathtools,amssymb,booktabs,array}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\newtheorem*{theoremC}{Theorem C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Sym}{\mathbb S}
+\newcommand{\Herm}{\mathcal H}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\spanof}{\operatorname{span}}
+\newcommand{\ri}{\operatorname{ri}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\one}{\mathbf 1}
+\DeclareMathOperator{\den}{den}
+\title[Rank universality and field-dependent tangency]{Rank universality and field-dependent tangency of symmetric cones}
+\date{November 12, 2026\quad\textnormal{--- consolidated pre-submission research draft}}
+\subjclass[2020]{Primary 52A20, 90C22; Secondary 14P10, 17C20, 15B48}
+\keywords{Symmetric cone, sharp error bound, facial reduction, singularity degree, central path, positive semidefinite matrix, valuation}
+\begin{document}
+\begin{abstract}
+We classify the optimal H\"older error exponents of affine sections of irreducible symmetric cones jointly with minimum facial-reduction depth at fixed cone rank and feasible rank. The spectrum is independent of the irreducible cone type and has a finite arithmetic description by harmonic midpoint weights and two peeling recurrences. A one-switch construction realizes every permitted depth without increasing rank. Over complex and quaternionic Hermitian positive semidefinite cones, a survivor-table refinement classifies the entire central valuation spectrum, its multiplicities, the relative position of central and facial flags, and the greedy facial rank-drop profile. This finer geometry remains field-dependent even when the central spectrum is not prescribed. For every $m\ge1$, the exponent $5/27$ and profile $(m,1,2,2)$ at nullity $m+5$ are attainable over $\F\in\{\R,\C,\HH\}$ at positive feasible rank $r$ exactly when $r\dim_{\R}\F\ge2$. The exclusion of all real rank-one realizations follows from a harmonic denominator restriction and an off-face positive-circuit obstruction. Explicit rational pencils prove all converse assertions. The proofs separate the numerical order of tangency from the finer geometry of facial exposure.
+\end{abstract}
+\maketitle
+\tableofcontents
+\input{sections/01_introduction}
+\input{sections/02_statements}
+\input{sections/03_geometry}
+\input{sections/04_real_realization}
+\input{sections/05_fine_geometry}
+\input{sections/06_separation}
+\appendix
+\input{sections/07_appendices}
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}
