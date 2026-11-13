@@ -109,3 +109,14 @@ Complete handoff: ../../prompts/laa_two_basis_frontier_20261112/FRESH_GPT_PRO_CO
 Dense source work: ../laa_two_basis_track02_20261107/dense_quadratic/.
 
 External literature priority and independent refereeing are not certified. Those are distinct from the explicit algebraic proofs and the declared computational model.
+
+## Final archive completeness and submission assessment (2026-11-13)
+
+All nine proof/audit manuscripts (01–09), recorded diagnostic scripts, the complete early `AUDIT_RESULTS.json`, the early `ADVERSARIAL_RESULTS.json` and `HISTORICAL_CORRECTION_RESULTS.json`, the strengthening `STRENGTHENING_RESULTS.json` and `EXACT_DENSE_RESULTS.json`, constructor modules, exact Fraction checks, reproduction instructions, and archived SHA-256 manifests are committed on this research branch. The original audit ZIP bundles are merely delivery packaging for these files and are not independent sources of mathematical results.
+
+- `EARLY_AUDIT_README.md`: instructions for reproducing the original 01–05 diagnostics.
+- `EARLY_AUDIT_SHA256.json`: manifest of the original early audit bundle; the original archived README differs from the new explanatory GitHub README.
+- `strengthening_audit/SHA256.json`: manifest of the original strengthened audit bundle.
+- `SUBMISSION_READINESS_AND_JOURNAL_STRATEGY.md`: editorial and human-verification assessment. Primary potential target: Mathematical Programming (Series A), with Mathematics of Operations Research and SIAM Journal on Optimization considered as alternatives. This memo is NOT a mathematical proof or claim of novelty certification.
+
+A submission manuscript remains to be written and independently audited. The research proofs and diagnostics are committed; no submission, acceptance, external refereeing, or comprehensive novelty certification is claimed.
