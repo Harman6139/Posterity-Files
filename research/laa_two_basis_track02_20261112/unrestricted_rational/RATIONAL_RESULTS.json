@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "m": 2,
+  "p": 2,
+  "N": 53,
+  "c_trace": "10713498817/78269409",
+  "forward_physical_factor": "141376/217415025",
+  "checks": {
+    "rational_U": true,
+    "rational_data": true,
+    "parseval": true,
+    "coisometry": true,
+    "signed_isotropy": true,
+    "data_inverse": true,
+    "isometric_target": true,
+    "positive_scale_direction": true,
+    "trace_scale": true,
+    "decoder_coisometry": true,
+    "raw_adjoint_0": true,
+    "raw_adjoint_1": true,
+    "raw_adjoint_2": true,
+    "zero_measurement_input": true
+  },
+  "weak_infeasibility_curves": [
+    {"epsilon": "1/2", "source_trace": "5/2", "squared_centered_residual": "1/4", "trace_identity": true},
+    {"epsilon": "1/3", "source_trace": "10/3", "squared_centered_residual": "1/9", "trace_identity": true},
+    {"epsilon": "1/4", "source_trace": "17/4", "squared_centered_residual": "1/16", "trace_identity": true}
+  ],
+  "scope": "Exact rational finite-instance identities; the general theorem is proved separately."
+}
