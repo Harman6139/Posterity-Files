@@ -1,0 +1,40 @@
+{
+  "exact_real_symmetric_reduction_checks": [
+    {
+      "m": 2,
+      "identity": "exact symbolic equality",
+      "unnormalized_kraus_count": 1
+    },
+    {
+      "m": 3,
+      "identity": "exact symbolic equality",
+      "unnormalized_kraus_count": 3
+    },
+    {
+      "m": 4,
+      "identity": "exact symbolic equality",
+      "unnormalized_kraus_count": 6
+    }
+  ],
+  "corrected_symmetric_commutator_sampling": [
+    {
+      "m": 4,
+      "traceless_symmetric_dimension": 6,
+      "smallest_sampled_fourth_singular_value": 0.24823018678398437,
+      "sample_count": 100
+    },
+    {
+      "m": 5,
+      "traceless_symmetric_dimension": 7,
+      "smallest_sampled_fourth_singular_value": 0.20496299878816557,
+      "sample_count": 100
+    },
+    {
+      "m": 6,
+      "traceless_symmetric_dimension": 8,
+      "smallest_sampled_fourth_singular_value": 0.2361391844306477,
+      "sample_count": 100
+    }
+  ],
+  "scope": "Exact symbolic finite-size checks and corrected sampling only. The general skew-Kraus identity is proved entrywise in the audit report; no generic theorem is inferred from sampling."
+}
