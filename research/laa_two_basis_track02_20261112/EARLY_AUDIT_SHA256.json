@@ -1,0 +1,9 @@
+{
+  "README.md": "aa105b329fa6b7658cc0596b9436d62c5ca47962d955fe3a73bdb675b072209c",
+  "audit_quadratic_quotient.py": "e44597c8cb09945e7a5566dfd3f13537238415419d5bd88d4c8b55b9c25fa38d",
+  "audit_adversarial.py": "6327709d250238bff4b3c8caec6a34422f58d56dc2450f02c26293a22e1c75ca",
+  "audit_historical_corrections.py": "5c25ba96ccc7dc3fe0261f3f34163c524e6a24512223150deea47dff5dea8a05",
+  "AUDIT_RESULTS.json": "fac041a8666dd430f2125e1e70052d1fe9271205fafe633e41ce93bf8399b0df",
+  "ADVERSARIAL_RESULTS.json": "f01d3b5975e5509ddf3d6c52a98d7280c1f4a40c2d0ce8d9166717b4256ec1db",
+  "HISTORICAL_CORRECTION_RESULTS.json": "3eb0d526a39a954c8fe6af2b722ed58df12ab562ad38119c5f09294e81a366dc"
+}
