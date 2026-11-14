@@ -1,0 +1,379 @@
+{
+  "exact_symbolic": {
+    "join_C2_at_boundary": true,
+    "core_hessian_bound": "145/768",
+    "locality_margin": true,
+    "gap_constant": "1/8192",
+    "rounding_of_probability_constant_verified": true
+  },
+  "construction_cases": [
+    {
+      "beta": 0.25,
+      "m": 2,
+      "dimension": 9,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.50390625,
+      "output_gap_lower_over_Delta": 0.7000223685536285
+    },
+    {
+      "beta": 0.25,
+      "m": 4,
+      "dimension": 13,
+      "max_value_locality_error": 2.710505431213761e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.501953125,
+      "output_gap_lower_over_Delta": 0.7155388457206378
+    },
+    {
+      "beta": 0.25,
+      "m": 7,
+      "dimension": 19,
+      "max_value_locality_error": 2.710505431213761e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5011160714285713,
+      "output_gap_lower_over_Delta": 0.8091220528750456
+    },
+    {
+      "beta": 0.5,
+      "m": 2,
+      "dimension": 9,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5039062499999998,
+      "output_gap_lower_over_Delta": 0.470703125
+    },
+    {
+      "beta": 0.5,
+      "m": 4,
+      "dimension": 13,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.501953125,
+      "output_gap_lower_over_Delta": 0.9842095669405877
+    },
+    {
+      "beta": 0.5,
+      "m": 7,
+      "dimension": 19,
+      "max_value_locality_error": 5.421010862427522e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5011160714285714,
+      "output_gap_lower_over_Delta": 0.582389398908172
+    },
+    {
+      "beta": 1.0,
+      "m": 2,
+      "dimension": 9,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.50390625,
+      "output_gap_lower_over_Delta": 0.5749751017672715
+    },
+    {
+      "beta": 1.0,
+      "m": 4,
+      "dimension": 13,
+      "max_value_locality_error": 8.131516293641283e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.501953125,
+      "output_gap_lower_over_Delta": 0.6578274493816839
+    },
+    {
+      "beta": 1.0,
+      "m": 7,
+      "dimension": 19,
+      "max_value_locality_error": 8.131516293641283e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5011160714285713,
+      "output_gap_lower_over_Delta": 0.7277861060757829
+    },
+    {
+      "beta": 2.0,
+      "m": 2,
+      "dimension": 9,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": -1.0517396443410194e-17,
+      "sampled_max_hessian_eigenvalue": 4.724799033610319e-34,
+      "comparison_value_over_Delta": -0.50390625,
+      "output_gap_lower_over_Delta": 0.47070312499999994
+    },
+    {
+      "beta": 2.0,
+      "m": 4,
+      "dimension": 13,
+      "max_value_locality_error": 8.131516293641283e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.501953125,
+      "output_gap_lower_over_Delta": 0.8034892529243466
+    },
+    {
+      "beta": 2.0,
+      "m": 7,
+      "dimension": 19,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5011160714285712,
+      "output_gap_lower_over_Delta": 0.8398502826413669
+    },
+    {
+      "beta": 5.0,
+      "m": 2,
+      "dimension": 9,
+      "max_value_locality_error": 0.0,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5039062500000001,
+      "output_gap_lower_over_Delta": 0.4707031250000002
+    },
+    {
+      "beta": 5.0,
+      "m": 4,
+      "dimension": 13,
+      "max_value_locality_error": 5.421010862427522e-20,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5019531250000001,
+      "output_gap_lower_over_Delta": 0.9769012590136558
+    },
+    {
+      "beta": 5.0,
+      "m": 7,
+      "dimension": 19,
+      "max_value_locality_error": 2.168404344971009e-19,
+      "max_gradient_locality_error": 0.0,
+      "max_hessian_locality_error": 0.0,
+      "sampled_min_hessian_eigenvalue": 0.0,
+      "sampled_max_hessian_eigenvalue": 0.0,
+      "comparison_value_over_Delta": -0.5011160714285717,
+      "output_gap_lower_over_Delta": 0.8708231047500503
+    }
+  ],
+  "multi_active_smoothing_cases": [
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 4.109090845361152e-11,
+      "hessian_derivative_error": 3.961002343286288e-11
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 8.962547370927609e-11,
+      "hessian_derivative_error": 2.024413558686442e-11
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 1.0160317032159583e-11,
+      "hessian_derivative_error": 3.528691978886161e-11
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 2.1550983220208764e-10,
+      "hessian_derivative_error": 1.7664043793456353e-10
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 1.0251355320178845e-10,
+      "hessian_derivative_error": 1.3253605933008321e-10
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 1.5007300957492475e-10,
+      "hessian_derivative_error": 1.2466872513026668e-10
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 1.7896217840984718e-10,
+      "hessian_derivative_error": 2.0051025653789852e-10
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 5.491007648572577e-11,
+      "hessian_derivative_error": 5.255170347566595e-11
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 5.243350198469443e-11,
+      "hessian_derivative_error": 3.5595370479991585e-11
+    },
+    {
+      "m": 2,
+      "active": 2,
+      "value_derivative_error": 6.442960748254123e-11,
+      "hessian_derivative_error": 3.929297147973445e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 4.8901133142820186e-11,
+      "hessian_derivative_error": 2.2015507613063602e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 2.497740070328547e-10,
+      "hessian_derivative_error": 1.937553683112126e-10
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 1.7640938709817533e-10,
+      "hessian_derivative_error": 1.8142954957370293e-10
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 5.217831722248434e-11,
+      "hessian_derivative_error": 6.482136642127272e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 1.1777678832203264e-10,
+      "hessian_derivative_error": 7.348623954170683e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 8.036770554609163e-11,
+      "hessian_derivative_error": 5.1691167737594936e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 1.1143974631977471e-10,
+      "hessian_derivative_error": 9.730102734677311e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 2.421507439009929e-12,
+      "hessian_derivative_error": 4.233269730366688e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 8.141887164470063e-11,
+      "hessian_derivative_error": 3.846108864768607e-11
+    },
+    {
+      "m": 3,
+      "active": 3,
+      "value_derivative_error": 2.346928987956298e-10,
+      "hessian_derivative_error": 2.0864120926249308e-10
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 6.168535127137886e-11,
+      "hessian_derivative_error": 6.518957305819671e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 3.9945796670437517e-11,
+      "hessian_derivative_error": 5.094864721901225e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 8.402220585956854e-11,
+      "hessian_derivative_error": 4.7977830891619656e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 1.487300958931924e-11,
+      "hessian_derivative_error": 2.5479868013546372e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 6.845468636385021e-11,
+      "hessian_derivative_error": 7.002756983856677e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 3.856359676035481e-11,
+      "hessian_derivative_error": 3.226841437115958e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 9.0235874328215e-12,
+      "hessian_derivative_error": 2.0103211461721865e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 2.3042345809187736e-11,
+      "hessian_derivative_error": 3.9066764915606834e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 8.56225784717779e-11,
+      "hessian_derivative_error": 8.307213649707467e-11
+    },
+    {
+      "m": 8,
+      "active": 8,
+      "value_derivative_error": 3.016800698141253e-11,
+      "hessian_derivative_error": 4.707746140544935e-11
+    }
+  ],
+  "theorem_dimensions_not_allocated": {
+    "1": 20350892,
+    "4": 438082720,
+    "16": 23522870476
+  },
+  "scope": "Exact scalar identity checks and finite floating-point construction diagnostics only; not empirical proof of arbitrary randomized-oracle lower bounds."
+}
