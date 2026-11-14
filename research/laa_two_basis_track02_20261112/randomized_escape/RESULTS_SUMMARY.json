@@ -1,0 +1,23 @@
+{
+  "exact": {
+    "join_C2_at_boundary": true,
+    "core_hessian_bound": "145/768",
+    "locality_margin": true,
+    "gap_constant": "1/8192",
+    "rounding_of_probability_constant_verified": true
+  },
+  "construction_cases": 15,
+  "multi_active_smoothing_cases": 30,
+  "max_value_locality_error": 2.168404344971009e-19,
+  "max_gradient_locality_error": 0.0,
+  "max_hessian_locality_error": 0.0,
+  "minimum_comparator_gap_ratio": 0.47070312499999994,
+  "worst_finite_difference_hessian_error": 2.0864120926249308e-10,
+  "theorem_dimensions": {
+    "1": 20350892,
+    "4": 438082720,
+    "16": 23522870476
+  },
+  "all_passed": true,
+  "scope": "Exact scalar identity checks and finite floating-point construction diagnostics only; not empirical proof of arbitrary randomized-oracle lower bounds."
+}
