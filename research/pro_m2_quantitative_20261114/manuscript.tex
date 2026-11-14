@@ -251,11 +251,7 @@ $D_S(Q)(x,t)^T=(0,1)^T$, and retain $t$ exactly when $x\ge0$. Then
 There are $2^n-1$ systems, each of order at most $n+1$. For rational $Q$ this is an exact rational algorithm of complexity $2^n\operatorname{poly}(n,\bits(Q))$.
 \end{proposition}
 \begin{proof}
-Every retained vector, padded by zeros, is feasible and has quadratic value $t$, because $Q_{SS}x=t\mathbf1$ and $\mathbf1^Tx=1$. Conversely, choose a global minimizer of minimum support $S$. It is in the relative interior of that simplex face, so $Q_{SS}x=t\mathbf1$ and $Q_{SS}$ is positive semidefinite on the tangent space $\mathbf1^Tz=0$. It is in fact positive definite on that tangent space. Otherwise a nonzero tangent vector $z$ with $z^TQ_{SS}z=0$ would give
-\[
- Q[x+\theta z]=Q[x]+2\theta t\mathbf1^Tz+\theta^2z^TQ_{SS}z=Q[x]
-\]
-until a coordinate first vanishes. This produces a minimizer of smaller support, a contradiction.
+Every retained solution is simplex-feasible after padding with zeros, and $Q[x]=t$. Choose a global minimizer of minimum support. In the relative interior of its supporting face, the quadratic form is stationary and its Hessian is nonnegative on the zero-sum tangent space. If that restricted Hessian has a nonzero null direction $z$, then both the linear and quadratic terms in $Q[x+\tau z]$ vanish. Moving along this line to the boundary produces a global minimizer of smaller support, a contradiction. Thus the Hessian on that tangent space is positive definite.
 
 The bordered matrix on this support is nonsingular: a kernel vector would satisfy $\mathbf1^Tz=0$ and $Q_{SS}z=t\mathbf1$, hence $z^TQ_{SS}z=0$, forcing $z=0$ and then $t=0$. This support therefore contributes the global minimum to the list. Singleton supports ensure the list is nonempty. Rational Gaussian elimination and determinant bounds prove the arithmetic assertion.
 \end{proof}
@@ -396,7 +392,7 @@ Identify $\mathbb S^n$ with $\mathbb R^d$ by its upper triangle, writing $W(z)$ 
 \]
 \begin{lemma}\label{lem:ball}
 If $2^{-s}\le\delta$, then $\mathcal K_s$ contains a Euclidean ball of radius $\epsilon_s/4$.
-\end{lemmaorem}
+\end{lemma}
 \begin{proof}
 Use the unit separator $Z$ in Lemma~\ref{lem:shadow} and set
 $W_*=Z/4+\delta I/(16n)$. Every coordinate has absolute value at most $5/16$, its copositivity margin is at least $\delta/(16n)\ge2\epsilon_s$, and
