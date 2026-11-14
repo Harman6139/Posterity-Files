@@ -1,0 +1,35 @@
+{
+  "scope": "Exact rational checks; universal assertions are proved in manuscript 37.",
+  "sharpness": [
+    {"q":1,"rational_lower":"1/5","sharp_constant_numeric":0.20710678118654757,"rational_upper":"1/4"},
+    {"q":2,"rational_lower":"1/17","sharp_constant_numeric":0.05901699437494745,"rational_upper":"1/16"},
+    {"q":3,"rational_lower":"1/37","sharp_constant_numeric":0.02704627669472992,"rational_upper":"1/36"},
+    {"q":4,"rational_lower":"1/65","sharp_constant_numeric":0.015388203202207573,"rational_upper":"1/64"},
+    {"q":8,"rational_lower":"1/257","sharp_constant_numeric":0.0038911092686593207,"rational_upper":"1/256"}
+  ],
+  "finite_accuracy": [
+    {"case":"sharp_rank_one_q1","kind":"factor","terms":[["13/20",[1,0]],["2/5",[1,1]],["1/20",[0,1]]],"pivots":3,"generators":3,"matrix":[["21/20","2/5"],["2/5","9/20"]],"input":[["4/5","2/5"],["2/5","1/5"]],"diagonal_shift":"1/4","q":1},
+    {"case":"sharp_rank_one_q2","kind":"factor","terms":[["73/544",[2,0]],["95/816",[2,1]],["1/816",[1,2]]],"pivots":4,"generators":5,"matrix":[["273/272","4/17"],["4/17","33/272"]],"input":[["16/17","4/17"],["4/17","1/17"]],"diagonal_shift":"1/16","q":2},
+    {"case":"sharp_rank_one_q3","kind":"factor","terms":[["229/3996",[3,0]],["251/4662",[3,1]],["1/9324",[2,3]]],"pivots":5,"generators":7,"matrix":[["1333/1332","6/37"],["6/37","73/1332"]],"input":[["36/37","6/37"],["6/37","1/37"]],"diagonal_shift":"1/36","q":3},
+    {"case":"sharp_rank_one_q4","kind":"factor","terms":[["529/16640",[4,0]],["1661/54080",[4,1]],["1/54080",[3,4]]],"pivots":6,"generators":9,"matrix":[["4161/4160","8/65"],["8/65","129/4160"]],"input":[["64/65","8/65"],["8/65","1/65"]],"diagonal_shift":"1/64","q":4},
+    {"case":"sparse_boundary","kind":"factor","terms":[["7/16",[2,0,0]],["1/24",[2,1,0]],["11/24",[1,2,0]],["1/2",[0,1,2]],["3/32",[0,0,2]]],"pivots":8,"generators":19,"matrix":[["19/8","1","0"],["1","19/8","1"],["0","1","19/8"]],"input":[["2","1","0"],["1","2","1"],["0","1","2"]],"diagonal_shift":"3/8","q":2},
+    {"kind":"copositive_separator","separator":[["77/180","-1/2"],["-1/2","113/180"]],"pairing":"-2/45","pivots":7,"generators":7,"input":[["1","11/10"],["11/10","1"]],"base":[["2/5","-1/2"],["-1/2","3/5"]],"alpha":"1/36","q":3},
+    {"kind":"copositive_separator","separator":[["19/18","-1/2"],["-1/2","19/18"]],"pairing":"-19/18","pivots":0,"generators":7,"input":[["-1","0"],["0","0"]],"base":[["1","-1/2"],["-1/2","1"]],"alpha":"1/36","q":3},
+    {"kind":"copositive_separator","separator":[["1/12","-1/2"],["-1/2","37/12"]],"pairing":"-1","pivots":5,"generators":7,"input":[["0","1"],["1","0"]],"base":[["0","-1/2"],["-1/2","3"]],"alpha":"1/36","q":3},
+    {"case":"relative_diagonal_with_zero_row","kind":"factor","terms":[["5/16",[2,0,0]],["1/4",[1,2,0]],["1/8",[0,2,0]]],"pivots":8,"generators":19,"matrix":[["3/2","1/2","0"],["1/2","3/2","0"],["0","0","0"]]}
+  ],
+  "descent": [
+    {"case":"sharp_negative_q1","kind":"negative_integer_vector","q":2,"vector":[2,1],"value":"-1","tested":4},
+    {"case":"sharp_negative_q2","kind":"negative_integer_vector","q":3,"vector":[3,1],"value":"-1/2","tested":5},
+    {"case":"sharp_negative_q3","kind":"negative_integer_vector","q":5,"vector":[5,1],"value":"-2/3","tested":7},
+    {"case":"sharp_negative_q4","kind":"negative_integer_vector","q":6,"vector":[6,1],"value":"-1/2","tested":8},
+    {"case":"sharp_negative_q8","kind":"negative_integer_vector","q":12,"vector":[12,1],"value":"-1/2","tested":14},
+    {"case":"Horn_cycle_five","kind":"copositive_separator","q":4,"alpha":"1/50","base":[["1","-1","1","1","-1"],["-1","1","-1","1","1"],["1","-1","1","-1","1"],["1","1","-1","1","-1"],["-1","1","1","-1","1"]],"separator":[["11/10","-1","1","1","-1"],["-1","11/10","-1","1","1"],["1","-1","11/10","-1","1"],["1","1","-1","11/10","-1"],["-1","1","1","-1","11/10"]],"pairing":"-1/2","diagonal_shift":"1/10","strict_margin":"191/8320","grid_tests":2101},
+    {"case":"trace_zero_candidate","kind":"copositive_separator","q":1,"alpha":"1/4","base":[["0","1"],["1","0"]],"separator":[["1/3","1"],["1","1/3"]],"pairing":"-4/3","diagonal_shift":"1/3","strict_margin":"1/3","grid_tests":3}
+  ],
+  "margins": [
+    {"n":2,"kind":"strict_copositivity","q":1,"margin":"1/4","grid_minimum":"1/2","grid_tests":3},
+    {"n":3,"kind":"strict_copositivity","q":2,"margin":"5/24","grid_minimum":"1/3","grid_tests":19},
+    {"n":4,"kind":"strict_copositivity","q":4,"margin":"3/20","grid_minimum":"1/5","grid_tests":369}
+  ]
+}
