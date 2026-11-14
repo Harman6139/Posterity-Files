@@ -1,0 +1,533 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\hypersetup{pdftitle={An exponential barrier for copositive shadow pivots and sharp arithmetic height bounds},pdfsubject={Exact quantitative copositive separation},pdfauthor={}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\CP}{\mathcal{CP}}
+\newcommand{\COP}{\mathcal{COP}}
+\newcommand{\Ry}{\mathcal R}
+\newcommand{\Min}{\operatorname{Min}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\bits}{\operatorname{bits}}
+\newcommand{\diag}{\operatorname{Diag}}
+\title{An exponential barrier for copositive shadow pivots\\and sharp arithmetic height bounds}
+\author{}
+\date{Research manuscript, 14 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a quantitative obstruction to adjacent-vertex methods for completely positive separation. From the canonical initial perfect matrix, an explicit rational nonmember of encoding length $O(\log N)$ forces exactly $N$ pivots for every objective-decreasing extreme-ray choice. Its distance to the completely positive cone is $\Theta(N^{-2})$. Thus a polynomial bound in input length plus logarithmic inverse distance is impossible for the minimum-ratio shadow rule, even without ties or degeneracy. The obstruction survives a target-dependent finite-grid correction test.
+
+For the positive result, we prove a sharp effective interior theorem for the copositive Ryshkov set: a matrix of Frobenius norm at most $M$ has copositivity margin at least $c_n M^{-(n-1)}$. Both this exponent and the corresponding active-vector height exponent are attained, up to constants, by explicit perfect matrices in every order. The estimate extends to finitely generated rational cones. Combined with the shadow invariant, it gives explicit singly exponential precision bounds, polynomial bit heights, and finite exact neighbor computations. Finally, we supply a fully rational nonlocal separation implementation with $2^{O(n)}$ times polynomial precision complexity. The latter uses classical face enumeration and ellipsoid ideas; its role is a complete alternative, not a claim of a new general optimization paradigm.
+\end{abstract}
+
+\section{Introduction and statements of scope}
+Let $\mathbb S^n$ carry the trace pairing and Frobenius norm. Put
+\[
+ \CP_n=\cone\{xx^T:x\in\mathbb R_+^n\},\qquad
+ \COP_n=\CP_n^*,\qquad Q[x]=x^TQx.
+\]
+The cone $\CP_n$ is closed: its trace-one base is the convex hull of the compact set of nonnegative unit rank-one matrices. Hence every $A\notin\CP_n$ has a positive distance $\delta$ to $\CP_n$ and a copositive separator.
+
+Dutour Sikiri\'c, Sch\"urmann and Vallentin \cite{DSV21} proposed a simplex-type traversal of perfect copositive matrices. Their Conjecture 3.2 asks for a pivot rule ensuring finite termination of Procedure 3 on every nonmember. It does \emph{not} assert a polynomial bound. The minimum-ratio continuation proof supplied in the preceding project milestone \cite{M37} establishes the qualitative termination needed here. We reproduce that proof with degeneracies included and make it effective.
+
+For normalized rational input, define
+\begin{equation}\label{eq:H}
+ \norm A_F\le1,\quad A\notin\CP_n,\quad
+ h=\left\lceil\log_2(1/\delta)\right\rceil,\quad H=L+h+2,
+\end{equation}
+where $L$ is the total binary encoding length. Our first conclusion is that the proposed bound $C(n)H^{c(n)}$ for adjacent shadow pivots is false already for the canonical start in order two. This is an asymptotic lower bound, not an isolated small-order example. Our upper and height theorems hold in every order, including arbitrary vertex degeneracies.
+
+The arithmetic organizing principle is different from a polynomial pivot potential. Small quadratic values in the orthant can be approximated by integer vectors with controlled denominators. This forces a quantitative interior margin for every Ryshkov point. It controls the bit heights of vertices and rays, but it cannot prevent exponentially many distinct face transitions.
+
+\paragraph{Priority and limitations.}
+The binary Farey geometry is already present in \cite[Section 4]{DSV21}; a new claim cannot be the discovery of that connection. The qualitative interior-Ryshkov property and a Diophantine proof are established in \cite{OS26}, extending earlier copositive results. Our quantitative margin and sharpness statements must be compared with those antecedents, not represented as the first interior theorem. Face-based copositivity tests are classical \cite{GTHC22}, as is the separation/ellipsoid framework \cite{GLS81}. We give self-contained exact versions to close the computational interfaces.
+
+The lower-bound inputs below are indefinite. A positive-semidefiniteness pretest detects them immediately. Accordingly, we prove no intrinsic exponential lower bound for copositive separation and no lower bound for a procedure restricted in advance to doubly nonnegative inputs. Historical priority of the precise quantitative combination has not been independently certified.
+
+\section{Ryshkov geometry and the specified algorithm}
+Set
+\[
+ \Ry_n=\{P\in\mathbb S^n:P[v]\ge1\text{ for every }0\ne v\in\mathbb Z_+^n\}.
+\]
+For $P\in\Ry_n$, write
+\[
+ \Min(P)=\{v\in\mathbb Z_+^n\setminus\{0\}:P[v]=1\},\qquad
+ V(P)=\cone\{vv^T:v\in\Min(P)\}.
+\]
+Section~\ref{sec:IR} proves directly that every point of $\Ry_n$ is strictly copositive. In a sufficiently small neighborhood of such a point, only finitely many integer inequalities can be binding. Indeed, a positive margin bounds the lengths of all vectors whose value can be at most one in that neighborhood. Thus $\Ry_n$ is locally polyhedral. A point is a vertex precisely when its active rank-one normals span $\mathbb S^n$. At a vertex its feasible tangent cone is
+\[
+ T(P)=\{R:R[v]\ge0\ (v\in\Min(P))\},
+\]
+a full-dimensional pointed polyhedral cone, and $V(P)$ is its minimizing normal cone.
+
+Let $B=P_0$ have diagonal entries one, adjacent off-diagonal entries $-1/2$, and other entries zero. For integral $z$,
+\begin{equation}\label{eq:B}
+ B[z]=\frac12\left(z_1^2+\sum_{i=1}^{n-1}(z_i-z_{i+1})^2+z_n^2\right).
+\end{equation}
+Its nonnegative minimal vectors are exactly the indicators of nonempty consecutive intervals. Their outer products span $\mathbb S^n$. Hence $B$ is a vertex. Put $d=n(n+1)/2$ and
+\begin{equation}\label{eq:C}
+ C=\sum_{1\le i\le j\le n}1_{[i,j]}1_{[i,j]}^T,
+ \qquad C_{ij}=\min(i,j)(n+1-\max(i,j)).
+\end{equation}
+At a vertex with $\ip AP\ge0$, choose an extreme tangent ray minimizing
+\begin{equation}\label{eq:rule}
+ \frac{\ip CR}{-\ip AR}\quad\text{over all extreme rays with }\ip AR<0.
+\end{equation}
+If $R\in\COP_n$, return $R$. Otherwise follow the bounded edge in direction $R$ to its other vertex. At a vertex with $\ip AP<0$, return $P$. Ties in \eqref{eq:rule} may be resolved arbitrarily. For a nonmember a decreasing tangent ray always exists, since $A\notin V(P)$.
+
+\section{A forced exponential path}\label{sec:lower}
+\begin{theorem}\label{thm:lower}
+For each integer $N\ge1$, let
+\[
+ A_N=\begin{pmatrix}0&1/(4N)\\1/(4N)&1/2\end{pmatrix},\qquad
+ P_k=\begin{pmatrix}k^2+k+1&-k-1/2\\-k-1/2&1\end{pmatrix}\quad(k\ge0).
+\]
+Starting at $P_0$, every version of Procedure 3 that selects an objective-decreasing extreme tangent ray visits exactly $P_0,P_1,\ldots,P_N$ and then returns $P_N$. It makes $N$ adjacent pivots. Moreover,
+\[
+ \norm{A_N}_F<1,\qquad
+ \operatorname{dist}_F(A_N,\CP_2)
+ =\frac{\sqrt{1+N^{-2}}-1}{4}=\Theta(N^{-2}).
+\]
+Consequently the minimum-ratio rule cannot have a polynomial-in-$H$ pivot bound.
+\end{theorem}
+\begin{proof}
+For integers $a,b\ge0$,
+\[
+ P_k[a,b]=(b-ka)^2-a(b-ka)+a^2.
+\]
+The only nonzero nonnegative integer vectors attaining one are
+$e_2,(1,k)^T,(1,k+1)^T$. To check completeness, $a\ge2$ gives a value at least $3a^2/4\ge3$; $a=1$ gives equality exactly when $b-ka$ is zero or one; $a=0$ gives $b=1$. The three rank-one normals are independent, so $P_k$ is a simple vertex. Its three extreme tangent ray generators are
+\begin{align*}
+ R_k^+&=\begin{pmatrix}2k+2&-1\\-1&0\end{pmatrix},&
+ R_k^-&=\begin{pmatrix}-2k&1\\1&0\end{pmatrix},&
+ T_k&=\begin{pmatrix}2k(k+1)&-(2k+1)\\-(2k+1)&2\end{pmatrix}.
+\end{align*}
+Each vanishes on two active vectors and is positive on the third. Direct calculation gives
+\begin{align*}
+ \ip{A_N}{R_k^+}&=-\frac1{2N},&
+ \ip{A_N}{R_k^-}&=\frac1{2N},\\
+ \ip{A_N}{T_k}&=1-\frac{2k+1}{2N},&
+ \ip{A_N}{P_k}&=\frac12-\frac{2k+1}{4N}.
+\end{align*}
+For $0\le k<N$, the last two quantities are positive. Thus $R_k^+$ is the unique decreasing extreme ray. It is not copositive, since $R_k^+[1,k+2]=-2$. Also $P_k+R_k^+=P_{k+1}$. Convexity gives feasibility throughout this segment, and the vector $(1,k+2)^T$ blocks any extension past its endpoint. The next pivot is therefore forced. At $k=N$, the vertex pairing is $-1/(4N)$, proving the path assertion.
+
+The negative eigenvalue of $A_N$ has magnitude $(\sqrt{1+N^{-2}}-1)/4$. The other eigenvector can be chosen entrywise positive. Its nonnegative spectral part is therefore completely positive and is the nearest positive semidefinite matrix. Since $\CP_2$ is contained in the positive semidefinite cone, the claimed distance follows. Rationalizing yields
+\[
+ \delta_N=\frac1{4N^2(\sqrt{1+N^{-2}}+1)}.
+\]
+The input encoding and $\log(1/\delta_N)$ are both $O(\log N)$. Taking $N=2^m$ proves the exponential-in-precision obstruction.
+\end{proof}
+
+The lower bound does not depend on the anchor, on degeneracy, or on a malicious tie choice. It rules out repairing this family merely by changing the selection among decreasing adjacent rays.
+
+\subsection{Survival under the target-dependent grid correction}
+For clarity, consider exactly the grid interface of \cite{M37}. For a decreasing ray put $g=-\ip AR>0$, $h_0=\tr(A)\tr(R)$ and $\alpha=g/(2h_0)$ when $h_0>0$. Choose an integer $q\ge1$ with
+\begin{equation}\label{eq:gridcut}
+ 4q^2\alpha(1+\alpha)\ge1.
+\end{equation}
+A negative value at a nonnegative cube-shell vector of height $q$ supplies a descent witness. If all shell values are nonnegative, the routine returns the corrected separator $R+\alpha\tr(R)I$. Only the stated behavior of this interface is needed below.
+
+\begin{proposition}\label{prop:grid}
+On $A_N$, this modification performs at least $N-1$ adjacent pivots. Choosing the least admissible $q$ at each call gives exactly $N-1$ pivots.
+\end{proposition}
+\begin{proof}
+At $P_k$ we have $g=1/(2N)$, $h_0=k+1$, and $\alpha=1/[4N(k+1)]$. If $k\le N-2$, substituting $q=k+1$ into the left side of \eqref{eq:gridcut} gives
+\[
+ \frac{k+1}{N}+\frac1{4N^2}<1.
+\]
+Every admissible $q$ is therefore greater than $k+1$, and the shell vector $(1,q)^T$ has value $2(k+1-q)<0$. The routine must permit the next pivot. At $k=N-1$, the least admissible value is $q=N$. Every integer cube value is $2a(Na-b)\ge0$ for $0\le a,b\le N$. Thus the correction is returned. It is explicitly
+\[
+ W=\begin{pmatrix}2N+1/(2N)&-1\\-1&1/(2N)\end{pmatrix},
+ \qquad \ip{A_N}{W}=-\frac1{4N}.
+\]
+It is positive definite, with determinant $1/(4N^2)$. A larger final grid can instead detect a negative ray value and lead to $P_N$; this does not affect the lower bound.
+\end{proof}
+
+\section{A sharp effective interior theorem}\label{sec:IR}
+\begin{lemma}[Elementary simultaneous approximation]\label{lem:dirichlet}
+If $y\in[0,1]^s$ has a coordinate equal to one and $q\ge1$ is an integer, there exist $1\le r\le q^{s-1}$ and $v\in\mathbb Z_+^s$ such that the fixed coordinate of $v$ is $r$, $0\le v_i\le r$, and $|v_i-r y_i|\le1/q$ on the other coordinates.
+\end{lemma}
+\begin{proof}
+Partition the unit cube in $s-1$ coordinates into $q^{s-1}$ half-open cubes. Among the fractional parts of $k y$, $0\le k\le q^{s-1}$, two are in the same cube. Subtract their indices and their integer parts. Since $0\le y_i\le1$, the resulting integer coordinates lie between zero and the index difference. The fixed unit coordinate is treated exactly. For $s=1$ take $r=v_1=1$.
+\end{proof}
+
+\begin{theorem}[Effective interior and height]\label{thm:IR}
+Let $P\in\Ry_n$ and $\norm P_F\le M$, where $M\ge1$. Set
+\begin{equation}\label{eq:IR}
+ q=\left\lceil\sqrt{4nM}\right\rceil,
+ \qquad \mu_n(M)=\frac1{2nq^{2(n-1)}}.
+\end{equation}
+Then $P[x]\ge\mu_n(M)\norm x^2$ for every $x\ge0$. In particular,
+\[
+ v\in\Min(P)\quad\Longrightarrow\quad
+ \norm v\le\sqrt{2n}\,q^{n-1}.
+\]
+Thus $\mu_n(M)\ge c_n M^{-(n-1)}$, with the explicit choice
+$c_n=[2n(\sqrt{4n}+1)^{2(n-1)}]^{-1}$.
+\end{theorem}
+\begin{proof}
+Density of nonnegative rational rays and the integer inequalities first imply $P\in\COP_n$. Let $\mu$ be the minimum of $P[x]$ on the nonnegative unit sphere, and choose a minimizer with support $S$, of size $s$. On this support, first-order optimality gives $P_{SS}x_S=\mu x_S$. Divide by the largest coordinate to obtain $y$ with maximum coordinate one and the same eigenvector identity. Apply Lemma~\ref{lem:dirichlet} and pad $v$ by zeros outside $S$. Put $e=v-r y$. The eigenvector identity eliminates the cross terms in
+\[
+ P[v]=\mu\norm v^2+e^T(P_{SS}-\mu I)e.
+\]
+Since $0\le\mu\le M$, $\norm e^2\le(s-1)/q^2$, and $\norm v^2\le n q^{2(n-1)}$, we get
+\[
+ 1\le P[v]\le\mu n q^{2(n-1)}+\frac{2Mn}{q^2}
+ \le\mu n q^{2(n-1)}+\frac12.
+\]
+Rearranging proves the theorem. No qualitative compactness constant or unbounded search is used.
+\end{proof}
+
+\begin{theorem}[Sharpness in every order]\label{thm:sharp}
+For every $n\ge2$, the exponents $n-1$ in the margin estimate and $(n-1)/2$ in the active-vector height estimate are optimal over Ryshkov vertices.
+\end{theorem}
+\begin{proof}
+Let $S$ be the superdiagonal shift, $U_t=I-tS$ for integers $t\ge1$, and
+$Q_t=U_t^T B U_t$, where $B$ is as in \eqref{eq:B}. The matrix $U_t$ is integral unimodular and
+\[
+ U_t^{-1}=I+tS+\cdots+t^{n-1}S^{n-1}\ge0.
+\]
+Equation~\eqref{eq:B} shows that $B[z]\ge1$ on all nonzero integral vectors, including signed ones. Thus $Q_t\in\Ry_n$. Each $U_t^{-1}1_{[i,j]}$ is a nonnegative active vector. Invertible congruence preserves the spanning property of their outer products, so $Q_t$ is a vertex. Furthermore,
+\[
+ \norm{Q_t}_F\le\norm B_F(1+t)^2\le4nt^2,
+ \quad x_t=U_t^{-1}e_n=(t^{n-1},\ldots,t,1)^T,
+ \quad Q_t[x_t]=1.
+\]
+Hence the normalized copositivity margin is at most $t^{-2(n-1)}$, while an active vector has length at least $t^{n-1}$. Any proposed uniformly better power of $\norm Q_F$ contradicts these inequalities as $t\to\infty$.
+\end{proof}
+
+\subsection{Extension to finitely generated rational cones}
+The qualitative generalized interior-Ryshkov theorem of \cite{OS26} has the following effective specialization.
+\begin{theorem}\label{thm:generalcone}
+Let $K=\cone\{u_1,\ldots,u_m\}\ne\{0\}$, where the nonzero $u_i$ are integral and $\norm{u_i}\le B_0$. Put $r=\dim\operatorname{span}K$. Suppose $\norm P_F\le M$, $M\ge1$, and $P[v]\ge1$ for every nonzero $v\in K\cap\mathbb Z^n$. With
+\[
+ q_K=\left\lceil2rB_0\sqrt M\right\rceil,\qquad
+a_K=\frac1{2r^2B_0^2 q_K^{2(r-1)}},
+\]
+one has $P[x]\ge a_K\norm x^2$ for every $x\in K$.
+The exponent $r-1$ cannot be decreased uniformly over this class.
+\end{theorem}
+\begin{proof}
+Rational conic combinations of the generators are dense, so $P$ is nonnegative on $K$. Let $x$ minimize the quadratic form on $K\cap\{\norm x=1\}$, with value $\mu$. By eliminating linear dependencies from a conic representation, write $x=U\alpha$, with $s\le r$ independent columns of $U$, and every coordinate of $\alpha$ positive. Small positive and negative perturbations in $\operatorname{span}U$ remain in the simplicial cone around $x$. Stationarity of the Rayleigh quotient therefore implies
+\[
+ z^T(P-\mu I)x=0\quad(z\in\operatorname{span}U).
+\]
+Normalize $\beta=\alpha/\max_i\alpha_i$ and approximate it as in Lemma~\ref{lem:dirichlet}. Write $p$ for the integer coefficient vector and $a$ for its denominator, so $1\le a\le q_K^{s-1}$, $p\ne0$, and $p\ge0$. Set $v=Up\in K\cap\mathbb Z^n\setminus\{0\}$, $y=U\beta$, and $e=v-a y$. Independence ensures $v\ne0$. We have
+\[
+ \norm v\le sB_0q_K^{s-1},\qquad \norm e\le sB_0/q_K,
+\]
+and stationarity gives $P[v]=\mu\norm v^2+e^T(P-\mu I)e$. Consequently
+\[
+ 1\le\mu r^2B_0^2q_K^{2(r-1)}+2M r^2B_0^2/q_K^2
+ \le\mu r^2B_0^2q_K^{2(r-1)}+\tfrac12.
+\]
+The orthant examples of Theorem~\ref{thm:sharp} prove sharpness over the class.
+\end{proof}
+
+\section{An exact support oracle, including boundary cases}\label{sec:oracle}
+The following elementary form of the classical face-based method is useful because it needs only rational linear algebra and handles singular matrices without a promise of strict copositivity.
+\begin{proposition}\label{prop:oracle}
+For each nonempty $S\subseteq\{1,\ldots,n\}$, form
+\begin{equation}\label{eq:border}
+ D_S(Q)=\begin{pmatrix}Q_{SS}&-\mathbf1\\\mathbf1^T&0\end{pmatrix}.
+\end{equation}
+Skip a singular system. Otherwise solve
+$D_S(Q)(x,t)^T=(0,1)^T$, and retain $t$ exactly when $x\ge0$. Then
+\[
+ \min_{x\ge0,\,\mathbf1^Tx=1}Q[x]
+ =\min\{t:\text{retained systems}\}.
+\]
+There are $2^n-1$ systems, each of order at most $n+1$. For rational $Q$ this is an exact rational algorithm of complexity $2^n\operatorname{poly}(n,\bits(Q))$.
+\end{proposition}
+\begin{proof}
+Every retained vector, padded by zeros, is feasible and has quadratic value $t$, because $Q_{SS}x=t\mathbf1$ and $\mathbf1^Tx=1$. Conversely, choose a global minimizer of minimum support $S$. It is in the relative interior of that simplex face, so $Q_{SS}x=t\mathbf1$ and $Q_{SS}$ is positive semidefinite on the tangent space $\mathbf1^Tz=0$. It is in fact positive definite on that tangent space. Otherwise a nonzero tangent vector $z$ with $z^TQ_{SS}z=0$ would give
+\[
+ Q[x+\theta z]=Q[x]+2\theta t\mathbf1^Tz+\theta^2z^TQ_{SS}z=Q[x]
+\]
+until a coordinate first vanishes. This produces a minimizer of smaller support, a contradiction.
+
+The bordered matrix on this support is nonsingular: a kernel vector would satisfy $\mathbf1^Tz=0$ and $Q_{SS}z=t\mathbf1$, hence $z^TQ_{SS}z=0$, forcing $z=0$ and then $t=0$. This support therefore contributes the global minimum to the list. Singleton supports ensure the list is nonempty. Rational Gaussian elimination and determinant bounds prove the arithmetic assertion.
+\end{proof}
+
+A nonnegative returned minimum certifies copositivity, including on the boundary. A negative minimum supplies a rational nonnegative vector of negative value; clearing a common denominator supplies an integer witness. If the minimum is $m>0$, then
+\begin{equation}\label{eq:simplexmargin}
+ Q[v]\ge m(\mathbf1^Tv)^2\ge m\norm v^2\quad(v\ge0).
+\end{equation}
+For integer $Q$ with entries bounded in absolute value by $E$, Cramer's rule in \eqref{eq:border} yields a negative integer witness with every coordinate at most
+\begin{equation}\label{eq:K}
+ K=(n+1)!(E+1)^{n+1}.
+\end{equation}
+This oracle solves a continuous simplex minimum. It does not purport to find a copositive \emph{integer} minimum in polynomial time in variable dimension; compare \cite{OS25}.
+
+\section{Effective shadow complexity and exact neighbors}\label{sec:shadow}
+\subsection{The continuation invariant, without a nondegeneracy assumption}
+\begin{lemma}\label{lem:anchor}
+For every $Q\in\COP_n$, $\norm Q_F\le n\ip CQ$, where $C$ is \eqref{eq:C}. Also
+\[
+ \ip CB=d,\qquad \norm B_F\le n,\qquad
+ T:=\tr C=\frac{n(n+1)(n+2)}6,\qquad \norm C_F\le T.
+\]
+\end{lemma}
+\begin{proof}
+Write $F(i,j)=Q[1_{[i,j]}]$, with empty intervals assigned zero. All these quantities are nonnegative and their sum is $s=\ip CQ$. Each $Q_{ii}\le s$. For $i<j$,
+\[
+ 2Q_{ij}=F(i,j)-F(i+1,j)-F(i,j-1)+F(i+1,j-1).
+\]
+The positive terms and negative terms separately sum to at most $s$, so $|Q_{ij}|\le s/2$. The asserted norm bound follows, with room to spare. The other identities follow from the interval construction and the fact that $C$ is positive semidefinite.
+\end{proof}
+
+\begin{lemma}\label{lem:shadow}
+Every vertex reached by \eqref{eq:rule} minimizes $\ip{C+\lambda A}{P}$ over $\Ry_n$ for some nondecreasing $\lambda\ge0$. At all nonterminal vertices,
+\begin{equation}\label{eq:M}
+ \lambda\le T/\delta,
+ \qquad \norm P_F\le M:=nd+\frac{n^2T}{\delta}.
+\end{equation}
+The value $\ip AP$ strictly decreases at every adjacent pivot.
+\end{lemma}
+\begin{proof}
+Initially $C\in V(B)$. Suppose $C+\lambda A\in V(P)$ and put
+\[
+ \lambda'=\min_{\ip AR<0}\frac{\ip CR}{-\ip AR}.
+\]
+Each candidate ratio is at least $\lambda$. For tangent rays with nonnegative $A$-pairing, increasing $\lambda$ preserves nonnegativity of the pairing with $C+\lambda A$; for decreasing rays the definition of $\lambda'$ ensures the same. Thus $C+\lambda'A\in V(P)$. The selected ray has zero pairing with this objective, so its endpoint also minimizes that objective. This proves the invariant even when several ratios coincide or consecutive values of $\lambda$ are equal. The separate $A$-pairing strictly decreases because the edge length is positive.
+
+Let $Y$ be the Frobenius projection of $A$ onto $\CP_n$. The conic projection conditions give $Z=(Y-A)/\delta\in\COP_n$, $\norm Z_F=1$, and $\ip AZ=-\delta$. Since $C+\lambda A\in\CP_n$,
+$0\le\ip{C+\lambda A}{Z}\le T-\lambda\delta$. At a nonterminal vertex, $\ip AP\ge0$, and optimality compared with $B$ yields
+\[
+ \ip CP\le\ip{C+\lambda A}{P}
+ \le\ip{C+\lambda A}{B}\le d+nT/\delta.
+\]
+Apply Lemma~\ref{lem:anchor}.
+\end{proof}
+
+\subsection{Explicit counts and heights}
+The following deliberately generous formulas separate the relevant resources. They depend on $\delta$ for analysis, but the implemented local procedures do not require $\delta$ as input.
+\begin{theorem}\label{thm:complexity}
+For $n\ge2$, use $M$ from \eqref{eq:M} and define
+\begin{align}
+ q&=\lceil\sqrt{4nM}\rceil,& b&=2nq^{n-1},& U&=(b+1)^n-1,\label{eq:counts1}\\
+ D&=d!(2b^2)^d,& E&=(d-1)!(2b^2)^{d-1},& K&=(n+1)!(E+1)^{n+1},\label{eq:counts2}\\
+ \widehat M&=nM(1+n^2 E K^2),&
+ \widehat q&=\lceil\sqrt{4n\widehat M}\rceil,&
+ \widehat b&=2n\widehat q^{n-1},\label{eq:counts3}\\
+ \widehat U&=(\widehat b+1)^n-1,&
+ \widehat D&=d!(2\widehat b^2)^d.\nonumber
+\end{align}
+The exact shadow algorithm terminates. It makes at most $U^d+1$ adjacent pivots. Nonterminal vertex coordinates have a common denominator and numerators bounded by $D$; primitive integral tangent ray coordinates are bounded by $E$. All visited vertices, including a possibly terminal last neighbor, have such bounds with $\widehat D$.
+
+Active-vector enumeration uses at most $U$ integer candidates at a nonterminal vertex, ray enumeration at most $U^{d-1}$ subsets, and a neighbor search at most $\widehat U$ integer candidates. The number of support linear systems and integer tests is at most a polynomial in $n$ times
+\begin{equation}\label{eq:totalcount}
+ (U^d+1)(U^d+2^{n+1}+\widehat U).
+\end{equation}
+In particular, the pivot bound is $2^{O(n^4(h+\log(n+1)))}$. Visited vertex and ray coordinates have $O(n^7(H+\log(n+1)))$ bits. Total exact bit complexity is singly exponential in $H$ for fixed $n$, for example
+\[
+ 2^{O(n^7(H+\log(n+1)))}.
+\]
+These are upper bounds, not claims of dimension-optimal constants. Exponential rather than polynomial precision dependence for adjacent pivots is necessary by Theorem~\ref{thm:lower}.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:IR} bounds every active coordinate by $b$. A vertex is determined by $d$ independent active equalities, whose integer coefficients in upper-triangle coordinates have absolute value at most $2b^2$. Cramer's rule bounds all coordinate numerators and a common denominator by $D$. There are at most $U^d$ possible choices of the determining equalities. Strict objective descent prevents a repeated vertex. This proves finite termination once the local operations are known to be finite, and gives the pivot bound.
+
+Every extreme ray is the one-dimensional kernel of $d-1$ independent active rows. Its signed minors give an integral generator, bounded by $E$, with the orientation determined by all active inequalities. Enumerating these subsets and checking their signs is complete even at a degenerate vertex.
+
+For a selected noncopositive ray, Proposition~\ref{prop:oracle} gives an integer $w$ bounded by $K$ with $R[w]<0$. Feasibility at $P$ and tangency imply $P[w]>1$. Set
+\begin{equation}\label{eq:s0}
+ s_0=\frac{P[w]-1}{-R[w]}>0.
+\end{equation}
+The maximal feasible parameter $\ell$ is at most $s_0$. It is positive by local polyhedrality, and its endpoint belongs to $\Ry_n$ by closedness. Since $R$ is integral, $-R[w]\ge1$, so $s_0\le MnK^2$. The entrywise absolute sum of $P+sR$ for $0\le s\le s_0$ is at most
+\[
+ nM+s_0 n^2 E\le\widehat M.
+\]
+Therefore the endpoint has an active blocking vector of coordinates at most $\widehat b$. It is a vertex: locally, the intersection with the face defined by the $d-1$ independent ray equalities is a segment, whose finite endpoint is a vertex. Hence
+\begin{equation}\label{eq:neighbor}
+ \ell=\min_{\substack{0\ne v\in\{0,\ldots,\widehat b\}^n\\ R[v]<0}}
+             \frac{P[v]-1}{-R[v]}.
+\end{equation}
+All ratios are positive. The true blocker is included, and no other ratio is smaller than the maximal feasible parameter, proving exactness. Applying the same Cramer bound at the endpoint gives $\widehat D$.
+
+To enumerate active vectors without knowing $M$, compute the positive simplex minimum $m(P)$ by Proposition~\ref{prop:oracle}, and enumerate vectors with $\norm v^2\le1/m(P)$. Equation~\eqref{eq:simplexmargin} justifies the cutoff. Theorem~\ref{thm:IR} gives $m(P)\ge\mu_n(M)/n$, so this enumeration fits within the box of height $b$. For a neighbor, use the rational bound $\norm P_1+s_0\norm R_1$, where $\norm Q_1=\sum_{i,j}|Q_{ij}|$, instead of $\widehat M$; it is no larger. This proves the operational counts.
+
+Finally, $M\le2n^5/\delta$ for $n\ge2$. Successively taking logarithms in \eqref{eq:counts1}--\eqref{eq:counts3} gives
+\[
+ \log b=O(n(h+\log n)),\quad \log D,\log E=O(n^3(h+\log n)),
+\]
+\[
+ \log K,\log\widehat M=O(n^4(h+\log n)),\quad
+ \log\widehat b=O(n^5(h+\log n)),\quad
+ \log\widehat D=O(n^7(h+\log n)).
+\]
+All tests use rational linear algebra of polynomial bit cost in these lengths and $L$. Combining these bounds with \eqref{eq:totalcount} gives the assertion.
+\end{proof}
+
+\paragraph{Exact local pseudocode.}
+At a vertex, first test its pairing with $A$. If necessary, compute its simplex margin and enumerate its active integer vectors within the certified cutoff. Enumerate one-dimensional kernels of $d-1$ active rows, orient and deduplicate the feasible rays, and choose \eqref{eq:rule}. The support oracle either certifies that ray copositive, or supplies $w$. In the latter case compute \eqref{eq:s0}, the rational norm bound above, its effective interior cutoff, and \eqref{eq:neighbor}. No total boundary decision is delegated to an unimplemented oracle.
+
+For a final copositive matrix $W$ with $g=-\ip AW>0$, replacing it by
+\[
+ W+\beta I,\qquad \beta=\frac{g}{2(1+|\tr A|)},
+\]
+gives a strict rational separator with cone margin $\beta$ and target gap at least $g/2$. A complete support table verifies its copositivity in $2^n\operatorname{poly}(n,H)$ bits. This is a certificate-length statement, not a polynomial-time claim for the adjacent path.
+
+\begin{remark}
+An arbitrary initial vertex can be used, but its height and anchor coercivity must then enter the bound. For a fixed anchor satisfying $\ip CQ\ge\kappa\norm Q_F$ on $\COP_n$, replace $M$ by
+$\kappa^{-1}(\ip C{P_0}+\norm C_F\norm{P_0}_F/\delta)$.
+A complexity claim omitting unbounded starting data cannot be uniform over arbitrary initial vertices.
+\end{remark}
+
+\section{A complete nonlocal polynomial-precision alternative}\label{sec:nonlocal}
+The preceding obstruction concerns adjacency, not separation itself. We give an explicit rational cutting-plane implementation to make that distinction algorithmic. The construction uses classical ideas, with all precision and oracle interfaces specified.
+
+Identify $\mathbb S^n$ with $\mathbb R^d$ by its upper triangle, writing $W(z)$ for the symmetric matrix. Then $\norm{W(z)}_F\le\sqrt2\norm z$. For an integer $s\ge1$, put
+\[
+ \epsilon_s=\frac{2^{-s}}{32n},\qquad
+ \mathcal K_s=\{z\in[-1,1]^d:W(z)-\epsilon_s I\in\COP_n,
+                               \ \ip A{W(z)}\le-\epsilon_s\}.
+\]
+\begin{lemma}\label{lem:ball}
+If $2^{-s}\le\delta$, then $\mathcal K_s$ contains a Euclidean ball of radius $\epsilon_s/4$.
+\end{lemmaorem}
+\begin{proof}
+Use the unit separator $Z$ in Lemma~\ref{lem:shadow} and set
+$W_*=Z/4+\delta I/(16n)$. Every coordinate has absolute value at most $5/16$, its copositivity margin is at least $\delta/(16n)\ge2\epsilon_s$, and
+\[
+ \ip A{W_*}\le-\delta/4+\delta\sqrt n/(16n)\le-3\delta/16.
+\]
+A coordinate perturbation of Euclidean norm at most $\epsilon_s/4$ changes the Frobenius norm by at most $\epsilon_s/2$. It preserves the box, leaves cone margin at least $\epsilon_s$, and leaves target pairing at most $-\epsilon_s$.
+\end{proof}
+
+At a rational center $c$, a violated box inequality supplies an immediate rational cut. A violated target inequality supplies the coefficient vector of $\ip A{W(z)}$. Otherwise use the support oracle on $W(c)-\epsilon_s I$. A negative simplex vector $x$ supplies the valid cut
+\[
+ x^TW(z)x\ge\epsilon_s\norm x^2.
+\]
+Replacing a strict separating inequality by the parallel central cut retains $\mathcal K_s$. If none is violated, the center itself is an exact strict separator.
+
+\subsection{A rational rounded ellipsoid update}
+For $d\ge2$, write
+$\mathcal E(c,Q)=\{z:(z-c)^TQ^{-1}(z-c)\le1\}$, where $Q\succ0$.
+Start at $c_0=0$, $Q_0=dI$. For a central cut $a^T(z-c)\le0$, put $v=Qa$ and $\sigma=a^TQa>0$. The ideal update is
+\begin{equation}\label{eq:ellipsoid}
+ c_*=c-\frac{v}{(d+1)\sqrt\sigma},\qquad
+ Q_* =\frac{d^2}{d^2-1}\left(Q-\frac{2}{d+1}\frac{vv^T}{\sigma}\right).
+\end{equation}
+The implementation never computes an irrational square root. Choose a positive dyadic $r$ by bisection such that
+\[
+ 0\le1-r\sqrt\sigma\le\frac1{64d}.
+\]
+This is done using only comparisons of $r^2\sigma$ with one. At step $t\ge0$, define
+\begin{equation}\label{eq:round}
+ p_t=2(t+1)+10+2\lceil\log_2d\rceil,\quad \tau_t=2^{-p_t}.
+\end{equation}
+Round every coordinate of $c-rv/(d+1)$ down to the nearest multiple of $\tau_t$, obtaining $\bar c$. Round each upper-triangle entry of $Q_*$ down to that same grid and reflect symmetrically, obtaining $Q^{\rm rd}$. Return
+\begin{equation}\label{eq:roundedQ}
+ \bar Q=\left(1+\frac1{16d^2}\right)^2(Q^{\rm rd}+d\tau_t I).
+\end{equation}
+
+\begin{lemma}\label{lem:round}
+These rational updates retain the central-cut part of the preceding ellipsoid. At iteration $t$ they satisfy
+\[
+ \lambda_{\min}(Q_t)\ge d4^{-t},\qquad
+ \lambda_{\max}(Q_t)\le d2^t.
+\]
+Every update reduces volume by a factor at most $\exp(-1/(4d))$.
+\end{lemma}
+\begin{proof}
+After an affine change of coordinates and rotation, the cut is the half unit ball $y_1\le0$. The ideal ellipsoid has center $-e_1/(d+1)$, squared axis length $d^2/(d+1)^2$ in that direction and $d^2/(d^2-1)$ in the others. For $-1\le y_1\le0$ its defining quadratic expression is at most
+\[
+ 1+\frac{2(d+1)}{d^2}(y_1^2+y_1)\le1.
+\]
+This proves ideal containment. The logarithm of its volume ratio is
+\[
+ -\tfrac12\{f(d-1)+f(d+1)-2f(d)\},\qquad f(u)=u\log u.
+\]
+Since $f''(u)=1/u\ge1/(d+1)$ on this interval, the ratio is at most $e^{-1/[2(d+1)]}$.
+
+In positive-semidefinite order, $Q_*\succeq\frac49Q$. The symmetric entrywise rounding error has operator norm at most $d\tau_t$. Consequently, for $B_t=Q^{\rm rd}+d\tau_t I$,
+\[
+ Q_*\preceq B_t\preceq Q_*+2d\tau_t I.
+\]
+Induction gives the lower spectral bound $d4^{-t}$; the upper bound follows from $Q_*\preceq(4/3)Q$ and the very small additive error in \eqref{eq:round}. More explicitly, $2d\tau_t\le d2^t/16$ and $(1+1/64)^2(4/3+1/16)<2$ for $d\ge2$.
+
+The reciprocal-square-root approximation changes the center by at most $1/(64d^2)$ in the $Q_*^{-1}$ norm: indeed $v^TQ_*^{-1}v=\sigma(d+1)^2/d^2$. Subsequent coordinate rounding adds at most $\tau_t2^{t+1}\le1/(2048d^2)$ in that norm. Their sum is less than $1/(16d^2)$. Since $B_t\succeq Q_*$, the inflation in \eqref{eq:roundedQ} therefore absorbs both center errors and preserves containment.
+
+The relative matrix perturbation is at most $1/(512d^2)$, because $\lambda_{\min}(Q_*)\ge d4^{-(t+1)}$. Its volume contribution is at most $e^{1/(1024d)}$, while the final inflation contributes at most $e^{1/(16d)}$. For $d\ge2$,
+\[
+ -\frac1{2(d+1)}+\frac1{1024d}+\frac1{16d}\le-\frac1{4d},
+\]
+which proves the volume estimate.
+\end{proof}
+
+\begin{theorem}[Nonlocal rational separation]\label{thm:nonlocal}
+There is a deterministic rational algorithm which, on the promised inputs \eqref{eq:H}, returns $W\in\mathbb S^n(\mathbb Q)$ and a rational $\epsilon>0$ satisfying
+\[
+ W-\epsilon I\in\COP_n,\qquad \ip AW\le-\epsilon,
+ \qquad |W_{ij}|\le1.
+\]
+At precision $s$, it uses at most
+\begin{equation}\label{eq:stage}
+ N_s=8d^2(s+J+1),\qquad J=\lceil\log_2(128nd)\rceil,
+\end{equation}
+ellipsoid cuts, each involving at most $2^n-1$ rational systems of order at most $n+1$. Starting with $s=\max(1,L)$ and doubling $s$ after an unsuccessful stage terminates without knowing $\delta$.
+
+For $B_*=L+h+\lceil\log_2(n+1)\rceil+4$, a conservative total schoolbook bit-operation bound is
+\[
+ O(2^n n^{24}B_*^6).
+\]
+The output matrix has $O(n^6B_*)$ total bits. A complete support certificate for $W-\epsilon I$ has $O(2^n n^6B_*)$ bits. The exponents are deliberately unoptimized. In particular, for every fixed $n$, both discovery time and certificate length are polynomial in binary precision.
+\end{theorem}
+\begin{proof}
+If $2^{-s}\le\delta$, Lemma~\ref{lem:ball} supplies a ball of radius $\epsilon_s/4$ that must remain in every retained ellipsoid. After $N_s$ unsuccessful cuts the volume estimate would make the ellipsoid smaller than that ball, since
+\[
+ \frac{N_s}{4d}>d\log\frac{\sqrt d}{\epsilon_s/4}.
+\]
+Thus a center must have passed every test before that point. A failed stage is only a reason to increase $s$; it is not a membership certificate. The final precision is at most $2\max(L,h,1)$, so doubling terminates. The scalar case $n=1$ is immediate.
+
+Here are bit bounds to make the rational implementation explicit. At a stage, $t<N_s=O(d^2B_*)$. The spectral bounds and the update formula bound the magnitude of the center by $2^{O(t+\log d)}$. After rounding, the center and shape entries have $O(t+\log d)$ bits: their denominators are the dyadic grid denominator, multiplied for the shape by $(16d^2)^2$. The matrix submitted to the support oracle has a common denominator of $O(t+s+\log n)$ bits. Determinant bounds in systems of order at most $n+1$ show that the minimizing vector and its rank-one cut have $O(n(t+s+\log n))$-bit common-denominator descriptions. Input-objective cuts require at most $O(L)$ additional bits.
+
+Computing $v$, $\sigma$, $Q_*$ and the dyadic reciprocal approximation therefore uses rational arithmetic of polynomial bit size in $n(t+s+L+\log n)$. The reciprocal bisection takes $O(\log(d+1))$ comparisons after finding the binary exponent of $\sigma$. Gaussian elimination can be implemented fraction-free; its intermediate integers are minors and have polynomial bit size. The supplied rational elimination has the same polynomial bound, since its entries are ratios of such minors and its back substitution involves only polynomially many terms.
+
+For a deliberately loose common accounting, there are at most $32d^2B_*^2$ center tests over all stages. Each test and update can be bounded by $O(2^n n^{20}B_*^4)$ schoolbook bit operations using the preceding state and determinant bounds. Their product is the displayed $O(2^n n^{24}B_*^6)$. The final center has $d$ coordinates, each of $O(d^2B_*)$ bits. A support table stores at most $n+2$ rational entries per subset, of $O(nd^2B_*)$ bits each. These give the asserted output and certificate bounds.
+\end{proof}
+
+\paragraph{Nonlocal pseudocode.}
+Normalize the input by a rational upper bound on its Frobenius norm when needed. Set $s$ to its encoding length. At each precision, initialize $c=0,Q=dI$. For at most $N_s$ iterations: test the box and target inequalities; if they pass, call the support oracle on $W(c)-\epsilon_s I$; return $W(c)$ when it is copositive; otherwise use the resulting central cut and the rounded update \eqref{eq:round}--\eqref{eq:roundedQ}. If the stage expires, double $s$ and restart. The oracle outputs a negative vector or an exhaustive rational support table. Every action is specified by rational arithmetic.
+
+The theorem is a complete replacement algorithm, but not a new assertion that fixed-dimensional convex separation is polynomial. Its role is to show precisely which constraint must be abandoned: exponentially long adjacent descent is replaced by nonlocal cuts with a volume potential of fixed fractional decrease.
+
+\section{Reproducibility, comparison and remaining limitations}
+The supplementary implementation uses Python's exact \texttt{Fraction} arithmetic and no external numerical solver. It implements the support oracle, active-vector enumeration, tangent-ray enumeration, exact neighbor computation, the minimum-ratio shadow rule, and the rounded nonlocal method. Resource caps raise exceptions; they do not manufacture infeasibility certificates. Passing \texttt{None} for the caps removes those implementation limits on the promised inputs.
+
+The recorded test suite has eight groups: singular and boundary support systems; five complete forced shadow paths; five exact grid-path cases; symbolic identities at $N=2^{100}$; fifteen all-order sharpness constructions; a five-cycle copositive boundary certificate; three nonlocal exact separations; and safe failure under resource limits. The $2^{100}$ test checks formulas, not a simulation of $2^{100}$ pivots. An additional full nonlocal run on the positive definite, entrywise nonnegative five-cycle input $(I+(3/5)G)/3$ terminates after 85 center tests with $\epsilon=1/2560$. The unnormalized input has positive leading principal minors $1,16/25,7/25,31/625,11/3125$, providing an exact positive-definiteness check. Its 31-support certificate is checked by a separate implementation that imports no producer modules and computes determinants by Leibniz expansion. Four deliberately corrupted certificates are rejected. This is implementation independence, not independent authorship or peer review. Finite tests verify implementation consistency; the universal results are the proofs above. No proof-assistant or independent human verification is claimed.
+
+\paragraph{Relation to the preceding sharp-grid result.}
+The earlier project result \cite{M37} proves the optimal cubical correction coefficient $(\sqrt{1+q^{-2}}-1)/2$. It is not proved for the first time here. Earlier polyhedral approximation and grid-rate literature includes \cite{Yildirim12,KLSV17}. Our use of the grid interface is negative: its sharp correction does not eliminate the forced adjacent path. We do not repackage another grid refinement as a precision-complexity breakthrough.
+
+\paragraph{What is and is not resolved.}
+The proposed polynomial adjacent-pivot theorem is disproved. For the canonical shadow rule, arbitrary-dimensional effective upper bounds and polynomial visited-object heights are proved, with exponential precision dependence unavoidable in the class containing order two. The margin and active-height powers are sharp in every order. The rational nonlocal algorithm has polynomial precision complexity in every fixed dimension and exponential dependence on dimension, which does not imply a polynomial algorithm in variable dimension.
+
+An exponential lower bound after doubly nonnegative preprocessing, a polynomial bound for a genuine nonlocal perfect-matrix jump rule, and optimal dependence on $n$ are not established here. The rational factorization of unperturbed boundary matrices is not asserted or needed. External 2026 counterexample reports concerning that question have no logical role in these proofs.
+
+\paragraph{Publication assessment.}
+Mathematical correctness, historical originality, and an upper-quintile venue comparison are different claims. The accompanying audit records a preregistered journal sample and access limitations. It does not certify an 80th-percentile quality threshold. The evidence supports presenting this as a quantitative obstruction and height-bound manuscript, not advertising a polynomial shadow-pivot breakthrough or guaranteed editorial outcome.
+
+\begin{thebibliography}{99}\raggedright
+\bibitem{DSV21} M. Dutour Sikiri\'c, A. Sch\"urmann and F. Vallentin, A simplex algorithm for rational cp-factorization, \emph{Mathematical Programming} \textbf{187} (2021), 25--45. \href{https://doi.org/10.1007/s10107-020-01467-4}{doi:10.1007/s10107-020-01467-4}.
+\bibitem{OS26} A. Oertel and A. Sch\"urmann, Generalized Perfect Matrices, preprint, arXiv:2602.05841v2 (2026). Version retrieved 14 November 2026; PDF dated 8 June 2026.
+\bibitem{OS25} A. Oertel and A. Sch\"urmann, On Computing the Copositive Minimum and its Representatives, preprint, arXiv:2509.23696 (2025).
+\bibitem{GTHC22} B. G.-T\'oth, E. M. T. Hendrix and L. G. Casado, On monotonicity and search strategies in face-based copositivity detection algorithms, \emph{Central European Journal of Operations Research} \textbf{30} (2022), 1071--1092. \href{https://doi.org/10.1007/s10100-021-00737-6}{doi:10.1007/s10100-021-00737-6}.
+\bibitem{GLS81} M. Gr\"otschel, L. Lov\'asz and A. Schrijver, The ellipsoid method and its consequences in combinatorial optimization, \emph{Combinatorica} \textbf{1} (1981), 169--197. \href{https://doi.org/10.1007/BF02579273}{doi:10.1007/BF02579273}.
+\bibitem{Yildirim12} E. A. Y\i ld\i r\i m, On the accuracy of uniform polyhedral approximations of the copositive cone, \emph{Optimization Methods and Software} \textbf{27} (2012), 155--173. \href{https://doi.org/10.1080/10556788.2010.540014}{doi:10.1080/10556788.2010.540014}.
+\bibitem{KLSV17} E. de Klerk, M. Laurent, Z. Sun and J. C. Vera, On the convergence rate of grid search for polynomial optimization over the simplex, \emph{Optimization Letters} \textbf{11} (2017), 597--608. \href{https://doi.org/10.1007/s11590-016-1023-7}{doi:10.1007/s11590-016-1023-7}.
+\bibitem{M37} LAA Paper project, Milestone 37: Sharp finite-lattice certificates and exact rational CP regularization, unpublished research record, retrieved 14 November 2026. Repository \texttt{Harman6139/Posterity-Files}, immutable baseline \texttt{22ed4becd320695b41f8a11f1223ea090ef89ecf}, file \path{37_SHARP_CUBICAL_CERTIFICATES_AND_RATIONAL_CP_REGULARIZATION.md} in the Track 02 research directory. The original standalone milestone 34 was not retrieved; this article does not depend on access to it.
+\end{thebibliography}
+\end{document}
