@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-14",
+  "python_version": "3.13.5",
+  "all_eight_test_groups_passed": true,
+  "generic_shadow_pivots": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "5": 5,
+    "8": 8
+  },
+  "grid_modified_pivots": {
+    "1": 0,
+    "2": 1,
+    "4": 3,
+    "7": 6,
+    "12": 11
+  },
+  "symbolic_large_parameter": "2^100: identities only, not a full pivot run",
+  "sharpness_test_orders": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "sharpness_parameters": [
+    1,
+    2,
+    5
+  ],
+  "nonlocal_family_center_tests": [
+    4,
+    26,
+    21
+  ],
+  "five_cycle_center_tests": 85,
+  "five_cycle_epsilon": "1/2560",
+  "five_cycle_supports": 31,
+  "separate_checker_corruptions_rejected": 4,
+  "files": {
+    "manuscript.tex": "d0e6f95bfd7bc1eae6849d7facea0bd297025251f23db14ce14a65bb8c12caaa",
+    "exact_algorithms.py": "d2b549c709864e7381d6a433598ec011c651d2dafc38f071de9be373b471b631",
+    "test_exact.py": "9be19f2e3cc68656ca82ce3407046b547b7fd5911e02a4c6e69e817f5155c81c",
+    "verify_certificates.py": "4474e1b5f900fe4c6e8c311ead063f97a1057ef3986ff373ef9d6735c7a5b6e1",
+    "run_five_cycle.py": "95990cd67d3676f7bd8b430aadf98996d18654531a0eb94db750f9f509f37432",
+    "five_cycle_nonlocal_certificate.json": "2e16f5c1abdb497d8415023c3f5d655b596adc10e2a172c8df2e00fe4da501ce",
+    "verification_results.json": "e042634114ee32b7d3968b1efa38b685f727ccb1b1a7b3cf5f05f434d03581b2"
+  },
+  "independent_human_review": false,
+  "proof_assistant_verification": false,
+  "upper_quintile_benchmark_certified": false
+}
