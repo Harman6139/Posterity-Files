@@ -9,11 +9,11 @@
 ## Read this first
 
 1. [Research conclusions and exact limitations](STATUS_AND_PROOF_DEPENDENCIES.md).
-2. [Journal and upper-quintile audit](80TH_PERCENTILE_VENUE_AUDIT.md).
+2. [Journal and upper-quintile audit](80TH_PERCENTILE_VENUE_AUDIT.md) and [2026 policy/cost/timing addendum](JOURNAL_2026_POLICY_ADDENDUM.md).
 3. [Original 2026-11-14 plain-DRS handoff](ORIGINAL_HANDOFFS/01_ALLORDER_PLAIN_DRS_HANDOFF.md).
 4. [Original 2026-11-15 grand spectral-transport handoff](ORIGINAL_HANDOFFS/02_GRAND_THEOREM_COMPLETE_HANDOFF.md).
 5. [Current consolidated manuscript](PROOFS/02_GRAND_SPECTRAL/manuscript/spectral_transport.tex), a *working draft*, not a cleared submission.
-6. [Evidence, sources, numerical limitations and future audit](SOURCE_AND_DATA_PROVENANCE.md).
+6. [Evidence, sources, numerical limitations and future audit](SOURCE_AND_DATA_PROVENANCE.md); [exact Git object manifest](MANIFEST_OF_EXACT_SOURCE_BLOBS.md).
 
 **Principal mathematical status:** The sourced proofs propose a rational affine–PSD `7 × 7` counterexample for `gamma=2` (and a rational gamma interval) to the universal scaled last-iterate law, together with a universal static-excess/kinetic-defect replacement for semialgebraic convex cones. An independent final referee-level audit of quantitative nonlinear trapping and the claimed exceptionally large explicit rational witness has **not** been completed in this archival exercise. No unconditional original `gamma=1` switching-orbit theorem is claimed. No publication-quality/priority certification is claimed.
 
