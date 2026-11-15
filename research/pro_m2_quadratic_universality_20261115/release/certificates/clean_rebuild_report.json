@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "clean_rebuild": {
+    "manuscript/MASTER_THEOREM_standalone.tex": {
+      "identical": true,
+      "sha256": "8fb64d8dbfbc3b1d0c50222304df721ec78cf7bb75303751b28651ff2780be62"
+    },
+    "COMPLETE_PROOFS.md": {
+      "identical": true,
+      "sha256": "abd0c7a6a162486b9e83399370e1fbeb5caa20535610f3501ec7bd51b36b61b5"
+    },
+    "certificates/quadratic_certificates.json": {
+      "identical": true,
+      "sha256": "2f432846643e31e100935ba1a4f3c58adb19bbce89bee89f2e652efc055969f7"
+    },
+    "certificates/verification_report.json": {
+      "identical": true,
+      "sha256": "2d37089869922c98eb1f036fac589c945cdb132cf99cf71928e7fd74d1458ecf"
+    }
+  },
+  "remote_local_source_blobs_verified": 14,
+  "remote_blob_reference_commit": "babade47240450b3d5f815d4c8985016821cffde",
+  "remote_git_blob_shas": {
+    "manuscript/01_arithmetic.tex": "ec6a49f8ca5a1c3bfa4e7f3a06c0fbef3e45b8d1",
+    "manuscript/02_lorentz.tex": "0bf516fef720eb926ed8034c0c390db76c6498bc",
+    "manuscript/03_affine.tex": "99ad6569a51f62c129411a8d4dad5cc310b0f46f",
+    "manuscript/04_open.tex": "becf1d6fb2f468f9fa6f4265e4f3255430f97944",
+    "manuscript/05_universality.tex": "73276b40db471bcdcd1624654bbaa78fecd0f249",
+    "manuscript/06_resources.tex": "86db45a5e27c3e4c1b935ffc2ed6ec3c46882ee2",
+    "manuscript/07_sources.tex": "6f3b28c3e6c1a5bac6d65458b95fcba29b6d06f9",
+    "manuscript/MASTER_THEOREM.tex": "cbd25c26e510d6060a6032cbbf51a68f1e1ddd49",
+    "code/build_release.py": "247c00beeb8230fac146530947b77f4db24175dd",
+    "code/generate_certificates.py": "c6a0e003c2ff75b30bf155976e30712661f88a90",
+    "code/verify_certificates.py": "7b5d52f97cfec5292592b2694e90c52a38c5d6ed",
+    "README.md": "ae82f2cb6469fe28aa53b8f5abecbc3556818cf9",
+    "STATUS_PROVED_NOT_PROVED.md": "b6cfbafc8dd9cf6c71861081cfba88f6e0a85ffd",
+    "NOVELTY_AND_PRIORITY_AUDIT.md": "f6d304818a1c4dea3d819e5fee89d3e2551337c7"
+  },
+  "pdf_pages": 18,
+  "pdf_check": "pdflatex twice; no overfull or undefined-reference warnings; all 18 pages rendered and visually inspected"
+}
