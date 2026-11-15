@@ -1,0 +1,19 @@
+\subsection{The natural facet-based relaxation also fails to detect the family}
+The positivity assertion can be strengthened without changing the construction or local proof. Define the full facet map
+\[
+ Gx=(t+z_1,t-z_1,\ldots,t+z_r,t-z_r,y)\trans.
+\]
+Every matrix in $C(K)$ is PSD and has $GXG\trans$ entrywise nonnegative. These are stronger elementary tests than positivity of the matrix entries in one arbitrarily chosen coordinate system.
+
+\begin{corollary}[Strict feasibility of the facet-product relaxation]\label{cor:facetrelaxation}
+Every target in the ball \eqref{eq:allball} satisfies $A\succ0$ and has $GAG\trans$ strictly entrywise positive, but remains outside $C(K)$. Every target in \eqref{eq:allpositiveball} has the corresponding property for the facet map $GS^{-1}$ of $K'$. Thus the all-local lower bound survives positive-semidefinite preprocessing and all pairwise products of the defining facet inequalities.
+\end{corollary}
+\begin{proof}
+For $B_N$, same-coordinate facet products have values $(1+a)N^2$ or $(1-a)N^2$, different-coordinate products have value $N^2$, and products with $y$ have values $N(1\pm c_i)\ge N/10$, where $(c_1,c_2,c_3,\ldots)=(a,-a,0,\ldots)$. The last diagonal equals $h=29/10$. All entries of $GA_NG\trans$ are consequently at least $1/(20nN^2)$. Every row of $G$ has norm at most $\sqrt2$, so a perturbation in \eqref{eq:allball} changes an entry by at most $2\varepsilon_N<1/(20nN^2)$. Positive definiteness and nonmembership were already proved. For the transformed ball use
+\[
+ (GS^{-1})\widehat A(GS^{-1})\trans=\tfrac13G(A_N+\Delta)G\trans,
+ \qquad\norm\Delta_F\le\varepsilon_N.
+\]
+This proves the stated robust strict positivity.
+\end{proof}
+No new general claim about facet relaxations is asserted: their necessity is immediate. The contribution is that the same robust all-rule hard family lies strictly inside this stronger elementary relaxation while possessing the explicit strict separator of Theorem~\ref{thm:alllocal}.
