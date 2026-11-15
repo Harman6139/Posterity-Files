@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "counts": {
+    "angular_cases": 5,
+    "facet_cases": 11,
+    "arithmetic_obstructions": 1
+  },
+  "deliberate_corruptions_rejected": 3,
+  "sha256": "ed0b5405a54353b35eaaa65312e77d08d5f1ead1ae41f5a3207ef914fe103117",
+  "scope": "separately written exact verifier, no generator import; not independent human or formal verification; universal claims depend on analytical proofs"
+}
