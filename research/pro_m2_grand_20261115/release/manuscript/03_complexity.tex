@@ -1,0 +1,54 @@
+\section{Bit complexity and complete algorithmic resources}\label{sec:complexity}
+The input consists of rational cone inequalities or rational ray descriptions, the rational measurement system, and, where needed, a rational target and precision. Let $L$ be the total binary input length, $s$ the total number of input cone rows after conversion to inequalities, and $g$ the number of components. Redundant measurement equations can be removed, leaving at most $d$ independent equations or an immediate inconsistency. No promise of a positive feasibility margin is made.
+
+\begin{theorem}[Effective fixed-dimensional carrier theorem]\label{thm:complexity}
+There is an absolute, effectively computable constant $c$ such that the carrier, factor, insertion, prescribed-direction and tolerance procedures above can be implemented deterministically within
+\begin{equation}\label{eq:time}
+ (L+p+2)^{c(n+1)^{10}}
+\end{equation}
+bit operations, where $p$ bounds the requested binary approximation precision and is zero for exact decisions. A conservative bound for the algebraic degrees in a reduction is $2^{c(n+1)^6}$ and for the coefficient and output coordinate bit heights is
+\begin{equation}\label{eq:height}
+ (L+p+1)2^{c(n+1)^6}.
+\end{equation}
+The carrier has a description using at most $g(s+1)^{nd}$ rational polyhedral components, each an original cone intersected with a rational subspace. There are at most $d$ exposers. A deterministic factor construction outputs at most $d\,O(h)$ rational columns when $h$ bounds the weighted-certificate height; a factor of width at most $4d$ exists with the same height order. A full-span reserve uses at most $2d$ weighted atoms before width compression.
+\end{theorem}
+
+\begin{proof}
+We give the resource accounting, including the real-algebraic work. The standard sampling and one-block elimination bounds used below are those stated in Section 2 of Safey El Din--Zhi~\cite{SEDZ}, based on real-algebraic algorithms~\cite{BPR}. In $k$ variables, sampling from a formula of $J$ polynomials of degree at most $D$ has cost polynomial in coefficient bit length times $J^{k+1}D^{O(k)}$, sample degree $D^{O(k)}$, and coefficient bit height bounded by the input height times $D^{O(k)}$. Eliminating one quantified block of $a$ variables with $k$ free variables gives degree $D^{O(a)}$, a number of predicates bounded by
+\[
+ J^{(k+1)(a+1)}D^{(k+1)O(a)},
+\]
+and coefficient heights bounded by the input height times $D^{(k+1)O(a)}$. These are charged operations, not unit-cost oracles. Boolean formulas are retained as formulas rather than expanded into all combinations of component choices.
+
+At any stage each domain is $P_i\cap U$, with $P_i$ original and $U$ rational. Equalities describing $U$ can be compressed to at most $n$ rows. Enumerate subsets $J$ of at most $n$ original inequality rows. On $U\cap\ker H_J$ choose a rational basis $B_J$, impose all coefficient kernels of $B_J\trans WB_J$, and intersect with $P_i$. Every resulting vector is a zero. The active row span of the actual minimal face of a rational zero has an independent subset of at most $n$ rows, so this enumeration captures every rational zero. Thus one update multiplies the number of components by at most $(s+1)^n$, giving the asserted component bound after at most $d$ updates. Lineality causes no change: it is handled by the rational equalities and by pairs of opposite generators.
+
+Real feasibility is expressed by at most $d$ permitted columns:
+\[
+ \exists u_1,\ldots,u_d:\quad u_j\in P,\quad
+ \mathcal L\Bigl(\sum_ju_ju_j\trans\Bigr)=b.
+\]
+There are at most $nd$ variables and degree two. Relative strict feasibility adds $\tau>0$ and $\tau B$ to that sum, using at most $nd+1$ variables and degree two. Sampling or infeasibility of these formulas has the stated bounded-dimensional complexity.
+
+An exposer has $d$ free matrix variables and one universal block of $n$ vector variables. Nonnegativity on the domain is a Boolean implication whose polynomial degree is at most three; vanishing on $H\cap V$ and $\ip WB=1$ are rational linear equations. Apply one-block elimination and then sampling in at most $d$ variables. The sampled matrix lies in a number field of degree $2^{O((n+1)^3)}$ with coefficient height bounded by the current rational height times $2^{O((n+1)^3)}$. Factor its univariate representation over $\Q$, select the isolating root, invert its nonzero denominators modulo the irreducible polynomial, and expand in a power basis. Rational kernel computation then discards the algebraic field entirely. Hence successive steps multiply heights by dimension-dependent factors; they do not form a tower of field extensions. At most $d$ such factors, together with rational Cramer bounds for subspace bases and reserves, are absorbed by \eqref{eq:height}.
+
+For clarity about the time exponent, the component count makes the number of original predicates at most $(L+2)^{O((n+1)^3)}$. One-block elimination with $k=d$, $a=n$ raises this by $O((n+1)^3)$; sampling in $d$ variables raises it by a further $O((n+1)^2)$. This is bounded by $(L+2)^{O((n+1)^8)}$. Rational row operations, field factorization, at most $d$ repetitions, and the terminal constructions below are absorbed by the conservative exponent in \eqref{eq:time}. Conversion from a rational ray description in fixed dimension enumerates at most a power $O(n)$ of its input rays and is absorbed as well. Enlarging one absolute constant $c$ covers all primitive constants. The displayed exponents are not claimed sharp.
+
+To construct a terminal rational completion, sample algebraic $\tau>0$ and permitted $u_j$ satisfying
+\[
+ \mathcal L\Bigl(\sum_ju_ju_j\trans+\tau B\Bigr)=b.
+\]
+Write each $u_j$ as a nonnegative combination of rational generators of a containing component, and approximate those coefficients by nonnegative rationals to obtain $r_j$ within that component. At most $n$ generators per column suffice; lineality is represented using both signs. Let $M$ have columns $\mathcal L(G_i)$ and choose a rational linear right inverse $R$ on $\operatorname{im}M$. For a positive rational approximation $\tau_0$ to $\tau$, define
+\begin{equation}\label{eq:repair}
+ e=\tau_0\mathbf1+R\left[b-\mathcal L\Bigl(\sum_jr_jr_j\trans\Bigr)-\tau_0M\mathbf1\right].
+\end{equation}
+The bracket belongs to $\operatorname{im}M$. Thus $X_0=\sum_jr_jr_j\trans+\sum_ie_iG_i$ has the exact observations. As the approximations improve, $e\to\tau\mathbf1$, so all entries become positive. Algebraic root separation bounds $\tau$ below by $2^{-h2^{O((n+1)^3)}}$ for current height $h$; Cramer's rule bounds $R$ and the generator coordinates. Consequently a number of dyadic refinement bits bounded by \eqref{eq:height} suffices. Exact positivity checks determine success. When $M=0$, feasibility gives $b=0$, and one simply takes $R=0$.
+
+For a rational target in the terminal closed slice, take a sufficiently small rational segment toward $X_0$ to meet $2^{-p}$ accuracy, then apply the same construction to the rational segment point. For \eqref{eq:tolerance}, an algebraic feasible sample with a strict error slack can first be moved slightly toward an algebraic reserve completion; root separation bounds the required positive slack and interpolation parameter. Formula \eqref{eq:repair} then preserves the exact observations without destroying the open tolerance. Prescribed-direction tests are one-dimensional real feasibility tests after the same reduction. All coefficients obey \eqref{eq:height} with $L+p$ in place of $L$.
+
+Finally, after rational dependence elimination there are at most $d$ positive rational weights $a/b$ of height $h$. Four squares prove existence of at most $4d$ Gram columns, with no larger height order. For a deterministic polynomial construction without a four-square subroutine, expand the positive integer $ab$ in binary. A term $2^{2j}$ is one square and a term $2^{2j+1}$ is two equal squares. Dividing their square roots by $b$ gives $O(h)$ rational columns per weighted atom. Their signs are chosen nonnegative, so each column remains in its permitted cone. This proves the resource distinctions in the statement.
+\end{proof}
+
+The exact arithmetic obstruction certificate consists of the algebraic exposers with isolating data, their nonnegativity/elimination certificates, rational coefficient-kernel restrictions, and the final real infeasibility certificate. A complete sign-cell transcript has size bounded by the charged computation above. There is no assertion of a short variable-dimensional coNP certificate. Similarly, the procedure is polynomial for each fixed $n$, not uniformly polynomial in $n$.
+
+If the observation dimension is large, Euclidean norm constraints are still evaluated in at most $d$ matrix coordinates. Dual observation vectors can be restricted to the rational span of the columns of $\mathcal L$ and $b$, of dimension at most $d+1$; its Gram matrix retains the Euclidean norm exactly. Thus the observation count is part of $L$, not an uncharged extra fixed-dimension assumption.
+
