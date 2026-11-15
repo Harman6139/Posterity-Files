@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,longtable,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\hypersetup{pdftitle={Sharp Ryshkov margins and the binary complexity of copositive shadow paths}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\newcommand{\CP}{\mathcal{CP}}\newcommand{\COP}{\mathcal{COP}}
+\newcommand{\Ry}{\mathcal R}\newcommand{\Sym}{\mathbb S}
+\newcommand{\Min}{\operatorname{Min}}\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\dist}{\operatorname{dist}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\one}{\mathbf 1}
+\numberwithin{equation}{section}
+\title{Sharp Ryshkov margins and the binary complexity\texorpdfstring{\\}{ }of copositive shadow paths}
+\author{Anonymous research manuscript}
+\date{14 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the minimum-ratio shadow rule for the copositive Ryshkov set. Its finite termination does not imply polynomial dependence on binary precision. For every fixed order we construct rational nonmembers that force exponentially many adjacent pivots. In every order at least five, the inputs can be positive definite and strictly entrywise positive. A fixed shear initialization has a unique exponential path that survives an objective-dependent finite-grid correction. For the canonical tridiagonal initialization, a second construction forces an exponential window for the unmodified shadow rule, without enumerating the preceding trajectory. The construction uses the known perfect copositive shear vertices of Dannenberg and Sch\"urmann, together with explicit positive normal-cone decompositions for new objective families. We also prove the quantitative invariant
+\[
+\min_{x\ge0,\,\norm{x}_2=1}x^TPx\ge\frac1{8n(16nM)^{n-1}}
+\quad(P\in\Ry_n,\ M\ge\max(1,\norm{P}_F)),
+\]
+and show that the norm exponent $n-1$ is optimal, even for positive definite perfect vertices. It yields polynomial bit heights, a finite rational neighbor cutoff, and a matching single-exponential upper growth class for the shadow path. Finally, we give a fully specified rational alternative based on classical support-stationarity enumeration and outward-rounded ellipsoids. In fixed dimension its complexity is polynomial in input length and requested binary accuracy; it returns either a strict copositive separator or a rational completely positive matrix within the requested distance. The alternative bypasses adjacent Ryshkov edges and does not assert exact rational factorization of arbitrary boundary matrices.
+\end{abstract}
+\noindent\textbf{Keywords.} Completely positive cone; copositive matrix; perfect matrix; shadow pivot; bit complexity; simultaneous approximation.\par
+\noindent\textbf{MSC 2020.} 15B48, 90C26, 90C60, 11H55.
+
+\input{sections/01_introduction.tex}
+\input{sections/02_margin.tex}
+\input{sections/03_shadow_upper.tex}
+\input{sections/04_shear_paths.tex}
+\input{sections/05_dnn_paths.tex}
+\input{sections/06_grid.tex}
+\input{sections/07_support_oracle.tex}
+\input{sections/08_ellipsoid.tex}
+\input{sections/09_primal_recovery.tex}
+\input{sections/10_reproducibility.tex}
+\input{sections/11_conclusion.tex}
+\input{references.tex}
+\end{document}
