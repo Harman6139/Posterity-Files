@@ -16,15 +16,15 @@
 \newcommand{\ip}[2]{\langle #1,#2\rangle}\newcommand{\trans}{^{\mathsf T}}
 \newcommand{\norm}[1]{\lVert #1\rVert}
 \DeclareMathOperator{\dist}{dist}
-\title{Exponential paths for every improving pivot rule\\in completely positive matrix separation}
+\title{Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation}
 \author{Harman Singh\\[3pt]\normalsize University of Waterloo, Canada\\
 \normalsize\href{mailto:h56singh@uwaterloo.ca}{h56singh@uwaterloo.ca}}
 \date{}
-\hypersetup{pdftitle={Exponential paths for every improving pivot rule in completely positive matrix separation},pdfauthor={Harman Singh}}
+\hypersetup{pdftitle={Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation},pdfauthor={Harman Singh}}
 \begin{document}
 \maketitle
 \begin{abstract}
-A symmetric matrix is completely positive if it is a sum of outer products of nonnegative vectors. One way to certify failure of this factorization is to search among neighboring perfect copositive matrices for a separating matrix. We prove that every strictly improving adjacent-pivot rule can require exponentially many steps even when a short separator exists. For each fixed matrix order at least five, we construct rational matrices that are positive definite and have strictly positive entries but are not completely positive. Starting from the standard tridiagonal perfect matrix, every choice of improving extreme direction requires exponentially many adjacent pivots in the input bit length before the permitted vertex or ray tests can separate. The lower bound persists on an explicit perturbation ball. Its geometric basis is a uniform bound on the movement of cross-block coordinates along edges with a fixed positive definite leading block. An explicit rational, strictly copositive separator of short binary description nevertheless separates the whole ball. The result distinguishes local pivot complexity from global certificate size.
+A symmetric matrix is completely positive if it is a sum of outer products of nonnegative vectors. Failure of this factorization can be certified by a copositive matrix: its quadratic form is nonnegative on nonnegative vectors, but its trace pairing with the input is negative. We study a local search for these certificates among neighboring vertices of a convex set of matrices. For each fixed matrix order at least five, we construct rational, positive definite, strictly entrywise positive nonmembers for which every strictly improving adjacent-pivot rule from the standard tridiagonal vertex requires exponentially many pivots in the input bit length. Every improving edge choice is covered, and none of the permitted vertex, ray, or scalar identity correction tests separates during this prefix. The lower bound persists on an explicit perturbation ball. The proof bounds how far one edge can move the off-diagonal block when the leading positive definite block is fixed. An explicit rational copositive separator of short binary description nevertheless separates the whole ball.
 \end{abstract}
 \noindent\textbf{Keywords:} completely positive matrix; copositive matrix; perfect form; adjacent pivot; separation certificate.\\
 \textbf{2020 Mathematics Subject Classification:} 15B48; 90C49; 11H55.
@@ -44,7 +44,7 @@ A useful way to prove that the factorization fails is to find a symmetric matrix
 \]
 so one such $W$ certifies nonmembership. Finding the certificate and describing it are different tasks. In particular, short rational entries do not by themselves make copositivity verification efficient when the matrix order varies.
 
-Dutour Sikiri\'c, Sch\"urmann, and Vallentin \cite{DSV} developed a simplex-type method that searches among \emph{perfect copositive matrices}. Such a matrix is determined by its nonnegative integer minimum and the vectors attaining that minimum. After normalizing the minimum to one, these matrices are vertices of a locally polyhedral matrix set, and a pivot moves along an edge to a neighboring vertex while decreasing the linear objective $P\mapsto\tr(AP)$. Their Procedure~3 seeks either a completely positive factorization or a copositive separator. Dannenberg and Sch\"urmann \cite{DS} subsequently studied their geometry and neighborhood graph, including explicit contiguous sequences \cite[Corollary~5.4]{DS} and shear constructions \cite[Theorem~6.1]{DS}.
+Dutour Sikiri\'c, Sch\"urmann, and Vallentin \cite{DSV} developed a simplex-type method that searches among \emph{perfect copositive matrices}. Such a matrix is determined by its nonnegative integer minimum and the vectors attaining that minimum. After normalizing the minimum to one, these matrices are vertices of a locally polyhedral matrix set, and a pivot moves along an edge to a neighboring vertex while decreasing the linear objective $P\mapsto\tr(AP)$. Their Procedure~3 seeks either a completely positive factorization or a copositive separator. Dannenberg and Sch\"urmann \cite{DS} subsequently studied their geometry and neighborhood graph. They constructed explicit sequences of neighboring perfect matrices \cite[Corollary~5.3(3)]{DS}. They also showed that every classically perfect positive definite matrix has a perfect copositive representative after an integer change of basis with determinant $\pm1$ \cite[Theorem~6.1]{DS}. These results describe perfect matrices and their adjacencies without an input objective forcing every improving choice. Our result gives such forcing from the canonical vertex, with an explicit lower bound in the binary input length.
 
 Strict objective decrease gives a natural measure of progress, but it does not control the number of pivots in terms of the digits needed to specify $A$. Our main result makes this distinction explicit. For every fixed $n\ge5$ and every integer $t\ge1$, we construct a rational input with $O_n(\log(t+1))$ bits on which \emph{every} improving extreme-direction choice, from the standard tridiagonal initial vertex, requires at least $t$ adjacent pivots. The input is positive definite and strictly entrywise positive, so neither an eigenvalue test nor a negative-entry test rejects it. The conclusion holds throughout an explicit small ball. During the forced prefix, neither the current vertex nor the chosen ray yields a separator; adding any scalar multiple of the identity to that ray does not help. Yet one explicitly given rational, strictly copositive matrix separates the whole ball and has $O_n(\log(t+1))$ bits.
 
@@ -52,7 +52,7 @@ The proof controls all neighboring choices through one geometric estimate. Write
 \[
  P(b,c)=\begin{pmatrix}H&b\\b\trans&c\end{pmatrix}.
 \]
-The relevant integer quadratic inequalities describe an epigraph in the variables $(b,c)$. If $(b,c)$ and $(b',c')$ are joined by a bounded edge, then
+The relevant integer quadratic inequalities describe an epigraph, the region on or above a graph, in the variables $(b,c)$. If $(b,c)$ and $(b',c')$ are joined by a bounded edge, then
 \begin{equation}\label{eq:intromovement}
  |b'_i-b_i|\le\frac12+2\sqrt{H_{ii}}.
 \end{equation}
@@ -63,7 +63,7 @@ The distinction from the closest results is quantitative and concerns all local 
 We first specify that model and the main theorem. The edge estimate is proved separately, before the construction of the matrices. The final argument combines arithmetic bounds on tangent rays with the geometric estimate to exclude every local exit for the required number of steps.
 
 \section{The local search and the main theorem}\label{sec:model}
-Let $\mathbb S^n$ be the real symmetric matrices, with pairing
+Let $\mathbb S^n$ be the real symmetric matrices, and write $[r]=\{1,\ldots,r\}$. We use the pairing
 $\ip A P=\tr(AP)$ and Frobenius norm $\norm P_F^2=\tr(P^2)$.
 For a vector $v$, write $P[v]=v\trans Pv$. The dual cones of interest are
 \[
@@ -85,7 +85,7 @@ The tangent cone at such a vertex is
 \begin{equation}\label{eq:tangent}
  \mathcal T(P)=\{R:R[v]\ge0\text{ for every active }v\}.
 \end{equation}
-An \emph{extreme ray} is a one-dimensional face of this pointed polyhedral cone. If $\ip A R<0$, its direction is \emph{improving}. Following it from $P$ either reaches the next vertex along a bounded edge or continues indefinitely in a recession direction. In the bounded case, the move to the other endpoint is one \emph{adjacent pivot}.
+An \emph{extreme ray} is a one-dimensional face of this polyhedral cone. The cone is \emph{pointed}, meaning that it contains no line. If $\ip A R<0$, its direction is \emph{improving}. Following it from $P$ either reaches the next vertex along a bounded edge or continues indefinitely in a recession direction. In the bounded case, the move to the other endpoint is one \emph{adjacent pivot}.
 
 Let $T_j$ denote the tridiagonal matrix with diagonal entries $1$, adjacent off-diagonal entries $-1/2$, and all remaining entries zero. Our local rules start at $T_n$ and select any improving extreme tangent ray. The allowed separating exits are:
 \begin{enumerate}[label=(\roman*),itemsep=2pt]
@@ -93,13 +93,13 @@ Let $T_j$ denote the tridiagonal matrix with diagonal entries $1$, adjacent off-
 \item the selected ray $R$, if $R\in\COP_n$;
 \item $R+\tau I_n$, for any real $\tau$, if this matrix is copositive and has negative pairing with $A$.
 \end{enumerate}
-If no exit is available, the rule makes the adjacent pivot. This is the adjacent search of Procedure~3 in \cite{DSV}, augmented by (iii). Selection may use the whole input and the complete history, and may be randomized. No computational restriction is placed on choosing among the improving rays. The theorem holds for every possible sequence of those choices. A separate search for an unrelated separator is outside this model.
+If no exit is available, the rule makes the adjacent pivot. We study the nonmembership branch of Procedure~3 in \cite{DSV}, with the initial vertex fixed to $T_n$ and with the additional identity-corrected ray test (iii). Selection may use the whole input and the complete history, and may be randomized. No computational restriction is placed on choosing among the improving rays: the restriction concerns the allowed moves and certificate tests. The theorem holds for every possible sequence of those choices. A separate search for an unrelated separator is outside this model.
 
 \subsection{A robust all-choice lower bound}
 The construction in Section~\ref{sec:construction} defines rational matrices $A_{n,t}$ and $W_{n,t}$, and an integer $N=N(n,t)$. For fixed $n$, $N$ is a constant depending on $n$ times $(t+1)^{4(d-1)}$, where $d=n(n+1)/2$. Thus its size in binary grows only logarithmically with $t$.
 
 \begin{theorem}[All improving adjacent rules]\label{thm:main}
-For each $n\ge5$ and integer $t\ge1$, let $A_{n,t}$, $W_{n,t}$, and $N$ be given by \eqref{eq:params}, \eqref{eq:center}, and \eqref{eq:separator}. Set
+For each $n\ge5$ and integer $t\ge1$, let $N$, $A_{n,t}$, and $W_{n,t}$ be given by \eqref{eq:params}, \eqref{eq:center}, and \eqref{eq:separator}, respectively. Set
 \begin{equation}\label{eq:radius}
  \rho_{n,t}=\frac1{1600n^4N^2}.
 \end{equation}
@@ -118,7 +118,7 @@ Every $A\in\mathbb S^n$ with $\norm{A-A_{n,t}}_F\le\rho_{n,t}$ has the following
 For fixed $n$, the total rational binary encoding lengths of both $A_{n,t}$ and $W_{n,t}$ are $O_n(\log(t+1))$.
 \end{theorem}
 
-Here a rational matrix is encoded by the reduced numerator and positive denominator of each upper-triangular entry, using binary notation. Denote the length of this encoding for $A_{n,t}$ by $L_t$.
+Here a rational matrix is encoded by the reduced numerator and positive denominator of each upper-triangular entry, using binary notation. Denote the length of this encoding for $A_{n,t}$ by $L_t$. The second size measure below also records how close the input is to the completely positive cone, through the logarithm of reciprocal distance.
 
 \begin{corollary}[Pivot count and binary size]\label{cor:bits}
 For each fixed $n\ge5$, $L_t=\Theta_n(\log(t+1))$, and every permitted local rule requires $2^{\Omega_n(L_t)}$ pivots on these centers. The same exponential lower bound holds with $L_t$ replaced by
@@ -153,7 +153,7 @@ If $(b,c)$ and $(b',c')$ are the endpoints of a bounded edge of $\mathcal E_H$, 
 In particular, for $H=T_r$ the bound is $\norm{b'-b}_\infty\le5/2$ in every order.
 \end{theorem}
 
-The reason is that the endpoints share an active integer constraint. We compare each endpoint with the continuous nonnegative quadratic minimum. Two uniform bounds make the comparison useful: active denominators are bounded, and the residual gradient at a vertex has coordinates at most $1/2$.
+The reason is that the endpoints share an active integer constraint. We compare each endpoint with the continuous nonnegative quadratic minimum. Two uniform bounds make the comparison useful: the last coordinate $y$ of an active integer pair is bounded, and the residual vector $\ell=b+Hz$ introduced below has coordinates at most $1/2$ at a vertex.
 
 \subsection{Comparison with the continuous minimum}
 Let $z=z(b)$ be the unique minimizer of
@@ -162,7 +162,7 @@ Positive definiteness gives existence and uniqueness. The optimality conditions 
 \begin{equation}\label{eq:kkt}
  z\ge0,\qquad \ell\ge0,\qquad z_i\ell_i=0\quad(1\le i\le r).
 \end{equation}
-Thus the continuous minimum is $-z\trans Hz$. Choose an integer $q\ge2$ such that $\norm H_2r/q^2\le1/2$, where $\norm H_2$ is the spectral norm, and set
+Thus the continuous minimum is $-z\trans Hz$. We choose a fixed approximation scale to compare the discrete constraints uniformly with this minimum. The constants below will measure a positive gap and bound the last coordinate of active integer vectors. Choose an integer $q\ge2$ such that $\norm H_2r/q^2\le1/2$, where $\norm H_2$ is the spectral norm, and set
 \begin{equation}\label{eq:gapconstants}
  \kappa=\frac1{2q^{2r}},\qquad Y=2q^r.
 \end{equation}
@@ -188,7 +188,7 @@ The comparison is based on the identity
 \end{equation}
 To obtain it, substitute $b=\ell-Hz$ and use $\ell\trans z=0$. Both terms subtracted from $1$ on the right are nonnegative. Since $y\ge1$, this proves the upper bound in \eqref{eq:gap}.
 
-For the lower bound we need one integer pair close to the continuous minimizer after scaling. Let $S=\{i:z_i>0\}$ and $s=|S|$. If $s=0$, the pair $u=0,y=1$ gives the assertion. Otherwise place the $q^s+1$ fractional-part vectors
+For the lower bound we need one integer pair close to the continuous minimizer after scaling. Let $S=\{i:z_i>0\}$ and $s=|S|$, and let $z_S$ be the restriction of $z$ to $S$. If $s=0$, the pair $u=0,y=1$ gives the assertion. Otherwise place the $q^s+1$ coordinatewise fractional-part vectors
 \[
  \{kz_S\},\qquad 0\le k\le q^s,
 \]
@@ -265,7 +265,7 @@ Indeed, a recession direction must satisfy $a+2h\trans u/y\ge0$ for all admissib
 For later use, a nonrecession extreme tangent ray of $\mathcal F$ reaches an adjacent vertex in $\mathcal F$. To justify this endpoint assertion, the feasible parameters on the ray form a closed interval. It has positive length by local polyhedrality, and finite length because the direction is not a recession direction. At its endpoint, the common active equations that define the extreme ray are joined by a new independent equation. Local polyhedrality at that endpoint then makes it a vertex. A face edge is also an edge of the full set. This argument excludes an unattained limiting endpoint.
 
 \section{Positive nonmembers with short separators}\label{sec:construction}
-We construct the global certificate before analyzing the local search. The starting nonmember is a positive definite matrix built from a five-cycle. A small completely positive addition makes every entry positive and makes the top block a strictly positive combination of the interval normals defining $\mathcal F$. Diagonal scaling will then separate the sizes of the top, cross, and bottom objective terms.
+We construct the global certificate before analyzing the local search. The starting nonmember is a positive definite matrix built from a five-cycle, which provides a fixed example with a known separating form. A small completely positive addition makes every entry positive and makes the top block a strictly positive combination of the interval normals defining $\mathcal F$. Diagonal scaling will then separate the sizes of the top, cross, and bottom objective terms.
 
 \subsection{The fixed five-cycle data}
 Let $G$ be the adjacency matrix of the five-cycle on the ordered coordinates $(1,2,3,4,n)$, with zeros on the remaining coordinates. Define
@@ -316,7 +316,9 @@ interval & $[1]$ & $[2]$ & $[3]$ & $[4]$ & $[1,2]$ & $[2,3]$ & $[3,4]$\\ \hline
 weight & $1/25$ & $8/125$ & $8/125$ & $1/25$ & $24/25$ & $192/125$ & $24/25$
 \end{tabular}
 \end{center}
-Every additional top coordinate has singleton weight one. Directly, the pair weights give the off-diagonal entries $24/25,192/125,24/25$, and adding the singleton weights gives diagonal entries $1,64/25,64/25,1$. Restricting \eqref{eq:anchor} to the first $r$ coordinates gives each top interval weight one, with an additional weight one for intervals ending at $r$. Thus every coefficient in the representation of $B_0$ is at least $\epsilon$. Since $T_r[v_{ab}]=1$ and the base weights sum to $r-42/125>1$, the claimed pairing follows.
+Every additional top coordinate has singleton weight one. Directly, the pair weights give the off-diagonal entries $24/25,192/125,24/25$, and adding the singleton weights gives diagonal entries $1,64/25,64/25,1$.
+
+To restrict \eqref{eq:anchor} to the top block, first retain the intervals already contained in $[r]$; these give every top interval weight one. An interval $[a,n]$ with $a\le r$ restricts to $[a,r]$, so it gives one additional copy of each interval ending at $r$. The interval $[n,n]$ restricts to zero. Thus every coefficient in the representation of $B_0$ is at least $\epsilon$. Since $T_r[v_{ab}]=1$ and the base weights sum to $r-42/125>1$, the claimed pairing follows.
 
 The last column is
 \[
@@ -326,7 +328,11 @@ The last column is
 Hence $\sum_i(c_0)_i=6/5+\epsilon n(n-1)/2<2$.
 The entries of $DFD$ have denominator dividing $125$, and those of $\epsilon C$ have denominator dividing $100n^3$; both divide $500n^3$.
 
-To exhibit the separator, let $H_5=J_5-2\operatorname{Adj}(C_5)$ be the Horn matrix, where $J_5$ is the all-ones matrix. Its copositivity follows from the classical graph inequality of Motzkin and Straus \cite{MS}; the short argument in this case is as follows. Maximize $\sum_{\{i,j\}\in E(C_5)}x_ix_j$ on $x\ge0$, $\sum_i x_i=1$, choosing a maximizer with smallest support. If two positive coordinates are nonadjacent, transferring their total mass to the one with the larger neighbor sum preserves or increases the objective and reduces the support. The minimal support is therefore a clique. A five-cycle has no triangle, and on an edge the product of two nonnegative numbers with sum one is at most $1/4$. Consequently
+To exhibit the separator, let $H_5=J_5-2\operatorname{Adj}(C_5)$ be the Horn matrix. Here $J_5$ is the all-ones matrix, $C_5$ is the five-cycle, and $\operatorname{Adj}(C_5)$ and $E(C_5)$ denote its adjacency matrix and edge set. Copositivity follows from the classical graph inequality of Motzkin and Straus \cite{MS}; we include the needed special case.
+
+Maximize $\sum_{\{i,j\}\in E(C_5)}x_ix_j$ on $x\ge0$, $\sum_i x_i=1$, choosing a maximizer with the fewest positive coordinates. Suppose two positive coordinates are nonadjacent. Their neighbor sums are the sums of the coordinates at their respective adjacent vertices. Transferring their total mass to the one with the larger neighbor sum keeps the total mass fixed and does not decrease the objective, while reducing the number of positive coordinates. This contradicts the choice of maximizer. Its positive coordinates therefore form a clique, a set of pairwise adjacent vertices.
+
+A five-cycle has no triangle, so the clique has at most two vertices. On an edge, the product of two nonnegative numbers with sum one is at most $1/4$. Consequently
 \[
  H_5[x]=\Bigl(\sum_i x_i\Bigr)^2
                -4\sum_{\{i,j\}\in E(C_5)}x_ix_j\ge0.
@@ -355,7 +361,7 @@ Here are the full parameters used in Theorem~\ref{thm:main}:
  N&=20000n^3E^2.
  \end{split}
 \end{equation}
-The bound $U$ will control active integer vectors, and $E$ will control primitive integral tangent rays. The large choice of $N$ makes all possible negative cross-block contributions smaller than a positive leading-block contribution. Its square dependence on $E$ also excludes scalar identity corrections.
+The bound $U$ will control active integer vectors, and $E$ will control primitive integral generators of extreme tangent rays. An integral generator is \emph{primitive} when the greatest common divisor of its upper-triangular entries is one. The large choice of $N$ makes all possible negative cross-block contributions smaller than a positive leading-block contribution. Its square dependence on $E$ also excludes scalar identity corrections.
 
 Put $S_N=\diag(N,\ldots,N,1)$ and define
 \begin{equation}\label{eq:center}
@@ -399,7 +405,7 @@ Taking the infimum proves the distance assertion as well as nonmembership.
 \end{proof}
 
 \section{Why every improving choice remains slow}\label{sec:forcing}
-The local proof has two parts. First, the movement estimate bounds the integer data and all tangent rays at every vertex reachable in a short prefix inside $\mathcal F$. Second, an arithmetic gap makes every extreme tangent ray leaving $\mathcal F$ increase the objective. Together these statements prove confinement by induction over all possible choices, rather than by tracing a particular path.
+The final argument has three stages. First, the movement estimate bounds active integer vectors and primitive integral generators of all extreme tangent rays along short walks inside $\mathcal F$. Second, an arithmetic gap makes every extreme tangent ray leaving $\mathcal F$ increase the objective, so every improving choice stays in that face. Third, objective estimates exclude the permitted local certificate tests. Induction then applies to every improving choice, without tracing a particular path.
 
 \subsection{Uniform bounds along a short face walk}
 \begin{lemma}[Vertex and ray bounds]\label{lem:heights}
@@ -438,8 +444,13 @@ An active vector whose last coordinate is zero is a top-interval indicator. Othe
 \]
 Thus $u_i\le Yn^2(t+1)+\sqrt{n/2}\le U$; also $y\le U$.
 
-It remains to bound rays that could leave the face, so we use \emph{all} active vectors of the full set. In upper-triangular matrix coordinates an active equation has integer coefficients $v_i^2$ on the diagonal and $2v_iv_j$ off the diagonal, each at most $2U^2$. The full tangent cone is pointed and full dimensional. An extreme ray annihilates $d-1$ independent active equations. A nonzero cofactor vector of these equations generates that ray, after choosing its sign. Each cofactor has absolute value at most
-$(d-1)!(2U^2)^{d-1}=E$ by the determinant expansion. Dividing by the greatest common divisor gives a primitive integral generator and can only reduce the bound. This argument allows degenerate vertices with more than $d$ active constraints.
+It remains to bound rays that could leave the face, so we use \emph{all} active vectors of the full set. In upper-triangular matrix coordinates an active equation has integer coefficients $v_i^2$ on the diagonal and $2v_iv_j$ off the diagonal, each at most $2U^2$. The full tangent cone is pointed and full dimensional. An extreme ray annihilates $d-1$ independent active equations.
+
+Put the coefficients of those equations in a $(d-1)\times d$ matrix $M_R$. If $M_R^{(j)}$ is obtained by deleting its $j$th column, the signed maximal minors
+\[
+ a_j=(-1)^j\det M_R^{(j)},\qquad 1\le j\le d,
+\]
+form a nonzero vector in its nullspace. The nullspace is one dimensional, so this vector, with its sign chosen appropriately, generates the selected ray. Each minor has absolute value at most $(d-1)!(2U^2)^{d-1}=E$ by the determinant expansion. Dividing by the greatest common divisor gives a primitive integral generator and can only reduce the bound. This argument allows degenerate vertices with more than $d$ active constraints.
 \end{proof}
 
 \subsection{The leading-block objective excludes every escape}
@@ -476,7 +487,9 @@ The cross-block term has absolute value less than $4NE$, and the bottom term has
 \end{align}
 For the last inequality, it is enough that $N\ge7000n^3E$, which follows from \eqref{eq:params} and $E\ge1$. Thus every improving extreme ray has zero top block.
 
-The equation $h=0$ exposes a face of the tangent cone, namely the tangent cone of $\mathcal F$. An extreme ray of the full cone contained in this face is an extreme ray of the face as well. Its recession directions have cross and bottom coordinates nonnegative by \eqref{eq:recession}. Since $\widetilde B$ has positive entries, none of these nonzero directions is improving. Every improving extreme ray is therefore a nonrecession direction and has the adjacent endpoint in $\mathcal F$ justified after \eqref{eq:recession}.
+The equation $h=0$ exposes a face of the tangent cone, namely the tangent cone of $\mathcal F$. An extreme ray of the full cone contained in this face is an extreme ray of the face as well.
+
+The recession directions of $\mathcal F$ have cross and bottom coordinates nonnegative by \eqref{eq:recession}. Since $\widetilde B$ has positive entries, none of these nonzero directions is improving. Every improving extreme ray is therefore a nonrecession direction and reaches an adjacent vertex in $\mathcal F$, by the endpoint argument following \eqref{eq:recession} in Section~\ref{sec:movement}.
 \end{proof}
 
 The arithmetic gap is used only after the ray height has been bounded. This order matters: a positive leading-block contribution alone would not dominate cross-block entries of an uncontrolled ray. The movement theorem makes the height bound uniform over every reachable vertex and every candidate ray.
@@ -504,9 +517,11 @@ For the ray test, positive rescaling does not change whether some scalar identit
  R=\begin{pmatrix}0&w\\w\trans&s\end{pmatrix},
  \qquad |w_i|,|s|\le E.
 \end{equation}
+For this generator, any copositive identity correction must have $\tau\ge1/(2E)$. We first prove this necessary size bound, and then show that the correction's objective cost prevents separation.
+
 Because the objective entries are positive, improvement requires $s<0$ or at least one $w_i<0$. Copositivity of $R+\tau I_n$ first requires $\tau\ge0$, by testing top coordinate vectors. If $s<0$, testing the last coordinate gives $\tau\ge-s\ge1$.
 
-In the remaining case $s\ge0$, choose a negative integer $w_i$. On coordinates $(i,n)$ the corrected form has diagonal entries $\tau,s+\tau$ and negative off-diagonal entry $w_i$. Its copositivity requires
+In the remaining case $s\ge0$, choose a negative integer $w_i$. On coordinates $(i,n)$ the corrected form has diagonal entries $\tau,s+\tau$ and negative off-diagonal entry $w_i$. The elementary two-by-two copositivity criterion requires
 \[
  \tau(s+\tau)\ge w_i^2\ge1.
 \]
@@ -530,7 +545,7 @@ An improving extreme ray always exists. Otherwise the objective would be nonnega
 
 Every such direction reaches a finite adjacent vertex still in $\mathcal F$, by Lemma~\ref{lem:confinement}. Lemma~\ref{lem:noexit} excludes every allowed separating test at this departure vertex. Thus whichever improving ray the rule chooses, it must make another pivot inside the face. Induction proves the required prefix simultaneously for all choices, including every realization of a randomized rule.
 
-For fixed $n$, the parameters have the form
+It remains to express the forced prefix length in terms of the binary size of the input and separator. For fixed $n$, the parameters have the form
 \begin{equation}\label{eq:Npower}
  N=K_n(t+1)^{4(d-1)},\qquad
  K_n=20000n^3\bigl((d-1)!\bigr)^2
@@ -546,13 +561,13 @@ The separator entries in \eqref{eq:separator} also have $O_n(\log N)$ bits. The 
 \end{proof}
 
 \section{Consequences and scope}\label{sec:scope}
-The lower bound separates two resources within the same family of matrix problems. A global separating matrix has a rational description comparable in length to the input, while every permitted descending adjacent search visits exponentially many vertices before its local certificate tests succeed. The obstruction remains after the elementary positive semidefinite and entrywise tests have both passed. It occurs in the ordinary cone $\CP_n$ for every fixed $n\ge5$, from a starting vertex independent of the input.
+The lower bound separates two resources within the same family of matrix problems. A global separating matrix has a rational description comparable in length to the input, while every permitted descending adjacent search must make exponentially many pivots during which none of its local certificate tests succeeds. The obstruction remains after the elementary positive semidefinite and entrywise tests have both passed. It occurs in the ordinary cone $\CP_n$ for every fixed $n\ge5$, from a starting vertex independent of the input.
 
 The geometric estimate is the part of the argument that does not depend on the five-cycle input. Its constant depends only on the diagonal of the fixed leading block. The proof uses a shared active integer constraint to cancel the location of an edge, and complementarity to control the residual term at its endpoints. The height estimate and arithmetic gap then make this local geometric information effective for all improving choices.
 
 The explicit Horn-based separator is available by direct rational formulas for this family. That fact is not a general polynomial-time separation algorithm when $n$ varies, nor a complexity statement about recognizing arbitrary copositive certificates. Likewise, the theorem does not lower-bound methods that use unrelated global tests, input-dependent initialization, nonadjacent jumps, or non-descending moves. It does not decide whether a suitable adjacent rule eventually terminates, as asked in \cite[Conjecture~3.2]{DSV}. A natural remaining question is which additional certificate tests, beyond scalar identity corrections of the selected ray, can give a quantitative bound for the canonical adjacent search.
 
-The accompanying exact programs reconstruct the targets and separators and check their arithmetic independently. Their finite checks include every canonical tangent ray in orders five and six, and every improving branch through depth three in an order-five example. They also verify the explicit inequalities and reject deliberately corrupted data. The universal theorem is proved above; a finite branching computation neither simulates nor certifies the exponentially long prefix. The sources and reproducibility instructions are supplied separately from the article.
+The companion archive \texttt{CP\_Pivot\_Verification.zip} contains the exact generator, independent verifier, and a \texttt{README.md} with execution instructions. Its finite checks include every canonical tangent ray in orders five and six, and every improving branch through depth three in an order-five example. The programs also check the explicit inequalities for six parameter families and reject deliberately corrupted data. The universal theorem is proved above; a finite branching computation neither simulates nor certifies the exponentially long prefix.
 
 \begin{thebibliography}{10}\raggedright
 \bibitem{Burer} S. Burer, On the copositive representation of binary and continuous nonconvex quadratic programs, \emph{Mathematical Programming} \textbf{120} (2009), 479--495. \href{https://doi.org/10.1007/s10107-008-0223-z}{doi:10.1007/s10107-008-0223-z}.

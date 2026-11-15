@@ -1,0 +1,54 @@
+{
+  "title": "Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation",
+  "venue": "Linear Algebra and its Applications",
+  "version": "2026-11-15 revised manuscript",
+  "date": "2026-11-15",
+  "time_zone": "America/New_York",
+  "built_utc": "2026-11-15T23:39:35.255599+00:00",
+  "pages": 15,
+  "abstract_words": 165,
+  "original_mathematical_commit": "11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc",
+  "R1_input_commit": "4e40a073d8efeab1094105f9f19757ee510e31bc",
+  "files": {
+    "main.tex": {
+      "bytes": 48506,
+      "sha256": "a368f012d5900febcc7c611e7b98651882897b2035c58c4327d488219579d468"
+    },
+    "main.pdf": {
+      "bytes": 379446,
+      "sha256": "c3d5c60afac7e65d282bfeca60cfe078a0b9513409e2aeba286c6768fc8fc088"
+    },
+    "build.py": {
+      "bytes": 1952,
+      "sha256": "808f4c7fcf7ea170146c6b976ec66875d663a2fd635cac650f867b9b2c1d15a4"
+    },
+    "highlights.txt": {
+      "bytes": 293,
+      "sha256": "774b2f3e39538c08dc68f19a6f2b9549eaafb6dcbd84415c8dd92d54c7ab3e74"
+    },
+    "CP_Pivot_Verification.zip": {
+      "bytes": 94004,
+      "sha256": "6e6c6f0163a5baeb4ef22294e894a33c2d0243a9ab75a633ce9e0cafd3a6dd61"
+    },
+    "supplemental/code/generate_certificates.py": {
+      "bytes": 8007,
+      "sha256": "b12ef1f9ddab5d0ed8746993f9dc37f7a7af9b20ef240e042a6887ad24d870c1"
+    },
+    "supplemental/code/verify_certificates.py": {
+      "bytes": 12507,
+      "sha256": "2382bf0ca51ec33c502129c5f6be66b4a0b93389ee189f72971b7b2aac709ea0"
+    },
+    "supplemental/certificates/exact_certificates.json": {
+      "bytes": 705219,
+      "sha256": "048031057335bfb9fc7c86df3ecba5f3cc55fc32c484e6013d9f79efd577f95f"
+    },
+    "supplemental/certificates/verification_report.json": {
+      "bytes": 759,
+      "sha256": "89e622c2f811dfe2a5982fcac217d993a8cec5cacd2eb30f5f01e08e27a6265c"
+    },
+    "supplemental/README.md": {
+      "bytes": 1623,
+      "sha256": "b055a65d02500066bdd5c0613a36260e615e1c6fc844ba14c22669079f26a3c5"
+    }
+  }
+}

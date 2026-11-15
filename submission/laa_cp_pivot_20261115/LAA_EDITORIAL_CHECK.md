@@ -1,7 +1,7 @@
 # LAA editorial and production check
 
-Prepared 2026-11-15. The complete article is 14 pages including seven references,
-with a 170-word single-paragraph abstract, five keywords and verified MSC codes.
+Prepared 2026-11-15. The complete article is 15 pages including nine references,
+with a 165-word single-paragraph abstract, five keywords and verified MSC codes.
 It uses ordinary numbered mathematical sections, a single-column 11pt article
 layout on A4, 27mm margins, a verified author byline and matching editable source.
 Theorem strength, assumptions and constants are retained from the source proof.
@@ -28,7 +28,7 @@ these are explained, not eliminated. A separate fresh cold-reader report and fin
 integrity report are maintained privately with their exact snapshot identities.
 
 Two pdfLaTeX passes succeeded with no warnings, missing references or overfull/
-underfull boxes. All 14 actual rendered pages were inspected at 110 dpi, including
+underfull boxes. All 15 actual rendered pages were inspected at 110 dpi, including
 the first-page opening, full theorem, heaviest proofs, weight table, and references.
 Spacing, symbols and equation labels are legible. Reading density was assessed
 separately from TeX fit. The bibliography uses verified primary-source metadata,
@@ -41,8 +41,12 @@ any formal length rule and full administrative compliance are not certified.
 The prepared layout follows conventional mathematical presentation; it is not
 presented as publisher typesetting or unconditional journal compliance.
 
-The private ordinary ChatGPT editorial R1/R2 gates must have actual prompt/PDF
-access receipts and completed reports before the workflow label Final Submission
-Ready can be used. Internal audits do not substitute for those rounds. The private
-workflow record stores the actual gate state and remaining author actions. This
-package is not submitted, and no acceptance prediction is made.
+The author requested ordinary ChatGPT editorial R1 only, at Extra High effort.
+The referee verified the actual private PDF and read the full source. Its three P1
+and six P2 findings were assessed and targeted corrections applied in production.
+R2 was not requested and was not initiated. The original report was truncated by
+the transport after its full issue table; that record and the subsequent closing
+addendum are preserved privately. This is an R1-corrected manuscript, not a
+Final Submission Ready workflow claim. Current LAA-specific checklist verification
+and author-managed policy actions remain separate. No submission or acceptance
+prediction is made.

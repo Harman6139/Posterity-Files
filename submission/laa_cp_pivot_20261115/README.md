@@ -1,8 +1,8 @@
 # Completely positive separation — LAA manuscript
 
-Title: *Exponential paths for every improving pivot rule in completely positive matrix separation*.
+Title: *Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation*.
 
-This directory contains the complete 14-page article, matching editable source,
+This directory contains the complete 15-page article, matching editable source,
 and exact verification supplement. It is a prepared manuscript, not a journal
 submission. Read `LAA_EDITORIAL_CHECK.md` for remaining workflow and venue checks.
 
