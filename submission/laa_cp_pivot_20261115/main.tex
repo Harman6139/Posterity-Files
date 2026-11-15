@@ -44,7 +44,7 @@ A useful way to prove that the factorization fails is to find a symmetric matrix
 \]
 so one such $W$ certifies nonmembership. Finding the certificate and describing it are different tasks. In particular, short rational entries do not by themselves make copositivity verification efficient when the matrix order varies.
 
-Dutour Sikiri\'c, Sch\"urmann, and Vallentin \cite{DSV} developed a simplex-type method that searches among \emph{perfect copositive matrices}. These are matrices determined by the nonnegative integer vectors on which their quadratic form is minimal. They are vertices of a locally polyhedral matrix set, and a pivot moves along an edge to a neighboring vertex while decreasing the linear objective $P\mapsto\tr(AP)$. Their Procedure~3 seeks either a completely positive factorization or a copositive separator. Dannenberg and Sch\"urmann \cite{DS} subsequently studied their geometry and neighborhood graph, including explicit contiguous sequences \cite[Corollary~5.4]{DS} and shear constructions \cite[Theorem~6.1]{DS}.
+Dutour Sikiri\'c, Sch\"urmann, and Vallentin \cite{DSV} developed a simplex-type method that searches among \emph{perfect copositive matrices}. Such a matrix is determined by its nonnegative integer minimum and the vectors attaining that minimum. After normalizing the minimum to one, these matrices are vertices of a locally polyhedral matrix set, and a pivot moves along an edge to a neighboring vertex while decreasing the linear objective $P\mapsto\tr(AP)$. Their Procedure~3 seeks either a completely positive factorization or a copositive separator. Dannenberg and Sch\"urmann \cite{DS} subsequently studied their geometry and neighborhood graph, including explicit contiguous sequences \cite[Corollary~5.4]{DS} and shear constructions \cite[Theorem~6.1]{DS}.
 
 Strict objective decrease gives a natural measure of progress, but it does not control the number of pivots in terms of the digits needed to specify $A$. Our main result makes this distinction explicit. For every fixed $n\ge5$ and every integer $t\ge1$, we construct a rational input with $O_n(\log(t+1))$ bits on which \emph{every} improving extreme-direction choice, from the standard tridiagonal initial vertex, requires at least $t$ adjacent pivots. The input is positive definite and strictly entrywise positive, so neither an eigenvalue test nor a negative-entry test rejects it. The conclusion holds throughout an explicit small ball. During the forced prefix, neither the current vertex nor the chosen ray yields a separator; adding any scalar multiple of the identity to that ray does not help. Yet one explicitly given rational, strictly copositive matrix separates the whole ball and has $O_n(\log(t+1))$ bits.
 
@@ -56,7 +56,7 @@ The relevant integer quadratic inequalities describe an epigraph in the variable
 \begin{equation}\label{eq:intromovement}
  |b'_i-b_i|\le\frac12+2\sqrt{H_{ii}}.
 \end{equation}
-For the canonical tridiagonal block, the bound is $5/2$, independently of the order, location, and edge choice. A diagonal scaling of a fixed nonmember makes every improving direction remain in this fixed-block face for a long time. The estimate then controls the entire branching search, without prescribing a path or a tie-breaking rule.
+For the canonical tridiagonal block, the bound is $5/2$, independently of the order, location, and edge choice. A diagonal scaling of a fixed nonmember makes every improving extreme direction remain in this fixed-block face for a long time. The estimate then controls the entire branching search, without prescribing a path or a tie-breaking rule.
 
 The distinction from the closest results is quantitative and concerns all local choices. The perfect-matrix framework and canonical form are established tools \cite{DSV,DS}; generalized perfect matrices and associated certificate constructions are developed by Oertel and Sch\"urmann \cite{OS}. We prove a robust all-choice lower bound in the ordinary completely positive cone, from the canonical start, together with a short global separator. Conjecture~3.2 of \cite{DSV} asks for \emph{finite termination under a suitable pivot rule}, not a polynomial pivot bound. Our result is compatible with that conjecture. It concerns the precise local model below, and places no lower bound on algorithms allowed to construct unrelated separators, choose a different initial vertex, or make nonadjacent moves.
 
@@ -297,7 +297,7 @@ There is an explicit rational $W_0\in\COP_n$ with
 \end{lemma}
 \begin{proof}
 The smallest eigenvalue of the five-cycle block of $F$ is
-$(7-3\sqrt5)/10>1/40$; on the other coordinates $F$ is the identity. Since all entries of $D$ are at least one, positive diagonal congruence gives $DFD\succ I_n/40$.
+$(7-3\sqrt5)/10>1/40$; on the other coordinates $F$ is the identity. Since all diagonal entries of $D$ are at least one, positive diagonal congruence gives $DFD\succ I_n/40$.
 
 The matrix $C$ has the interval representation
 \begin{equation}\label{eq:anchor}
@@ -331,7 +331,7 @@ To exhibit the separator, let $H_5=J_5-2\operatorname{Adj}(C_5)$ be the Horn mat
  H_5[x]=\Bigl(\sum_i x_i\Bigr)^2
                -4\sum_{\{i,j\}\in E(C_5)}x_ix_j\ge0.
 \]
-This is the familiar Horn copositive form; see also \cite{MM}.
+This is the familiar Horn copositive form \cite{HN,SZ}.
 
 Embed $H_5$ on $(1,2,3,4,n)$ with zeros elsewhere, and denote that embedded matrix by $\widehat H$. Set
 \begin{equation}\label{eq:W0def}
@@ -399,7 +399,7 @@ Taking the infimum proves the distance assertion as well as nonmembership.
 \end{proof}
 
 \section{Why every improving choice remains slow}\label{sec:forcing}
-The local proof has two parts. First, the movement estimate bounds the integer data and all tangent rays at every vertex reachable in a short prefix inside $\mathcal F$. Second, an arithmetic gap makes every direction leaving $\mathcal F$ increase the objective. Together these statements prove confinement by induction over all possible choices, rather than by tracing a particular path.
+The local proof has two parts. First, the movement estimate bounds the integer data and all tangent rays at every vertex reachable in a short prefix inside $\mathcal F$. Second, an arithmetic gap makes every extreme tangent ray leaving $\mathcal F$ increase the objective. Together these statements prove confinement by induction over all possible choices, rather than by tracing a particular path.
 
 \subsection{Uniform bounds along a short face walk}
 \begin{lemma}[Vertex and ray bounds]\label{lem:heights}
@@ -430,7 +430,7 @@ Its entries are nonnegative, its $i$th row sum is $i(n-i)\le n^2/4$, and its dia
  c\le z\trans T_rz+1\le2r n^4(t+1)^2+1
                   \le3n^5(t+1)^2.
 \]
-It also gives $c>0$. Combining this with the fixed top block and the bound on $b$ yields \eqref{eq:vertexnorm}.
+The lower bound in \eqref{eq:gap} gives $c>0$. Combining this with the fixed top block and the bound on $b$ yields \eqref{eq:vertexnorm}.
 
 An active vector whose last coordinate is zero is a top-interval indicator. Otherwise write it $(u,y)$, with $y\ge1$. Lemma~\ref{lem:gap} gives $y\le Y$ and $(u-yz)\trans T_r(u-yz)\le1$. Applying Cauchy--Schwarz with $T_r^{-1}$ to a coordinate gives
 \[
@@ -554,13 +554,15 @@ The explicit Horn-based separator is available by direct rational formulas for t
 
 The accompanying exact programs reconstruct the targets and separators and check their arithmetic independently. Their finite checks include every canonical tangent ray in orders five and six, and every improving branch through depth three in an order-five example. They also verify the explicit inequalities and reject deliberately corrupted data. The universal theorem is proved above; a finite branching computation neither simulates nor certifies the exponentially long prefix. The sources and reproducibility instructions are supplied separately from the article.
 
-\begin{thebibliography}{10}
+\begin{thebibliography}{10}\raggedright
 \bibitem{Burer} S. Burer, On the copositive representation of binary and continuous nonconvex quadratic programs, \emph{Mathematical Programming} \textbf{120} (2009), 479--495. \href{https://doi.org/10.1007/s10107-008-0223-z}{doi:10.1007/s10107-008-0223-z}.
 \bibitem{DS} V. Dannenberg and A. Sch\"urmann, Perfect copositive matrices, \emph{Communications in Mathematics} \textbf{31} (2023), no.~2, 137--156. \href{https://doi.org/10.46298/cm.11141}{doi:10.46298/cm.11141}.
 \bibitem{Diananda} P. H. Diananda, On non-negative forms in real variables some or all of which are non-negative, \emph{Proceedings of the Cambridge Philosophical Society} \textbf{58} (1962), 17--25. \href{https://doi.org/10.1017/S0305004100036185}{doi:10.1017/S0305004100036185}.
 \bibitem{DSV} M. Dutour Sikiri\'c, A. Sch\"urmann, and F. Vallentin, A simplex algorithm for rational cp-factorization, \emph{Mathematical Programming} \textbf{187} (2021), 25--45. \href{https://doi.org/10.1007/s10107-020-01467-4}{doi:10.1007/s10107-020-01467-4}.
+\bibitem{HN} M. Hall, Jr. and M. Newman, Copositive and completely positive quadratic forms, \emph{Proceedings of the Cambridge Philosophical Society} \textbf{59} (1963), 329--339. \href{https://doi.org/10.1017/S0305004100036951}{doi:10.1017/S0305004100036951}.
 \bibitem{MM} J. E. Maxfield and H. Minc, On the matrix equation $X'X=A$, \emph{Proceedings of the Edinburgh Mathematical Society} \textbf{13} (1962), 125--129. \href{https://doi.org/10.1017/S0013091500014681}{doi:10.1017/S0013091500014681}.
 \bibitem{MS} T. S. Motzkin and E. G. Straus, Maxima for graphs and a new proof of a theorem of Tur\'an, \emph{Canadian Journal of Mathematics} \textbf{17} (1965), 533--540. \href{https://doi.org/10.4153/CJM-1965-053-6}{doi:10.4153/CJM-1965-053-6}.
 \bibitem{OS} A. Oertel and A. Sch\"urmann, Generalized perfect matrices, preprint, arXiv:2602.05841v2 (2026). \url{https://arxiv.org/abs/2602.05841v2}.
+\bibitem{SZ} T. \v Strekelj and A. Zalar, Construction of exceptional copositive matrices, \emph{Linear Algebra and its Applications} \textbf{727} (2025), 368--384. \href{https://doi.org/10.1016/j.laa.2025.08.010}{doi:10.1016/j.laa.2025.08.010}.
 \end{thebibliography}
 \end{document}

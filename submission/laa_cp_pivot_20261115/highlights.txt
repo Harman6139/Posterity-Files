@@ -1,0 +1,4 @@
+- Every improving adjacent rule can require exponentially many pivots.
+- The lower bound starts at the standard tridiagonal perfect matrix.
+- Positive definite, entrywise positive inputs have short exact separators.
+- A fixed-block edge bound controls all improving choices and perturbations.
