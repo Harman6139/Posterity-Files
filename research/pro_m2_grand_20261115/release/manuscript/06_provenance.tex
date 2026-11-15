@@ -1,0 +1,28 @@
+\section{Verification, provenance, and limitations}\label{sec:verification}
+The release supplies separate standard-library generator and verifier programs. The verifier imports no generator code. It checks five angular-grid cases, eleven exact facet certificates, the four-dimensional arithmetic obstruction, full rank of the target normal sets, rank $d-1$ of the facet normal sets, rational reconstruction identities and strict signs. It rejects three deliberately corrupted data sets. One target uses $N=2^{64}$; its universal proof gives $2^{64}-1$ pivots. The program checks compressed certificates, not that many simulated steps.
+
+These tests are independent implementations of finite identities, not independent human review, a proof-assistant formalization, or a production implementation of general real quantifier elimination. The all-dimensional conclusions rest on the proofs above. The release records exact data hashes and deterministic regeneration commands.
+
+Several distinctions are essential to the contribution. Qualitative generalized perfectness is already available in 2026~\cite{OS26}. Rational interior factorization and classical ellipsoid/separation algorithms are not new. Ordinary real facial reduction does not by itself determine rational admissible columns; the coefficient-kernel restriction and carrier canonicity are the arithmetic statements. The totally real result is a constrained extension, not a claim of first trace descent. Grid convergence rates are old; the angular optimum is specific to the stated moment-preserving map. The sharp lattice exponent is inherited from the preceding project and proved here for completeness. Finally, the local lower bound concerns the specified shadow rule and cannot be advertised as a theorem about all algorithms.
+
+The current literature audit found no source establishing the full canonical arithmetic-carrier theorem with these exact column constraints, but a negative search is not a historical priority proof. Reported 2026 boundary CP counterexamples are not assumed in any argument, and their complete external certificates have not been independently rerun for this draft. The registered article-level venue comparison is supplied separately; no editorial probability or upper-quintile certification is implied by the mathematics or by this manuscript's length.
+
+\begin{thebibliography}{99}
+\bibitem{BW} J. M. Borwein and H. Wolkowicz, Facial reduction for a cone-convex programming problem, \emph{J. Austral. Math. Soc. Ser. A} 30 (1981), 369--380. DOI: 10.1017/S1446788700017250.
+\bibitem{BPR} S. Basu, R. Pollack and M.-F. Roy, \emph{Algorithms in Real Algebraic Geometry}, second edition, Springer, 2006. DOI: 10.1007/3-540-33099-2.
+\bibitem{SEDZ} M. Safey El Din and L. Zhi, Computing rational points in convex semi-algebraic sets and sum of squares decompositions, \emph{SIAM J. Optim.} 20 (2010), 2876--2889. DOI: 10.1137/090772459.
+\bibitem{DSV17} M. Dutour Sikiri\'c, A. Sch\"urmann and F. Vallentin, Rational factorizations of completely positive matrices, \emph{Linear Algebra Appl.} 523 (2017), 46--51. DOI: 10.1016/j.laa.2017.02.017.
+\bibitem{DSV21} M. Dutour Sikiri\'c, A. Sch\"urmann and F. Vallentin, A simplex algorithm for rational cp-factorization, \emph{Math. Program.} 187 (2021), 25--45. DOI: 10.1007/s10107-020-01467-4.
+\bibitem{DS23} V. Dannenberg and A. Sch\"urmann, Perfect copositive matrices, \emph{Commun. Math.} 31 (2023), 137--156. DOI: 10.46298/cm.11141.
+\bibitem{OS26} A. Oertel and A. Sch\"urmann, Generalized Perfect Matrices, arXiv:2602.05841v2 (2026).
+\bibitem{Hillar} C. J. Hillar, Sums of squares over totally real fields are rational sums of squares, \emph{Proc. Amer. Math. Soc.} 137 (2009), 921--930. DOI: 10.1090/S0002-9939-08-09641-X.
+\bibitem{Scheiderer} C. Scheiderer, Sums of squares of polynomials with rational coefficients, \emph{J. Eur. Math. Soc.} 18 (2016), 1495--1513. DOI: 10.4171/JEMS/620.
+\bibitem{LMT} B. F. Louren\c co, M. Muramatsu and T. Tsuchiya, Solving SDP completely with an interior point oracle, \emph{Optim. Methods Softw.} 36 (2021), 425--471. DOI: 10.1080/10556788.2020.1850720.
+\bibitem{SDB} N. Shaked-Monderer, M. D\"ur and A. Berman, Complete positivity over the rationals, \emph{Pure Appl. Funct. Anal.} 3 (2018), 681--691.
+\bibitem{Kostyukova} O. I. Kostyukova, Non-exposed polyhedral faces of the completely positive cone, \emph{Linear Multilinear Algebra} 73 (2025), 368--395. DOI: 10.1080/03081087.2024.2346313.
+\bibitem{NL26} M. Nishijima and B. F. Louren\c co, Facial structure of copositive and completely positive cones over a second-order cone, \emph{Linear Algebra Appl.} 743 (2026), 211--249. DOI: 10.1016/j.laa.2026.04.019.
+\bibitem{Yildirim} E. A. Y\i ld\i r\i m, On the accuracy of uniform polyhedral approximations of the copositive cone, \emph{Optim. Methods Softw.} 27 (2012), 155--173. DOI: 10.1080/10556788.2010.540014.
+\bibitem{DKLSV} E. de Klerk, M. Laurent, Z. Sun and J. C. Vera, On the convergence rate of grid search for polynomial optimization over the simplex, \emph{Optim. Lett.} 11 (2017), 597--608. DOI: 10.1007/s11590-016-1023-7.
+\bibitem{M2prior} LAA Paper project, Manuscript II quantitative checkpoints, immutable repository snapshot 98740002955f5bd9763137fc583a8d897b136ffe, \texttt{research/pro\_m2\_quantitative\_20261114}, 14 November 2026. Internal antecedent, not a published priority claim.
+\end{thebibliography}
+
