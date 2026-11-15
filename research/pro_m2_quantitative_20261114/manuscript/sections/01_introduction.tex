@@ -1,0 +1,62 @@
+\section{Introduction and the precise algorithm}
+For symmetric matrices we use the trace pairing and Frobenius norm. Set
+\[
+\CP_n=\cone\{xx^T:x\in\R^n_{\ge0}\},\qquad
+\COP_n=\CP_n^*,\qquad d=n(n+1)/2.
+\]
+The completely positive cone is closed: its trace-one base is the convex hull of the compact set $\{xx^T:x\ge0,\norm{x}_2=1\}$. Its dual is the copositive cone. The copositive Ryshkov set is
+\begin{equation}\label{eq:ry}
+\Ry_n=\{P\in\Sym^n:P[v]\ge1\text{ for every }0\ne v\in\Z^n_{\ge0}\},\qquad P[v]=v^TPv.
+\end{equation}
+A vertex is called a perfect copositive matrix. For a vertex $P$, write
+\[
+\Min(P)=\{v\in\Z^n_{\ge0}:P[v]=1\},\qquad
+\mathcal V(P)=\cone\{vv^T:v\in\Min(P)\}.
+\]
+The local polyhedral properties needed below follow directly from our quantitative margin theorem.
+
+Dutour Sikiri\'c, Sch\"urmann and Vallentin developed the rational cp-factorization simplex procedure on this set \cite{DSV21}. Their Conjecture 3.2 concerns \emph{finite termination} on nonmembers under a suitable pivot rule. It is not a polynomial-complexity conjecture. We analyze the following particular rule and its proposed stronger complexity property.
+
+\begin{definition}[Fixed-anchor shadow rule]\label{def:rule}
+Fix a vertex $P_*$ and put $C_0=\sum_{v\in\Min(P_*)}vv^T$. At a current vertex $P$, first return $P$ if $\ip AP<0$. Otherwise, among extreme feasible tangent rays $R$ with $\ip AR<0$, select one minimizing
+\begin{equation}\label{eq:ratio}
+\frac{\ip{C_0}R}{-\ip AR}.
+\end{equation}
+If the selected ray is copositive, return it. If not, traverse its bounded edge to the adjacent vertex. Ties may be resolved arbitrarily.
+\end{definition}
+The input throughout the path-complexity discussion is rational, outside $\CP_n$, and normalized by $\norm A_F\le1$. Write
+\begin{equation}\label{eq:H}
+\delta=\dist_F(A,\CP_n)>0,\qquad H=L+\lceil\log_2(1/\delta)\rceil+2,
+\end{equation}
+where $L$ is total binary input length. Since $0\in\CP_n$, $\delta\le1$.
+
+\subsection{Results and their scope}
+Our conclusions distinguish three resources that cannot be conflated: the number of adjacent faces crossed, the bit length of each object, and the cost of explicitly listing active integer vectors.
+
+\begin{theorem}[Main conclusions]\label{thm:main}
+The following statements hold.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item For $n\ge2$, $P\in\Ry_n$, and $M\ge\max(1,\norm P_F)$,
+\[
+\mu(P):=\min_{x\ge0,\,\norm x_2=1}P[x]\ge[8n(16nM)^{n-1}]^{-1}.
+\]
+The exponent $n-1$ cannot be decreased, even on positive definite perfect vertices.
+\item For either the canonical tridiagonal start or the fixed shear start defined below, the shadow rule terminates with at most
+\[
+C_n\delta^{-n(n-1)d/2},\qquad
+C_n=\bigl[2\sqrt{8n}(768n^6)^{(n-1)/2}\bigr]^{nd}
+\]
+adjacent pivots. Every visited vertex, primitive ray and integer descent witness has $O(n^7(H+\log n))$ bits per rational entry. Explicit finite ray and neighbor procedures are available.
+\item In every fixed $n\ge2$, a fixed admissible start admits inputs with $2^{\Omega_n(H)}$ forced pivots. In $n=2$ this holds for the canonical start and for every rule restricted to strictly objective-descending extreme rays. In every $n\ge5$, positive definite, strictly entrywise-positive nonmembers give an exponential lower bound from the fixed shear start, even with the finite-grid ray correction in Section~\ref{sec:grid}. A second family gives an exponential window from the canonical tridiagonal start for the unmodified rule (Theorem~\ref{thm:canonical}).
+\item For every rational normalized $A$ and every $\rho=2^{-p}$, an exact rational algorithm returns either a strict copositive separator of $A$, or a rational completely positive $C$ with $\norm{A-C}_F<\rho$. In fixed dimension its bit complexity is polynomial in $L+p$. The separating branch uses $O(n^4(p+\log n))$ rounded ellipsoid updates and $2^n-1$ rational stationary systems per oracle call.
+\end{enumerate}
+\end{theorem}
+The lower and upper bounds establish a sharp \emph{single-exponential growth class} in binary precision for the specified fixed-start shadow rule. They do not match the numerical exponent of $\delta$ or the dimension-dependent constants. The canonical-start theorem concerns the unmodified rule; the stronger guarantee excluding an earlier corrected-grid stop is proved for the fixed shear start. These are distinct algorithmic statements. No lower bound on the intrinsic fixed-dimensional complexity of CP separation is asserted.
+
+\subsection{Relation to earlier work}
+The qualitative inclusion $\Ry_n\subset\operatorname{int}\COP_n$ and its simultaneous-approximation mechanism appear in \cite{DSV17}; Oertel and Sch\"urmann extend the Interior Ryshkov property to generalized cones \cite{OS26}. Our first contribution is an explicit norm-dependent estimate with an optimal exponent, not the first proof of strict copositivity. Dannenberg and Sch\"urmann constructed the shear vertices, their coordinate-duplication lifts, and their adjacency \cite[Section~5]{DS23}. We reproduce those facts to make the lower-bound proof self-contained, but claim no priority for the vertices or lifting. The objective families, positive normal-cone decompositions, forced pivot counts and robustness statements are the quantitative assertions isolated here.
+
+The arithmetic minimum and the enumeration bottleneck are studied further in \cite{OS25}, whose LDL$^T$ algorithms and special-case bounds concern a different computational interface from the shadow-path count. Face-stationarity copositivity tests have a long history, including \cite{Valiaho89,HCGT22}. Ellipsoid approaches to rational CP factorization also predate this work; the introduction of \cite{DSV21} explicitly credits Anstreicher, Burer and Dickinson and refers to \cite[Section~3.3]{Dickinson13}. Our alternative supplies an exact rational implementation, explicit rounding and height bounds, and a finite cut-cone recovery certificate. It is not presented as the first fixed-dimensional polynomial-tractability result. Polyhedral lattice approximations and grid convergence likewise have established antecedents \cite{Yildirim12,DKLS15,DKLSV17}. The finite-grid correction used in our lower-bound robustness test is proved in Section~\ref{sec:grid}.
+
+Neither our separator construction nor the nearby-factor alternative assumes that every rational CP boundary matrix has an unperturbed rational nonnegative Gram factor. In particular, they are logically independent of reported 2026 counterexamples to that boundary-factorization statement. All external priority claims should be distinguished from the mathematical proofs given here.
+
