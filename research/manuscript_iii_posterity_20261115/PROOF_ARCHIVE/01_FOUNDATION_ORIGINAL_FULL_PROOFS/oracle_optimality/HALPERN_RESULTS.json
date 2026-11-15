@@ -1,0 +1,98 @@
+{
+  "anchored_DRS": [
+    {
+      "order": 2,
+      "family": "fast",
+      "escape_exponent": 1,
+      "iterations": 60000,
+      "predicted_residual_power": -0.5,
+      "predicted_state_power": 0.5,
+      "observed_tail_slopes_residual_state_shadow_equations": [
+        -0.49997514769854196,
+        0.5000454631154031,
+        -0.5000236343083796,
+        -0.4999751477016053
+      ],
+      "largest_normalized_potential_violation": 0.0,
+      "last": [
+        60000,
+        0.007070967148934529,
+        282.83534686845127,
+        0.005000067703827548,
+        0.004999928820561673
+      ]
+    },
+    {
+      "order": 3,
+      "family": "fast",
+      "escape_exponent": 3,
+      "iterations": 60000,
+      "predicted_residual_power": -0.25,
+      "predicted_state_power": 0.75,
+      "observed_tail_slopes_residual_state_shadow_equations": [
+        -0.2497151824677314,
+        0.7504823747934456,
+        -0.24980405685875876,
+        -0.24904216239583254
+      ],
+      "largest_normalized_potential_violation": 0.0,
+      "last": [
+        60000,
+        0.09730781369372954,
+        3335.297495095377,
+        0.08428168286139566,
+        0.08418388142014306
+      ]
+    },
+    {
+      "order": 3,
+      "family": "slow",
+      "escape_exponent": 0.3333333333333333,
+      "iterations": 60000,
+      "predicted_residual_power": -0.75,
+      "predicted_state_power": 0.25,
+      "observed_tail_slopes_residual_state_shadow_equations": [
+        -0.7494281163452082,
+        0.2510122291104421,
+        -0.7500853737135733,
+        -0.7489587497849546
+      ],
+      "largest_normalized_potential_violation": 0.0,
+      "last": [
+        60000,
+        0.00023258899915782277,
+        11.156851472050018,
+        0.00011639945325385515,
+        0.00011620218200145599
+      ]
+    }
+  ],
+  "nonexpansive_scalar_maps": [
+    {
+      "a": 0.25,
+      "predicted_residual_power": -0.8,
+      "observed_residual_power": -0.7664747182337944
+    },
+    {
+      "a": 0.5,
+      "predicted_residual_power": -0.6666666666666666,
+      "observed_residual_power": -0.654935795806412
+    },
+    {
+      "a": 1,
+      "predicted_residual_power": -0.5,
+      "observed_residual_power": -0.4976142414947198
+    },
+    {
+      "a": 2,
+      "predicted_residual_power": -0.3333333333333333,
+      "observed_residual_power": -0.3328000155453072
+    },
+    {
+      "a": 4,
+      "predicted_residual_power": -0.2,
+      "observed_residual_power": -0.19986529115373328
+    }
+  ],
+  "scope": "Floating-point diagnostics; all-dimensional proofs and model qualifications are in manuscript 28."
+}

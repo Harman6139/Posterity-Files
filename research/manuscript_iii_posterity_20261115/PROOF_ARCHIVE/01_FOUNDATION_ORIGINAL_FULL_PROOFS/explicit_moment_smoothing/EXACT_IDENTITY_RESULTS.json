@@ -1,0 +1,30 @@
+{
+  "covariance": [
+    {"n": 2, "D": 4, "orthogonality": "exact"},
+    {"n": 3, "D": 7, "orthogonality": "exact"},
+    {"n": 4, "D": 11, "orthogonality": "exact"},
+    {"n": 5, "D": 16, "orthogonality": "exact"},
+    {"n": 6, "D": 22, "orthogonality": "exact"}
+  ],
+  "coefficients": [
+    {"n": 2, "p": 2, "monomials_checked": 35, "nonzero_homogeneous_coefficients": 11, "parity_rule": "exact"},
+    {"n": 3, "p": 2, "monomials_checked": 210, "nonzero_homogeneous_coefficients": 35, "parity_rule": "exact"}
+  ],
+  "differential_and_soc": [
+    {"n": 2, "p": 4, "Euler_identity": "exact", "Hessian_Gram_identity": "exact", "SOC_chain_determinants": "all zero exactly", "SOC_final_slack_positive": true},
+    {"n": 3, "p": 4, "Euler_identity": "exact", "Hessian_Gram_identity": "exact", "SOC_chain_determinants": "all zero exactly", "SOC_final_slack_positive": true}
+  ],
+  "robust_slacks": {"n": 5, "m": 3, "minimum_vertex_slack": "1/8", "uniform_shift": "9/3200", "affine_slacks": "exact"},
+  "pseudodensity_identities": [
+    {"m": 3, "normalization": "exact", "formal_centered_square": "0", "negative_pairing": "-5/384", "max_abs_density": "3/2", "degree_positive_pseudodensity_property": "imported LRS theorem, not inferred from this test"},
+    {"m": 5, "normalization": "exact", "formal_centered_square": "0", "negative_pairing": "-3/640", "max_abs_density": "15/8", "degree_positive_pseudodensity_property": "imported LRS theorem, not inferred from this test"},
+    {"m": 7, "normalization": "exact", "formal_centered_square": "0", "negative_pairing": "-15/6272", "max_abs_density": "35/16", "degree_positive_pseudodensity_property": "imported LRS theorem, not inferred from this test"}
+  ],
+  "theoretical_parameters": [
+    {"n": 2, "dimension": 4, "p": 1048576, "degree": 2097152, "Boolean_summands": 4, "tolerance": "1/16777216", "soc_blocks": 88, "evaluation_is_exponential_in_n": true, "polynomial_length_arithmetic_circuit_proved": false},
+    {"n": 4, "dimension": 11, "p": 16777216, "degree": 33554432, "Boolean_summands": 16, "tolerance": "1/268435456", "soc_blocks": 411, "evaluation_is_exponential_in_n": true, "polynomial_length_arithmetic_circuit_proved": false},
+    {"n": 8, "dimension": 37, "p": 268435456, "degree": 536870912, "Boolean_summands": 256, "tolerance": "1/4294967296", "soc_blocks": 7461, "evaluation_is_exponential_in_n": true, "polynomial_length_arithmetic_circuit_proved": false},
+    {"n": 16, "dimension": 137, "p": 4294967296, "degree": 8589934592, "Boolean_summands": 65536, "tolerance": "1/68719476736", "soc_blocks": 2162825, "evaluation_is_exponential_in_n": true, "polynomial_length_arithmetic_circuit_proved": false}
+  ],
+  "scope": "Exact finite identities only; all-dimensional hardness is proved using the cited LRS input. Test exponents are deliberately smaller than the theoretical p."
+}

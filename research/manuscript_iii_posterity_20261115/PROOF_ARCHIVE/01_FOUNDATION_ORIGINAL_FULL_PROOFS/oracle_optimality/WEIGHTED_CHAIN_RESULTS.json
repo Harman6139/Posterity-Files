@@ -1,0 +1,56 @@
+{
+  "exact_prefix_checks": [
+    {
+      "beta": "1/4",
+      "exact_prefix_minima_tested": 7,
+      "couplings": [
+        "1",
+        "2"
+      ],
+      "numerical_Hessian_max_eigenvalue": 0.19388905069165752
+    },
+    {
+      "beta": "1/2",
+      "exact_prefix_minima_tested": 7,
+      "couplings": [
+        "1"
+      ],
+      "numerical_Hessian_max_eigenvalue": 0.12481205882298699
+    },
+    {
+      "beta": "1",
+      "exact_prefix_minima_tested": 7,
+      "couplings": [
+        "1"
+      ],
+      "numerical_Hessian_max_eigenvalue": 0.12481205882298699
+    },
+    {
+      "beta": "2",
+      "exact_prefix_minima_tested": 7,
+      "couplings": [
+        "1",
+        "1/2"
+      ],
+      "numerical_Hessian_max_eigenvalue": 0.12466126106080021
+    },
+    {
+      "beta": "4",
+      "exact_prefix_minima_tested": 7,
+      "couplings": [
+        "1",
+        "1/2"
+      ],
+      "numerical_Hessian_max_eigenvalue": 0.12467509731316363
+    }
+  ],
+  "arbitrary_query_resisting_oracle_demo": {
+    "calls": 9,
+    "chain_dimension": 20,
+    "max_transcript_discrepancy": 3.552713678800501e-15,
+    "basis_orthogonality_error": 9.935232336140191e-16,
+    "output_value": 13.541243411766603,
+    "proved_prefix_minimum": 0.0011792452830188679
+  },
+  "scope": "Exact rational finite identities and numerical transcript diagnostics; universal proof is manuscript 27."
+}

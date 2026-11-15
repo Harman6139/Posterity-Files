@@ -1,0 +1,11 @@
+{
+  "graphs_checked": 74,
+  "promised_gap_queries_checked": 121,
+  "single_evaluation_histograms_recovered": 74,
+  "graph_orders": [2, 3, 4],
+  "gap_test_half_degree": "4*n^2*(n+1), a proved sufficient weaker value",
+  "production_half_degree": "least power of two >= 2^16*n^4",
+  "modular_cancellation_squarings": 200,
+  "modular_exact_output": "49/25",
+  "scope": "Exact finite illustrations only. Universal results are the analytic proofs in milestone 25. The full succinct fixed-error smooth-body target is NOT proved."
+}

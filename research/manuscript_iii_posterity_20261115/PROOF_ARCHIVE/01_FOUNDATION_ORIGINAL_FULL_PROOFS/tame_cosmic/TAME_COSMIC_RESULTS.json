@@ -1,0 +1,367 @@
+{
+  "exact_discounted_DRS": {
+    "positive_part_determinant": true,
+    "negative_part_determinant": true,
+    "orthogonal_parts": true,
+    "discounted_equation": true,
+    "leading_diagonal": true,
+    "leading_offdiagonal": true
+  },
+  "DRS_orbits": [
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 0.0,
+      "iteration": 1000,
+      "diagonal_over_sqrt_k": 1.4116085975149684,
+      "predicted_diagonal_limit": 1.4142135623730951,
+      "ratio_to_prediction": 0.9981580116840659,
+      "offdiagonal_over_sqrt_k": 2.951238691840634e-303
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 0.0,
+      "iteration": 10000,
+      "diagonal_over_sqrt_k": 1.4139125157579615,
+      "predicted_diagonal_limit": 1.4142135623730951,
+      "ratio_to_prediction": 0.9997871278969859,
+      "offdiagonal_over_sqrt_k": 0.0
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 0.0,
+      "iteration": 100000,
+      "diagonal_over_sqrt_k": 1.4141793894416286,
+      "predicted_diagonal_limit": 1.4142135623730951,
+      "ratio_to_prediction": 0.9999758360884271,
+      "offdiagonal_over_sqrt_k": 0.0
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 0.0,
+      "iteration": 200000,
+      "diagonal_over_sqrt_k": 1.4141958633220997,
+      "predicted_diagonal_limit": 1.4142135623730951,
+      "ratio_to_prediction": 0.9999874848810205,
+      "offdiagonal_over_sqrt_k": 0.0
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 1.0,
+      "iteration": 1000,
+      "diagonal_over_sqrt_k": 0.814610628337563,
+      "predicted_diagonal_limit": 0.816496580927726,
+      "ratio_to_prediction": 0.9976901892375102,
+      "offdiagonal_over_sqrt_k": 6.318237083253505e-05
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 1.0,
+      "iteration": 10000,
+      "diagonal_over_sqrt_k": 0.8163077880239779,
+      "predicted_diagonal_limit": 0.816496580927726,
+      "ratio_to_prediction": 0.9997687768593794,
+      "offdiagonal_over_sqrt_k": 1.999800019998e-06
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 1.0,
+      "iteration": 100000,
+      "diagonal_over_sqrt_k": 0.8164776996635776,
+      "predicted_diagonal_limit": 0.816496580927726,
+      "ratio_to_prediction": 0.9999768752685688,
+      "offdiagonal_over_sqrt_k": 6.324492075416004e-08
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 1.0,
+      "iteration": 200000,
+      "diagonal_over_sqrt_k": 0.8164871402408226,
+      "predicted_diagonal_limit": 0.816496580927726,
+      "ratio_to_prediction": 0.9999884375671325,
+      "offdiagonal_over_sqrt_k": 2.2360567972158036e-08
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 2.0,
+      "iteration": 1000,
+      "diagonal_over_sqrt_k": 0.6300719561822542,
+      "predicted_diagonal_limit": 0.6324555320336759,
+      "ratio_to_prediction": 0.9962312356668661,
+      "offdiagonal_over_sqrt_k": 0.00012611251663180648
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 2.0,
+      "iteration": 10000,
+      "diagonal_over_sqrt_k": 0.6322164639196233,
+      "predicted_diagonal_limit": 0.6324555320336759,
+      "ratio_to_prediction": 0.9996220001218366,
+      "offdiagonal_over_sqrt_k": 3.998800279940012e-06
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 2.0,
+      "iteration": 100000,
+      "diagonal_over_sqrt_k": 0.6324316181003787,
+      "predicted_diagonal_limit": 0.6324555320336759,
+      "ratio_to_prediction": 0.9999621887514837,
+      "offdiagonal_over_sqrt_k": 1.2648731176208484e-07
+    },
+    {
+      "family": "two_by_two_DRS",
+      "anchor_weight": 2.0,
+      "iteration": 200000,
+      "diagonal_over_sqrt_k": 0.6324435748691372,
+      "predicted_diagonal_limit": 0.6324555320336759,
+      "ratio_to_prediction": 0.9999810940628501,
+      "offdiagonal_over_sqrt_k": 4.47206887374287e-08
+    }
+  ],
+  "scalar_powers": [
+    {
+      "family": "scalar_power",
+      "p": 0.25,
+      "gamma": 0.0,
+      "steps": 40000,
+      "scaled_state": 0.9999999999999966,
+      "predicted_limit": 1.0,
+      "ratio": 0.9999999999999966
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.25,
+      "gamma": 1.0,
+      "steps": 40000,
+      "scaled_state": 0.6687340356220501,
+      "predicted_limit": 0.6687403049764221,
+      "ratio": 0.9999906251285807
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.25,
+      "gamma": 2.0,
+      "steps": 40000,
+      "scaled_state": 0.5773394440831087,
+      "predicted_limit": 0.5773502691896258,
+      "ratio": 0.9999812503655148
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.25,
+      "schedule": "constant_half",
+      "steps": 40000,
+      "clock": 20000.0,
+      "ratio_to_physical_time_prediction": 0.9999662004456823
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.25,
+      "schedule": "inverse_sqrt",
+      "steps": 40000,
+      "clock": 398.54214548598156,
+      "ratio_to_physical_time_prediction": 0.998879979186906
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.5,
+      "gamma": 0.0,
+      "steps": 40000,
+      "scaled_state": 0.9999999999999936,
+      "predicted_limit": 1.0,
+      "ratio": 0.9999999999999936
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.5,
+      "gamma": 1.0,
+      "steps": 40000,
+      "scaled_state": 0.5773466608293729,
+      "predicted_limit": 0.5773502691896258,
+      "ratio": 0.99999375013671
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.5,
+      "gamma": 2.0,
+      "steps": 40000,
+      "scaled_state": 0.44720800548140827,
+      "predicted_limit": 0.4472135954999579,
+      "ratio": 0.9999875003385275
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.5,
+      "schedule": "constant_half",
+      "steps": 40000,
+      "clock": 20000.0,
+      "ratio_to_physical_time_prediction": 0.9999596066453946
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.5,
+      "schedule": "inverse_sqrt",
+      "steps": 40000,
+      "clock": 398.54214548598156,
+      "ratio_to_physical_time_prediction": 0.998518647336655
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.75,
+      "gamma": 0.0,
+      "steps": 40000,
+      "scaled_state": 0.9999999999915873,
+      "predicted_limit": 1.0,
+      "ratio": 0.9999999999915873
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.75,
+      "gamma": 1.0,
+      "steps": 40000,
+      "scaled_state": 0.5296830235196182,
+      "predicted_limit": 0.5296846787239059,
+      "ratio": 0.9999968751139042
+    },
+    {
+      "family": "scalar_power",
+      "p": 0.75,
+      "gamma": 2.0,
+      "steps": 40000,
+      "scaled_state": 0.37739288913964764,
+      "predicted_limit": 0.3773952477902469,
+      "ratio": 0.9999937501846854
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.75,
+      "schedule": "constant_half",
+      "steps": 40000,
+      "clock": 20000.0,
+      "ratio_to_physical_time_prediction": 0.9999715967433975
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 0.75,
+      "schedule": "inverse_sqrt",
+      "steps": 40000,
+      "clock": 398.54214548598156,
+      "ratio_to_physical_time_prediction": 0.9988973119951519
+    },
+    {
+      "family": "scalar_power",
+      "p": 1.0,
+      "gamma": 0.0,
+      "steps": 40000,
+      "scaled_state": 1.0,
+      "predicted_limit": 1.0,
+      "ratio": 1.0
+    },
+    {
+      "family": "scalar_power",
+      "p": 1.0,
+      "gamma": 1.0,
+      "steps": 40000,
+      "scaled_state": 0.5,
+      "predicted_limit": 0.5,
+      "ratio": 1.0
+    },
+    {
+      "family": "scalar_power",
+      "p": 1.0,
+      "gamma": 2.0,
+      "steps": 40000,
+      "scaled_state": 0.33333333333333315,
+      "predicted_limit": 0.3333333333333333,
+      "ratio": 0.9999999999999996
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 1.0,
+      "schedule": "constant_half",
+      "steps": 40000,
+      "clock": 20000.0,
+      "ratio_to_physical_time_prediction": 1.0
+    },
+    {
+      "family": "variable_relaxation",
+      "p": 1.0,
+      "schedule": "inverse_sqrt",
+      "steps": 40000,
+      "clock": 398.54214548598156,
+      "ratio_to_physical_time_prediction": 0.9999999999999855
+    }
+  ],
+  "common_gradient_prox_flow": [
+    {
+      "family": "gradient_prox_flow",
+      "b": 0.5,
+      "p": 0.4,
+      "steps": 25000,
+      "step": 0.6666666666666666,
+      "gradient": 52.399003555289795,
+      "proximal": 52.393882617288156,
+      "flow_exact": 52.39638346839695,
+      "leading_prediction": 53.39535829228011,
+      "gradient_minus_proximal": 0.0051209380016388195,
+      "gradient_over_flow": 1.000050005109502,
+      "proximal_over_flow": 0.9999522705396203,
+      "note": "Additive -1 creates a visible finite-horizon relative transient."
+    },
+    {
+      "family": "gradient_prox_flow",
+      "b": 1.0,
+      "p": 0.3333333333333333,
+      "steps": 25000,
+      "step": 0.25,
+      "gradient": 25.568129122168013,
+      "proximal": 25.5657955344545,
+      "flow_exact": 25.56693651386662,
+      "leading_prediction": 26.566464229565273,
+      "gradient_minus_proximal": 0.0023335877135117755,
+      "gradient_over_flow": 1.0000466465077171,
+      "proximal_over_flow": 0.9999553728538615,
+      "note": "Additive -1 creates a visible finite-horizon relative transient."
+    },
+    {
+      "family": "gradient_prox_flow",
+      "b": 2.0,
+      "p": 0.25,
+      "steps": 25000,
+      "step": 0.08333333333333333,
+      "gradient": 10.362788706614687,
+      "proximal": 10.361956901031705,
+      "flow_exact": 10.362364093745358,
+      "leading_prediction": 11.362193664674994,
+      "gradient_minus_proximal": 0.0008318055829814597,
+      "gradient_over_flow": 1.0000409764476028,
+      "proximal_over_flow": 0.9999607046509881,
+      "note": "Additive -1 creates a visible finite-horizon relative transient."
+    },
+    {
+      "family": "gradient_prox_flow",
+      "b": 4.0,
+      "p": 0.16666666666666666,
+      "steps": 25000,
+      "step": 0.025,
+      "gradient": 3.96628813405093,
+      "proximal": 3.9660218099282676,
+      "flow_exact": 3.9661523112218324,
+      "leading_prediction": 4.966097133897473,
+      "gradient_minus_proximal": 0.0002663241226623647,
+      "gradient_over_flow": 1.0000342454899458,
+      "proximal_over_flow": 0.9999670962476163,
+      "note": "Additive -1 creates a visible finite-horizon relative transient."
+    }
+  ],
+  "scope_counterexample": {
+    "steps": 10000,
+    "normalized_state": [
+      0.9999500037496876,
+      0.009999500037496875
+    ],
+    "residual": 2.000006249677755,
+    "residual_limit": 2,
+    "scope": "A cosmic leading term alone does not imply a vanishing last displacement."
+  },
+  "status": "Exact finite identities and numerical illustrations; universal proofs are manuscripts 30--31."
+}

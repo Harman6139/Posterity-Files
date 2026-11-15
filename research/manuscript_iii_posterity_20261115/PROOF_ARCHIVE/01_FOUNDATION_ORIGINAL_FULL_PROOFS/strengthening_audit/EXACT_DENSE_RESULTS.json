@@ -1,0 +1,21 @@
+{
+  "exact_arithmetic": "Python Fraction, no floating point",
+  "m": 1,
+  "p": 1,
+  "N": 35,
+  "parseval_identity": true,
+  "signed_isotropy_identity": true,
+  "all_reflection_entries_nonzero": true,
+  "all_final_entries_nonzero": true,
+  "matched_rotated_column_factors": "39/80",
+  "eta": "1/32768",
+  "rotation_parameter": "1/10",
+  "positive_uniform_margin": "1/76749924836206182400000",
+  "nonreflection_power_sum_order": 2,
+  "nonreflection_certificate_nonzero": true,
+  "certificate_sign": 1,
+  "certificate_numerator_bits": 477,
+  "certificate_denominator_bits": 493,
+  "certificate_sha256": "5523bb7d0aedd59796de17727ed312da46fb6c2908fe44fe65b6ded9ce8c01ce",
+  "scope": "One exact independent test. All-dimension proofs are in milestone 08."
+}

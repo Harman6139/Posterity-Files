@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-14",
+  "exact_identities": {
+    "Schur_complement": "7/(4*t**5)",
+    "Lorentz_s_and_d_identities": "exact symbolic equality",
+    "discounted_axis_identity": "exact symbolic equality"
+  },
+  "firm_spot_checks": {
+    "number_of_pairs": 100,
+    "largest_positive_firmness_violation": 0.0,
+    "largest_resolvent_error": 2.5758863975811456e-14
+  },
+  "analytic_rotating_example": {
+    "iterations": 150000,
+    "initial_point": [1.0, 1.0, 0.0],
+    "predicted_state_coefficient": 1.379729661461215,
+    "predicted_axial_step_coefficient": 0.27594593229224296,
+    "predicted_step_norm_coefficient": 0.39024647992937783,
+    "largest_inverse_equation_error": 1.8651863469910596e-14,
+    "last_state_scaled": [1.3797368486911112, -0.0025416139731282397, 0.005416064623899661],
+    "last_step_scaled": [0.27594384998885596, 0.24299013071548323, 0.11278306563044112],
+    "last_scaled_step_norm": 0.38458969287384737,
+    "last_t_times_transverse_norm": 0.9708121427882008,
+    "last_unwrapped_phase": -111.08777378089378,
+    "last_phase_over_t_squared": -0.49617769077580076
+  },
+  "single_Lorentz_cases": [
+    {
+      "dimension": 3, "c": 1.0, "seed": 11, "iterations": 40000,
+      "predicted_light_step": [0.5, 0.5, 0.0],
+      "last_light_step_scaled": [0.4992744885303553, 0.49897436015400465, 2.996214717911755e-06],
+      "predicted_step_norm": 0.7071067811865475,
+      "last_scaled_step_norm": 0.7058685621256436,
+      "predicted_shadow_distance": 0.5,
+      "last_scaled_shadow_distance": 0.49896813374152216,
+      "max_recurrence_projection_discrepancy": 7.301206909662255e-15
+    },
+    {
+      "dimension": 5, "c": 0.5, "seed": 7, "iterations": 40000,
+      "predicted_light_step": [0.25, 0.25, 0.0, 0.0, 0.0],
+      "last_light_step_scaled": [0.2497707800516566, 0.24971506669767382, 0.0, 0.0, 5.565953600821698e-07],
+      "predicted_step_norm": 0.35355339059327373,
+      "last_scaled_step_norm": 0.35318983154069783,
+      "predicted_shadow_distance": 0.25,
+      "last_scaled_shadow_distance": 0.24971194966847665,
+      "max_recurrence_projection_discrepancy": 3.4226335968792733e-15
+    },
+    {
+      "dimension": 12, "c": 2.0, "seed": 19, "iterations": 40000,
+      "last_first_two_step_coordinates_scaled": [0.9995998081705568, 0.9994694747769102],
+      "predicted_first_two_step_coordinates": [1.0, 1.0],
+      "predicted_step_norm": 1.414213562373095,
+      "last_scaled_step_norm": 1.4135554490387507,
+      "predicted_shadow_distance": 1.0,
+      "last_scaled_shadow_distance": 0.9994569884623714,
+      "max_recurrence_projection_discrepancy": 1.3021285070452795e-14
+    }
+  ],
+  "scope": "Finite identities and floating-point illustrations. The full proofs are manuscripts 35 and 36. Regenerate the complete sampled trajectories with last_iterate_examples.py. No higher-order SDP last-step theorem is inferred."
+}

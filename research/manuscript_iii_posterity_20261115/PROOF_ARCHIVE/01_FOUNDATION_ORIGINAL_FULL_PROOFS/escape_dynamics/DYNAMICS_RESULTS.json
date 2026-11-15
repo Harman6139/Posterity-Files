@@ -1,0 +1,63 @@
+{
+  "scope": "Floating-point diagnostic checks, not mathematical proof or bit-complexity guarantees.",
+  "psd_cases": [
+    {
+      "family": "fast", "matrix_order": 2, "method": "alternating_projections", "escape_exponent": 1.0, "iterations": 40000,
+      "predicted_residual_slope": -0.25, "observed_tail_residual_slope": -0.25195071079120357,
+      "predicted_norm_slope": 0.25, "observed_tail_norm_slope": 0.2519422487390447,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 0.0,
+      "last": {"k": 40000, "residual": 0.050124365963815844, "iterate_norm": 19.950440010046098, "psd_trace": 19.95037704261213, "source_residual": 0.050061516834776214},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    },
+    {
+      "family": "fast", "matrix_order": 2, "method": "accelerated_projected_gradient", "escape_exponent": 1.0, "iterations": 40000,
+      "predicted_residual_slope": -0.5, "observed_tail_residual_slope": -0.4999136935240153,
+      "predicted_norm_slope": 0.5, "observed_tail_norm_slope": 0.499913687145954,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 1.163513729807164e-13,
+      "last": {"k": 40000, "residual": 0.005286617571834082, "iterate_norm": 189.15686387427579, "psd_trace": 189.15686380039972, "source_residual": 0.005286543697328049},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    },
+    {
+      "family": "fast", "matrix_order": 3, "method": "alternating_projections", "escape_exponent": 3.0, "iterations": 40000,
+      "predicted_residual_slope": -0.125, "observed_tail_residual_slope": -0.12573208435772584,
+      "predicted_norm_slope": 0.375, "observed_tail_norm_slope": 0.386117582983459,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 4.440892098500626e-16,
+      "last": {"k": 40000, "residual": 0.2701269985780887, "iterate_norm": 49.42935885433641, "psd_trace": 49.428620738954564, "source_residual": 0.26602710720942707},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    },
+    {
+      "family": "fast", "matrix_order": 3, "method": "accelerated_projected_gradient", "escape_exponent": 3.0, "iterations": 40000,
+      "predicted_residual_slope": -0.25, "observed_tail_residual_slope": -0.2499546553194076,
+      "predicted_norm_slope": 0.75, "observed_tail_norm_slope": 0.7520106164930916,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 1.7483936573773481e-13,
+      "last": {"k": 40000, "residual": 0.08880024934387602, "iterate_norm": 1424.3163940777904, "psd_trace": 1424.3163913096255, "source_residual": 0.08864572705789252},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    },
+    {
+      "family": "slow", "matrix_order": 3, "method": "alternating_projections", "escape_exponent": 0.3333333333333333, "iterations": 40000,
+      "predicted_residual_slope": -0.375, "observed_tail_residual_slope": -0.3847218781529834,
+      "predicted_norm_slope": 0.125, "observed_tail_norm_slope": 0.12599486131052637,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 5.553824967135427e-17,
+      "last": {"k": 40000, "residual": 0.003331795826143413, "iterate_norm": 3.184097026662431, "psd_trace": 3.2210956336219145, "source_residual": 0.003275546504674713},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    },
+    {
+      "family": "slow", "matrix_order": 3, "method": "accelerated_projected_gradient", "escape_exponent": 0.3333333333333333, "iterations": 40000,
+      "predicted_residual_slope": -0.75, "observed_tail_residual_slope": -0.7511808289715572,
+      "predicted_norm_slope": 0.25, "observed_tail_norm_slope": 0.24987998048144994,
+      "max_normalized_comparator_violation": 0.0, "max_affine_error": 6.439293692372982e-14,
+      "last": {"k": 40000, "residual": 0.00010771908113924855, "iterate_norm": 9.936201371203142, "psd_trace": 9.94870248947951, "source_residual": 0.00010742478513142066},
+      "interpretation": "Tail slopes are diagnostics only; transients are not theorem failures."
+    }
+  ],
+  "scalar_cases": [
+    {"p": 0.5, "method": "projected_gradient", "predicted_loss_exponent": -0.2, "observed_loss_slope": -0.1999736753240825, "energy_violation": 0.0},
+    {"p": 0.5, "method": "accelerated", "predicted_loss_exponent": -0.4, "observed_loss_slope": -0.3999349716850371, "energy_violation": 0.0},
+    {"p": 1.0, "method": "projected_gradient", "predicted_loss_exponent": -0.3333333333333333, "observed_loss_slope": -0.3332851051646747, "energy_violation": 0.0},
+    {"p": 1.0, "method": "accelerated", "predicted_loss_exponent": -0.6666666666666666, "observed_loss_slope": -0.6665602739810224, "energy_violation": 0.0},
+    {"p": 2.0, "method": "projected_gradient", "predicted_loss_exponent": -0.5, "observed_loss_slope": -0.49991958740044967, "energy_violation": 0.0},
+    {"p": 2.0, "method": "accelerated", "predicted_loss_exponent": -1.0, "observed_loss_slope": -0.9998433689128517, "energy_violation": 0.0},
+    {"p": 4.0, "method": "projected_gradient", "predicted_loss_exponent": -0.6666666666666666, "observed_loss_slope": -0.666548811676656, "energy_violation": 0.0},
+    {"p": 4.0, "method": "accelerated", "predicted_loss_exponent": -1.3333333333333333, "observed_loss_slope": -1.3331274920097957, "energy_violation": 0.0}
+  ]
+}
