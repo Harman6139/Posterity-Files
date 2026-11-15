@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype,booktabs,longtable,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=2pt,topsep=5pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Ssym}{\mathbb S}
+\newcommand{\CP}{\mathcal{CP}}
+\newcommand{\COP}{\mathcal{COP}}
+\newcommand{\GG}{\mathcal G_{\Q}}
+\newcommand{\AC}{\mathfrak A}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\lin}{\operatorname{span}}
+\newcommand{\ri}{\operatorname{ri}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Min}{\operatorname{Min}}
+\newcommand{\htb}{\operatorname{ht}_2}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\trans}{^{\mathsf T}}
+\numberwithin{equation}{section}
+\title{Arithmetic carriers of constrained Gram representations\\[0.4em]
+\large Rational completion, sharp moment corrections, and the limits of local traversal}
+\author{Manuscript II --- mathematical research draft}
+\date{15 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let the columns of a Gram factor belong to a finite union of rational polyhedral cones, and impose rational affine observations on the Gram matrix. We prove that the closure of the viable rational column directions is itself a finite union of closed rational polyhedral cones. This \emph{arithmetic carrier} is intrinsic and is computed by at most $n(n+1)/2$ strict matrix-span reductions. Algebraic quadratic exposers, stationarity on minimal vector faces, and rational coefficient kernels give an exact factor-or-obstruction algorithm, with polynomial bit complexity in every fixed matrix order. The carrier characterizes measurement-preserving rational regularization, including each prescribed rational direction, and yields descent of polyhedrally constrained Gram representations from totally real number fields. For bounded moment matrices we determine the exact correction for every tensor grid: it is the square sine of half the largest angular gap. Rational stereographic grids attain quadratic accuracy, whereas the geometrically optimal grid is not rational once it has at least four intervals. Finally, in every dimension at least four a fixed nonsimplicial cone has interior rational targets with constant-width factors but unique shadow walks of exponential binary length. Their carrier and observation condition remain fixed. Thus genuine arithmetic faces control certification, whereas an interior perfect-form subdivision can impose an independent local traversal cost.
+\end{abstract}
+\noindent\textbf{Scope of this draft.} The arguments below are self-contained except for explicitly cited real-algebraic algorithmic primitives and classical convex separation. The accompanying audit does not certify historical priority or a journal percentile. The exact programs verify specified certificates, not the general quantifier-elimination algorithm or a formal proof of the universal theorems.
+\tableofcontents
+
+\input{01_carrier}
+\input{02_completion}
+\input{03_complexity}
+\input{04_angular}
+\input{05_geometry}
+\input{06_provenance}
+\end{document}
