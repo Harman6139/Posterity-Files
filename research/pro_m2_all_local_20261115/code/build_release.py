@@ -53,6 +53,8 @@ def main():
     template=template.replace(OLD,NEW)
     if '\\input{07_all_local}' not in template:template=template.replace('\\input{06_provenance}','\\input{07_all_local}\n\\input{06_provenance}')
     if '\\input{08_facet_relaxation}' not in template:template=template.replace('\\input{07_all_local}','\\input{07_all_local}\n\\input{08_facet_relaxation}')
+    if not (md/'09_provenance.tex').exists():raise RuntimeError('Updated provenance section is missing')
+    template=template.replace('\\input{06_provenance}','\\input{09_provenance}')
     (md/'MASTER_THEOREM.tex').write_text(template)
     preamble=template.split('\\title{',1)[0]
     body=((md/'07_all_local.tex').read_text()+'\n'+(md/'08_facet_relaxation.tex').read_text()).replace('As proved in Section~\\ref{sec:paths}','As shown directly below (and in the companion carrier manuscript)').replace('Theorem~\\ref{thm:lattice}','The cone-relative lattice estimate in the companion carrier manuscript').replace('The preceding interior example concerns one shadow rule.','The preceding Manuscript II release gave an interior example for one shadow rule.')
