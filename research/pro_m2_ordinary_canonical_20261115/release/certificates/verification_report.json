@@ -1,0 +1,27 @@
+{
+  "families": 6,
+  "canonical_extreme_rays": 36,
+  "improving_initial_ray_counts": [
+    2,
+    3
+  ],
+  "branching_prefix": {
+    "vertices": 18,
+    "edges": 26,
+    "finite_lattice_checks": 7869,
+    "shared_active_incidents": 119
+  },
+  "status": "PASS",
+  "sha256": "048031057335bfb9fc7c86df3ecba5f3cc55fc32c484e6013d9f79efd577f95f",
+  "deliberate_corruptions_rejected": [
+    "scale parameter",
+    "target entry",
+    "separator",
+    "interval weight",
+    "canonical ray",
+    "edge length",
+    "missing improving branch"
+  ],
+  "largest_forced_prefix": "18446744073709551616",
+  "scope": "Separate exact verifier; finite tests and short complete branching prefix. No generator imports, no long simulation, no human/formal proof certification."
+}
