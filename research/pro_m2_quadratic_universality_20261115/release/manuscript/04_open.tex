@@ -1,0 +1,98 @@
+\section{Open constraints: an exact width law and quantitative rational density}
+This section explains why the arithmetic obstruction in the main theorem is concentrated on quadratic zero sets. No polyhedral assumption is needed for open column constraints.
+
+\begin{theorem}[Rational Gram-fiber density]\label{thm:orbit}
+For rational $A\succeq0$ and an integer $s$, let
+\[
+ \mathcal M_s(A)=\{B\in\R^{n\times s}:BB^T=A\}.
+\]
+Either this set has no rational point, or its rational points are dense in the whole real set, including rank-deficient fibers.
+\end{theorem}
+\begin{proof}
+Fix a rational point $B_0$. If $B\in\mathcal M_s(A)$, the correspondence between the rows of $B_0$ and the rows of $B$ is an isometry on their row spans, because their row Gram matrices agree. It is well defined even when rows are dependent: a linear relation has squared norm zero on both sides. Extend this isometry to $\R^s$ to obtain $B=B_0O$ with $O$ orthogonal. Rational orthogonal matrices are dense, as the explicit signed Cayley construction below proves. Thus $B_0O_j\to B$ with every $B_0O_j$ rational and its Gram matrix exactly $A$.
+\end{proof}
+Rational density of the orthogonal group and signed Cayley charts are classical \cite{Schmutz,TWZ}; the exact constrained-width consequence is separated from those antecedents.
+
+\begin{theorem}[Exact open-domain width]\label{thm:width}
+Let $A\ne0$ be rational PSD, $V=\range A$, and let $P\subseteq V$ be relatively open and closed under multiplication by positive scalars. Suppose $A$ has a real Gram representation with columns in $P$. Write $s_\R(P,A)$ for its least real permitted width and $s_\Q(A)$ for its least unrestricted rational Gram width. Then the least rational permitted width is
+\[
+ \boxed{s_\Q(P,A)=\max\{s_\R(P,A),s_\Q(A)\}.}
+\]
+Here $s_\Q(A)\leq\rank A+3$ and $s_\R(P,A)\leq r(r+1)/2$ for $r=\rank A$.
+\end{theorem}
+\begin{proof}
+The two lower bounds are immediate. Let $s$ be their maximum. Split any nonzero real column into sufficiently many equal positively rescaled copies to obtain a real permitted factor of exactly $s$ columns. Pad an unrestricted rational factor with zero columns to width $s$. Theorem~\ref{thm:orbit} gives rational factors of that width arbitrarily close to the real permitted factor; openness preserves all column constraints. Lemma~\ref{lem:overhead} gives $s_\Q(A)\leq r+3$. Conic Carath\'eodory gives the real-width bound, with positive weights absorbed into columns.
+\end{proof}
+\begin{lemma}[Sharp classical rational-width overhead]\label{lem:overhead}
+Every rational PSD matrix of rank $r>0$ has an unrestricted rational Gram representation of width at most $r+3$. This bound is sharp for every $r$.
+\end{lemma}
+\begin{proof}
+Rational diagonalization reduces the assertion to representing the positive diagonal form $\diag(a_1,\ldots,a_r)$. Start in rational Euclidean space of dimension $r+3$. After choosing $i-1$ mutually orthogonal rational rows with prescribed squared lengths, their rational orthogonal complement has dimension $r+4-i\geq4$ and a rational positive-definite form $g$. The form $g(x)-a_it^2$ is indefinite in at least five variables, so Meyer's theorem supplies a nonzero rational zero. Positive definiteness makes $t\ne0$. The vector $x/t$ in that complement has squared length $a_i$. Induction constructs the rows.
+
+For sharpness use $\diag(I_{r-1},7)$. Any rational factor with at most $r+2$ columns would give $r-1$ rational orthonormal rows followed by a rational orthogonal row of squared length seven. Rational Householder reflections carry the orthonormal rows to standard coordinate rows: reflecting a rational unit vector $v\ne e_1$ in the rational vector $v-e_1$ sends it to $e_1$, and induction acts on the remaining coordinates. The last row would express seven as at most three rational squares. After clearing denominators, $u^2+v^2+w^2=7t^2$ has no primitive integral solution: odd $t$ is impossible modulo eight, while even $t$ forces $u,v,w$ even modulo four. On the other hand, $7=2^2+1^2+1^2+1^2$ supplies $r+3$ columns. This is a consequence of classical quadratic-form arithmetic, not a claim of a new unrestricted width theorem.
+\end{proof}
+For $A=[7]$ and $P=(0,\infty)$, the real permitted width is one and the rational permitted width is four. Thus even an open scalar constraint cannot eliminate the arithmetic width term.
+
+\subsection{Explicit precision and height of the orthogonal approximation}
+For an orthogonal $O$ of order $s$, average $\det(I+DO)$ over the $2^s$ diagonal sign matrices $D$. Multilinearity in the rows cancels every nonconstant sign monomial, so the average is one. Choose $D$ with determinant at least one. The matrix $I+DO$ has norm at most two, and hence its smallest singular value is at least $2^{-(s-1)}$. Put
+\[
+ U=DO,\qquad T=(I-U)(I+U)^{-1}.
+\]
+Then $T^T=-T$ and $\|T\|_2\leq2^s$. Round its strict upper triangle to multiples of $2^{-h}$ and use skew symmetry to define $T_h$. Then
+\[
+ \|T-T_h\|_F\leq s2^{-h}.
+\]
+For every real skew-symmetric $T$, $\|(I+T)^{-1}\|_2\leq1$. The resolvent identity for
+\[
+ \mathcal C(T)=(I-T)(I+T)^{-1}=2(I+T)^{-1}-I
+\]
+gives
+\[
+ \|D\mathcal C(T_h)-O\|_F\leq2s2^{-h}.
+\]
+The approximant is exactly rational and orthogonal, not approximately orthogonal.
+
+Call $H$ a coordinate height bound if every reduced numerator and positive denominator has magnitude at most $2^H$. The integer matrix $2^h(I+T_h)$ has entries of magnitude at most $2^{h+s+1}$. Determinant and cofactor bounds therefore give the conservative common-denominator height
+\[
+ H_O=3+s(h+s+1)+\lceil\log_2(s!)\rceil.
+\]
+If the rational base factor $B_0$ has coordinate height $L_0$, every entry of $B_0D\mathcal C(T_h)$ has height at most
+\[
+ sL_0+H_O+\lceil\log_2 s\rceil+2.
+\]
+If a real permitted factor $B_0O$ has distance at least $\delta>0$ from the complement of the permitted subset in its Gram fiber's ambient column space, choose
+\[
+ h\geq\max\left\{0,\left\lceil\log_2\frac{4s\max(1,\|B_0\|_2)}{\delta}\right\rceil\right\}.
+\]
+The rational factor is then within $\delta/2$. This is a height theorem conditional on a base rational factor and a clearance bound; it is not a polynomial discovery theorem for arbitrary open sets.
+
+\subsection{The same zero-set principle gives a quantitative dual margin}
+Suppose $A=\sum_j u_ju_j^T$ has nonzero columns in $P\subseteq V$, and for some $0<\theta\leq1/2$ the relative ball
+\[
+ \{v\in V:\|v-u_j\|_2<\theta\|u_j\|_2\}
+\]
+is contained in $P$ for every column. Set $\lambda=\lambda_{\min}(A|_V)>0$. Then
+\begin{equation}\label{eq:openball}
+ \{A+E:E\in\Sym(V),\ \|E\|_F\leq\theta\lambda/2\}\subseteq C(P).
+\end{equation}
+Indeed, with square roots and inverses on $V$, take
+\[
+ T=(A+E)^{1/2}A^{-1/2},\qquad \widetilde u_j=Tu_j.
+\]
+Their Gram sum is $A+E$. The square-root difference solves the Sylvester equation
+\[
+ (A+E)^{1/2}Z+ZA^{1/2}=E,
+ \qquad Z=(A+E)^{1/2}-A^{1/2}.
+\]
+Its integral inverse, or diagonalization on the two sides, gives
+\[
+ \|Z\|_F\leq\frac{\|E\|_F}{\sqrt{\lambda-\|E\|_2}+\sqrt\lambda}.
+\]
+Consequently $\|T-I\|_2\leq\|E\|_F/\lambda\leq\theta/2$, proving that each new column is still permitted. The radius in \eqref{eq:openball} is not asserted optimal. It implies the dual estimate
+\[
+ \ip{W}{A}\geq\frac{\theta\lambda}{2}\|W|_V\|_F
+ \quad\text{whenever }u^TWu\geq0\text{ on }P.
+\]
+Here $W|_V$ denotes Euclidean orthogonal compression. Thus openness gives both exact rational persistence and a quantitative positive dual margin.
+
+Qualitatively the mechanism is especially simple. If a nonnegative quadratic form vanishes at an interior permitted column, two-sided variations force its restriction to $V$ to be PSD and to annihilate the column. If it vanishes on all columns of a factor spanning $V$, the restriction is zero. Arithmetic difficulty begins when a supporting quadratic zero set is curved or otherwise lacks these two-sided variations. The single-quadratic criterion identifies that difficulty exactly by isotropy.
