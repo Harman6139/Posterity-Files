@@ -1,6 +1,8 @@
 # Checkpoint 07 — algebraic spectral observability across inactive branches
 
-Date: 2026-11-15. This is a new structural recovery theorem in the ORIGINAL rational exact-value model. Unlike constant-rank continuation, it can identify objectives across separating rank-loss hypersurfaces. It is still a subclass theorem: the unrestricted rational conic OPTIMIZATION frontier is not proved or disproved.
+Date: 2026-11-15. Audited revision. This is a structural recovery theorem in the ORIGINAL rational exact-value model. Unlike constant-rank continuation, it can identify objectives across separating rank-loss hypersurfaces. It is still a subclass theorem: the unrestricted rational conic OPTIMIZATION frontier is not proved or disproved.
+
+Revision note: the final order-three example in the initial commit incorrectly stated det X=-t_2. The correct determinant is -t_2-4t_1^3, and at t_1=1 the rank crossing is t_2=-4. Section 6 now gives the corrected null vector and crossing speed. None of the general recovery or escape proofs uses that erroneous illustrative determinant. The original version remains in Git history.
 
 ## 1. Definitions and the algebraic probe
 
@@ -15,7 +17,7 @@ Write F=Q(x_1,...,x_d). Irreducibility below always means irreducibility as a po
 
 Choose the bounded algebraic probe q of checkpoint 02. Its degree depends only on m,d, and it can lie in any prescribed nonempty rational open ball. Equality of two natural values at q implies equality of their analytic germs at q. The query lies in the maximal-rank locus of every rational pencil of this format. When R_a is irreducible and m>1, det X_a is not identically zero, so X_a(q) is nonsingular.
 
-The number k_a of negative eigenvalues at q is then locally constant. On a neighborhood,
+The number k_a of negative eigenvalues at q is locally constant. On a neighborhood,
 
    h_a(x):=2 f_a(x)=sum_(i in S_a) mu_i(x),
 
@@ -31,159 +33,152 @@ In particular the local negative inertia is determined by the scalar value germ 
 
    k_a = (m/M_a) [x_1^2] Tr(P_a).                    (2)
 
-The trace polynomial in (1) is a polynomial in x; its quadratic part is (M_a k_a/m)||x||^2. Formula (2) is not a numerical estimator: it is an exact algebraic-information identity.
+The trace polynomial in (1) is a polynomial in x; its quadratic part is (M_a k_a/m)||x||^2. Formula (2) is an exact algebraic-information identity, not a numerical estimator.
 
-Proof. Work in a splitting field of R_a over F. Its Galois group acts transitively on the m roots because R_a is irreducible in characteristic zero. Average the conjugates of h_a over the group. Every root mu_i belongs to the image of S_a with probability k_a/m, so the average is (k_a/m)sum_i mu_i=(k_a/m)tau_a. Every distinct conjugate of h_a occurs equally often in this group average. Thus that same average is Tr(P_a)/M_a, proving (1). The known quadratic part of tau_a gives (2). This argument permits different subsets to have the same sum; it does not assume that the group is the full symmetric group. QED.
+Proof. Work in a splitting field of R_a over F. Its Galois group acts transitively on the m roots because R_a is irreducible in characteristic zero. Average the conjugates of h_a over the group. Every root mu_i belongs to the image of S_a with probability k_a/m, so the average is (k_a/m)sum_i mu_i=(k_a/m)tau_a. Every distinct conjugate of h_a occurs equally often in this group average. Thus the same average is Tr(P_a)/M_a. The known quadratic part of tau_a gives (2). The argument permits different subsets to have the same sum and does not assume a full symmetric Galois group. QED.
 
-The case k_a=m gives h_a=tau_a and contains no detailed spectral information; the signature still correctly reports k_a=m. The case k_a=0 similarly reports zero. Neither case is used as a full recovery theorem below.
+The case k_a=m gives h_a=tau_a and contains no detailed spectral information; the signature still reports k_a=m. The case k_a=0 similarly reports zero. Neither is used as a full recovery theorem below.
 
 ## 3. One scalar query identifies the full spectral polynomial at extreme mixed inertia
 
-THEOREM B. Consider any class of rational isometric pencils of this fixed format such that:
+THEOREM B. Consider a class of rational isometric pencils of this fixed format such that R_a is irreducible over F and, at the chosen common probe q, k_a is either 1 or m-1. One exact scalar natural VALUE f_a(q) identifies p_a(lambda,x) globally, hence identifies f_a globally. Both inertia alternatives may occur in the class, and separating rank-loss hypersurfaces elsewhere are allowed. No global analyticity or constant-rank assumption is made. For weakly infeasible members, unrestricted exact computation after this one query finds an epsilon-approximate point for every epsilon>0.
 
-   (i) R_a is irreducible over F;
-   (ii) at the chosen common probe q, k_a is either 1 or m-1.
+Proof. Two candidates with the same value have the same natural value germ and therefore the same monic minimal polynomial P of h=2f. Equation (2) gives the SAME local negative count k. For k=1, h is a root of irreducible R, so P=R. For k=m-1, h=tau-mu for the sole positive eigenvalue square mu. This affine substitution preserves irreducibility. Equation (1) recovers tau=Tr(P)/(m-1), and
 
-One exact scalar natural VALUE f_a(q) identifies p_a(lambda,x) globally, and hence identifies f_a globally. The class may include both inertia alternatives, and separating rank-loss hypersurfaces elsewhere are allowed. No global analyticity or constant-rank assumption is made. Consequently, on the weakly infeasible members, unrestricted exact computation after this one query finds an epsilon-approximate point for every epsilon>0.
+   R(z)=(-1)^m P(tau-z).
 
-Proof. Let two candidates a,b give the same value. Their natural value germs, and thus their local algebraic elements h=2f, coincide. Their monic minimal polynomials P are the same.
+Thus the two squared characteristic polynomials agree. This also treats m=2.
 
-Equation (2) shows that they have the SAME local negative count k. For k=1, h is a single root of the irreducible polynomial R, so P=R. Thus R_a=R_b.
+Near q the shared polynomial R supplies the same squared eigenvalue multiset. For k=1, h selects the square of the unique negative eigenvalue; all other eigenvalues are positive. For k=m-1, tau-h selects the square of the unique positive eigenvalue. The signed eigenvalue multiset is therefore determined. Coincident squared magnitudes do not alter this multiset conclusion. The ordinary characteristic polynomials agree on a nonempty open set, so their rational polynomial coefficients agree globally. Their negative-square sums determine f everywhere. QED.
 
-For k=m-1, h=tau-mu for the sole positive eigenvalue square mu. The affine change of variable preserves irreducibility. Equation (1) recovers tau=Tr(P)/(m-1). Then
-
-   R(z)=(-1)^m P(tau-z),
-
-so again R_a=R_b. This also treats m=2, where the two cases coincide.
-
-In a sufficiently small regular neighborhood, the shared polynomial R supplies the same multiset of squared eigenvalues. For k=1, h selects the square of the unique negative eigenvalue; every other eigenvalue is positive. For k=m-1, tau-h selects the square of the unique positive eigenvalue. In either case the signed eigenvalue multiset is uniquely determined. Coincident squared magnitudes do not change this multiset argument. Therefore p_a(lambda,x)=p_b(lambda,x) on a nonempty open set. Its coefficients are rational polynomials in x, so equality holds globally. Finally the negative squares of the roots of p determine the natural objective everywhere. QED.
-
-This recovers a spectral invariant, not a unique affine coefficient list: isospectral rational pencils can represent the same objective. No oracle can distinguish globally equivalent representations from their values alone.
+This identifies a spectral invariant, not a unique affine coefficient list. Globally isospectral rational pencils and other equivalent representations cannot be distinguished from natural values alone.
 
 ### Decoder and promises
 
-The query is chosen without the hidden coefficients. A declared rational ball on which all candidates have the stated extreme mixed inertia is sufficient. Alternatively, a known coefficient-height bound and a nonsingular anchor with the promised inertia give a computable small ball by determinant/norm eigenvalue bounds and Weyl perturbation. For the explicit family in Section 6 below, a common ball is displayed directly.
+A declared rational ball on which all candidates have the stated extreme mixed inertia is sufficient for choosing q without the hidden coefficients. Alternatively, a known coefficient-height bound and a nonsingular anchor with the promised inertia give a computable small ball by determinant/norm eigenvalue bounds and Weyl perturbation. Section 6 supplies an explicit common ball.
 
-Enumerate rational pencils satisfying the class promises, using exact factorization over the rational-function field and algebraic inertia tests at q; evaluate their algebraic values there and stop at the first match. The true input appears at a finite index. The theorem makes every matching candidate spectrally correct. Real-algebraic point enumeration then finds f<epsilon if inf f=0. Effective polynomial factorization and real-algebraic computation are used only for termination; no polynomial runtime or practical probe degree is claimed.
+Enumerate rational pencils satisfying the class promises, using exact factorization over the rational-function field and algebraic inertia tests at q. Evaluate each algebraic natural value and stop at the first match. The true input occurs at a finite index; every match has the correct spectral polynomial. Rational-point enumeration then finds f<epsilon when inf f=0. Factorization and real-algebraic computation are used for termination only: no polynomial runtime or practical probe degree is claimed.
 
-This is NOT a theorem that the original unrestricted class always has extreme mixed inertia at a known probe, or that all its squared characteristic polynomials are irreducible.
+The full unrestricted class need not have extreme mixed inertia at a known probe, and its squared characteristic polynomial need not be irreducible.
 
-## 4. A broader conditional theorem using subset-sum recovery
+## 4. A broader sufficient criterion using subset-sum recovery
 
-For 1<=k<m and 1<=r<=m define the explicit integers
+For 1<=k<m and 1<=r<=m define
 
    C_(m,k,r)=sum_(j=1)^k (-1)^(j-1) j^(r-1) binom(m,k-j).   (3)
 
-THEOREM C. The one-query global spectral-identification conclusion also holds on a declared class for which R_a has Galois group S_m over F and
+THEOREM C. The same one-query global spectral-identification conclusion holds on a declared class for which R_a has Galois group S_m over F and
 
-   C_(m,k_a,r) != 0 for every r=1,...,m.              (4)
+   C_(m,k_a,r) != 0 for all r=1,...,m.                (4)
 
-The class may contain different admissible values of k_a; formula (2) identifies the local inertia from the germ. This is a sufficient criterion, not a classification at the exceptional integer pairs where (4) fails.
+The class can contain different admissible k_a; equation (2) identifies the local inertia. This is a sufficient criterion, not a classification when some coefficient vanishes. The information-uniqueness statement does not depend on an efficient algorithm for testing a Galois-group promise.
 
-Proof that the subset sums are distinct. If two different k-subsets had equal sums, their difference would be a rational linear relation sum_i c_i mu_i=0 with nonconstant coefficients c_i in {-1,0,1}. Choose indices i,j with c_i!=c_j and apply the Galois transposition exchanging mu_i,mu_j. Subtracting the two relations gives (c_i-c_j)(mu_i-mu_j)=0, impossible because an irreducible characteristic-zero polynomial has distinct roots. Hence all k-subset sums are distinct. The full symmetric group acts transitively on them, so
+Proof. Distinct k-subsets have distinct sums in the splitting field. Otherwise their difference yields sum_i c_i mu_i=0 with nonconstant integer coefficients c_i. Choose i,j with c_i!=c_j and apply the Galois transposition exchanging these roots. Subtracting gives (c_i-c_j)(mu_i-mu_j)=0, contradicting separability. The full symmetric group acts transitively on k-subsets. Hence
 
    P(w)=product_(|I|=k) (w-sum_(i in I) mu_i),
    deg P=binom(m,k).
 
-Let s_r=sum_i mu_i^r and S_r=sum_(|I|=k)(sum_(i in I)mu_i)^r. The polynomial P determines all S_r by Newton identities. The following formal generating identity proves the recovery triangularity:
+Put s_r=sum_i mu_i^r and S_r=sum_(|I|=k)(sum_(i in I)mu_i)^r. Newton identities recover S_r from P. The formal identity
 
    sum_(r>=0) S_r t^r/r! = [z^k] product_i(1+z exp(t mu_i))
      = [z^k](1+z)^m exp( sum_(r>=1) s_r t^r/r!
-                         *sum_(j>=1)(-1)^(j-1)j^(r-1)z^j ).
+                         *sum_(j>=1)(-1)^(j-1)j^(r-1)z^j )
 
-In the coefficient of t^r, the term involving s_r is linear, with coefficient exactly C_(m,k,r); all remaining terms involve only s_1,...,s_(r-1). Thus
+shows that
 
    S_r=C_(m,k,r)s_r+Q_(m,k,r)(s_1,...,s_(r-1)),
 
-where Q is an explicitly computable rational polynomial. Under (4) these equations recover s_1,...,s_m successively, hence recover R by Newton identities.
+where Q is an explicitly computable rational polynomial. Under (4), recover s_1,...,s_m successively and then R by Newton identities. For two pencils sharing the observed germ, equation (2) gives the same k, and this reconstruction gives the same R. On a nonempty open subset, all its k-subset sums are distinct; h selects exactly the squared eigenvalues with negative signs. The resulting ordinary characteristic polynomials agree on an open set and thus globally, as in Theorem B. QED.
 
-For two pencils with the same observed germ, Theorem A gives the same k and the preceding reconstruction gives the same R. On an open subset where all k-subset sums are distinct, the common h singles out exactly which squared eigenvalues have negative signs. The remaining roots have positive signs. Their ordinary characteristic polynomials therefore agree on an open set and hence everywhere, as in Theorem B. QED.
-
-For k=1 the coefficients are all one. For k=m-1 the spectrum is recovered simply by complements, as already proved. For k=2,
+For k=1 all coefficients are one. For k=m-1 direct complementation recovers the spectrum. For k=2,
 
    C_(m,2,r)=m-2^(r-1),
 
-so (4) holds whenever m is not a power of two. At m=4,k=2, the coefficient for r=3 vanishes; the argument does NOT prove recovery there. The familiar reflection of four numbers mu_i to (sum mu)/2-mu_i preserves their pair sums and explains why a naive unconditional subset-sum inversion would be false. Whether a particular spectral-pencil class rules out such ambiguities requires a separate proof.
+so (4) holds when m is not a power of two. At m=4,k=2,r=3, it vanishes. Reflection of four numbers mu_i to (sum mu)/2-mu_i preserves the multiset of pair sums, so an unconditional subset-sum inversion would be false. Whether an affine spectral-pencil class excludes such ambiguities requires further proof.
 
-The subset-sum generating identity and its coefficients belong to the classical multiset-recovery problem (often called Moser's problem). They are included with proof, not claimed as new combinatorics. The conic consequence is the combination with arithmetic germ decoding, isometric inertia detection, and signed spectral reconstruction.
+The generating identity and coefficients belong to classical multiset recovery, often called Moser's problem; they are not claimed as new combinatorics. The conic synthesis is arithmetic germ decoding, isometric inertia detection, and signed spectral reconstruction. Primary literature includes Dmitri Fomin's survey, DOI 10.1080/00029890.2019.1577088, arXiv:1709.06046, and Moser Polynomials and Eulerian Numbers, arXiv:1903.04062. The exact publication history of the underlying recovery criterion is being audited.
 
 ## 5. A simple irreducibility test for the squared spectrum
 
-LEMMA. If p(lambda) in F[lambda] is monic irreducible, and is not invariant under lambda->-lambda up to its leading sign, then R(z)=product_i(z-lambda_i^2) is irreducible. In particular a nonzero trace coefficient in p suffices.
+LEMMA. If monic p(lambda) in F[lambda] is irreducible and p(-lambda)!=(-1)^m p(lambda), then R(z)=product_i(z-lambda_i^2) is irreducible. A nonzero trace coefficient of p suffices.
 
-Proof. For a root lambda, let E=F(lambda) and E0=F(lambda^2). The extension E/E0 has degree at most two. If its degree were two, its nontrivial automorphism would send lambda to -lambda while fixing F. Thus -lambda would also be a root of p, forcing p(-t)=(-1)^m p(t). This contradicts the hypothesis. Hence E=E0, so the square has the same degree m over F; its monic degree-m annihilator R is its minimal polynomial. QED.
+Proof. For a root lambda, let E=F(lambda) and E0=F(lambda^2). The degree [E:E0] is at most two. If it were two, the nontrivial automorphism would send lambda to -lambda and fix F. Thus -lambda would also be a root of p, forcing the excluded parity identity. Hence E=E0, so lambda^2 has degree m over F, and its monic degree-m annihilator R is its minimal polynomial. QED.
 
-This lemma does not equate matrix-algebra irreducibility with polynomial irreducibility.
+This does not identify matrix-algebra irreducibility with polynomial irreducibility.
 
-## 6. Application: sharp-order weak-infeasibility escape with algebraically coupled branches
+## 6. Sharp-order weak-infeasibility escape with coupled spectral branches
 
-For n=m-1>=1, use the rational isometric arrow pencil from old checkpoint 02, written first in leaf variables t_1,...,t_n:
+For n=m-1>=1, use the rational isometric arrow pencil from old checkpoint 02, first in leaf variables t_1,...,t_n:
 
-   X00=0, X01=1,
-   Xii=t_i,
+   X00=0, X01=1, Xii=t_i,
    X0,i+1=2t_i for i<n,
    Xij=0 for distinct positive i,j.
 
-Use coordinates y_i=3t_i for i<n and y_n=t_n. Each first direction has squared norm 1/9+2(4/9)=1, and the last has norm one; supports are disjoint. This is an order-(n+1) rational isometric pencil, not the larger everywhere-nonsingular example of checkpoint 03.
+Set y_i=3t_i for i<n and y_n=t_n. Each first direction has squared norm 1/9+2(4/9)=1; the last has norm one, with disjoint supports. This has order n+1, unlike the larger constant-rank ladder in checkpoint 03.
 
-### Polynomial irreducibility
+### Irreducibility
 
-Let a_1=1 and a_i=2t_(i-1) for i>=2. Its characteristic polynomial is
+Let a_1=1 and a_i=2t_(i-1) for i>=2. Then
 
    p_n(lambda)=lambda product_(i=1)^n(lambda-t_i)
                     -sum_(i=1)^n a_i^2 product_(j!=i)(lambda-t_j).
 
-For n=1, it is lambda^2-t_1 lambda-1, irreducible over Q(t_1) by primitivity as a linear polynomial in t_1.
-
-For n>1, regard t_n as the last variable over K=Q(t_1,...,t_(n-1)). Then
+For n=1, p_1=lambda^2-t_1 lambda-1 is primitive and linear in t_1, hence irreducible over Q(t_1)[lambda]. For n>1, work over K=Q(t_1,...,t_(n-1)) and write
 
    p_n=(lambda-t_n)p_(n-1)
                          -4t_(n-1)^2 product_(i<n)(lambda-t_i).
 
-The two coefficients of this degree-one polynomial in t_n are coprime in K[lambda]. Indeed, p_(n-1)(t_i)=-a_i^2 product_(j<n,j!=i)(t_i-t_j) is nonzero in K for every i<n. Therefore p_(n-1) is coprime to the displayed product. A primitive degree-one polynomial in t_n is irreducible over K(lambda), hence in K[lambda,t_n]; because p_n is monic in lambda, Gauss's lemma gives irreducibility over K(t_n)[lambda]. Its trace sum_i t_i is not zero, so Section 5 proves irreducibility of R_n as well.
+The coefficients in t_n are coprime in K[lambda], since
 
-### A rational normalization with a common index-one probe ball
+   p_(n-1)(t_i)=-a_i^2 product_(j<n,j!=i)(t_i-t_j) != 0
 
-Let y_bar=(3,...,3,1), so every t_i=1, and put kappa=1/(10n). Define
+for every i<n. Therefore this primitive degree-one polynomial in t_n is irreducible in K[lambda,t_n]. Being monic in lambda, it is irreducible over K(t_n)[lambda] by Gauss's lemma. Its trace sum_i t_i is nonzero, so the squared-spectrum polynomial is irreducible by Section 5.
+
+### Normalization and a common index-one ball
+
+Let y_bar=(3,...,3,1), so all t_i=1, and kappa=1/(10n). Set
 
    Y_n(x)=kappa X_n(y_bar+x/kappa)=kappa X_n(y_bar)+H x.
 
-The directions remain rational and isometric. The leaf block at x=0 is kappa I. Its Schur complement at the zero top diagonal is strictly negative, so the inertia is exactly (n positive, one negative). The positive eigenvalues are at least kappa by interlacing. The negative eigenvalue has magnitude at least kappa(sqrt(5)-1)/2>kappa/2. Thus ||x||<kappa/4 preserves this inertia, since ||H x||_op<=||x||.
+The directions remain rational and isometric. At x=0 the leaf block is kappa I and the top Schur complement is negative, so the inertia is (n positive, one negative). Interlacing gives positive eigenvalues at least kappa; the negative eigenvalue magnitude is at least kappa(sqrt(5)-1)/2>kappa/2. Since ||Hx||_op<=||x||, the ball ||x||<kappa/4 preserves this inertia.
 
-Also ||X_n(y_bar)||_F^2=9n-6, so f_Y(0)<=kappa^2(9n-6)/2<1. Rational orthogonal coordinate changes preserve the same ball, isometry, normalization, and escape profile; rational orthogonal matrix congruences preserve the objective. Polynomial irreducibility is preserved by these invertible rational changes and by the shift/scaling. A common algebraic probe in this ball therefore identifies the full spectral polynomial and natural objective from ONE scalar value for the entire declared rational-chart family, independently of coefficient heights.
+The identity ||X_n(y_bar)||_F^2=9n-6 gives f_Y(0)<=kappa^2(9n-6)/2<1. Rational orthogonal coordinate changes preserve the ball, isometry, normalization, and radius profile. Rational orthogonal congruences preserve the objective. Invertible rational coordinate changes and the displayed shift/scaling preserve polynomial irreducibility. Thus one common algebraic probe identifies the full spectral polynomial and natural objective throughout this rational-chart family, independently of coefficient heights.
 
-### True PSD-distance escape, including all perturbations
+### True-distance escape under arbitrary perturbations
 
-Write E_i=2^i-1 and E=E_n. For the unshifted pencil, if dist_F(X_n(y),S_+)<=delta<=1/2, then X_n(y)+delta I is PSD. Its two-by-two principal minors give
+Put E_i=2^i-1 and E=E_n. If dist_F(X_n(y),S_+)<=delta<=1/2, then X_n(y)+delta I is PSD. The two-by-two principal minors imply
 
    t_1+delta>=1/delta,
    t_i+delta>=4t_(i-1)^2/delta, 2<=i<=n.
 
-Induction gives t_i>=(1/2)delta^(-E_i), hence ||y||>=t_n>=(1/2)delta^-E. This bounds all approximate points, not only an explicit curve.
+Induction gives t_i>=(1/2)delta^(-E_i), hence ||y||>=t_n>=(1/2)delta^-E. This applies to every approximate point.
 
-Conversely, for 0<e<=1 choose t_1=n/e and recursively t_i=4n t_(i-1)^2/e. The Schur sum of X_n(y)+eI is at most
+For the upper bound take 0<e<=1, t_1=n/e, and t_i=4n t_(i-1)^2/e. The Schur sum of X_n(y)+eI is at most sum_i X0i^2/t_i=e, so that shifted matrix is PSD. Its residual is at most sqrt(n+1)e and its coordinate norm is O_n(e^-E). This proves matching minimum-radius growth Theta_n(delta^-E). The top zero diagonal and X01=1 preclude exact PSD feasibility, so the infeasibility is weak.
 
-   sum_i X0i^2/t_i=e.
+The shift of coordinate anchor changes minimum radii by at most ||y_bar|| and positive scaling rescales residuals. Consequently
 
-Its top diagonal is e, so X_n(y)+eI is PSD. The distance is at most sqrt(n+1)e and the coordinate norm is O_n(e^-E). Taking e=delta/sqrt(n+1) proves matching radius growth Theta_n(delta^-E). Exact feasibility is impossible because the top zero diagonal and X01=1 contradict PSD. Thus the infeasibility is weak.
+   rho_(f_Y)(s)=Theta_n(s^(-(2^n-1)/2)).               (5)
 
-Changing the coordinate anchor by y_bar alters radii by at most ||y_bar||, and multiplying matrices by kappa rescales residuals by kappa. The exponent is unchanged. Therefore
+Constants and onset are fixed for each n and uniform over rational orthogonal charts. This attains the fast-escape endpoint of the previous order-m envelope while remaining one-query observable. Slow rates for specified projection/acceleration trajectories remain algorithm-specific, not lower bounds on unrestricted exact information.
 
-   rho_(f_Y)(s)=Theta_n(s^(-(2^n-1)/2)).                (5)
+### Corrected order-three rank-changing example
 
-The constants and onset are fixed once n is fixed and are uniform over all sampled rational orthogonal charts. Equation (5) reaches the sharp fast-escape exponent of the earlier order-m envelope, now together with the one-query algebraic observability conclusion. The original algorithm-specific projection/acceleration slow rates still apply, but they are not lower bounds on this unrestricted exact information model.
+For n=2,
 
-### These pencils really can change rank and negative index
+   X=[[0,1,2t_1],[1,t_1,0],[2t_1,0,t_2]],
+   det X=-t_2-4t_1^3.
 
-At n=2 the determinant is -t_2. Crossing t_2=0 changes the negative count from one (t_2>0) to two (t_2<0), while the negative eigenvalue already forced by the first two rows remains. At t_2=0 the zero eigenvalue crosses with nonzero speed; its negative-part square introduces a genuine second-derivative discontinuity. Thus this recovery application is not merely a restatement of globally analytic recovery. Irreducibility couples the inactive branch algebraically to the observed one.
+At t_1=1, the rank crossing is t_2=-4. The leading two-by-two block has one eigenvalue of each sign. Its Schur complement for the final coordinate is t_2+4. Thus there is one negative eigenvalue when t_2>-4 and two when t_2<-4. At the crossing, (2,-2,1) is a null vector of squared norm 9. The crossing eigenvalue has derivative 1/9 with respect to t_2, since the derivative matrix is E_33. Its negative-part square contributes (t_2+4)_-^2/162 to leading order in the natural objective, with second-derivative jump 1/81; all other eigenvalue contributions are analytic nearby. The objective is therefore genuinely not C2 across this separating rank barrier.
 
-## 7. What has actually been learned about the main frontier
+This application is not merely a globally analytic recovery theorem. Algebraic irreducibility connects the formerly inactive spectral branch to the observed one.
 
-There are now TWO distinct rigorous ways in which rational branch hiding fails:
+## 7. Main-frontier status
 
-1. Analytic continuation through a connected common regular locus, including the codimension-two theorem of checkpoint 05.
-2. Algebraic spectral coupling: a local negative-energy germ determines the full squared spectrum and the sign selection under Theorem B or C, even when regular chambers are separated.
+Two mechanisms now rigorously defeat rational branch hiding:
 
-Neither theorem covers all rational pencils. Reducible spectral polynomials, intermediate subset-sum ambiguities, and probes at which all eigenvalues are negative can lose information. The fixed-prior optimization theorem would have to overcome these recovery mechanisms while making the remaining ambiguity essential to near-feasibility. The identification-hard family in checkpoint 01 remains optimization-trivial.
+1. Analytic continuation on a connected common regular locus, including codimension-two recovery in checkpoint 05.
+2. Algebraic spectral coupling under Theorem B or C, even across separating rank-loss hypersurfaces.
 
-Thus the entire rational exact-arithmetic OPTIMIZATION frontier is still unresolved. No full grand theorem, upper-quintile ranking, or independent external verification is claimed.
+Neither covers all rational pencils. Reducible spectral polynomials, intermediate subset-sum ambiguities, and fully negative or positive observations can lose information. A fixed-prior optimization lower bound must defeat these mechanisms while making the remaining ambiguity essential to finding near-feasible points. Checkpoint 01's identification-hard family is optimization-trivial.
+
+The full rational exact-arithmetic OPTIMIZATION frontier remains unresolved. The finite exact symbolic verification script checks 286 identities and small instances; it is supporting evidence, not a universal proof or independent peer review. No grand-theorem completion or upper-quintile publication claim is made.
