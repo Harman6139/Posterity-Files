@@ -16,3 +16,27 @@ For $B_N$, same-coordinate facet products have values $(1+a)N^2$ or $(1-a)N^2$, 
 \]
 This proves the stated robust strict positivity.
 \end{proof}
+
+\subsection{Scalar diagonal ray corrections cannot shortcut the prefix}
+The local obstruction also survives the common option of testing a scalar identity correction of the selected ray, rather than requiring that ray itself to be copositive.
+\begin{corollary}[No separating identity correction]\label{cor:raycorrection}
+At every forced prefix vertex, no matrix of the form $F_k+\tau I$ is both $K$-copositive and negatively paired with a target in \eqref{eq:allball}. Likewise no $S^{-\mathsf T}F_kS^{-1}+\tau I$ is both $K'$-copositive and negatively paired with a target in \eqref{eq:allpositiveball}. This holds for every real $\tau$. Thus any correct descent-or-certificate test restricted to these scalar identity corrections must choose descent throughout the prefix.
+\end{corollary}
+\begin{proof}
+Put $s=k+1$. The $(t,y)$ block of $F_k$ is $\left(\begin{smallmatrix}0&-1\\-1&2s\end{smallmatrix}\right)$. Its negative eigenvalue is $-\kappa$, where
+\[
+ \kappa=\sqrt{s^2+1}-s=\frac1{\sqrt{s^2+1}+s}\ge\frac1{3s}.
+\]
+A corresponding unit eigenvector has positive $t,y$ and $z=0$, hence lies in $K$. Therefore copositivity of $F_k+\tau I$ requires $\tau\ge\kappa$. For a perturbed target write $2nN^2A=\widetilde B$. The radius in \eqref{eq:allball} gives $\norm{\widetilde B-B_N}_F\le1/(1000n)$, whence
+\[
+ \tr\widetilde B\ge N^2/2,\qquad
+ \ip{\widetilde B}{F_k}\ge-3N.
+\]
+Here $\norm{F_k}_F\le3s$ and $N\ge100s$. Consequently a copositive correction has pairing at least $-3N+N^2/(6s)>0$ before normalization.
+
+For the transformed target put $6nN^2\widehat A=\widetilde C$ and $F'=S^{-\mathsf T}F_kS^{-1}$. The perturbation radius gives $\norm{\widetilde C-SB_NS\trans}_F\le1/(5000n^2)$. Since $\norm{F'}_F\le15ns$, and $\tr(SB_NS\trans)\ge(4.9r+2)N^2$, we have $\tr\widetilde C\ge nN^2$ and $\ip{\widetilde C}{F'}\ge-3N$. Evaluating $F'+\tau I$ at the image of the unit eigenvector above forces $\tau\ge\kappa/\norm S_2^2\ge1/(15ns)$. Its unnormalized target pairing is therefore at least
+\[
+ -3N+\frac{N^2}{15s}>0.
+\]
+This excludes all claimed separators. Rescaling the ray positively does not change the conclusion.
+\end{proof}
