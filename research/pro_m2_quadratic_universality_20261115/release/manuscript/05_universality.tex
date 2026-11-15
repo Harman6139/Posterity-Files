@@ -1,0 +1,81 @@
+\section{A universality boundary: products of second-order cones}
+Generalized copositive representations of nonconvex quadratic programs over products of second-order cones and over PSD cones are already established in Burer--Dong \cite{BD}. Their real convexification result is a direct antecedent, not a new claim here. Our statement below isolates two homogeneous observations, exactly preserves rational solutions without a boundedness promise, and excludes any escape through factor width.
+
+The preceding theorem handles every one-quadratic column inequality. It cannot be extended to arbitrary products by treating the factors separately: simultaneous boundary conditions can encode arbitrary rational polynomial equations. The following is an unconditional reduction, independent of any current decision-theoretic status assigned to that equation problem.
+
+\begin{theorem}[Two-observation universality]\label{thm:universal}
+Given finitely many rational polynomial equations, represented by arithmetic circuits, one can construct in polynomial time a product cone
+\[
+ P=(\PSD^2)^k
+\]
+and two rational homogeneous quadratic forms $F,m$ on its vector space such that the following are equivalent:
+\begin{enumerate}
+\item the polynomial system has a rational solution;
+\item there are finitely many rational $Z^{(a)}\in P$ with
+\[
+ \sum_a F(Z^{(a)})=0,\qquad \sum_a m(Z^{(a)})=1;
+\]
+\item one rational $Z\in P$ satisfies $F(Z)=0$, $m(Z)=1$.
+\end{enumerate}
+The same equivalence holds over $\R$. In particular, allowing an arbitrary factor width does not remove the encoded arithmetic condition.
+\end{theorem}
+\begin{proof}
+Convert the circuits to rational affine-linear gates and squaring gates. Multiplication uses
+\[
+ ab=((a+b)^2-(a-b)^2)/4,
+\]
+so the conversion increases size only by a constant factor. Introduce one PSD block for every scalar register:
+\[
+ Z_j=\begin{pmatrix}t_j&u_j\\u_j&v_j\end{pmatrix}.
+\]
+Use homogeneous linear equations to equate all $t_j$ to a common $t=t_1$, to encode every affine-linear gate after homogenization, and to identify $u_{\rm out}=v_{\rm in}$ for every squaring gate. A constant register $c$ has equation $u_j=ct$. Output equations are $u_{\rm out}=0$. Denote all these homogeneous linear residuals by $\ell_\nu$ and set
+\[
+ F(Z)=\sum_{j=1}^k(t_jv_j-u_j^2)+\sum_\nu\ell_\nu(Z)^2,
+ \qquad m(Z)=t_1^2.
+\]
+Every summand in $F$ is nonnegative on the product PSD cone. A feasible sum of atoms therefore forces every determinant and every linear residual to vanish in each atom. Some atom has $t_1\ne0$ because the sum of its squares is one. Positive semidefiniteness and the common-time equations give $t>0$. Divide the chosen atom by $t$. Its registers $a_j=u_j/t$ obey
+\[
+ v_j/t=(u_j/t)^2=a_j^2,
+\]
+and all circuit equations. They supply a rational solution.
+
+Conversely, from a rational circuit solution put $t_j=1$, $u_j=a_j$, and $v_j=a_j^2$. All blocks are rational PSD of rank one, and this single atom has $(F,m)=(0,1)$. The argument over the reals is identical. All matrices and coefficients have descriptions of polynomial size in the circuit description.
+\end{proof}
+The product cone is a product of rationally equivalent Lorentz cones: the linear map
+\[
+ \begin{pmatrix}a&b\\b&c\end{pmatrix}
+ \longmapsto ((a+c)/2,(a-c)/2,b)
+\]
+maps $\PSD^2$ onto $\mathbb L^3$. The observation construction is a genuine matrix completion problem: after vectorizing the symmetric blocks, $F(Z)$ and $m(Z)$ are linear functions of the rank-one matrix $\operatorname{vec}(Z)\operatorname{vec}(Z)^T$. Thus the theorem concerns exactly two specified linear observations of a column-constrained Gram matrix.
+
+\begin{corollary}[A single PSD column domain also contains the reduction]
+Theorem~\ref{thm:universal} remains true with the domain replaced by one cone $\PSD^{2k}$ of permitted matrix-valued columns, and the same two-observation target.
+\end{corollary}
+\begin{proof}
+Partition a symmetric matrix into $k$ principal blocks of order two. Add to $F$ the sum of squares of all off-block entries, and use the preceding formula on the diagonal blocks. Each principal block is PSD, so all determinant terms are nonnegative. A zero of $F$ is block diagonal and is exactly a product-cone zero. Vectorizing the single PSD matrix again turns both quadratic forms into linear observations of its rank-one Gram square.
+\end{proof}
+
+\paragraph{A rational full matrix with only irrational permitted columns.}
+The circuit $x^2=2$ gives a compact exact example in the four-block domain. In the order $(t_j,u_j,v_j)$ for the registers $x,x^2,2,x^2-2$, put
+\[
+ a=(1,0,2,\ 1,2,4,\ 1,2,4,\ 1,0,0)^T,\qquad b=e_2,
+ \qquad A=aa^T+2bb^T.
+\]
+The vectors $a\pm\sqrt2b$ encode the two real circuit solutions and belong to the product PSD domain. Therefore
+\[
+ A=\frac12(a+\sqrt2b)(a+\sqrt2b)^T+
+   \frac12(a-\sqrt2b)(a-\sqrt2b)^T
+\]
+is a rational matrix in the real constrained Gram cone. Its two observations are $(0,1)$. Any rational permitted factorization of this \emph{full matrix}, of any width, would supply a rational solution of $x^2=2$ by Theorem~\ref{thm:universal}. None exists. The real permitted factor can be taken over the totally real field $\Q(\sqrt2)$ by absorbing $1/2$ into its columns. This is a separate illustration of the failure of unqualified constrained totally-real descent outside the polyhedral setting.
+
+\begin{corollary}[Unconditional output-height obstruction in variable dimension]
+For a circuit with $s$ successive squarings, there are two-observation product-cone instances of description length $O(s\log(s+2))$ such that every rational factor certificate contains an entry of coordinate height at least $2^{s-1}$, regardless of its width.
+\end{corollary}
+\begin{proof}
+Take the system $a_0=2$, $a_{j+1}=a_j^2$ for $j=0,\ldots,s-1$. Every positive-time atom satisfies $u_s/t=2^{2^s}$. If all its rational entries had numerator and denominator bounded by $2^H$, this ratio would be at most $2^{2H}$. Hence $H\geq2^{s-1}$. At least one positive-time atom is unavoidable. The circuit and block descriptions use only small coefficients; indices account for the stated bit length. This obstruction grows the dimension and does not contradict the fixed-dimensional bounds for one quadratic constraint.
+\end{proof}
+
+\paragraph{What the reduction does and does not say.}
+It proves that a total decision algorithm for all these product-cone completion problems would decide arbitrary rational polynomial feasibility, and a uniform computable height bound would permit bounded search for that problem. It does not assert that such an algorithm is impossible, nor does it assume an unresolved or undecidable status for rational polynomial feasibility. Any claim about that status would need an independent current literature audit. The equivalence, rather than a historical status assertion, is the mathematical obstruction supplied here.
+
+The distinction is structural. Polyhedral zero domains linearize into rational coefficient kernels. A single quadratic zero domain has rational parametrizations precisely when its nondegenerate part is isotropic. Intersections of independent curved boundary conditions can implement arithmetic circuits, even though each individual block is only a three-dimensional second-order cone. This is why a universal factorization theorem must specify the geometry of its zero domains rather than only the closedness, rational description, or interior conditioning of the original cone.
