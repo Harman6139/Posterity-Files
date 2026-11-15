@@ -1,0 +1,159 @@
+\section{The distinction that governs the problem}
+A rational matrix, a rational Gram factor, and a rational point in a prescribed affine fiber are different objects. For a closed vector domain $P\subseteq\R^n$ that is a union of cones, write
+\begin{align}
+ C(P)&=\cone\{xx\trans:x\in P\},\\
+ \GG(P)&=\left\{\sum_{j=1}^s u_ju_j\trans:s<\infty,\ u_j\in P\cap\Q^n\right\}.
+\end{align}
+The empty sum is permitted. Throughout the main theorem, $P$ is a finite union of closed rational polyhedral cones; components may have lineality or smaller dimension. In particular $P$ need not be convex. Let
+\begin{equation}\label{eq:fiber}
+ H=\{X\in\Ssym^n:\mathcal L(X)=b\}
+\end{equation}
+be rational affine, and put $d=n(n+1)/2$. For a convex cone $K$, $C(K)$ is the generalized completely positive cone and its dual consists of the quadratic forms nonnegative on $K$.
+
+Our main object is a vector-domain invariant, not a pivot potential. Define the \emph{viable rational directions}
+\begin{equation}\label{eq:viable}
+ \mathcal D_{\Q}(P,H)=\{u\in P\cap\Q^n:\exists X\in\GG(P)\cap H,\ \exists\tau\in\Q_{>0},\ X-\tau uu\trans\in\GG(P)\}.
+\end{equation}
+The coefficient $\tau$ cannot be omitted: an arbitrarily long prescribed column cannot fit a fixed trace. Define
+\begin{equation}\label{eq:carrierdef}
+ \AC(P,H)=\cl\mathcal D_{\Q}(P,H).
+\end{equation}
+If the rational fiber is empty, its carrier is empty. If the only feasible matrix is zero, the carrier is $\{0\}$, not the empty set.
+
+\begin{theorem}[Canonical arithmetic carrier]\label{thm:main}
+For the preceding rational data there is a finite algorithm which either proves $\GG(P)\cap H=\varnothing$, or computes $\AC=\AC(P,H)$ as a finite union of closed rational polyhedral subcones of $P$. It uses at most $d$ proper matrix-span reductions. In the nonempty case,
+\begin{align}
+ \mathcal D_{\Q}(P,H)&=\AC\cap\Q^n,\label{eq:directions}\\
+ \GG(P)\cap H&=\GG(\AC)\cap H,\label{eq:exactfiber}\\
+ \cl(\GG(P)\cap H)&=C(\AC)\cap H,\label{eq:closure}\\
+ H\cap\ri C(\AC)&\ne\varnothing.\label{eq:slater}
+\end{align}
+The set $\AC$, not merely the matrix slice in \eqref{eq:closure}, is independent of all choices of exposing forms. There is a rational $X_0\in H\cap\ri C(\AC)$ which witnesses every direction in \eqref{eq:directions}, with $\tau$ allowed to depend on $u$. Such a witness has a full-span reserve representation with at most $2d$ weighted rational atoms. Every feasible rational matrix admits at most $d$ weighted rational atoms, hence at most $4d$ rational Gram columns, whenever it belongs to $\GG(P)$.
+\end{theorem}
+
+The last width assertion is an existence and output-size statement; it is not a claim of a deterministic polynomial-time four-square routine. Section~\ref{sec:complexity} distinguishes that width from the polynomial-time output construction. The theorem does not assert that every rational point of the real fiber factors rationally. Rather, it computes the exact arithmetic obstruction.
+
+Classical facial reduction supplies successive exposing functionals~\cite{BW,LMT}. The additional step here is at the level of \emph{column directions}: an algebraic zero restriction is replaced by its exact rational coefficient kernel before proceeding. Rational interior factorization~\cite{DSV17}, rational-point algorithms for convex semialgebraic sets~\cite{SEDZ}, and generalized perfect-matrix theory~\cite{OS26} are antecedents, not claims of this paper. In particular, deciding whether a rational matrix point exists in $C(P)\cap H$ does not decide whether that point has permitted rational columns.
+
+The proof also explains a limitation of unification by a single facial depth. A perfect-form normal fan subdivides the \emph{interior} of a matrix cone. Its cells are not genuine faces of that cone. Section~\ref{sec:paths} constructs exponentially many consecutive cells while the genuine arithmetic carrier is unchanged. The corrected principle is therefore a certification theorem together with a precise obstruction to using it as a polynomial local-walk bound.
+
+\section{Rank-one reserves and arithmetic zero domains}\label{sec:zeros}
+We use the Frobenius pairing on symmetric matrices. A rational weighted representation means $X=\sum_j\lambda_j u_ju_j\trans$ with $\lambda_j\in\Q_{\ge0}$ and $u_j\in P\cap\Q^n$.
+
+\begin{lemma}[Weights, closedness, and a rational reserve]\label{lem:reserve}
+Rational weighted representations are equivalent to membership in $\GG(P)$. The real cone $C(P)$ is closed, its linear span $V$ is rational, and there are rational permitted atoms $G_i=a_ia_i\trans$, $1\le i\le k=\dim V$, forming a basis of $V$. Their sum $B=\sum_iG_i$ belongs to $\ri C(P)$.
+\end{lemma}
+\begin{proof}
+For $\lambda=a/b>0$ in lowest terms, Lagrange's four-square theorem gives $ab=\sum_{\ell=1}^4s_\ell^2$ with nonnegative integers $s_\ell$. Thus
+\[
+ \lambda uu\trans=\sum_{\ell=1}^4((s_\ell/b)u)((s_\ell/b)u)\trans.
+\]
+Positive rescaling preserves every component cone. The reverse implication is immediate.
+
+If $P\ne\{0\}$, the normalized atoms $xx\trans$ with $x\in P$, $\norm{x}_2=1$, form a compact set. Its convex hull is exactly the trace-one base of $C(P)$ and is compact. Since trace equals one on that base, its cone is closed. The zero case is immediate.
+
+For each component choose rational cone vectors $a_1,\ldots,a_r$ spanning its vector span. Their squares and the squares of $a_i+a_j$ span the symmetric matrices supported on that span. All these vectors remain in the component. Taking the union over components and selecting an atom basis gives $G_1,\ldots,G_k$. The simplicial cone generated by that basis is full-dimensional in $V$; its positive sum has a relative neighborhood in that cone. Hence $B\in\ri C(P)$.
+\end{proof}
+
+\begin{lemma}[Rational relative-interior factorization]\label{lem:interior}
+Every rational $X\in\ri C(P)$ belongs to $\GG(P)$. It has a rational weighted representation using at most $2k$ atoms that includes a strictly positive coefficient on every atom of a basis of $V$. Without the reserve requirement, at most $k$ weighted atoms suffice.
+\end{lemma}
+\begin{proof}
+Choose rational $\tau>0$ sufficiently small that $X-\tau B\in C(P)$. Conic Carath\'eodory gives
+\[
+ X-\tau B=\sum_{j=1}^{k}x_jx_j\trans,
+\]
+allowing zero summands and absorbing real nonnegative weights into the vectors. Approximate each $x_j$ by rational $r_j$ in the same rational polyhedral component. In the rational basis $(G_i)$ the residual
+\[
+ X-\sum_jr_jr_j\trans=\sum_i e_iG_i
+\]
+has rational coordinates $e_i$ converging to $\tau$. Sufficiently accurate approximations make every $e_i>0$. This gives the asserted reserve with at most $2k$ atoms. A rational linear dependence among more than $k$ atoms can be eliminated by moving the rational coefficient vector to the first nonnegative boundary along a rational null vector. Each step removes an atom and preserves rational nonnegative coefficients. Lemma~\ref{lem:reserve} then converts weights to Gram columns.
+\end{proof}
+
+\begin{lemma}[Facewise stationarity]\label{lem:stationarity}
+Let $Q$ be a closed polyhedral vector cone, let $W$ be nonnegative on $Q$, and suppose $x\in Q$ satisfies $x\trans Wx=0$. If $F$ is the minimal face of $Q$ containing $x$, then the restriction of $W$ to $U=\lin F$ is positive semidefinite and annihilates $x$.
+\end{lemma}
+\begin{proof}
+Since $x\in\ri F$, for every $v\in U$ the points $x+tv$ lie in $F$ for sufficiently small positive and negative $t$. The polynomial
+\[
+ (x+tv)\trans W(x+tv)=2t\,x\trans Wv+t^2v\trans Wv
+\]
+is nonnegative on a two-sided interval about zero. Its linear coefficient vanishes and its quadratic coefficient is nonnegative. This proves both assertions. The proof includes lineality and $x=0$.
+\end{proof}
+
+\begin{lemma}[Exact rational zero domains]\label{lem:zeros}
+Let $W$ be a real algebraic symmetric matrix nonnegative on $P$. For every face $F$ of every component, choose a rational basis matrix $B_F$ for $\lin F$. In a common number field $\Q(\theta)$, using an irreducible power basis, expand
+\begin{equation}\label{eq:coeff}
+ B_F\trans WB_F=\sum_{a=0}^{e-1}\theta^a M_{F,a},\qquad M_{F,a}\in\Q^{r_F\times r_F}.
+\end{equation}
+Set
+\begin{equation}\label{eq:DF}
+ D_F=F\cap\left\{B_Fz:M_{F,a}z=0\ \text{for every }a\right\}.
+\end{equation}
+Then
+\[
+ \cl\{u\in P\cap\Q^n:u\trans Wu=0\}=\bigcup_F D_F.
+\]
+In particular this closure is a finite union of closed rational polyhedral cones, contained in the real zero set.
+\end{lemma}
+\begin{proof}
+Take a rational zero $u$ and its minimal component face $F$. Its coordinates $z$ in $B_F$ are rational. Lemma~\ref{lem:stationarity} gives $(B_F\trans WB_F)z=0$. Linear independence of the power basis in \eqref{eq:coeff} gives $M_{F,a}z=0$ for every $a$, so $u\in D_F$.
+
+Conversely every point of $D_F$ has zero quadratic value. Each $D_F$ is rational polyhedral, so its rational points are dense in it. The finite union is closed. The two inclusions now give the identity. No positive-semidefiniteness test for arbitrary $F$ is needed in the definition: stationarity is used only to prove that every rational zero is captured.
+\end{proof}
+
+\section{Proof and canonicity of the carrier theorem}\label{sec:carrierproof}
+The algorithm maintains a finite union of rational polyhedral cones, initially $P$.
+
+\begin{quote}
+\textbf{Arithmetic carrier algorithm.}
+Compute $V=\lin C(P)$ and a rational reserve $B$ as in Lemma~\ref{lem:reserve}. Decide whether $C(P)\cap H$ is empty. If empty, return EMPTY. If $H\cap\ri C(P)\ne\varnothing$, return $P$. Otherwise select an algebraic $W$ that is nonnegative on $P$, nonzero on $V$, zero on $H\cap V$, and normalized by $\ip{W}{B}=1$. Replace $P$ by the union in Lemma~\ref{lem:zeros}, and repeat.
+\end{quote}
+Every real test and selection in this description has an exact real-algebraic implementation; its cost is included in Section~\ref{sec:complexity}.
+
+\begin{lemma}[Availability of an exposer]\label{lem:exposer}
+If $C(P)\cap H\ne\varnothing$ but $\ri C(P)\cap H=\varnothing$, the normalized algebraic exposer required by the algorithm exists.
+\end{lemma}
+\begin{proof}
+Work in $V$. Separate the relatively open convex set $\ri C(P)$ from the affine space $H\cap V$. The separating functional is constant on that affine space. Scaling points of the cone and using a feasible point shows that this constant is zero and that the functional is nonnegative on the cone. It is nonzero on $V$. Since $B\in\ri C(P)$, its value at $B$ is strictly positive, so normalization is possible.
+
+The requirements are a first-order real formula over $\Q$: linear equations express vanishing on the rational affine space and the normalization, while a universal vector block expresses nonnegativity on the finite union of rational polyhedral cones. A nonempty semialgebraic set defined over $\Q$ has a point with real algebraic coordinates. Thus an algebraic $W$ can be selected. The zero-dimensional case has already terminated, since feasibility there implies relative strict feasibility.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+At one reduction let $P'$ be the new domain. It lies in $P$, and $C(P')\subseteq C(P)\cap W^\perp$. Because $W$ is nonzero on $V$, the matrix span strictly decreases.
+
+Every rational feasible Gram factorization survives \emph{column by column}. Indeed, if $X=\sum_j u_ju_j\trans\in H$, then
+\[
+ 0=\ip{W}{X}=\sum_j u_j\trans Wu_j
+\]
+is a sum of nonnegative quantities. Every $u_j$ is a rational zero and belongs to $P'$ by Lemma~\ref{lem:zeros}. Conversely $P'\subseteq P$. Thus the rational fiber is preserved exactly at each step. There can be at most $d$ proper reductions. A later empty real-feasibility test proves that the original rational fiber was empty.
+
+Suppose the procedure terminates at a nonempty $P_*$. The affine space $H\cap\lin C(P_*)$ is rational, and its intersection with $\ri C(P_*)$ is nonempty and relatively open. It therefore contains a rational point $X_0$. Lemma~\ref{lem:interior} factors $X_0$ rationally and gives a full-span reserve.
+
+For any $X\in C(P_*)\cap H$, the segment $(1-t)X+tX_0$ lies in $H\cap\ri C(P_*)$ for $0<t\le1$. Rational points in the rational affine space can approximate these segment points while remaining in that relatively open set. Lemma~\ref{lem:interior} factors all such rational approximants. This proves \eqref{eq:closure}; the reverse closure inclusion follows from closedness. Exact preservation gives \eqref{eq:exactfiber}.
+
+It remains to prove that $P_*$ itself is intrinsic. If $u\in\mathcal D_{\Q}(P,H)$, decompose both the residual in \eqref{eq:viable} and its positive rational weight into rational squares. The preceding columnwise argument shows that every positive rescaling of $u$ occurring in this factorization survives every step. Hence $u\in P_*$. Conversely let $u\in P_*\cap\Q^n$. For sufficiently small rational $\tau>0$, $X_0-\tau uu\trans$ remains in $\ri C(P_*)$. It is rational, and Lemma~\ref{lem:interior} factors it. Thus $u$ is viable. We have proved
+\[
+ \mathcal D_{\Q}(P,H)=P_*\cap\Q^n.
+\]
+Rational points are dense in the finite union $P_*$, which is closed. Therefore $P_*=\cl\mathcal D_{\Q}(P,H)=\AC(P,H)$, independent of the exposers. The width and reserve assertions follow from Lemmas~\ref{lem:reserve} and~\ref{lem:interior}.
+\end{proof}
+
+\begin{corollary}[A rank-one arithmetic alternative]\label{cor:insertion}
+Let $u\in P\cap\Q^n$. Either $u$ is viable, with a rational insertion certificate \eqref{eq:viable}, or the carrier algorithm produces an empty-fiber certificate or a first exposer strictly positive at $u$. In the latter case the exposer is nonnegative on the \emph{current} domain and annihilates its feasible matrix slice. The preceding reduction chain is part of the certificate.
+\end{corollary}
+\begin{proof}
+A rational zero always survives an update. Thus a rational direction first removed from a nonempty chain has strictly positive value at that step. The converse follows by pairing a hypothetical surviving rational factorization with that exposer.
+\end{proof}
+
+A full-span reserve makes insertion quantitative. Write
+\[
+ X_0=Y+\sum_{i=1}^k e_iG_i,\quad e_i>0,\quad Y\in\GG(\AC),\qquad uu\trans=\sum_{i=1}^ka_iG_i.
+\]
+Then any rational
+\begin{equation}\label{eq:tauinsert}
+ 0<\tau\le\frac{\min_i e_i}{2(1+\max_i|a_i|)}
+\end{equation}
+works, since every $e_i-\tau a_i$ remains positive. Cramer's rule bounds the extra binary height polynomially in that of the stored reserve and $u$, for fixed $n$. The same construction inserts any finite list of viable rational directions simultaneously, after reducing their coefficients sufficiently.
+
