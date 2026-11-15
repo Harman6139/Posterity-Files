@@ -1,0 +1,101 @@
+\section{One quadratic inequality: an exact arithmetic classification}
+For $Q\in\Sym^n(\Q)$ put $q(x)=x^TQx$ and
+\[
+ P_q=\{x\in\R^n:q(x)\geq0\},\qquad
+ C_q=\cone\{xx^T:x\in P_q\}.
+\]
+The vector domain need not be convex. A rational permitted Gram representation is an identity $A=\sum_j u_ju_j^T$ with $u_j\in\Q^n$ and $q(u_j)\geq0$. Its width is the number of nonzero columns. Positive rational weights are equivalent to unweighted rational columns: if $a/b>0$ and $ab=\sum_{\ell=1}^4s_\ell^2$, then $(a/b)uu^T=\sum_\ell(s_\ell u/b)(s_\ell u/b)^T$. Weighted and unweighted width bounds must nevertheless be distinguished.
+
+For $A\succeq0$, let $V=\range A$ and $r=\dim V$. If $A$ is rational, $V$ is a rational subspace. Choose any rational basis matrix $B$ of $V$. Write
+\[
+ A=BMB^T,\quad M\succ0,\qquad Q_V=B^TQB.
+\]
+Both matrices are rational. The radical of the restricted form is $R_V=\ker Q_V$ in these coordinates; its nondegenerate quotient is independent, up to rational congruence, of the chosen basis. Isotropy below means a nonzero rational zero of this \emph{nondegenerate quotient}, not merely a vector in the radical.
+
+\begin{lemma}[Real balancing]\label{lem:balance}
+For every real symmetric matrix $T$ of order $s$, there is an orthogonal $U$ with all diagonal entries of $U^TTU$ equal to $\tr(T)/s$. Consequently
+\[
+ C_q=\{A\succeq0:\ip{Q}{A}\geq0\},\qquad
+ \cone\{xx^T:q(x)=0\}=\{A\succeq0:\ip{Q}{A}=0\}.
+\]
+A feasible matrix of rank $r>0$ has a real permitted factor with $r$ columns. If its trace pairing is positive, every column can have strictly positive quadratic value.
+\end{lemma}
+\begin{proof}
+The average eigenvalue $\alpha=\tr(T)/s$ is in the Rayleigh interval. Choose a unit vector with value $\alpha$ and restrict to its orthogonal complement. The restriction has trace $(s-1)\alpha$; induction gives the claimed basis. If $A=LL^T$ is a rank-$r$ real factor, apply the assertion to $L^TQL$. Each new column of $LU$ has quadratic value $\ip{Q}{A}/r$. The reverse inclusions follow by summing quadratic values. The equality assertion uses zero average in the same proof.
+\end{proof}
+These real identities are instances of established rank-one generation and S-lemma phenomena; see \cite{SZ,NL}. The arithmetic assertion is different.
+
+\begin{theorem}[Arithmetic rank-one generation]\label{thm:main}
+Let $A,Q\in\Sym^n(\Q)$, $A\ne0$, and set $\sigma=\ip{Q}{A}$. A rational permitted Gram representation exists if and only if $A\succeq0$, $\sigma\geq0$, and one of the following holds:
+\begin{enumerate}
+\item $\sigma>0$;
+\item $\sigma=0$ and $Q_V=0$;
+\item $\sigma=0$, $Q_V\ne0$, and the nondegenerate quotient of $Q_V$ is isotropic over $\Q$.
+\end{enumerate}
+In the third case $Q_V$ is necessarily indefinite. The minimum rational permitted width in cases 1 and 2 is exactly the minimum unrestricted rational Gram width of $A$, which is at most $r+3$. In case 3 there is a representation with at most $r(r+1)/2-1$ weighted rational atoms, hence at most $4(r(r+1)/2-1)$ rational columns. The zero matrix has the empty representation.
+\end{theorem}
+
+We give the boundary proof without presuming rationality of an arbitrary real boundary factorization.
+\begin{lemma}[Rational null directions]\label{lem:null}
+Let $T$ be a rational indefinite symmetric matrix. If its nondegenerate quotient is anisotropic over $\Q$, its rational zeros are exactly its radical. If that quotient is isotropic, rational zeros are dense in its entire real zero cone.
+\end{lemma}
+\begin{proof}
+Choose a rational complement to the radical. An anisotropic restriction has no nonzero rational zero, giving the first assertion. In the isotropic case choose a rational null vector $v$ not in the radical. Take rational $w$ with $v^TTw=1$, and replace it by $w-(w^TTw)v/2$. Then $q(v)=q(w)=0$ and the pairing remains one. In rational hyperbolic coordinates $x=av+bw+z$, with $z$ in their orthogonal complement, the form is
+\[
+ q(x)=2ab+q(z).
+\]
+The charts $a\ne0$ and $b\ne0$ are parametrized by rational functions:
+\[
+ x=av-\frac{q(z)}{2a}w+z,
+ \qquad
+ x=-\frac{q(z)}{2b}v+bw+z.
+\]
+Rational parameters are dense on each chart. A zero with $a=b=0$ is approached by $x+tv$, which is also null and is in the first chart for $t\ne0$. This proves density, including a degenerate restriction and the split binary case.
+\end{proof}
+
+\begin{lemma}[Exact rational interior reconstruction]\label{lem:reserve}
+Let $\mathcal S$ be any collection of rational vectors, and suppose their rank-one atoms are dense among the atoms generating a convex cone $C$. If $C$ has rational linear span, every rational $X\in\ri C$ is a positive rational combination of at most $\dim\spanof C$ of these rational atoms.
+\end{lemma}
+\begin{proof}
+Choose rational atoms $G_1,\ldots,G_k$ forming a basis of the span. Their sum $B$ is in $\ri C$: an open box of positive coefficients maps to a neighborhood in the span. Choose rational $\tau>0$ with $X-\tau B\in C$ and a finite real atomic representation of this residual. Approximate its atoms by rational atoms and its nonnegative weights by nonnegative rational weights, omitting any zero terms. The residual error, expressed in the rational basis $G_i$, is rational and tends to zero. Adding it to the reserve coefficients $\tau$ gives positive rational coefficients once approximation is sufficiently fine. Finally eliminate rational linear dependences while retaining nonnegative weights until at most $k$ independent atoms remain. The usual dependence elimination works whether or not the ambient cone is pointed.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Every factor column lies in $V$: if $z\in\ker A$, then $0=z^TAz=\sum_j(z^Tu_j)^2$. Necessity of positive semidefiniteness and $\sigma\geq0$ follows at once.
+
+Suppose $\sigma=0$. Every permitted column is null. Since $M\succ0$ and $\tr(Q_VM)=0$, a nonzero $Q_V$ cannot be semidefinite: conjugating by $M^{1/2}$ proves that a nonzero semidefinite restriction has a strictly signed trace. Thus it is indefinite. If its nondegenerate quotient is anisotropic, Lemma~\ref{lem:null} confines every rational column to the proper radical. Such columns cannot span $V$, contradicting $\range A=V$.
+
+If instead the quotient is isotropic, put
+\[
+ C_0(V)=\{X\in\PSD(V):\ip{Q}{X}=0\}.
+\]
+Lemma~\ref{lem:balance} identifies this cone with the null-generated Gram cone on $V$. The point $A$ is in its relative interior: on $V$ it is positive definite, and small perturbations in the trace-zero hyperplane remain positive definite. Its span is the rational hyperplane in $\Sym(V)$ cut out by the nonzero functional $Q_V$, of dimension $r(r+1)/2-1$. Lemmas~\ref{lem:null} and \ref{lem:reserve} now give the asserted rational representation and width. If $Q_V=0$, every unrestricted rational factor of $A$ is permitted.
+
+For $\sigma>0$, let $s$ be the minimum unrestricted rational Gram width. Such a factor exists with $s\leq r+3$ by Lemma~\ref{lem:overhead} below. Starting with any real $s$-column factor, Lemma~\ref{lem:balance} makes all column values $\sigma/s>0$. Rational factors are dense in the real Gram fiber as soon as one rational factor exists, by Theorem~\ref{thm:orbit} below. A sufficiently close rational factor preserves these strict inequalities. The resulting width is $s$, which is also the unavoidable unrestricted lower bound.
+\end{proof}
+
+\begin{corollary}[An arithmetic local--global alternative]\label{cor:localglobal}
+On the nonzero trace-zero case of Theorem~\ref{thm:main}, rational permitted factorization is equivalent to isotropy of the nondegenerate quotient over every completion of $\Q$. The real condition is automatic. Failure is witnessed by a nonarchimedean place. If the nondegenerate quotient has dimension at least five, factorization always exists.
+\end{corollary}
+\begin{proof}
+Apply the classical Hasse--Minkowski theorem, and then Meyer's theorem for indefinite rational forms in at least five variables \cite{CasselsBook}. These arithmetic theorems are used, not newly proved here.
+\end{proof}
+
+\begin{remark}[Why the nondegenerate rank is essential]
+For $Q=\diag(1,-2,0,\ldots,0)$ and $A=\diag(2,1,1,\ldots,1)$, the trace is zero and $A$ has arbitrarily large rank. Nevertheless every rational null vector is in $\{x_1=x_2=0\}$, so no rational permitted factorization exists. A rational radical vector is not a successful isotropy seed. Conversely, in the split binary case $Q=\diag(1,-1)$, the target $14I_2$ needs exactly eight unweighted rational null columns: the two null lines must each contribute a sum of rational squares equal to seven, requiring four columns per line. Thus the boundary width bound is attained when $r=2$.
+\end{remark}
+
+\begin{corollary}[All fixed-range rationalizing directions]\label{cor:directions}
+Let $A\ne0$ be a rational real-feasible matrix, and let $E\subseteq\Sym(V)$ be a rational linear perturbation space. The rational $D\in E$ for which $A+\varepsilon D$ factors rationally for every sufficiently small rational $\varepsilon>0$ are exactly:
+\[
+ \begin{cases}
+ E\cap\Sym^n(\Q),&\sigma>0,\\
+ \{D\in E(\Q):\ip{Q}{D}\geq0\},&\sigma=0\text{ and rational factorization holds},\\
+ \{D\in E(\Q):\ip{Q}{D}>0\},&\sigma=0\text{ and rational factorization fails}.
+ \end{cases}
+\]
+In the last case a rational rank-one direction $D=vv^T$, $v\in V$, always exists if perturbations are unrestricted within $\Sym(V)$.
+\end{corollary}
+\begin{proof}
+For small enough $\varepsilon$, positive definiteness on $V$ and the range $V$ are preserved. Apply the classification to the trace $\sigma+\varepsilon\ip{Q}{D}$. In the last case the restricted form is indefinite, and hence has a rational strictly positive direction by continuity. Its square gives the final assertion. Thus the exceptional matrices can be rationalized without increasing their rank, but not while remaining in the trace-zero face and keeping their range.
+\end{proof}
