@@ -1,0 +1,922 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,booktabs,longtable,microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Ssym}{\mathbb S}\newcommand{\K}{\mathcal K}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Clust}{\operatorname{Clust}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\ran}{\operatorname{ran}}\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\eps}{\varepsilon}\newcommand{\dd}{\Delta}
+\DeclareMathOperator*{\argmin}{argmin}
+\numberwithin{equation}{section}
+\title{Static excess and spectral transport at infinity\newline in conic Douglas--Rachford splitting}
+\author{Research Track I: working manuscript}
+\date{15 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For an affine space and a closed convex semialgebraic cone disjoint at distance zero, plain Douglas--Rachford iterates have a common leading state $Vk^p$. That state need not determine their leading velocity. We identify a nonnegative static excess of the cone shadow whose macroscopic averages equal half the transverse kinetic energy. Vanishing excess is equivalent to the exact last-step law, whereas a positive limiting excess determines both the excess speed and logarithmically divergent spherical length. For products of positive semidefinite cones, an interior leading state supplies a strictly contracting normal spectral dynamics and forces the exact square-root velocity. In contrast, a rational order-seven affine family has a circular scaled last-step limit set, an exact nonradial speed coefficient, and infinite spherical length. Its proof uses an exact matrix-cut energy, a weighted spectral chart, stable fast variables, a periodic filter, and a quartic amplitude correction. The resonance persists on a rational parameter interval and on relatively open sets of starts in an invariant block space. A frozen switching map explains why a previously simulated parameter value is not covered by the separated spectral argument.
+\end{abstract}
+\paragraph{Status.} This is a research draft, not a submission-cleared manuscript. The primary-literature and journal-comparison audits are incomplete. The original small rational start at parameter $\gamma=1$ is not claimed to be resolved. The counterexample proved here uses $3/2\leq\gamma\leq5/2$ and an explicitly specified rational starting family. All computations used in the proofs are exact; finite numerical trajectories are not proof premises.
+\tableofcontents
+
+\section{Problem and main conclusions}
+Let $E$ be a finite-dimensional Euclidean space, let $\K\subset E$ be a closed convex semialgebraic cone, and let $U=a+L$ be a nonempty affine space, where $a\perp L$. Assume
+\begin{equation}\label{eq:weak}
+ U\cap\K=\varnothing,\qquad \dist(U,\K)=0.
+\end{equation}
+Write $P=P_L$, $Q=I-P$, and consider precisely the affine-first, unanchored iteration
+\begin{equation}\label{eq:drs}
+ Tz=z+P_\K(2P_Uz-z)-P_Uz,\qquad z_{k+1}=Tz_k.
+\end{equation}
+Every projection uses the given Euclidean metric. The positive dual cone is $\K^*=\{s:\ip{s}{v}\geq0\ (v\in\K)\}$.
+
+The map $T$ is semialgebraic and firmly nonexpansive. It has no fixed point and its infimal displacement is zero. Section~\ref{sec:state} proves the existence of an initial-point-independent nonzero $V$ and rational $p\in(0,1)$ such that
+\begin{equation}\label{eq:state}
+ z_k=Vk^p+o(k^p).
+\end{equation}
+The question is whether $k^{1-p}(z_{k+1}-z_k)\to pV$. It is essential not to differentiate the remainder in \eqref{eq:state}.
+
+Put $z_k=a+x_k+y_k$, with $x_k=Pz_k$ and $y_k=Qz_k-a$, and set
+\begin{equation}\label{eq:shadows}
+ d_k=z_{k+1}-z_k,\quad v_k=P_\K(a+x_k-y_k),\quad
+ s_k=P_{\K^*}(-a-x_k+y_k).
+\end{equation}
+Define $H=PV$, $G=QV$ and the static distance profile
+\begin{equation}\label{eq:profile}
+ D(r)=\min\{\norm{Qv-a}:v\in\K,\ \norm{Pv}\leq r\}.
+\end{equation}
+For the actual cone shadows define
+\begin{equation}\label{eq:excess}
+ r_k=\norm{Pv_k},\quad \delta_k=\norm{Qv_k-a},\quad
+ e_k=\delta_k^2-D(r_k)^2\geq0.
+\end{equation}
+For $\lambda>1$, let $m=\lfloor\lambda n\rfloor$ and
+\[
+ I_{n,m}=\sum_{j=n}^{m-1}j^{2p-2},\qquad
+ X_n(\lambda)=I_{n,m}^{-1}\sum_{j=n}^{m-1}e_j,
+ \qquad A_0=p^2\norm V^2.
+\]
+
+\begin{theorem}[Static excess and transverse kinetic energy]\label{thm:excess}
+For every cone and affine space satisfying \eqref{eq:weak}, the bound $d_k=O(k^{p-1})$ is equivalent to boundedness of $X_n(\lambda)$ for one, equivalently every, fixed $\lambda>1$. Under these equivalent conditions,
+\begin{align}
+ k^{1-p}\ip{d_k}{V}&\longrightarrow p\norm V^2,\label{eq:radial}\\
+ \sum_{j=n}^{m-1}\norm{d_j}^2
+ &=A_0I_{n,m}+2\sum_{j=n}^{m-1}e_j+o(I_{n,m}),\label{eq:energy}\\
+ \frac{\sum_{j=n}^{m-1}j^{2p-2}\norm{j^{1-p}d_j-pV}^2}{I_{n,m}}
+ &=2X_n(\lambda)+o(1).\label{eq:transverse}
+\end{align}
+The following are equivalent, without separately assuming the bound on $d_k$:
+\begin{equation}\label{eq:equiv}
+ k^{1-p}d_k\to pV;\qquad
+ X_n(\lambda)\to0\text{ for one fixed }\lambda>1;\qquad
+ \frac{\delta_k}{D(r_k)}\to1.
+\end{equation}
+For $e\geq0$, convergence $X_n(\lambda)\to e$ for every fixed $\lambda>1$ is equivalent to
+\begin{equation}\label{eq:normlimit}
+ k^{2-2p}\norm{d_k}^2\longrightarrow A_0+2e.
+\end{equation}
+If these hold and $\nu_k=z_k/\norm{z_k}$, then
+\begin{align}
+ \frac{\sum_{k=K}^{n-1}\norm{\nu_{k+1}-\nu_k}}{\log n}
+ &\longrightarrow\frac{\sqrt{2e}}{\norm V},\label{eq:angular}\\
+ \frac{\sum_{k=K}^{n-1}\norm{d_k}}{\norm{z_n-z_K}}
+ &\longrightarrow\sqrt{1+\frac{2e}{p^2\norm V^2}}.\label{eq:travel}
+\end{align}
+For $e=0$, \eqref{eq:angular} asserts $o(\log n)$, not finite length.
+\end{theorem}
+
+This is a criterion involving a finite-dimensional convex optimization profile, not a restatement of convergence of velocity directions. Neither boundedness nor convergence of the excess is asserted universally. The spectral results below establish both zero and positive excess in explicit classes.
+
+\begin{theorem}[Regular leading spectrum]\label{thm:regular}
+Let $\K$ be a finite product of real symmetric or complex Hermitian PSD cones, with arbitrary affine coupling between the blocks. If the common normalized leading state is blockwise positive definite, then $p=1/2$ and every start satisfies
+\[
+ z_k=V\sqrt{k}+o(\sqrt{k}),\qquad \sqrt{k}\,d_k\to V/2.
+\]
+There is a positive-power remainder in the velocity limit. Consequently the normalized states have finite total spherical length. Repeated nonzero eigenvalues are allowed.
+\end{theorem}
+
+The singular case is genuinely different. For $F_{ij}=E_{ij}+E_{ji}$, use indices $0,\ldots,6$ and define
+\begin{align}\label{eq:family}
+ a&=-\tfrac12(F_{01}+F_{34}),\\[-2mm]
+ L_\gamma&=\operatorname{span}\{E_{00}+E_{33},\ E_{11}-F_{02}/2,\ E_{44}-F_{35}/2,
+ \ E_{66}+\gamma(F_{02}-F_{35}),\ F_{06},\ E_{22}-E_{55}\}.\notag
+\end{align}
+Put
+\begin{equation}\label{eq:constants}
+ \begin{gathered}
+ b_0=1/\sqrt3,\quad N=9/16,\quad c_0=27\sqrt3/256,
+ \quad c_A=(4c_0)^{1/4},\\
+ V=c_A\diag(1,0,b_0,1,0,b_0,0),\\
+ F_\gamma=\frac{9(2-\sqrt3)}{64\gamma(22\gamma+1)},\qquad
+ R_\gamma=\frac{N\sqrt{F_\gamma}}{c_A^3}.
+ \end{gathered}
+\end{equation}
+
+\begin{theorem}[A rational family of PSD resonances]\label{thm:resonance}
+For every rational $\gamma\in[3/2,5/2]$, the affine space $U_\gamma=a+L_\gamma$ is weakly infeasible for $\Ssym_+^7$ and has minimum-trace escape exponent $\alpha=1/3$. The rational matrices $Z_0(\gamma,M)$ in Section~\ref{sec:entry}, for every integer $M\geq10^{50000000000}$, generate plain DRS orbits with
+\begin{align}
+ Z_k&=Vk^{1/4}+Z_{\rm const}+O(k^{-1/4}),\\
+ \Clust\{k^{3/4}d_k\}
+ &=V/4+R_\gamma\{\cos\theta F_{06}+\sin\theta F_{26}:\theta\in\R\},\label{eq:circle}
+\end{align}
+where $Z_{\rm const}=-(F_{01}+F_{34})/2+(\sqrt3/4)(F_{12}+F_{45})$. Moreover
+\begin{align}
+ k^{3/4}\norm{d_k}_F&\longrightarrow
+ \frac{\norm V_F}{4}\sqrt{1+\frac{2-\sqrt3}{\gamma(22\gamma+1)}},\label{eq:resnorm}\\
+ \frac{\sum_{k=K}^{n-1}\norm{Z_{k+1}/\norm{Z_{k+1}}_F-Z_k/\norm{Z_k}_F}_F}{\log n}
+ &\longrightarrow\frac23\sqrt{F_\gamma}>0.\label{eq:resangular}
+\end{align}
+The same conclusions hold on relatively open sets of starts in the invariant block space on $(0,1,2,6)$ and $(3,4,5)$. Block embedding gives an obstruction in every matrix order at least seven.
+\end{theorem}
+
+\paragraph{Relation to earlier work.}
+The discounted-curve argument is related to the definable nonexpansive theory of Bolte--Gaubert--Vigeral \cite{BGV}, whose Theorem~3 treats the linear normalization $T^kz/k$. Liu--Ryu--Yin \cite{LRY} use divergent states and unscaled displacement limits to identify pathological conic programs. Neither statement identifies a nonzero sublinear first velocity. Do--Jentzen--Kuckuck \cite{DJK}, Theorem~1.1 in the version revised 9 November 2026, establishes finite spherical length for continuous definable gradient trajectories. Our positive and negative results concern a discrete reflected splitting; its center field need not be a convex gradient. These distinctions are theorem-level scope comparisons, not a completed priority certification.
+
+\section{Common states, complementary shadows and the static profile}\label{sec:state}
+\subsection{Discounted paths and common first terms}
+For a semialgebraic nonexpansive map $T:E\to E$ with no fixed point and zero infimal displacement, fix an anchor $a$ and solve
+\begin{equation}\label{eq:discount}
+ z(t)=\frac{a+tTz(t)}{1+t},\qquad Tz(t)-z(t)=\frac{z(t)-a}{t}.
+\end{equation}
+The right-hand contraction makes $z(t)$ unique. Its graph is semialgebraic. A bounded subsequence as $t\to\infty$ would give a fixed point, so its norm diverges. Nonexpansiveness gives $\norm{z(t)-a}\leq t\norm{Ta-a}$. Comparison with an arbitrary $u$ gives
+\[
+ \norm{z(t)-a}\leq2\norm{u-a}+t\norm{Tu-u}.
+\]
+Consequently $\norm{z(t)-a}=o(t)$ when the infimal displacement is zero. One-variable Puiseux asymptotics give
+\begin{equation}\label{eq:puiseux}
+ z(t)-a=ct^p+O(t^{p-\eta}),\qquad
+ z'(t)=pct^{p-1}+O(t^{p-1-\eta}),
+\end{equation}
+for $c\ne0$, rational $0<p<1$, and some $\eta>0$, reduced if necessary.
+
+Take $t_k=t_0+k/p$ and $b_k=z(t_k)$. Equations \eqref{eq:discount}--\eqref{eq:puiseux} imply
+\[
+ b_{k+1}-Tb_k=O(k^{p-1-\eta})+O(k^{p-2}).
+\]
+Nonexpansiveness and telescoping yield $T^kz_0=b_k+o(k^p)$, and indeed a positive-power state remainder after decreasing $\eta$. Thus $V=p^{-p}c$ in \eqref{eq:state}. Two actual orbits stay a bounded distance apart. Discounted paths for different anchors do also, so $V,p$ are independent of the initial point and anchor.
+
+For \eqref{eq:drs}, a fixed point would produce a point in $U\cap\K$. Affine points approaching the cone have displacements approaching zero. Thus the preceding argument applies under \eqref{eq:weak}. If the operator minimum-radius profile is $\Theta(\eps^{-\alpha})$, comparison with a radius-minimizing approximate fixed point and with $z(t)$ gives $p=\alpha/(1+\alpha)$. For affine-first DRS, with anchor in $U$, that operator profile is exactly
+\[
+ \min\{\norm{u-a}:u\in U,\ \dist(u,\K)\leq\eps\}.
+\]
+One inequality uses $Tu=P_\K u$ for $u\in U$; the other projects an arbitrary approximate fixed point onto $U$. For PSD constraints, a fixed right inverse of the equality map and equivalence of trace and Frobenius norm on PSD matrices identify this exponent with the minimum-trace exponent.
+
+\subsection{The balance identities}
+Moreau decomposition gives the exact actual-shadow identities
+\begin{equation}\label{eq:complement}
+ v_k=a+x_{k+1}+\dd y_k,\qquad
+ s_k=y_{k+1}+\dd x_k,\qquad
+ v_k\in\K,\ s_k\in\K^*,\ \ip{v_k}{s_k}=0.
+\end{equation}
+On the central path, abbreviate $x=Pz$, $y=Qz-a$ and $E(t)=\norm x^2+\norm y^2$. Its shadows are
+\[
+ v(t)=a+(1+1/t)x+y/t,\qquad s(t)=x/t+(1+1/t)y.
+\]
+Complementarity gives
+\begin{equation}\label{eq:balancepath}
+ \ip ay=-E(t)/t,\qquad
+ \frac{t(t+1)}2E'(t)=E(t)+t\norm{y(t)}^2.
+\end{equation}
+For the second identity, the function $h\mapsto\ip{v(t+h)}{s(t)}$ is nonnegative with a minimum at zero, so $\ip{v'(t)}{s(t)}=0$. Substitution and differentiation of the first identity give the formula. Only the smooth central path is differentiated.
+
+Comparing the leading Puiseux coefficients in \eqref{eq:balancepath} yields
+\begin{equation}\label{eq:balance}
+ H\in\K,\quad G\in\K^*,\quad \ip HG=0,\quad \ip aG=0,
+ \qquad \norm G^2=p\norm V^2,\quad \norm H^2=(1-p)\norm V^2.
+\end{equation}
+Both $H$ and $G$ are nonzero.
+
+\subsection{An exact optimizer and profile coefficient}
+The minimum in \eqref{eq:profile} exists. A minimizing sequence has bounded $P$ component and, on a bounded residual sublevel, bounded $Q$ component. Compactness applies. Its value is positive for finite $r$, otherwise feasibility would follow, and tends to zero by \eqref{eq:weak}.
+
+The central shadow $v(t)$ uniquely minimizes over $\K$ the strictly convex coercive function
+\begin{equation}\label{eq:centralopt}
+ F_t(v)=\frac{\norm{Pv}^2}{2(t+1)^2}+\frac{\norm{Qv-a}^2}{2}.
+\end{equation}
+Its gradient at $v(t)$ is $s(t)/(t+1)\in\K^*$ and complementary to $v(t)$, which is precisely the optimality inequality. Hence
+\[
+ D(\norm{Pv(t)})=\norm{Qv(t)-a}.
+\]
+The radius is eventually strictly increasing by its Puiseux expansion and covers a tail. Eliminating $t$ using \eqref{eq:puiseux} gives
+\begin{equation}\label{eq:Dconstant}
+ D(r)\sim p\norm G\norm H^{(1-p)/p}r^{-(1-p)/p},
+ \qquad D(r_k)^2\sim p^2\norm G^2k^{2p-2}.
+\end{equation}
+This is an exact leading coefficient, not merely a power comparison.
+
+\section{Finite-window energy and the universal defect law}
+\subsection{Exact two-shadow identities}
+Put $q_k=\norm{d_k}^2$, $w_k=\ip{y_{k+1}}{\dd y_k}$ and
+\[
+ \phi_k=\ip{v_{k+1}}{s_k}\geq0,\qquad
+ \psi_k=\ip{v_k}{s_{k+1}}\geq0.
+\]
+Firm nonexpansiveness and \eqref{eq:complement} imply
+\begin{align}
+ q_k-q_{k+1}&\geq\norm{d_{k+1}-d_k}^2,\label{eq:qmono}\\
+ \norm{\dd x_{k+1}}^2
+ &=w_k-w_{k+1}+\ip{\dd y_k}{\dd y_{k+1}}-\psi_k,\label{eq:twoshadow}\\
+ \phi_k+\psi_k&=\tfrac12\bigl(q_k-q_{k+1}-\norm{d_{k+1}-d_k}^2\bigr).\label{eq:cross}
+\end{align}
+For \eqref{eq:cross}, expand $\ip{v_{k+1}-v_k}{s_{k+1}-s_k}$ in two ways; complementarity makes it $-(\phi_k+\psi_k)$. In particular $\sum_{j=n}^{m-1}\psi_j\leq q_n/2$. Polarizing the normal inner product in \eqref{eq:twoshadow}, summing and shifting one endpoint gives
+\begin{equation}\label{eq:exactenergy}
+ \sum_{j=n}^{m-1}q_j=2\sum_{j=n}^{m-1}\delta_j^2+w_n-w_m+R_{n,m},
+ \qquad |R_{n,m}|\leq4q_n.
+\end{equation}
+All these are finite identities and inequalities, also when $p\leq1/2$; no divergent energy tail is used.
+
+\subsection{Natural scale and radial rigidity}
+If $X_n(\lambda)$ is bounded for one fixed ratio, covering finitely many such windows bounds $\sum\delta_j^2=O(n^{2p-1})$ on every fixed-ratio interval. Choose indices $i\in[n/4,n/3]$ and $l\in[2n,3n]$ for which $\delta_i,\delta_l=O(n^{p-1})$, by averaging. Since $y_j=O(j^p)$, their $w$ values are $O(n^{2p-1})$. Summing \eqref{eq:twoshadow} between those endpoints and discarding $-\psi$ bounds the tangential squared energy by $O(n^{2p-1})$. The normal energy has the same bound. Monotonicity of $q_k$ then yields $q_n=O(n^{2p-2})$. The converse follows immediately from \eqref{eq:Dconstant} and $e_k\leq q_k$.
+
+For any nonexpansive orbit with \eqref{eq:state} and $d_k=O(k^{p-1})$, monotonicity of $I-T$ gives
+\[
+ \ip{d_k-d_j}{z_k-z_j}\leq0.
+\]
+For $j/k$ in a compact interval separated from one, substitute the state expansion and the step bound. Average over $j\in[(1+h)k,(1+2h)k]$, and separately over $[(1-2h)k,(1-h)k]$. The sums of $d_j$ telescope. Sending $k\to\infty$ and then $h\downarrow0$ squeezes $k^{1-p}\ip{d_k}{V}$ to $p\norm V^2$. This proves \eqref{eq:radial} without differentiating the state remainder.
+
+Cross-pair $v_k$ with $s(t)$ and $v(t)$ with $s_k$ at $t=k/p$. Their pairings are nonnegative. Substitution of the central and actual states, \eqref{eq:balancepath}, and the natural step bound gives
+\[
+ \liminf k^{1-p}\ip{\dd y_k}{G}\geq p\norm G^2,\qquad
+ \liminf k^{1-p}\ip{\dd x_k}{H}\geq p\norm H^2.
+\]
+For the second cross-pairing, use additionally the exact actual identity
+\[\ip{a}{y_{k+1}}=-\ip{x_{k+1}}{\dd x_k}-\ip{y_{k+1}}{\dd y_k}.\]
+It follows from complementarity; its leading coefficient follows from the total radial limit. The sum of the two lower bounds is that same radial limit, so both are limits and equalities. Therefore
+\begin{equation}\label{eq:wlimit}
+ w_k=p\norm G^2 k^{2p-1}+o(k^{2p-1}).
+\end{equation}
+
+\subsection{Proof of Theorem~\ref{thm:excess}}
+Insert \eqref{eq:Dconstant}, \eqref{eq:wlimit} and $q_n=O(n^{2p-2})$ into \eqref{eq:exactenergy}. The coefficient of the baseline energy becomes
+\[
+ 2p^2\norm G^2-p(2p-1)\norm G^2=p\norm G^2=p^2\norm V^2.
+\]
+At $p=1/2$, the leading $w$ endpoints cancel, while $I_{n,m}\to\log\lambda$; the same formula holds. This proves \eqref{eq:energy}. Expanding the squared distance and using \eqref{eq:radial} proves \eqref{eq:transverse}.
+
+Suppose $X_n(\lambda)\to0$ for one fixed $\lambda$. The radial limit implies the uniform tail lower bound
+\[
+ q_j\geq[A_0-o(1)]j^{2p-2}.
+\]
+If $q_n\geq(A_0+\eps)n^{2p-2}$ along a subsequence, monotonicity of $q$ preserves a fixed positive excess over the baseline on a sufficiently short proportional interval immediately before $n$. It lies inside a window of the prescribed ratio ending at $n$; the uniform lower bound elsewhere prevents cancellation. This contradicts \eqref{eq:energy}. Hence $k^{2-2p}q_k\to A_0$, and \eqref{eq:radial} identifies the vector as $pV$. The converse is immediate. Pointwise saturation implies $e_k=o(k^{2p-2})$, hence the window condition; the vector law implies saturation by applying $Q$ and using \eqref{eq:Dconstant}.
+
+For nonzero $e$, the energy formula for every ratio and monotone-density secants yield \eqref{eq:normlimit}. Conversely its Riemann sums and the energy formula give $X_n(\lambda)\to e$ for every ratio. Radial normalization has the finite-difference expansion
+\[
+ k(\nu_{k+1}-\nu_k)=
+ \frac{(I-\nu_k\nu_k^*)k^{1-p}d_k}{\norm{z_k}/k^p}+O(k^{-1}).
+\]
+The natural-scale bound, radial rigidity and state limit give
+\[
+ k^2\norm{\nu_{k+1}-\nu_k}^2
+ =\frac{\norm{k^{1-p}d_k-pV}^2}{\norm V^2}+o(1).
+\]
+Under \eqref{eq:normlimit} the right side tends to $2e/\norm V^2$. Summation proves \eqref{eq:angular}. Summing $\norm{d_k}\sim\sqrt{A_0+2e}\,k^{p-1}$ proves \eqref{eq:travel}. This completes the theorem.
+
+\paragraph{Residual descriptions.}
+For any equality representation $U=\{z:\mathcal A z=b\}$, including redundant equations,
+\[
+ \mathcal A v_k-b=\mathcal A\dd y_k,\qquad
+ \norm{(\mathcal A\mathcal A^*)^{\dagger/2}(\mathcal A v_k-b)}=\delta_k.
+\]
+The identity follows from $\mathcal A^*(\mathcal A\mathcal A^*)^\dagger\mathcal A=Q$. Under zero excess the raw vector limit is $p\mathcal A G\ne0$. Nonvanishing follows from $G\in L^\perp\setminus\{0\}$. Ill-conditioning can change its magnitude, but redundancy cannot make it vanish.
+
+\section{Why a convex splitting has no leading kinetic defect}
+The following comparison result records the convex mechanism separately. It is not a change of algorithm in Theorem~\ref{thm:resonance}.
+
+\begin{theorem}[Convex forward--backward contrast]\label{thm:fb}
+Let $F=g+h$ be proper closed convex and semialgebraic, with finite unattained infimum $F_*$. Let $g$ be finite convex with globally $L$-Lipschitz gradient and $h$ proper closed convex. Neither summand separately needs to be definable. For fixed $0<\eta<2/L$ (any $\eta>0$ if $L=0$), iterate
+\[
+ x_{k+1}=\operatorname{prox}_{\eta h}(x_k-\eta\nabla g(x_k)),\qquad\tau_k=\eta k.
+\]
+There are a nonzero $V$ and rational $0<p<1/2$, determined by $F$ and the metric and not by its splitting, such that every start satisfies
+\begin{align*}
+ x_k&=V\tau_k^p+o(\tau_k^p),&
+ \tau_k^{1-p}\frac{x_{k+1}-x_k}{\eta}&\longrightarrow pV,\\
+ F(x_k)-F_*&\sim\frac{p^2\norm V^2}{1-2p}\tau_k^{2p-1},&
+ \frac{F(x_k)-F(x_{k+1})}{\eta}&\sim p^2\norm V^2\tau_k^{2p-2}.
+\end{align*}
+The normalized states have finite total spherical length. The same state and velocity coefficients apply to any admissible convex splitting at equal physical time.
+\end{theorem}
+
+\begin{proof}
+Let $y(s)$ uniquely minimize $F(y)+\norm{y-a}^2/(2s)$ and set $u(s)=(a-y(s))/s\in\partial F(y(s))$. Comparing to arbitrary approximate minimizers gives $F(y(s))\to F_*$ and $\norm{y(s)-a}^2/s\to0$. Nonattainment forces divergence. Puiseux asymptotics give
+\[
+ y(s)-a=cs^p+o(s^p),\qquad y'(s)=pcs^{p-1}+o(s^{p-1}),\qquad 0<p<1/2.
+\]
+The subgradient inequalities along this smooth path give
+\[
+ \frac{d}{ds}F(y(s))=\ip{u(s)}{y'(s)}
+ =-p\norm c^2s^{2p-2}+o(s^{2p-2}).
+\]
+Integration to infinity determines the gap coefficient. Put $V=p^{-p}c$ and $B=p^2\norm V^2/(1-2p)$.
+
+The total objective, rather than its chosen splitting, supplies this central path. To track it by the possibly nontame splitting, write $b(s)=\nabla g(y(s))$. Cocoercivity of $\nabla g$ and monotonicity of $\partial h$ imply
+\[
+ \norm{b(s+v)-b(s)}^2
+ \leq L\ip{u(s+v)-u(s)}{y(s+v)-y(s)}
+ =O(v^2s^{2p-3})
+\]
+for bounded positive $v$. Thus the gradient-splitting correction is of smaller order than $s^{p-1}$. Comparing the proximal input for $y(s_{k+1})$ with the forward--backward input for $y(s_k)$, at $s_k=s_0+\eta k/p$, gives local error $o(\eta s_k^{p-1})$. Nonexpansiveness of the update and summation prove the common state term.
+
+Here are the energy steps that actually determine the velocity. Subtract $F_*$ and put
+\[
+ F_k=F(x_k)-F_*,\quad G_k=(x_k-x_{k+1})/\eta,\quad
+ q_k=\norm{G_k}^2,\quad e_k=\nabla g(x_{k+1})-\nabla g(x_k).
+\]
+Proximal optimality gives $G_k+e_k\in\partial F(x_{k+1})$. With $d_\eta=1-\eta L/2>0$, the descent and comparator inequalities are
+\begin{align*}
+ F_k-F_{k+1}&\geq\eta d_\eta q_k,\\
+ 2\eta[F_{k+1}-(F(w)-F_*)]
+ &\leq\norm{x_k-w}^2-\norm{x_{k+1}-w}^2
+ -(1-\eta L)\norm{x_{k+1}-x_k}^2.
+\end{align*}
+When $\eta L>1$, the positive remainder in the second inequality is controlled by summing the first. Therefore, after the first step, a fixed finite $C$ gives
+\[
+ F_k\leq F(w)-F_*+\frac{\norm{x_1-w}^2+C}{2\eta(k-1)}.
+\]
+Choose $w=y(\tau_k)$. This gives $F_k=O(\tau_k^{2p-1})$. Nonexpansiveness makes $q_k$ nonincreasing; summing descent from $k/2$ to $k$ yields $q_k=O(\tau_k^{2p-2})$. The actual subgradient $G_{k-1}+e_{k-1}$ has the same $O(\tau_k^{p-1})$ bound. Comparing it and $u(s_k)$ against the already proved $o(\tau_k^p)$ state difference squeezes
+\[
+ F_k-F(y(s_k))+F_*=o(\tau_k^{2p-1}),\qquad F_k\sim B\tau_k^{2p-1}.
+\]
+
+The forward contraction, followed by nonexpansiveness of the proximal map, gives for $L>0$
+\[
+ \sum_{j\geq k}\norm{e_j}^2\leq C_\eta q_k,
+ \qquad C_\eta=\frac{\eta}{2/L-\eta}.
+\]
+For $L=0$ these errors vanish. The consecutive subgradient inequalities imply
+\[
+ \eta(q_j+\ip{e_j}{G_j})\leq F_j-F_{j+1}
+ \leq\eta(\ip{G_{j-1}}{G_j}+\ip{e_{j-1}}{G_j}).
+\]
+Let $I_k=\eta\sum_{j\geq k}q_j<\infty$. Summation, polarization, monotonicity of $q$ and Cauchy--Schwarz yield
+\[
+ |F_k-I_k|\leq\eta q_{k-1}+2\sqrt{\eta C_\eta q_{k-1}I_k}.
+\]
+Since $I_k\leq F_k/d_\eta$, this error is $o(F_k)$. Consequently
+\[
+ \eta\sum_{j\geq k}q_j\sim B(\eta k)^{2p-1}.
+\]
+Forward and backward fixed-ratio secants of this tail, followed by a ratio tending to one, give
+\[
+ q_k\sim (1-2p)B\tau_k^{2p-2}=p^2\norm V^2\tau_k^{2p-2}.
+\]
+The nonexpansive radial-rigidity argument in Section 3 identifies the velocity vector. This is the missing step that would be invalid if replaced by differentiation of $x_k=V\tau_k^p+o(\tau_k^p)$. Moreover $q_{k+1}/q_k\to1$ and the one-step contraction give $e_k=o(\tau_k^{p-1})$. The displayed subgradient bounds now squeeze the individual objective decrement to the stated coefficient.
+
+For completeness, finite angular length requires a rate, not mere direction convergence. Choose $0<\kappa<p<1/2$ so that the Puiseux path and its derivative have relative $O(s^{-\kappa})$ remainders. Tracking gives $x_k=V\tau_k^p+O(\tau_k^{p-\kappa})$ and the subgradient comparison gives $F_k=B\tau_k^{2p-1}[1+O(\tau_k^{-\kappa})]$. The energy-tail error above has smaller relative order $O(\tau_k^{-1/2})$. Monotone-density secants of relative width $\tau_k^{-\kappa/2}$ therefore give a relative $O(\tau_k^{-\kappa/2})$ remainder for $q_k$. The one-step contraction bounds $e_k$ by $O(\tau_k^{p-1-\kappa/4})$. Convex secants between $x_k$ and $x_{\lfloor(1\pm\tau_k^{-\kappa/2})k\rfloor}$, using the state and gap remainders, determine the radial pairing to error $O(\tau_k^{-\kappa/2})$. Combining norms and pairings gives a velocity remainder $O(\tau_k^{-\kappa/8})$ after rescaling. Radial normalization then has increments $O(k^{-1-\kappa/8})+O(k^{-2})$, which are summable.
+\end{proof}
+
+For alternating projections take $g(x)=\dist(x,C)^2/2$ and $h=\iota_U$. Theorem~\ref{thm:fb} then covers semialgebraic zero-distance disjoint convex pairs. This is a consequence for a different algorithm, not a proof of the DRS law. The decisive convex ingredient is the asymptotically exact objective/energy tail. In conic DRS the finite-window identity instead contains the nonnegative static excess, which the rational resonance makes strictly positive.
+
+\section{Exact matrix transport and regular leading spectra}
+\subsection{A cut identity}
+For a PSD cone, write $u=P_UZ$, $v=(2u-Z)_+$, $s=(Z-2u)_+$ and $d=v-u$. Then $v,s\succeq0$, $vs=sv=0$, $v=u+d$ and $s=Z-u+d$.
+
+Suppose $U$ is invariant under congruence by $J_c=\diag(I,-I)$. The affine offset is block diagonal and the affine off-diagonal projection has the form $u_{12}=\Pi W$, where $W=Z_{12}$ and $\Pi$ is an orthogonal projector. Thus
+\[
+ v_{12}=\Pi W+\dd W,\qquad s_{12}=(I-\Pi)W+\dd W.
+\]
+Taking the trace of the $(2,2)$ block of $vs=0$ gives
+\begin{equation}\label{eq:cut}
+ \norm{W+\dd W}_F^2+\norm{\dd W}_F^2
+ +2\tr(v_{22}s_{22})=\norm W_F^2.
+\end{equation}
+The overlap is nonnegative and equals $\tr(v_{11}s_{11})$. Consequently both squared transverse increments and overlap are summable, with their exact tail sum equal to the lost cut energy.
+
+For a rank-one cut $R=\left[\begin{smallmatrix}A&b\\b^*&c\end{smallmatrix}\right]$, there is also an exact transport representation. In an eigenbasis of $A$, let $\lambda_i$ be its eigenvalues and let $(\mu_j,q_j)$ be spectral data of $R$. Define
+\[
+ C=g(A),\qquad g(\lambda)=\sum_j |(q_j)_{\rm last}|^2
+ \frac{|\mu_j|-|\lambda|}{\mu_j-\lambda},
+\]
+with the continuous divided difference at equal nonzero arguments and any value in $[-1,1]$ at $(0,0)$. Then
+\begin{equation}\label{eq:transport}
+ (|R|)_{12}=Cb,\quad -I\preceq C\preceq I,\quad
+ \ip b{(I-C^2)b}=4v_{\rm last,last}s_{\rm last,last}.
+\end{equation}
+To verify the first formula, use $(\mu_j-\lambda_i)(q_j)_i=b_i(q_j)_{\rm last}$ and subtract $|\lambda_i|$ times the spectral orthogonality identity. Repeated eigenspaces cause no ambiguity. The last formula is the bottom diagonal of $|R|^2=R^2$. In DRS the reflected coupling is $(2\Pi-I)W$, so
+\[
+ W_{\rm next}=\tfrac12[I+C(2\Pi-I)]W.
+\]
+This is the current nonlinear operator, not its moving linearization.
+
+\subsection{Proof of the regular-spectrum theorem}
+We give the argument blockwise, allowing the affine projection to couple blocks. Write $J=2P-I$, so $TZ=(Z+|JZ+2a|)/2$. Let the unit cosmic limit $N$ be blockwise positive definite. Its complementary parts $H=PN$, $G=QN$ have orthogonal support projections $E,F$, with $E+F=I$ in each block. Define
+\[
+ D_H=\{X\in L:X=EXE\},\quad
+ D_G=\{Y\in L^\perp:Y=FYF\},\quad D=D_H\oplus D_G.
+\]
+Every $Y\in L^\perp\cap\K$ has $\ip aY\geq0$ by weak feasibility. Complementarity and the radial identity below imply $\ip aG=0$; equivalently this follows from \eqref{eq:balance}. Applying the inequality to $G\pm\eps Y$ for $Y\in D_G$ gives $a\perp D$.
+
+For $n\in D$ near $N$, the matrix $Jn$ is nonsingular and the absolute-value map is analytic there. Let $C_n=D|\cdot|(Jn)$ and $M_n=(I+C_nJ)/2$. In eigenbases of $n=H_n+G_n$, the derivative multiplies entries by $1$ on $E$--$E$, by $-1$ on $F$--$F$, and by
+\[
+ \frac{h_i-g_j}{h_i+g_j}\in(-1,1)
+\]
+on the cross blocks. Thus $M_n$ is firmly nonexpansive, fixes precisely $D$, preserves $D^\perp$, and satisfies $\norm{M_n|_{D^\perp}}\leq q<1$ uniformly near $N$. Indeed equality in its norm contraction would, by firmness, give a fixed vector; equality in the cross coefficient bound forces support-preserving components. This identifies the fixed space exactly.
+
+Decompose $Z=s+w$ with $s\in D$, $w\perp D$, $r=\norm s$, $n=s/r$. Cosmic convergence gives $w=o(r)$. Uniform Taylor expansion yields
+\begin{align}\label{eq:regularTaylor}
+ T(s+w)&=s+M_nw+C_na+r^{-1}F_1(n,w)
+ +O((\norm w+1)^3/r^2),\\
+ F_1(n,w)&=\tfrac14D^2|\cdot|(Jn)[Jw+2a,Jw+2a].\notag
+\end{align}
+The first-order remainder and strict contraction first show $w=O(1)$. Projection on $D$ gives $\dd s=O(r^{-1})$, $r_{\rm next}/r=1+O(r^{-2})$, and $\dd n=O(r^{-2})$. Define
+\[
+ w_0(n)=(I-M_n|_{D^\perp})^{-1}C_na,
+ \quad w_1(n)=(I-M_n|_{D^\perp})^{-1}\Pi_{D^\perp}F_1(n,w_0(n)).
+\]
+Subtract these targets successively in \eqref{eq:regularTaylor}. Rescaling the contractive recurrences first by $r$ and then by $r^2$ proves
+\[
+ w=w_0(n)+r^{-1}w_1(n)+O(r^{-2}),\qquad
+ d=r^{-1}b(n)+O(r^{-2}),\quad b(n)=\Pi_DF_1(n,w_0(n)).
+\]
+Differences of two $O(r^{-2})$ terms remain $O(r^{-2})$; no differentiation of a discrete remainder is needed.
+
+Scalar complementarity gives the exact radial relation
+\begin{equation}\label{eq:radialexact}
+ \norm{TZ}^2-\norm Z^2=2h(Z)-\norm d^2,
+ \qquad h(Z)=\norm a^2-\ip aZ.
+\end{equation}
+At the stationary normal point set $B=Jw_0+2a$. The equation $w_0=C_nB$ yields
+\[
+ 4h_0(n):=4(\norm a^2-\ip a{w_0})=\norm B^2-\norm{C_nB}^2\geq0.
+\]
+Equality would force support-block diagonal $B,w_0$. Then $a+Pw_0$ is supported on $E$, and adding a sufficiently large multiple of the positive recession $H_n$ makes it PSD, contradicting infeasibility. Hence $h_0(N)>0$.
+
+Equation \eqref{eq:radialexact} now gives $r_k/\sqrt{k}\to\sqrt{2h_0(N)}$ and $\sqrt{k}d_k\to b(N)/\sqrt{2h_0(N)}$. Summing this actual step limit and comparing with the cosmic direction yields $b(N)=h_0(N)N$. Thus $V=\sqrt{2h_0(N)}N$ and the limit is $V/2$. Every orbit has the same cosmic limit by nonexpansiveness, so the result holds for all starts.
+
+The positive-power state remainder from Section~\ref{sec:state}, smoothness of $b$ and the displayed tracking estimates give $\sqrt{k}d_k=V/2+O(k^{-\zeta})$ for some $\zeta>0$. Radial normalization cancels the leading radial velocity; its increments are $O(k^{-1-\zeta})+O(k^{-2})$, proving finite spherical length.
+
+\section{The rational resonance: geometry and exact local equations}
+\subsection{Weak infeasibility and the rational starting family}\label{sec:entry}
+An equality description of \eqref{eq:family} is
+\[
+ X_{00}=X_{33},\quad X_{22}+X_{55}=0,\quad
+ X_{11}+2X_{02}-2\gamma X_{66}=0,\quad
+ X_{44}+2X_{35}+2\gamma X_{66}=0,
+\]
+with $X_{01}=X_{34}=-1/2$ and all other off-diagonal pairs zero except $(0,2),(0,6),(3,5)$. In a PSD solution, $X_{22}=X_{55}=0$ kills their rows. The two displayed equations then force $X_{11}=2\gamma X_{66}$ and $X_{44}=-2\gamma X_{66}$; positivity kills all three diagonals and contradicts $X_{01}=-1/2$.
+
+For $u>0$, two identical blocks
+\[
+ \begin{pmatrix}(2u)^{-1}&-1/2&-u/2\\-1/2&u&0\\-u/2&0&u^3\end{pmatrix}
+\]
+and a zero seventh row are PSD by the leaf Schur complement. Their only residual is $X_{22}+X_{55}=2u^3$, and their trace is of order $u^{-1}$. Conversely, a PSD point of equality residual at most $\delta$ has $X_{55}\leq\delta$, $|X_{34}|\geq1/4$ for small $\delta$, and, writing $B=X_{33}$, $d=X_{44}$, $r=X_{66}$,
+\[
+ d+2\gamma r\leq2\sqrt{B\delta}+\delta,
+ \qquad 1/16\leq Bd\leq2B^{3/2}\sqrt\delta+B\delta.
+\]
+Thus $\tr X\geq c\delta^{-1/3}$, proving the exact exponent.
+
+For an integer $M$ set $t=M^{-1}$ and $s=\operatorname{isqrt}(3M^8)/M^4$, where $\operatorname{isqrt}$ is the floor of the nonnegative square root. Put
+\[
+ J_0=-s(14\gamma+1)/30000,\quad R_0=3/2500,\quad
+ C_f=2sJ_0+2\gamma R_0,
+\]
+\[
+ C_a=C_f+3J_0/2,\quad G_a=\gamma R_0-C_f/2+3J_0/2,\quad
+ Q_0=R_0-6\gamma J_0.
+\]
+Define the symmetric $Z_0(\gamma,M)$ by
+\begin{align*}
+ Z_{00}=Z_{33}&=M,& Z_{22}=Z_{55}&=sM/3,\\
+ Z_{11},Z_{44}&=t(3/8+3s/16)\ \pm t^3C_a,&
+ Z_{02},Z_{35}&=3t(s-1)/16\ \pm t^3G_a,\\
+ Z_{01}=Z_{34}&=-1/2+9st^2/64,&
+ Z_{12},Z_{45}&=s/4\ \pm t^2J_0,\\
+ Z_{06}&=t/50,& Z_{16}=Z_{26}&=0,\qquad Z_{66}=t^3Q_0,
+\end{align*}
+and all other entries zero. Every entry is rational when $\gamma$ is rational. The two blocks $(0,1,2,6)$ and $(3,4,5)$ are invariant under both projections.
+
+\subsection{Weighted variables and the exact affine projection}
+For a state in this block space use
+\begin{align*}
+ A&=(Z_{00}+Z_{33})/2,& B&=(Z_{22}+Z_{55})/2,& t&=A^{-1},\quad\tau=t^2,\quad b=B/A,\\
+ H&=(Z_{12}+Z_{45})/2,& j&=(Z_{12}-Z_{45})/(2t^2),\\
+ \xi&=Z_{06}/t,&\eta&=Z_{26}/t,&\chi&=Z_{16}/t^2,\\
+ C&=(Z_{11}+Z_{44})/(2t),&G&=(Z_{02}+Z_{35})/(2t),\\
+ C_a&=(Z_{11}-Z_{44})/(2t^3),&G_a&=(Z_{02}-Z_{35})/(2t^3),&Q_0&=Z_{66}/t^3.
+\end{align*}
+Also set $A_d=(Z_{00}-Z_{33})/2=t^5a_d$, $B_d=(Z_{22}-Z_{55})/2=t^5b_d$, $(Z_{01}-Z_{34})/2=t^4f_a$, and $(Z_{01}+Z_{34})/2=-1/2+t^2f$. The exact Gram equations for the affine projection are
+\begin{equation}\label{eq:affinegamma}
+ c=\frac{2(C-G)}3,\quad r=\frac{3Q_0+4\gamma C_a+8\gamma G_a}{3+8\gamma^2},\quad
+ c_a=\frac{2(C_a-G_a+\gamma r)}3,\quad g_a=-c_a/2+\gamma r.
+\end{equation}
+In physical coordinates $u_{11},u_{44}=tc\pm t^3c_a$, $u_{02},u_{35}=-tc/2\pm t^3g_a$, $u_{66}=t^3r$, $u_{00}=u_{33}=A$, $u_{22}=-u_{55}=B_d$, $u_{06}=Z_{06}$ and $u_{01}=u_{34}=-1/2$.
+
+For $D_0=\diag(1,-1,-3,1,-1,-3,-1)$, the anticommutator $X\mapsto D_0X+XD_0$ annihilates $a$ and preserves $L_\gamma$. Matrix complementarity therefore proves the exact charge identity
+\begin{equation}\label{eq:charge}
+ E=\tr(D_0Z^2),\qquad E_{\rm next}-E=-\tr(D_0d^2).
+\end{equation}
+Its coordinate expression determines $b$ analytically near $b_0$:
+\begin{align}\label{eq:bcharge}
+ b^2={}&\tfrac13-\tfrac\tau6(E+8H^2)
+ -\tfrac{\tau^2}6(2C^2+4G^2+4\eta^2)
+ -\tfrac{\tau^3}6(8j^2+2\chi^2)\\
+ &-\tfrac{\tau^4}6(2C_a^2+4G_a^2+Q_0^2)
+ +\tfrac{\tau^6}6(2a_d^2-6b_d^2).\notag
+\end{align}
+
+\subsection{An analytic chart for the actual PSD projection}\label{sec:chart}
+In coordinates $(0,1;2,6)$ the reflected block $R=2u-Z$ is
+\begin{equation}\label{eq:Rblocks}
+ R_{PP}=\begin{pmatrix}a/t&-\beta\\-\beta&td\end{pmatrix},\quad
+ R_{QQ}=\begin{pmatrix}-B_r/t&-t\eta\\-t\eta&t^3q\end{pmatrix},\quad
+ R_{QP}=\begin{pmatrix}-tK&-h\\t\xi&-t^2\chi\end{pmatrix},
+\end{equation}
+where
+\begin{gather*}
+ a=1-\tau^3a_d,\ B_r=b-\tau^3b_d,\ \beta=1/2+\tau f+\tau^2f_a,\\
+ d=2c-C+\tau(2c_a-C_a),\quad h=H+\tau j,\quad
+ K=c+G-\tau(2g_a-G_a),\quad q=2r-Q_0.
+\end{gather*}
+Represent the positive invariant subspace as the graph
+\[
+ X=\begin{pmatrix}t^2x&ty\\t^2z&t\omega\end{pmatrix}.
+\]
+Dividing the entries of $R_{QP}+R_{QQ}X-XR_{PP}-XR_{PQ}X=0$ by $t,1,t,t^2$, respectively, gives the exact equations
+\begin{align}\label{eq:riccati}
+0={}&-K-(a+B_r)x+\beta y-\tau\eta z+\tau xyh+\tau^2x^2K-\tau^2z(x\xi-y\chi),\\
+0={}&-h-B_ry+\tau(-\eta\omega+\beta x-dy+y^2h)
+ +\tau^2(xyK-\omega(x\xi-y\chi)),\notag\\
+0={}&\xi-az+\beta\omega+\tau(-\eta x+x\omega h)
+ +\tau^2(qz+xzK-z(z\xi-\omega\chi)),\notag\\
+0={}&-\chi-\eta y+\beta z-d\omega+y\omega h
+ +\tau(q\omega+yzK-\omega(z\xi-\omega\chi)).\notag
+\end{align}
+The second block has opposite asymmetric signs and no $z,\omega,\xi,\eta,\chi$ coupling. At $\tau=0$ the solutions are
+\[
+ y=-H/b_0,\quad x=(-c-G+y/2)/(1+b_0),\quad
+ \delta=2c-C+H^2/b_0-1/4,
+\]
+\[
+ \omega=(\xi/2-\chi+H\eta/b_0)/\delta,\qquad z=\xi+\omega/2.
+\]
+At the symmetric reference values
+\[
+ H_0=\sqrt3/4,\quad C_*=3/8+3\sqrt3/16,\quad
+ G_*=3(\sqrt3-1)/16,\quad\chi=3\eta/4,
+\]
+one has $\delta=1/8$, $x=-N$, $y=-3/4$, $z=3\xi$, $\omega=4\xi$. The combined Jacobian of the charge and both graph systems has determinant, up to sign, $2b_0^3(1+b_0)^2\delta$. It is uniformly invertible on a sufficiently small compact neighborhood.
+
+The sign of the remaining small Schur eigenvalue will be controlled below. Once negative, the analytic graph is the actual positive spectral subspace. Its two positive eigenvalues have a positive middle Schur coefficient $t/8+O(t^3)$. The other block has two positive eigenvalues and one negative eigenvalue. Repeated eigenvalues within a sign subspace do not affect the graph construction.
+
+\section{Fast contraction, nonlinear averaging and all-time trapping}
+\subsection{Leading recurrences and their exact coefficients}
+Define $\Psi(H,b)$ by
+\[
+ c_f(H,b)=2H^2/b^2-H/b,\qquad
+ \Psi(H,b)=(c_f+H^2/b,\ H^2/b-c_f/2).
+\]
+The symmetric fast matrix at the reference is
+\[
+ M_s=\begin{pmatrix}2/3&-2/3\\(-2+\sqrt3)/3&(1+\sqrt3)/6\end{pmatrix},
+\]
+strictly contractive for $C^2+2G^2$. The slow symmetric filter is
+\[
+ \dd H=\tau\frac{H^2(3b/2-2H)}{b^3}
+ +O\bigl(\tau\norm{(C,G)-\Psi(H,b)}+\tau^2\bigr).
+\]
+Its derivative at $(H_0,b_0)$ is $-\kappa$, where $\kappa=9\sqrt3/8$.
+
+For the asymmetric fast coordinates the leading update, after symmetric tracking, is
+\begin{equation}\label{eq:fast}
+ C_a'=c_a+3j/2,\quad
+ G_a'=\frac{b_0G_a+(1-b_0)g_a+(j-\xi\eta)/2}{1+b_0},\quad
+ Q_0'=Q_0+3\xi^2-r,
+\end{equation}
+up to $O(\tau)$. Its fixed point is
+\begin{equation}\label{eq:psia}
+ \begin{gathered}
+ r_0=3\xi^2,\qquad c_f^a=2\sqrt3j+2\gamma r_0+\sqrt3\xi\eta,\\
+ \psi_\gamma(j,\xi,\eta)=
+ (c_f^a+3j/2,\ \gamma r_0-c_f^a/2+3j/2,\ r_0-6\gamma j).
+ \end{gathered}
+\end{equation}
+Let $M_\gamma$ denote its linear part and $W=\diag(2,4,1)$. Direct multiplication gives the three leading principal minors of $W-M_\gamma^TWM_\gamma$:
+\begin{equation}\label{eq:minors}
+ \frac{16\gamma^2-18+16\sqrt3}{(3+8\gamma^2)^2},\quad
+ \frac{(-128+96\sqrt3)\gamma^2-64+44\sqrt3}{(3+8\gamma^2)^2},\quad
+ \frac{-64+44\sqrt3}{(3+8\gamma^2)^2}.
+\end{equation}
+They are positive for $\gamma\geq0$. On $[3/2,5/2]$ the weighted norm contracts by at most $1-10^{-4}$; one obtains this from the normalized defect determinant, which exceeds $1/2000$, and the fact that its eigenvalues are at most one.
+
+After the fast errors are $O(\tau)$, substitution into \eqref{eq:riccati} or into $vs=0$ gives
+\begin{align}\label{eq:phasefilter}
+ \dd\xi&=N\tau\eta+O(\tau^2),&\dd\eta&=-N\tau\xi+O(\tau^2),\\
+ \dd j&=\tau[-\kappa j-(9\gamma/2)\xi^2-(3\sqrt3/4)\xi\eta]+O(\tau^2).\notag
+\end{align}
+These coefficients retain the nonlinear diagonal feedback. For example, before setting $r=3\xi^2$, the antisymmetric $12$ complementarity equation gives
+\[
+ \frac1{b_0}\bigl[(3/4)j-(3/8)j-H_0c_a\bigr]
+ =-\kappa j-(3\gamma/2)r-(3\sqrt3/4)\xi\eta.
+\]
+
+Put
+\begin{equation}\label{eq:Sgamma}
+ S_\gamma=\frac{\sqrt3}2\gamma(14\gamma+1)\xi^2
+ +\frac{\sqrt3}2\gamma(2\gamma-1)\eta^2
+ -3\gamma(2\gamma-1)\xi\eta.
+\end{equation}
+The periodic target $j_\gamma=-S_\gamma/(6\gamma)$ satisfies exactly
+\[
+ N(\eta\partial_\xi-\xi\partial_\eta)j_\gamma
+ =-\kappa j_\gamma-(9\gamma/2)\xi^2-(3\sqrt3/4)\xi\eta.
+\]
+At these targets,
+\begin{equation}\label{eq:radialamplitudecoeff}
+ v_{66}=3\xi^2t^3+O(t^5),\quad s_{66}=S_\gamma t^3+O(t^5),
+ \quad\dd A=c_0t^3+O(t^5),\quad t'=t-c_0t^5+O(t^7).
+\end{equation}
+The radial coefficients follow from the positive and negative Schur complements: $v_{22}=(27/256)t^3+O(t^5)$ and $s_{00}=b_0N^2t^3+O(t^5)=c_0t^3+O(t^5)$.
+
+The last small Schur coefficient is $-(S_\gamma-\sqrt3\eta^2)$. The determinant of this quadratic form is
+\begin{equation}\label{eq:sign}
+ \det(S_\gamma-\sqrt3\eta^2)=\frac{3\gamma}{2}(8\gamma^3-16\gamma-1).
+\end{equation}
+Its first diagonal coefficient is positive. It is therefore positive definite exactly above the positive root $\gamma_c$ of $8\gamma^3-16\gamma-1=0$. On $[3/2,5/2]$, its determinant is at least $9/2$ and trace is below $100$, giving least eigenvalue above $9/200$. This supplies a uniform sign margin on an annulus.
+
+\subsection{The corrected amplitude}
+Write $S_\gamma=A_\gamma\xi^2+B_{2,\gamma}\eta^2+C_\gamma\xi\eta$ and put
+\[
+ B_\gamma=\frac{3\sqrt3}{4}\gamma(22\gamma+1),\qquad
+ a_0=2c_0-N^2=\frac{27(2\sqrt3-3)}{256}>0.
+\]
+Define the quartic polynomial
+\begin{align}\label{eq:Pgamma}
+ P_\gamma={}&\frac{C_\gamma}{N}
+ \left(\frac{15}{16}\xi^4-\frac98\xi^2\eta^2-\frac9{16}\eta^4\right)\\
+ &+\frac{B_\gamma-6A_\gamma}{N}\xi^3\eta
+ -\frac{B_\gamma}{N}\xi\eta^3.\notag
+\end{align}
+Exact differentiation proves
+\[
+ N(\eta\partial_\xi-\xi\partial_\eta)P_\gamma
+ =6\xi^2S_\gamma-B_\gamma(\xi^2+\eta^2)^2.
+\]
+For $W_c=(Z_{06},Z_{16},Z_{26})$, let
+\[
+ F=A^2\norm{W_c}^2=\xi^2+\eta^2+\tau\chi^2,
+ \qquad \widetilde F=F+\tau P_\gamma.
+\]
+The exact cut identity \eqref{eq:cut}, not a linearized energy balance, yields
+\begin{equation}\label{eq:logistic}
+ \widetilde F'-\widetilde F
+ =\tau^2[a_0\widetilde F-B_\gamma\widetilde F^2]+O(\tau^3).
+\end{equation}
+Its positive equilibrium is $a_0/B_\gamma=F_\gamma$ from \eqref{eq:constants}.
+
+\subsection{Uniform nonlinear trapping}\label{sec:trapping}
+We detail the order of estimates, since a moving linearization without uniform trapping is insufficient. Choose a thick compact chamber with $E\in[-3,0]$, amplitude $\xi^2+\eta^2\in[F_\gamma/4,2F_\gamma]$, small fixed errors about the following five targets, and bounded auxiliary coordinates. The positivity in \eqref{eq:sign} and the graph Jacobian give a uniform analytic actual projection in this chamber, for sufficiently small $\tau$. Define
+\begin{align*}
+ e_s&=(C,G)-\Psi(H,b_0),& e_H&=H-H_0,\\
+ e_\chi&=\chi-H\eta/b_0,& e_a&=(C_a,G_a,Q_0)-\psi_\gamma(j,\xi,\eta),\\
+ e_j&=j-j_\gamma(\xi,\eta).
+\end{align*}
+The exact chart gives, on the thick chamber and before assuming fine errors,
+\begin{align}\label{eq:hierarchy}
+ e_s'&=M_se_s+O(\tau),\\
+ e_H'&=e_H+\tau[f_0(H)+O(\norm{e_s})+O(\tau)],\notag\\
+ e_\chi'&=O(\tau),\notag\\
+ e_a'&=M_\gamma e_a+O(\norm{e_s}+|e_H|+|e_\chi|+\tau),\notag\\
+ e_j'&=(1-\kappa\tau)e_j+
+ O\bigl(\tau(\norm{e_s}+|e_H|+|e_\chi|+\norm{e_a})+\tau^2\bigr),\notag
+\end{align}
+where $f_0(H)=H^2(3b_0/2-2H)/b_0^3$. The targets have bounded $O(\tau)$ increments on the thick chamber. The leading resets of $a_d,b_d,f_a$ do not depend on their current values: those inputs enter \eqref{eq:riccati} only at orders $\tau^3,\tau^3,\tau^2$. The coarse $f$ reset is $b_0xy$.
+
+Choose auxiliary bounds and a coarse $f$ interval first. Next choose the fine bounds
+\[K_s\tau,\quad K_H\tau,\quad K_\chi\tau,\quad K_a\tau,\quad K_j\tau\]
+in that order, and refine the $f$ bound last. A strict fast contraction absorbs $O(\tau)$ forcing. A slow contraction $1-c\tau$ absorbs $O(\tau^2)$ forcing. The width change $K(\tau'-\tau)=O(\tau^3)$ is smaller than every slow contraction margin. Later fine constants do not occur in earlier leading forcing constants: their input variables stay in the previously fixed thick chamber. This makes the choice noncircular.
+
+Until a hypothetical first amplitude or charge exit, these bounds prove \eqref{eq:radialamplitudecoeff}, all physical increments are $O(t^3)$, and
+\[
+ |E'-E|\leq C_1\tau^3,\qquad \tau-\tau'\geq c_0\tau^3.
+\]
+The total charge variation is at most $(C_1/c_0)\tau_0$, by telescoping. A charge starting near $-3/2$ remains in $[-3,0]$. The leading logistic drift is uniformly inward on the protective bands $[F_\gamma/2,3F_\gamma/4]$ and $[5F_\gamma/4,3F_\gamma/2]$. Its $O(\tau^3)$ error is smaller than the order-$\tau^2$ inward drift, and a single step cannot jump across a band. The annulus and hence the actual spectral signs persist. A finite first-exit argument proves all-time trapping.
+
+For the rational start, $0\leq\sqrt3-s<\tau_0^2$. Direct substitution gives all five initial errors $O(\tau_0^2)$, zero auxiliary coordinates, $E=-3/2+O(\tau_0)$ and $\widetilde F=1/2500+O(\tau_0)$. Uniformly for $\gamma\in[3/2,5/2]$,
+\[
+ F_\gamma/2<1/2500<3F_\gamma/2,
+\]
+with both margins greater than $10^{-6}$. Thus every sufficiently large $M$ enters strictly. Appendix~\ref{app:witness} supplies the stated explicit bound.
+
+\subsection{Exact limit sets and angular length}
+Trapping gives
+\[
+ t_k^{-4}=4c_0k+O(\sqrt{k}),\qquad
+ \sum\tau_k^2=\infty,\quad\sum\tau_k^3<\infty.
+\]
+The first estimate follows by expanding reciprocal fourth powers, first obtaining equivalence and then summing the $O(t_k^2)$ remainder. Squaring $\widetilde F-F_\gamma$ in \eqref{eq:logistic} gives a stable scalar inequality with summable error and a nonsummable contraction coefficient. Hence $\widetilde F\to F_\gamma$ and $\xi^2+\eta^2\to F_\gamma$. The unwrapped phase obeys
+\[
+ \theta_{k+1}-\theta_k=-N\tau_k+O(\tau_k^2).
+\]
+Its increments eventually have one sign, tend to zero and have divergent sum. Every angle occurs as a cluster angle by the first-crossing argument.
+
+To identify the \emph{complete} step cluster set, one needs more than $e_s=O(\tau)$. The exact chart has the form
+\[
+ u_{k+1}=M_su_k+g(H_k)+\tau_k r_0(E_k,\xi_k,\eta_k,\gamma)+O(\tau_k^2),
+ \qquad u_k=(C_k,G_k),
+\]
+where $r_0$ is smooth on the fixed compact chamber. Replacing the other fast/filter variables by their targets changes this coefficient only by $O(\tau)$, hence the update by $O(\tau^2)$. The forcing changes by $O(\tau^2)$, since $\dd H=O(\tau^2)$, $\dd E=O(\tau^3)$ and $\dd(\xi,\eta)=O(\tau)$. Tracking its frozen fixed point to the next order gives $\dd C,\dd G=O(\tau^2)$. Thus
+\begin{equation}\label{eq:fullstep}
+ d_k=t_k^3\{c_0(E_{00}+E_{33})+c_B(E_{22}+E_{55})
+ +N\eta_kF_{06}-N\xi_kF_{26}\}+O(t_k^4),
+\end{equation}
+where $c_B=27/256=b_0c_0$. This proves \eqref{eq:circle}; the bounded scaled coordinates give the asserted state expansion. Orthogonality of the matrix entries gives \eqref{eq:resnorm}, using
+\[
+ \frac{2R_\gamma^2}{\norm V_F^2/16}
+ =\frac{2-\sqrt3}{\gamma(22\gamma+1)}.
+\]
+Radial normalization of \eqref{eq:fullstep} gives
+\[
+ \norm{\nu_{k+1}-\nu_k}_F
+ =\frac{\sqrt3}{2}N\sqrt{F_\gamma}\,t_k^4(1+o(1)),
+\]
+and $t_k^4\sim(4c_0k)^{-1}$ proves \eqref{eq:resangular}. Strict entry inequalities imply a relatively open basin in the invariant block space. All other starts have the same leading state by nonexpansiveness. Block-diagonal embedding preserves the same exact dynamics in higher matrix orders. This completes Theorem~\ref{thm:resonance}.
+
+\begin{corollary}[Residual oscillation despite a convergent speed]
+For the orbit of Theorem~\ref{thm:resonance}, let $P=P_{L_\gamma}$ and $Q=I-P$, and put $H=PV$, $G=QV$. Then
+\[
+ \Clust\{k^{3/4}\dd y_k\}=G/4+[-R_\gamma,R_\gamma]F_{26},\qquad
+ \Clust\{k^{3/4}\dd x_k\}=H/4+[-R_\gamma,R_\gamma]F_{06}.
+\]
+The whitened equation-residual norm has the nondegenerate cluster interval
+\[
+ \left[\frac{\norm G_F}{4},\
+ \sqrt{\frac{\norm G_F^2}{16}+2R_\gamma^2}\right].
+\]
+No equality representation of this same affine space, including a redundant one, removes the scaled residual-vector oscillation.
+\end{corollary}
+\begin{proof}
+$F_{06}\in L_\gamma$ and $F_{26}\in L_\gamma^\perp$, so applying $P,Q$ to \eqref{eq:circle} gives the two segments. The diagonal $G$ is orthogonal to $F_{26}$, whose squared Frobenius norm is two. Whitening is the exact identity in Section 3. For any representation with kernel $L_\gamma$, $\mathcal A F_{26}\ne0$. In fact $\mathcal A G$ and $\mathcal A F_{26}$ are independent, since $\mathcal A$ is injective on $L_\gamma^\perp$. The raw scaled residual has the segment $\mathcal A G/4+[-R_\gamma,R_\gamma]\mathcal A F_{26}$, and its norm is not constant on that segment.
+\end{proof}
+
+\paragraph{The nonlinear loss budget.}
+For $r_k=\norm{W_{c,k}}$, the cut identity gives an exact product $r_n^2=r_K^2\exp(-L_n)$ with $L_n=\sum_{k=K}^{n-1}-\log(1-\rho_k)$ and
+\[
+ \rho_k=\frac{\norm{\dd W_{c,k}}^2+2v_{66,k}s_{66,k}}{r_k^2}.
+\]
+The proved asymptotics imply
+\[
+ L_n=\tfrac12\log n+O(1),\qquad
+ \sum_{k=K}^{n-1}\frac{v_{66,k}s_{66,k}}{r_k^2}
+ =\left(\frac14-\frac{\sqrt3}{8}\right)\log n+O(1).
+\]
+Thus the persistent mode is a balance of nonlinear complementarity loss and radial rescaling, not a frozen linear rotation. Theorem~\ref{thm:excess} identifies its limiting static excess as $R_\gamma^2$.
+
+\section{The switching boundary and limits of the conclusions}
+The separated sign condition fails for the earlier parameter $\gamma=1$. We give an exact frozen classification rather than extrapolating the preceding theorem.
+
+Freeze the symmetric leading coordinates and $\chi=3\eta/4$, and let $z=(C_a,G_a,Q_0)$. Define $r,c_a,g_a$ by \eqref{eq:affinegamma} and
+\[
+ \Lambda=2r-Q_0-3\xi^2+\sqrt3\eta^2,\qquad
+ d_*=6\gamma j+\sqrt3\eta^2.
+\]
+The leading actual projection across the small-eigenvalue crossing is the continuous piecewise-affine map
+\begin{equation}\label{eq:switch}
+ \mathcal F_\gamma(z)=
+ \left(c_a+\frac32j,\
+ \frac{b_0G_a+(1-b_0)g_a+(j-\xi\eta)/2}{1+b_0},\
+ Q_0+3\xi^2+\max\{\Lambda,0\}-r\right).
+\end{equation}
+The one-step normalized error is $O(\tau)$ uniformly on compact sets, including $\Lambda=0$. Indeed the three eigenvalues of orders $t^{-1},-t^{-1},t$ have analytic separated subspaces. The remaining eigenvalue is $t^3\Lambda+O(t^5)$, and its unit eigenvector has orders $(t^2,t,t^2,1)$. Its positive part changes the leading $66$ coefficient only. Lipschitz continuity of the scalar positive part gives uniformity at zero.
+
+Let $M_\pm$ be the two branch linear parts and $W=\diag(2,4,1)$. Direct multiplication gives, for both signs,
+\[
+ W-(2M_\pm-I)^TW(2M_\pm-I)
+ =\frac{32(2\sqrt3-3)}{(3+8\gamma^2)^2}\ell\ell^T\succeq0,
+ \quad \ell=\left(1,\frac{1-8\gamma^2}{2},-2\gamma\right)^T.
+\]
+The branches agree at the switching hyperplane. Splitting any connecting segment there proves global nonexpansiveness of $2\mathcal F_\gamma-I$, so the frozen map is firmly nonexpansive in this metric.
+
+Its fixed points are parameterized by
+\[
+ c_f^a=2\sqrt3j+2\gamma r+\sqrt3\xi\eta,\quad
+ (C_a,G_a,Q_0)=(c_f^a+3j/2,\gamma r-c_f^a/2+3j/2,r-6\gamma j),
+\]
+and the scalar complementarity conditions
+\[
+ d_*\leq0,\qquad r\geq3\xi^2,\qquad (r-3\xi^2)d_*=0.
+\]
+Thus there is a unique fixed point if $d_*<0$, a ray of fixed points if $d_*=0$, and no fixed point if $d_*>0$. The neutral charge has the exact increment
+\begin{equation}\label{eq:neutral}
+ (4\gamma C_a+Q_0)\circ\mathcal F_\gamma-(4\gamma C_a+Q_0)
+ =d_*+\max\{-\Lambda,0\}.
+\end{equation}
+For $d_*\leq0$, every frozen orbit converges to a fixed point by the firm Fejer inequality. For $d_*>0$, every frozen orbit has drift
+\[
+ \frac{\mathcal F_\gamma^k(z)}k\longrightarrow
+ \frac{d_*}{8\gamma^2+1}(2\gamma,0,1)^T.
+\]
+To prove the latter, the positive branch fixes $n=(2\gamma,0,1)^T$ linearly and contracts on its $W$-orthogonal complement. Solve its affine normal fixed equation and shift sufficiently far along $n$. This gives an exact ray orbit staying in that branch. Nonexpansiveness compares every other orbit to the ray.
+
+At $\gamma=1$, $\xi=0$, $\eta\ne0$, the smooth proposed target $j_\gamma$ has $d_*=(\sqrt3/2)\eta^2>0$. Therefore the separated proof cannot pass through that phase: the relevant frozen fast equilibrium does not exist. The parameters move along the actual orbit, and the $O(\tau)$ error is not automatically summable. No conclusion about the originally simulated small rational start follows from this frozen classification.
+
+The rational family nevertheless disproves the universally quantified last-step law. The universal replacement is the static-excess theorem, not a claim that every singular orbit has a limiting norm or bounded excess. The exact velocity theorem for convex forward--backward splitting uses a convex objective and a subgradient energy identity; a DRS center field need not have that structure. In the regular PSD case its leading field can be written as the saddle gradient of $\min_C\tr(H^{-1}CGC^*)$ over the affine cross-block space. The two signs, rather than convex descent of a single function, explain why a gradient-flow theorem cannot be imported without further work.
+
+\appendix
+\section{A conservative explicit rational-entry certificate}\label{app:witness}
+We include quantitative bounds because ``sufficiently large rational start'' is not a specified witness. No efficiency or practical size is claimed. Let
+\[
+ K_{\rm aux}=10^{10000},\quad B_*=10^{100000},\quad
+ C_*=B_*^{1000}=10^{100000000},\quad\tau_*=C_*^{-1000}.
+\]
+Use a thick chamber whose five target errors have radius at most $10^{-100}$, with $E\in[-3,0]$, amplitude in $[F_\gamma/4,2F_\gamma]$, $|f-9\sqrt3/64|\leq1$ and $|a_d|,|b_d|,|f_a|\leq K_{\rm aux}$. All other primitive parameters have modulus below $10$.
+
+Clear $3+8\gamma^2$ from each of the six graph equations. Together with the charge equation the seven polynomials involve 24 variables. Expansion gives term counts
+\[
+ (14,40,40,34,38,34,34),
+\]
+with total degrees $(8,8,8,8,7,8,8)$ and maximum rational coefficient $16$. These finite facts follow directly from \eqref{eq:riccati} and \eqref{eq:bcharge}, and are checked by the accompanying exact symbolic script. The loose bounds of 500 terms, degree 8 and coefficients 1000 suffice below.
+
+At $\tau=0$ the unknowns have modulus below $10$. The unscaled Jacobian determinant exceeds $1/100$ in modulus and its entries are below $100$; the adjugate bound gives inverse maximum-row-sum norm below $10^{20}$. Clearing denominators multiplies graph rows by $3+8\gamma^2\geq21$ and cannot enlarge that bound. On the complex box of coordinate modulus at most $10^{10001}$, all polynomial derivatives through order 8 are bounded by
+\[
+ 500\cdot1000\cdot8!\,(10^{10001})^8<B_*.
+\]
+Set $\rho=B_*^{-4}$. On parameter polydiscs of radius $\rho$, the fixed-base-Jacobian Newton map is a contraction on the unknown ball of radius $B_*^{-2}$: its derivative is at most
+\[
+ 24\cdot10^{20}B_*(B_*^{-2}+\rho)<1/2,
+\]
+and its center displacement is below $B_*^{-2}/2$. Uniform convergence gives a holomorphic graph on smaller discs. Ordinary transpose, not conjugate transpose, is used for this analytic complexification of the real matrix formulas.
+
+For reproducible remainder bounds, set
+\begin{gather*}
+ D_g=1+\tau(y^2+\omega^2)+\tau^2(x^2+z^2)+\tau^3(x\omega-yz)^2,\\
+ J_{00}=1+\tau\omega^2+\tau^2z^2,\quad
+ J_{01}=-\tau y\omega-\tau^2xz,\quad
+ J_{11}=1+\tau y^2+\tau^2x^2.
+\end{gather*}
+The negative spectral coefficient matrix is
+$\left[\begin{smallmatrix}n_{00}/t&tn_{01}\\tn_{01}&t^3n_{11}\end{smallmatrix}\right]$, where
+\begin{align*}
+ n_{00}&=\frac{(B_r-\tau hy-\tau^2Kx)J_{00}
+       +\tau(\eta-h\omega-\tau Kz)J_{01}}{D_g},\\
+ n_{01}&=\frac{(B_r-\tau hy-\tau^2Kx)(-y\omega-\tau xz)
+       +(\eta-h\omega-\tau Kz)J_{11}}{D_g},\\
+ n_{11}&=\frac{(\eta+\tau(\xi x-\chi y))(-y\omega-\tau xz)
+       +(-q+\xi z-\chi\omega)J_{11}}{D_g}.
+\end{align*}
+The physical negative part has entries
+\begin{align*}
+ s_{00}&=t^3(n_{00}x^2+2\tau n_{01}xz+\tau^2n_{11}z^2),\\
+ s_{01}&=t^2(n_{00}xy+\tau n_{01}(x\omega+yz)+\tau^2n_{11}z\omega),\\
+ s_{11}&=t(n_{00}y^2+2\tau n_{01}y\omega+\tau^2n_{11}\omega^2),\\
+ s_{02}&=-t(n_{00}x+\tau n_{01}z),\qquad
+ s_{12}=-(n_{00}y+\tau n_{01}\omega),\\
+ s_{06}&=-t^3(n_{01}x+\tau n_{11}z),\qquad
+ s_{16}=-t^2(n_{01}y+\tau n_{11}\omega),\\
+ s_{22}&=n_{00}/t,\qquad s_{26}=tn_{01},\qquad s_{66}=t^3n_{11}.
+\end{align*}
+The second block suppresses the sixth-coordinate couplings and reverses asymmetric signs. The positive part is $R+s$.
+
+On a smaller polydisc $|D_g-1|<1/2$, and the radial update factor $t/t'$ is within $1/2$ of one. All apparent divisions by $\tau$ in the scaled map are removable: for example $n_{00}-B_r$ and its first derivative vanish at zero, so $(n_{00}-B_r)/\tau^2$ is analytic. The largest further required divided derivative is third order, in the antisymmetric final diagonal. Cauchy estimates on successively halved discs bound the scaled updates by $B_*^{30}$, the charge update by $B_*^{70}$, and compositions with the targets and quartic correction by $B_*^{100}$. Derivatives and Lipschitz constants through the required orders are below $B_*^{200}<C_*$. The gaps in these exponents absorb all finite dimension factors and equivalence of the displayed weighted norms.
+
+Leading auxiliary resets are independent of their auxiliary inputs. Applying the same estimate with zero such inputs and $B_{\rm small}=10^{30}$ bounds them by $10^{6000}<K_{\rm aux}/2$. Hence their coarse box is invariant for sufficiently small $\tau$.
+
+Use the fine bounds
+\[
+ \norm{e_s}\leq C_*^2\tau,\quad |e_H|\leq C_*^4\tau,\quad
+ |e_\chi|\leq C_*^6\tau,\quad \norm{e_a}\leq C_*^{10}\tau,
+ \quad |e_j|\leq C_*^{14}\tau,
+\]
+and $|f-9\sqrt3/64|\leq C_*^8\tau$. At $\tau\leq\tau_*$ these lie well inside the thick chamber. The corresponding forcing bounds, in the order of \eqref{eq:hierarchy}, are
+\[
+ C_*\tau,\quad 2C_*^3\tau^2,\quad C_*\tau,\quad
+ 4C_*^7\tau,\quad5C_*^{11}\tau^2,
+\]
+whereas the fast margins are $10^{-4}$ times their fine radii and the slow margins are at least $\tau$ times their radii. The refined $f$ forcing is at most $3C_*^5\tau$. Every forcing and width change is below half the corresponding margin.
+
+The physical step bound is $\norm d_F\leq C_*^{20}t^3$, so $|\dd E|\leq C_*^{42}\tau^3$. Its total variation is below $10C_*^{42}\tau_0<1/10$. The corrected-amplitude remainder is at most $C_*^{50}\tau^3$, while the inward drift on the protective bands exceeds $10^{-7}\tau^2$. The small-eigenvalue margin exceeds $10^{-6}$ and the initial amplitude gap exceeds $10^{-6}$. All perturbations are smaller than half these margins for $\tau\leq C_*^{-1000}$.
+
+Finally, direct substitution of the rational start bounds its five errors and refined $f$ error by $10^6\tau_0^2$, and the charge and amplitude errors by $10^6\tau_0$. Thus
+\[
+ M\geq C_*^{500}=10^{50000000000}
+ \quad\Longrightarrow\quad \tau_0=M^{-2}\leq\tau_*.
+\]
+Every entry and trapping inequality follows. In particular $M=10^{10^{12}}$ specifies one exact rational witness for every rational parameter in the displayed interval. This is an analytic existence certificate, not a finite simulation or a practical complexity estimate.
+
+\section{Reproducibility and audit boundary}
+Three accompanying scripts use exact SymPy arithmetic:
+\begin{center}\texttt{gamma\_family\_algebra.py}\\
+\texttt{gamma\_spectral\_chart.py}\\
+\texttt{switching\_fast\_map.py}.\end{center} They verify the affine fast fixed point, Gram-defect minors, filter identity, quartic correction, Schur determinant, reconstruction of the weighted Riccati equations from the original reflected matrix, low-order spectral coefficients, and the switching neutral-charge identities. They do not replace the uniform analytic and first-exit arguments.
+
+The main mathematical dependencies are: semialgebraic one-variable Puiseux asymptotics; elementary nonexpansive comparison; cone projection complementarity; analytic matrix spectral subspaces separated by sign; and the explicit estimates displayed above. Historical priority remains a separate question. A fixed publication sample has been selected from two 2024--2025 issues per journal, but its full-proof comparisons and any defensible upper-quintile assessment are not complete. No probability of editorial acceptance is claimed.
+
+\begin{thebibliography}{9}
+\bibitem{BGV} J. Bolte, S. Gaubert and G. Vigeral, \emph{Definable zero-sum stochastic games}, Mathematics of Operations Research \textbf{40} (2015), 171--191. DOI: 10.1287/moor.2014.0666. Primary preprint: arXiv:1301.1967v2, Theorem 3.
+\bibitem{LRY} Y. Liu, E. K. Ryu and W. Yin, \emph{A new use of Douglas--Rachford splitting and ADMM for identifying infeasible, unbounded, and pathological conic programs}, Mathematical Programming \textbf{177} (2019), 225--253. Primary preprint: arXiv:1706.02374v3, Theorems 2.3, 2.5 and 2.6.
+\bibitem{DJK} T. Do, A. Jentzen and B. Kuckuck, \emph{On the gradient conjecture at infinity: Finite spherical length for gradient trajectories of definable potentials}, arXiv:2610.29211v2, revised 9 November 2026, Theorem 1.1.
+\bibitem{Ryu} E. K. Ryu, \emph{Cosmic divergence, weak cosmic convergence, and fixed points at infinity}, arXiv:1709.02838. This concerns the unrestricted cosmic-convergence question, not the rational affine--PSD last-step counterexample proved here.
+\end{thebibliography}
+\end{document}
