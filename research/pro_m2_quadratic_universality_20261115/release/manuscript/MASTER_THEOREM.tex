@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,geometry,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Rational Gram representations under a quadratic constraint},pdfsubject={Arithmetic classification, affine completion, and a product-cone universality boundary}}
+\geometry{margin=1in}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\newcommand{\Sym}{\mathbb S}\newcommand{\PSD}{\mathbb S_+}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}\newcommand{\spanof}{\operatorname{span}}
+\newcommand{\cone}{\operatorname{cone}}\newcommand{\ri}{\operatorname{ri}}
+\newcommand{\cl}{\operatorname{cl}}\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\diag}{\operatorname{diag}}\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\title{Rational Gram representations under a quadratic constraint\\\large Arithmetic local--global criteria, canonical completion domains,\\and a universality boundary for products of second-order cones}
+\author{Manuscript II research continuation}
+\date{15 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+For a rational quadratic form $q(x)=x^TQx$, we characterize every rational matrix admitting a sum of rational rank-one squares whose vectors satisfy $q\geq0$. Real feasibility is a positive-semidefinite constraint and one trace inequality. Rational feasibility differs only on the trace-zero face: after restricting $q$ to the range of the target, it is equivalent to isotropy over $\Q$ of the nondegenerate quotient, unless the restriction is zero. We extend the criterion to arbitrary rational affine completion problems by a maximal-rational-support construction and at most one quadratic-form isotropy decision. This produces a canonical arithmetic column domain that is a subspace or a quadratic cone, rather than a finite polyhedral union. For the standard Lorentz cone, every real-feasible rational matrix of rank at least five factors rationally, and explicit rank-four examples show sharpness. Exact spherical second-moment problems inherit the same local--global classification. An open-domain theorem separates constrained real width from unrestricted rational Gram width. Finally, two quadratic observations on a product of $2\times2$ positive-semidefinite cones encode arbitrary rational polynomial feasibility. Thus the single-quadratic result cannot simply be iterated through products. Proofs use quadratic zero sets, rational approximation, and classical arithmetic of quadratic forms; numerical tests do not substitute for these arguments.
+\end{abstract}
+\paragraph{Status and attribution.} This is a complete internal proof draft, not a claim of independently certified first priority, human review, or a journal percentile. Real rank-one generation, rational orthogonal density, rational-point algorithms, the Hasse--Minkowski principle, Meyer's theorem, and small-zero bounds are explicitly credited. The new assertions isolated for comparison are the constrained arithmetic classification, its affine-carrier form, and the precise product-cone reduction. The paper does not assert a new resolution or a current undecidability status for rational polynomial feasibility.
+\tableofcontents
+\input{01_arithmetic.tex}
+\input{02_lorentz.tex}
+\input{03_affine.tex}
+\input{04_open.tex}
+\input{05_universality.tex}
+\input{06_resources.tex}
+\input{07_sources.tex}
+\end{document}
