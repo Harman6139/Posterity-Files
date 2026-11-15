@@ -1,0 +1,255 @@
+\section{Every descending local rule: robust positive-definite nonmembers}\label{sec:alllocal}
+The preceding interior example concerns one shadow rule. We now prove the stronger local obstruction requested in the original problem: on a fixed nonsimplicial cone, every rule restricted to strictly objective-descending extreme tangent rays has an exponentially long forced prefix, even on positive-definite nonmembers. A fixed integral congruence makes every target entry positive. The separator is explicit and strictly positive on the column cone; no general elimination algorithm is needed to generate it.
+
+The local algorithm class is important. A step chooses an extreme ray of the current feasible tangent cone having strictly negative target pairing and moves to the exact adjacent vertex, unless that ray is itself a copositive separator. Vertex separation and current-normal-cone membership tests are permitted. Arbitrary separator searches, nonlocal jumps, and non-descending moves are not charged as steps in this class. The theorem does not prohibit these other operations; the explicit global certificate shows why they can be superior. Adaptive or randomized choices within the local class do not change the lower bound, since the improving extreme ray is unique throughout the prefix.
+
+\begin{lemma}[Integral gap off an exposed tangent face]\label{lem:integralgap}
+Let $T$ be a pointed rational polyhedral cone in coordinates with lattice $\Z^D$. Assume each extreme ray has a primitive integral generator $u$ satisfying $\norm u_\infty\le E$. Let $p\in T^*$ have coordinate denominators dividing an integer $q\ge1$. For fixed rational $v,w$, put $a_N=N^2p+Nv+w$. If $N\ge1$ and
+\[
+ N\ge 2qE(\norm v_1+\norm w_1),
+\]
+then $\langle a_N,u\rangle\ge N^2/(2q)>0$ on every extreme ray outside $T\cap p^\perp$. Therefore all descending extreme rays lie in that exposed face, where their signs are decided by $Nv+w$.
+\end{lemma}
+\begin{proof}
+On such an integral ray $\langle p,u\rangle$ is a positive multiple of $1/q$. The remaining pairing has absolute value at most $NE(\norm v_1+\norm w_1)$. Subtraction proves the bound. An extreme ray of a face is extreme in the original cone, and every extreme ray contained in a face remains extreme there.
+\end{proof}
+This elementary dominance observation is not claimed as a new general theorem of linear programming. Its role is to convert the rank-one normal structure and arithmetic ray-height bounds into a statement covering \emph{all} improving local choices. Exact restriction to the exposed face, rather than comparing shadow ratios, is the decisive step.
+
+\subsection{An explicit nonmember with a short strict certificate}
+Fix $r\ge2$, let $n=r+2$, $d=n(n+1)/2$, and retain
+\[
+ K=\{(t,z_1,\ldots,z_r,y):t,y\ge0,\ |z_i|\le t\}.
+\]
+Put $a=9/10$, $h=29/10$. For an integer $N\ge1$, define
+\begin{equation}\label{eq:allBN}
+ B_N=\begin{pmatrix}N^2D&Nc\\Nc\trans&h\end{pmatrix},\qquad
+ D=\diag(1,aI_r),\quad c=(1,a,-a,0,\ldots,0)\trans,\quad
+ A_N=\frac{B_N}{2nN^2}.
+\end{equation}
+Unambiguously, its $(t,z)$ principal block is $N^2\diag(1,aI_r)$, its $yy$ entry is $h$, and its cross vector with $y$ is $N(1,a,-a,0,\ldots,0)\trans$. All unspecified entries vanish.
+
+\begin{lemma}[Positive definiteness and separation]\label{lem:allsep}
+The matrix $B_N$ is positive definite with $\lambda_{\min}(B_N)\ge1/90$, and $\tr B_N\le2nN^2$. Nevertheless $B_N\notin C(K)$. There is a rational matrix $W_N$ with
+\begin{align}
+ W_N[x]&\ge\frac{3}{40nN^2}\norm x_2^2\quad(x\in K),\label{eq:allmargin}\\
+ \ip{W_N}{A_N}&\le-\frac{3}{40nN^2},\qquad \norm{W_N}_F<9.\label{eq:allpair}
+\end{align}
+Every entry of $B_N,A_N,W_N$ has $O_n(\log(N+1))$ binary height.
+\end{lemma}
+\begin{proof}
+Let $D=\diag(1,aI_r)$, $c=(1,a,-a,0,\ldots,0)\trans$, and $v=D^{-1}c=(1,1,-1,0,\ldots,0)\trans$. The Schur complement is
+\[
+ h-c\trans D^{-1}c=h-1-2a=1/10.
+\]
+In $B_1=C\trans\diag(D,1/10)C$ take $C=\left(\begin{smallmatrix}I&v\\0&1\end{smallmatrix}\right)$. Since $\norm{C^{-1}}_2\le1+\sqrt3<3$, $\lambda_{\min}(B_1)\ge1/90$. With $D_N=\diag(N,\ldots,N,1)$, we have $B_N=D_NB_1D_N$ and $\sigma_{\min}(D_N)\ge1$. The trace bound follows from
+\[
+ \tr B_N=(1+ar)N^2+h\le(0.9n+2.1)N^2\le2nN^2.
+\]
+
+On coordinates $(t,z_1,z_2,y)$ set
+\begin{equation}\label{eq:allQ}
+ Q=\begin{pmatrix}4&2&-2&0\\2&0&-2&-2\\-2&-2&0&2\\0&-2&2&1\end{pmatrix},
+\end{equation}
+with zero entries on the other coordinates. This is $M\trans H_5M$, where
+\[
+ M(t,z_1,z_2,y)=(t+z_1,t+z_2,t-z_1,t-z_2,y)\trans
+\]
+and $H_5=J-2\operatorname{Adj}(C_5)$ is the Horn form. Here is a self-contained copositivity proof. On the nonnegative simplex, maximize $\sum_i u_iu_{i+1}$ and choose a maximizer of minimal support. If two positive coordinates are nonadjacent, transferring their combined mass to the one with the larger neighbor sum does not decrease the objective and reduces support. Hence minimal support is a clique, of size at most two, and the maximum is $1/4$. Homogeneity gives $u\trans H_5u\ge0$. Since $M$ sends $K$ to the nonnegative orthant, $Q$ is $K$-copositive. The Horn form and this graph argument are classical ingredients.
+
+The diagonal map $D_N^{-1}$ preserves $K$. Thus $Q_N=D_N^{-\mathsf T}QD_N^{-1}$ is $K$-copositive and
+\[
+ \ip{Q_N}{B_N}=\ip Q{B_1}=4+h-8a=-3/10,
+ \qquad\norm{Q_N}_F\le\norm Q_F=\sqrt{57}<8.
+\]
+Take
+\begin{equation}\label{eq:allW}
+ W_N=Q_N+\eta_N I,\qquad\eta_N=\frac{3}{40nN^2}.
+\end{equation}
+The added pairing is at most $\eta_N\tr B_N\le3/20$. Dividing the resulting pairing $\le-3/20$ by $2nN^2$ proves \eqref{eq:allpair}; \eqref{eq:allmargin} is immediate. The norm and height assertions follow directly.
+\end{proof}
+
+\subsection{The entire tangent cone, not merely a shadow facet}
+Let
+\[
+ P_k=t^2-(2k+1)ty+(k^2+k+1)y^2\quad(k\ge1).
+\]
+As proved in Section~\ref{sec:paths}, these are perfect vertices of the generalized Ryshkov set. Their minimal integer vectors have $(t,y)=(1,0),(k,1),(k+1,1)$ with all integer $|z_i|\le t$. The common minima of $P_k$ and $P_{k+1}$ have $(t,y)=(1,0),(k+1,1)$. Their normals span a codimension-one space, and the consecutive edge has length one along
+\[
+ F_k=P_{k+1}-P_k,\qquad(F_k)_{ty}=-1,\quad(F_k)_{yy}=2(k+1).
+\]
+These facts can also be verified immediately from $P_k=(t-ky)^2-(t-ky)y+y^2$ and quadratic interpolation on the ternary boxes. In particular $P_k\succeq0$ as a matrix, although its ambient kernel contains the $z$ directions, which meet $K$ only at zero when $t=y=0$.
+
+Let $T_k$ be its feasible tangent cone. All active constraints are finite: $P_k$ is strictly positive on $K\cap\{\norm x=1\}$, so all potentially active lattice vectors in a neighborhood have bounded length. Consequently
+\[
+ T_k=\{R:R[v]\ge0\text{ for every }v\in\Min(P_k)\}
+\]
+is a pointed full-dimensional rational polyhedral cone.
+Define the tangent functional
+\begin{equation}\label{eq:allhzero}
+ h_0(R)=R_{tt}+a\sum_{i=1}^r R_{z_iz_i}.
+\end{equation}
+
+\begin{lemma}[Exact exposed tangent face]\label{lem:allface}
+On $T_k$ the functional $h_0$ is nonnegative. Its zero face consists exactly of forms
+\[
+ R=2bty+2y\ell\trans z+cy^2
+\]
+satisfying
+\begin{equation}\label{eq:allineq}
+ c+2k(b-\norm\ell_1)\ge0,\qquad
+ c+2(k+1)(b-\norm\ell_1)\ge0.
+\end{equation}
+In the coordinates $(b,\ell,c)$ this face is generated by
+\begin{equation}\label{eq:allgens}
+ F=(-1,0,2k+2),\quad G=(1,0,-2k),\quad
+ J_i^+=(1,e_i,0),\quad J_i^-=(1,-e_i,0).
+\end{equation}
+In particular every extreme ray in the face is proportional to one of these generators.
+\end{lemma}
+\begin{proof}
+Let the $Z_i$ be independent with probabilities $9/20,1/10,9/20$ at $-1,0,1$. Then
+\[
+ h_0(R)=\mathbb E R[1,Z,0].
+\]
+Every sampled vector is minimal at $P_k$, and every probability is positive. Thus $h_0\ge0$, and equality implies that the entire $(t,z)$ block of $R$ vanishes: a quadratic form vanishing on $t=1$, $z\in\{-1,0,1\}^r$ has all coefficients zero. Explicitly, values at $0,\pm e_i,e_i+e_j$ recover all coefficients.
+
+For the remaining form the constraints with $y=1,t=k$ or $k+1$ are minimized over the integer box by selecting $z_i=-t\operatorname{sign}\ell_i$. This gives exactly \eqref{eq:allineq}. To prove the generating statement, subtract $\sum_i|\ell_i|J_i^{\operatorname{sign}\ell_i}$. For $b'=b-\norm\ell_1$ the residual is
+\[
+ (b',0,c)=\alpha F+\gamma G,
+ \quad \alpha=\frac{c+2kb'}2\ge0,
+ \quad \gamma=\frac{c+2(k+1)b'}2\ge0.
+\]
+All displayed generators satisfy the constraints, completing both inclusions.
+\end{proof}
+
+\begin{lemma}[Arithmetic exclusion of competing rays]\label{lem:allexclude}
+Put
+\begin{equation}\label{eq:allEk}
+ E_k=(d-1)!\,[2(k+1)^2]^{d-1}.
+\end{equation}
+If $N\ge100E_k$, the ray $F_k$ is the unique extreme ray of $T_k$ with negative pairing against $B_N$.
+\end{lemma}
+\begin{proof}
+In upper-triangular matrix coordinates the integer normal of an active $v$ has diagonal entries $v_i^2$ and off-diagonal entries $2v_iv_j$. All have absolute value at most $2(k+1)^2$. An extreme ray has $d-1$ independent tight normals. Their signed maximal minors give a nonzero integral ray generator with entries bounded by $E_k$; division by a common gcd does not increase the bound. Choose the sign pointing into $T_k$.
+
+If $h_0(R)>0$, its rational denominator divides ten and this primitive integral normalization gives $h_0(R)\ge1/10$. Therefore
+\begin{align*}
+ \ip{B_N}{R}
+ &=N^2h_0(R)+2N(R_{ty}+aR_{z_1y}-aR_{z_2y})+hR_{yy}\\
+ &\ge N^2/10-(28/5)NE_k-(29/10)E_k\\
+ &\ge N^2/100>0.
+\end{align*}
+The last inequality uses $N\ge100E_k$ and $N\ge1$.
+
+On the zero face, use Lemma~\ref{lem:allface}. The costs of its generators are
+\[
+ \ip{B_N}{F}=-2N+2h(k+1)\le-N,
+ \qquad \ip{B_N}{G}=2N-2hk\ge N,
+\]
+\[
+ \ip{B_N}{J_i^\pm}=2N(1\pm c_i)\ge N/5,
+ \qquad(c_1,c_2,c_3,\ldots)=(a,-a,0,\ldots).
+\]
+Here $E_k\ge k+1$ and hence $k+1\le N/100$. Thus every extreme ray other than $F$ has positive cost. The ray $F$ is precisely the known edge ray $F_k$, so it is extreme and is the unique negative one.
+\end{proof}
+
+\subsection{Universal local lower bound and open-set robustness}
+For an integer $m\ge1$ choose
+\begin{equation}\label{eq:allN}
+ N=N(n,m)=100(d-1)!\,[2(m+1)^2]^{d-1}.
+\end{equation}
+Then the hypothesis of Lemma~\ref{lem:allexclude} holds simultaneously for $1\le k\le m$.
+
+\begin{theorem}[Robust all-descending-rule obstruction]\label{thm:alllocal}
+For each fixed $n\ge4$, the fixed nonsimplicial cone $K$ and fixed starting vertex $P_1$ have the following properties for every $m\ge1$ and $N$ given by \eqref{eq:allN}.
+
+Every target in the Frobenius ball
+\begin{equation}\label{eq:allball}
+ \norm{A-A_N}_F\le\varepsilon_N:=\frac1{2000n^2N^2}
+\end{equation}
+is positive definite, lies outside $C(K)$, and forces every strictly descending extreme-ray local algorithm to traverse the prefix
+\[
+ P_1,P_2,\ldots,P_{m+1}.
+\]
+The explicit $W_N$ is a strict separator throughout this ball, with
+\[
+ \ip{W_N}{A}\le-\frac3{80nN^2}.
+\]
+For rational $A_N$ the input length and binary inverse-distance condition are $O_n(\log(m+1))$, whereas every algorithm in the stated local class requires at least $m$ adjacent pivots. The construction and verification of $W_N$ take polynomial bit time in $n$ and $\log N$ for this family.
+
+Under the fixed integral unimodular map
+\begin{equation}\label{eq:allS}
+ S(t,z,y)=(t,z+2t\mathbf1,y+t)
+\end{equation}
+let $K'=SK$ and $\widehat A_N=SB_NS\trans/(6nN^2)$. Every matrix in the ball
+\begin{equation}\label{eq:allpositiveball}
+ \norm{\widehat A-\widehat A_N}_F\le\frac1{30000n^3N^2}
+\end{equation}
+has norm at most one, is positive definite and strictly entrywise positive, is outside $C(K')$, and forces the corresponding $m$-pivot prefix. The same fixed cone is used for all $m$. It is explicitly
+\[
+ K'=\{(t,z',y'):t\ge0,\ t\le z'_i\le3t,\ y'\ge t\}.
+\]
+A strict rational separator $\widehat W_N=S^{-\mathsf T}W_NS^{-1}$ satisfies throughout this ball
+\begin{equation}\label{eq:allfinalmargins}
+ \widehat W_N[x]\ge\frac3{200n^2N^2}\norm x^2\ (x\in K'),\quad
+ \ip{\widehat W_N}{\widehat A}\le-\frac1{80nN^2},\quad
+ \dist(\widehat A,C(K'))\ge\frac1{3600n^2N^2}.
+\end{equation}
+The generalized cone $C(K')$ must not be confused with ordinary $\CP_n$: in dimension four these strictly positive matrices can be ordinary completely positive matrices while admitting no factor with columns constrained to $K'$.
+\end{theorem}
+\begin{proof}
+For the unperturbed target, uniqueness in Lemma~\ref{lem:allexclude} forces induction along the exact neighboring edges. At $P_k$ the sole improving ray is not $K$-copositive: $F_k[k+2,0,1]=-2$. No current vertex is a separator, since $P_k\succeq0$ is nonzero and the target is positive definite. A negative feasible tangent pairing also excludes membership in the current minimizing normal cone. Thus none of the stated local stopping tests can terminate the prefix.
+
+We verify robustness for \emph{every} competing extreme ray. In primitive integral normalization, an outside-face ray has $\norm R_F\le nE_k\le nN/100$ and normalized positive pairing at least $1/(200n)$. Its pairing change under \eqref{eq:allball} is at most $nE_k\varepsilon_N$, strictly smaller than that positive margin. On the zero face the generators $F,G$ have norm at most $3(k+1)\le3N/100$, and their normalized costs have absolute value at least $1/(2nN)$ with opposite signs. The generators $J_i^\pm$ have norm two and normalized positive costs at least $1/(10nN)$. The same perturbation bound preserves all signs. Thus uniqueness holds for the perturbed objective at every vertex in the prefix.
+
+The lower eigenvalue bound becomes $\lambda_{\min}(A_N)\ge1/(180nN^2)>\varepsilon_N$, so the perturbation remains positive definite. Equations \eqref{eq:allpair} and $\norm{W_N}_F<9$ give
+\[
+ \ip{W_N}{A}\le-\frac3{40nN^2}+9\varepsilon_N\le-\frac3{80nN^2}.
+\]
+This proves nonmembership and the separator assertion for the whole ball.
+
+The map $S$ and its inverse have squared Frobenius norm $5n-7$, and hence squared operator norm at most $5n$. It is integral unimodular, so it bijects the relevant lattice vectors, vertices, tangent extreme rays, and adjacent edges. Also
+\[
+ \widehat A_N=\tfrac13 SA_NS\trans.
+\]
+A perturbation in \eqref{eq:allpositiveball} pulls back, after multiplying by three, to one of size at most $15n/(30000n^3N^2)=\varepsilon_N$. Therefore all local signs and positive-definiteness conclusions persist. The explicit entries of $SB_NS\trans$ are positive: $tz_i'=2N^2$, $ty'=N^2+N$, $z_i'z_j'=4N^2$ for $i\ne j$, and $z_i'y'=2N^2+(2+c_i)N$. The diagonal entries are also at least $N^2$. Hence every normalized entry is at least $1/(6n)$, far exceeding the allowed perturbation. Moreover
+\[
+ \tr(SB_NS\trans)\le(4.9n-2.9)N^2,
+\]
+so $\norm{\widehat A_N}_F\le49/60$ and the whole perturbation ball has norm less than one.
+
+The cone margin of the transformed separator is at least $\eta_N/\norm S_2^2\ge3/(200n^2N^2)$. Pairing is congruence invariant and incurs the factor $1/3$, giving $-1/(80nN^2)$. Its norm is at most $5n\cdot9=45n$, so separation gives the distance bound in \eqref{eq:allfinalmargins}.
+
+Finally,
+\[
+ \log_2N=\log_2(100(d-1)!)+(d-1)+2(d-1)\log_2(m+1).
+\]
+Thus all entries, visited vertices, rays, and the explicit separator have $O_n(\log(m+1))$ height. The inverse-distance logarithm has the same order. The matrix identities and the Horn pullback, rather than an exhaustive grid, verify the global certificate in polynomial bit time. For instance, schoolbook rational matrix arithmetic gives a conservative $O(n^3(1+\log N+\log n)^2)$ bound with fixed-denominator formula storage. Constructing $N$ from $m$ also has polynomial cost in its output bit length. Taking $m=2^B$ proves exponential dependence on binary input precision for every rule in the specified class.
+\end{proof}
+
+\subsection{A matching growth class for the shadow rule}
+For completeness the same cone has a single-exponential upper bound for the fixed-anchor shadow rule, using the inherited sharp lattice estimate. Let $J=2\cdot3^r+5^r=|\Min(P_1)|$ and let $C_0$ be the full-minimum anchor. For every $Q\in C(K)^*$,
+\begin{equation}\label{eq:allcoercive}
+ \norm Q_F\le2n\ip{C_0}{Q}.
+\end{equation}
+Indeed set $T=\ip{C_0}{Q}$; all summands $Q[v]$ are nonnegative. The values at $(1,0,0),(1,\pm e_i,0),(1,e_i+e_j,0)$ recover the $(t,z)$ block with entry magnitudes at most $T$. If $s_1=Q[1,0,1]$, $s_2=Q[2,0,1]$, and $a_0=Q[1,0,0]$, then
+\[
+ Q_{ty}=(s_2-s_1-3a_0)/2,\qquad Q_{yy}=2s_1-s_2+2a_0.
+\]
+Finally $2Q_{z_iy}=Q[1,e_i,1]-Q[1,e_i,0]-s_1+a_0$. These values are all in the anchor; every matrix entry is bounded by $2T$, proving \eqref{eq:allcoercive}.
+
+Let $\norm A_F\le1$ and $\delta=\dist(A,C(K))>0$. The usual shadow invariant is $C_0+\lambda A$ in the minimizing normal cone. A unit separating form gives $\lambda\le\norm{C_0}_F/\delta\le4nJ/\delta$. At a nonterminal vertex, $\ip AP\ge0$; comparison with $P_1$, whose norm is less than four, yields $\ip{C_0}P\le17nJ/\delta$. Thus
+\[
+ \norm P_F\le M:=34n^2J/\delta.
+\]
+The cone generators have squared norm at most $n$. Theorem~\ref{thm:lattice} gives an active-vector squared-length bound
+\[
+ U=8n^3(16n^3M)^{n-1}.
+\]
+There are at most $(3\sqrt U)^n$ candidate integer normals, and every vertex is determined by $d$ independent ones. Strict objective descent excludes repetition. Hence the number of pivots is at most
+\[
+ (3\sqrt U)^{nd}=2^{O_n(1+\log(1/\delta))}.
+\]
+The last departure vertex is included; no bound on a terminal endpoint is silently required. Together with Theorem~\ref{thm:alllocal}, this establishes a sharp single-exponential worst-case growth \emph{class} for the shadow rule on this fixed cone. The numerical exponent $1/[2(d-1)]$ in the lower bound is a conservative cofactor exponent, not an optimal constant or optimal dimension dependence.
+
+The earlier carrier theorem supplies the general global fixed-dimensional certification principle. The present theorem strengthens its algorithmic contrast: a concrete rank-one exposing average and an integral gap confine \emph{every} local improving ray to one tangent face, while a strict separator of logarithmic height is immediately available globally. This does not turn a pivot lower bound into information-theoretic hardness, and it does not claim that no nonlocal algorithm can succeed.
