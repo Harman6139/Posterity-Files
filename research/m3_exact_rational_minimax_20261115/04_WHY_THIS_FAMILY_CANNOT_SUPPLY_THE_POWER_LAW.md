@@ -29,13 +29,13 @@ Thus this family cannot yield the original polynomial-threshold lower bound by s
 
 ## 3. Independent copies do not amplify sequential query hardness
 
-For a known separable sum sum_i A_i H_(w_i)(x_i), one vector query gives EVERY coordinate gradient. The prefix probes for all copies can therefore be performed simultaneously. After T queries each copy has either been fully identified or has core value at most A_i v0 eta^T. Total core error is at most
+Consider a known separable sum sum_i A_i H_(w_i)(x_i), with A_i>0 and nonempty hidden words. One vector query gives EVERY coordinate gradient. The prefix probes for all copies can therefore be performed simultaneously. After T queries each copy has either been fully identified or has core value at most A_i v0 eta^T. Total core error is at most
 
     v0 eta^T sum_i A_i.
 
-When the copies start at zero and the total initial objective is at most one, sum_i A_i is bounded by 1/v0. Thus direct sums retain exponential decay in T. Merely increasing the number of independent scalar hard cores does not produce the desired sequential power-law lower bound in a full-gradient oracle model.
+When the copies start at zero and the total initial objective is at most one, sum_i A_i is bounded by 1/v0. Thus these separable direct sums retain exponential decay in T. Merely increasing the number of independent scalar hard cores does not produce the desired sequential power-law lower bound in a full-gradient oracle model.
 
-This statement concerns the displayed separable construction, irrespective of whatever valid common isometric padding is used. It does not rule out a genuinely coupled higher-dimensional family.
+This statement is for the displayed separable objective. Any extension with additional padding must separately verify that the chosen prefix comparators have zero or controlled padding loss. No transfer through arbitrary coupled padding is asserted. In particular, the argument does not rule out a genuinely coupled higher-dimensional family. This qualification replaces an overbroad padding sentence in the initial version of this checkpoint; the exact minimax and deterministic family results are unchanged.
 
 ## 4. Spatial rescaling alone does not change this conclusion
 
@@ -45,4 +45,4 @@ More generally, in an equal-scale binary interval recursion, two disjoint childr
 
 ## 5. Consequence for the next proof obligation
 
-The original sharp lower bound cannot be obtained by renaming this logarithmic theorem, increasing its depth, making independent copies, or rescaling it within the stated normalization. A successful continuation must supply a qualitatively different optimization-relevant hiding mechanism whose energy barrier remains polynomial in the number of sequential revelations, or a universal upper theorem showing that such a mechanism is impossible in the entire rational conic class. Neither universal alternative has been established.
+The original sharp lower bound cannot be obtained by renaming this logarithmic theorem, increasing its depth, taking the displayed separable direct sums, or rescaling it within the stated normalization. A successful continuation must supply a qualitatively different optimization-relevant hiding mechanism whose energy barrier remains polynomial in the number of sequential revelations, or a universal upper theorem showing that such a mechanism is impossible in the entire rational conic class. Neither universal alternative has been established.
