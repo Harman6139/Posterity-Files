@@ -1,0 +1,40 @@
+{
+  "verification": {
+    "status": "PASS",
+    "families": 6,
+    "exact_vertex_facet_checks": 15,
+    "deliberate_corruptions_rejected": 5,
+    "sha256": "a1a98b26d1088df503c1ea16d56c40566093ef470cb259f41c788f080a47dbb7",
+    "largest_forced_prefix": 18446744073709551616,
+    "scope": "Independent code path, exact rational arithmetic, no generator imports. Not human review, formal proof, or a simulated long trajectory."
+  },
+  "additional_checks": {
+    "status": "PASS",
+    "families": 6,
+    "facet_entries_checked": 374,
+    "ray_correction_cases": 15,
+    "scope": "Exact finite checks of the universal analytical facet-product and ray-correction corollaries"
+  },
+  "clean_rebuild": {
+    "status": "PASS",
+    "test": "Clean repository-layout rebuild from inherited baseline plus new sources",
+    "sources": [
+      {
+        "file": "MASTER_THEOREM.tex",
+        "identical": true,
+        "sha256": "a0aeb9671ea4137a87dd573830b5dd408ce5c58aa48b2f2700b33e77c4297978"
+      },
+      {
+        "file": "MASTER_THEOREM_standalone.tex",
+        "identical": true,
+        "sha256": "04acc78b83968cc3bbc0f111d74c8df803a802f7101fec5714fc0d7444ba5dc1"
+      },
+      {
+        "file": "ALL_LOCAL_THEOREM.tex",
+        "identical": true,
+        "sha256": "dcbc00de25b1572a8c3cbf81a9320d9d90f39a4237f3967ffd7f6d64c0873d8f"
+      }
+    ],
+    "certificate_sha256": "a1a98b26d1088df503c1ea16d56c40566093ef470cb259f41c788f080a47dbb7"
+  }
+}
