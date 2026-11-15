@@ -1,0 +1,141 @@
+\section{Exact observations and every rational regularization direction}\label{sec:directions}
+Let $A\in C(P)\cap H$ be rational and let $E$ be the direction space of $H$.
+
+\begin{theorem}[Structured rational regularization]\label{thm:regularize}
+There exists $D\in E\cap\Ssym^n(\Q)$ such that $A+tD\in\GG(P)$ for every rational $0<t\le1$ if and only if
+\[
+ A\in C(\AC(P,H))\cap H.
+\]
+When the carrier is empty the condition is false. When it holds one may take $D=X_0-A$, where $X_0$ is the rational reserve completion of Theorem~\ref{thm:main}.
+\end{theorem}
+\begin{proof}
+Necessity is \eqref{eq:closure}. For sufficiency, every positive point on the segment from $A$ to $X_0$ belongs to $\ri C(\AC)$, is rational for rational $t$, and lies in $H$. Apply Lemma~\ref{lem:interior}.
+\end{proof}
+
+This criterion decides the existence of a fixed perturbation direction, rather than merely a sequence of unrelated rational approximants. An individual prescribed direction admits an exact test as well.
+
+\begin{theorem}[Prescribed-direction criterion]\label{thm:individual}
+Let $D\ne0$ be rational and apply the carrier algorithm to $H_D=A+\R D$. If the output is nonempty, define the closed interval
+\[
+ I_D=\{t\in\R:A+tD\in C(\AC(P,H_D))\}.
+\]
+Then $A+tD$ has permitted rational Gram columns for every sufficiently small positive rational $t$ if and only if $0\in I_D$ and $I_D$ contains a positive point. For $D=0$, the condition is exactly $A\in\GG(P)$.
+\end{theorem}
+\begin{proof}
+The closure of the rational feasible parameter set is $I_D$, by \eqref{eq:closure} and the homeomorphism between the line and $\R$. The parameter set is closed under rational convex combinations, by Lemma~\ref{lem:reserve}. Every rational parameter in the interior of $I_D$ can be bracketed by two rational feasible parameters; interpolation with a rational coefficient proves its feasibility. The stated interval condition puts all sufficiently small positive parameters in that interior. Necessity follows by taking limits and one positive feasible parameter.
+\end{proof}
+
+\begin{corollary}[Completion and coefficient-constrained squares]\label{cor:applications}
+The carrier algorithm decides rational Gram completion with arbitrary rational prescribed entries and rational polyhedral restrictions on each factor column. It also decides rational sum-of-squares representation with rational affine conditions on the resulting polynomial and with each summand's coefficient vector constrained to a prescribed finite union of rational polyhedral cones. The same carrier gives the exact regularization and insertion criteria in both settings.
+\end{corollary}
+\begin{proof}
+Matrix entries are linear measurements. For a fixed monomial vector $v(x)$, the coefficient vector of $v(x)\trans Xv(x)$ is a rational linear function of $X$. A decomposition $X=\sum u_ju_j\trans$ is exactly the polynomial representation $\sum (u_j\trans v(x))^2$. Apply the main theorem to those measurements and column domains.
+\end{proof}
+
+The unstructured sum-of-squares case is classical~\cite{SEDZ,Scheiderer}; the assertion here retains arbitrary polyhedral constraints on the coefficients of the individual squares. Likewise, for nonnegative columns a prescribed zero $X_{ij}=0$ forces $u_i u_j=0$ columnwise. A graph zero pattern can therefore be incorporated by a union of rational coordinate cones on the permitted cliques. This implication is not used for signed columns, where cancellation may occur.
+
+\section{Descent from totally real fields}\label{sec:descent}
+The relevant descent is not obtained by averaging admissible columns: a field embedding can violate their cone inequalities.
+
+\begin{theorem}[Polyhedrally constrained totally real descent]\label{thm:descent}
+A rational affine Gram problem $(P,H)$ has a rational permitted Gram solution if and only if it has a solution whose columns belong to a finite totally real number field. The columns are unweighted Gram columns; alternatively, one may allow weights that are totally positive in that field. Positivity in only the selected embedding is not sufficient for the weighted version.
+\end{theorem}
+\begin{proof}
+Only the reverse implication requires proof. Let $E$ be totally real and let $X=\sum_jx_jx_j\trans\in H$ be a surviving $E$-valued factorization at a step of the carrier algorithm. For each $j$ choose the minimal current polyhedral face $F_j$ containing $x_j$. The selected exposer $W$ has zero value at every $x_j$, and is positive semidefinite on $\lin F_j$ by Lemma~\ref{lem:stationarity}.
+
+Every embedding $\sigma:E\to\R$ sends $x_j$ into the same rational linear span, although it need not preserve the face inequalities. The matrix
+\[
+ \overline X=\frac1{[E:\Q]}\sum_\sigma\sum_j\sigma(x_j)\sigma(x_j)\trans
+\]
+is rational, belongs to $H$, and lies in the current rational matrix span. Hence $\ip{W}{\overline X}=0$. Every term is nonnegative by the positive-semidefinite restrictions just established. Consequently those restrictions annihilate every conjugate $\sigma(x_j)$.
+
+Expand $x_j$ in a rational basis of $E$. The embedding matrix is nonsingular, so the real span of the conjugates equals the real span of its rational coefficient vectors. The restricted $W$ annihilates each coefficient vector. Expanding $W$ in its own irreducible number-field basis then shows that all rational coefficient-kernel equations \eqref{eq:DF} annihilate these vectors. Therefore the original $x_j$ lies in the replacement domain. The whole factorization survives every step; no real-feasibility test becomes empty. At the nonempty terminal stage Lemma~\ref{lem:interior} and rational affine density give a rational solution.
+
+With totally positive weights, insert their positive conjugates in the trace sum. Each term remains nonnegative, and the same conclusion holds. The forward implication uses the field $\Q$.
+\end{proof}
+
+Unconstrained totally real descent is due to Hillar, Quarez and the trace-form treatment of Scheiderer~\cite{Hillar,Scheiderer}. The preceding proof uses that trace argument only after facewise stationarity makes conjugation harmless on the appropriate linear spans.
+
+\begin{example}[Real feasibility without a rational completion]\label{ex:arithmetic}
+Consider the rational affine line
+\[
+ A(t)=\diag\left(\begin{pmatrix}t&2\\2&2t\end{pmatrix},\begin{pmatrix}2&t\\t&1\end{pmatrix}\right).
+\]
+Positive semidefiniteness forces $t\ge0$, $2t^2-4\ge0$, and $2-t^2\ge0$, hence $t=\sqrt2$. At that parameter the nonnegative columns
+\[
+ (2^{1/4},2^{3/4},0,0)\trans,\qquad(0,0,\sqrt2,1)\trans
+\]
+give a real Gram completion. There is no rational matrix in the feasible fiber.
+
+An exact exposer is
+\[
+ W=\diag\left(\begin{pmatrix}2&-\sqrt2\\-\sqrt2&1\end{pmatrix},
+ \begin{pmatrix}\sqrt2&-2\\-2&2\sqrt2\end{pmatrix}\right).
+\]
+Both blocks are positive semidefinite of rank one, and $\ip{W}{A(t)}=0$ identically. In $W=W_0+\sqrt2W_1$, $\det W_0=-8$. Thus its rational zero space is $\{0\}$, and one arithmetic reduction proves infeasibility over $\Q$.
+
+This example also rules out arbitrary positive weights in the totally real extension $\Q(\sqrt2)$: the first block equals $\sqrt2(1,\sqrt2)\trans(1,\sqrt2)$, whose weight changes sign under the second embedding. The unweighted Gram factor requires a non-totally-real extension. Finally, no separator from the original real cone can certify this arithmetic failure, because the real fiber is nonempty.
+\end{example}
+
+\section{Observation coercivity and the corrected Farkas alternatives}\label{sec:observation}
+An arithmetic obstruction, ordinary strong infeasibility, and weak infeasibility must not be merged into a single strict-separation claim. For nonzero $C=C(P)$ define
+\begin{equation}\label{eq:beta}
+ \beta(P,\mathcal L)=\min\{\norm{\mathcal L(X)}_2:X\in C,\ \tr X=1\}.
+\end{equation}
+
+\begin{proposition}[Exact observation condition]\label{prop:beta}
+The following are equivalent: $\beta>0$; $\ker\mathcal L\cap C=\{0\}$; some $\mathcal L^*y$ is strictly positive on every nonzero permitted vector; and a finite lift bound $\tr X\le\kappa\norm{\mathcal L(X)}_2$ holds on $C$. The best such $\kappa$ is $1/\beta$. Moreover
+\begin{equation}\label{eq:betadual}
+ \beta=\max_{\norm{y}_2\le1}\ \min_{x\in P,\ \norm{x}_2=1}x\trans\mathcal L^*(y)x.
+\end{equation}
+When $\beta>0$, the image $\mathcal L(C)$ is closed.
+\end{proposition}
+\begin{proof}
+The image $B=\mathcal L(\{X\in C:\tr X=1\})$ is compact and convex. Let $z$ be its closest point to zero. If $z\ne0$, the projection inequality gives $\ip{z/\norm z}{b}\ge\norm z$ for every $b\in B$. Cauchy--Schwarz at $z$ proves the reverse inequality in the max--min formula. If $z=0$, the maximum is zero, attained by $y=0$. Minimizing a linear functional on the Gram base is the same as minimizing on normalized atoms. Homogeneity proves the equivalences and the optimal lift constant. A convergent sequence of observations has bounded trace under that constant. Since Gram matrices are positive semidefinite, their Frobenius norms are bounded by trace; closedness and a subsequence give a lift of the limit.
+\end{proof}
+
+These convex identities are classical separation consequences, included to identify the exact assumption required by a quantitative dual certificate.
+
+\begin{proposition}[Strict rational observation certificate]\label{prop:strictsep}
+Suppose $\beta>0$, $\norm b_2\le1$, and $\delta=\dist(b,\mathcal L(C))>0$. There is rational $\widehat y$ such that
+\[
+ \ip{\widehat y}{b}\le-3\delta/4,\qquad
+ x\trans\mathcal L^*(\widehat y)x\ge\delta\beta\norm{x}_2^2/16\quad(x\in P).
+\]
+A rational rounding tolerance with logarithm of reciprocal
+\[
+ O\bigl(\log(m+1)+\log(1/\delta)+\log^+(1/\beta)+\log^+\norm{\mathcal L}\bigr)
+\]
+suffices. Supplied rational lower bounds for the positive quantities give explicit rational margins.
+\end{proposition}
+\begin{proof}
+Projection onto the closed cone $\mathcal L(C)$ gives a unit $y$ in its dual with $\ip yb=-\delta$. By \eqref{eq:betadual}, choose unit $y_0$ whose adjoint has cone margin $\beta$. For $t=\delta/8$, $y+ty_0$ has target pairing at most $-7\delta/8$ and cone margin at least $\delta\beta/8$. Round it rationally in Euclidean norm with error at most
+\[
+ \min\{\delta/8,\ \delta\beta/[16\max(1,\norm{\mathcal L})]\}.
+\]
+The asserted inequalities follow from Cauchy--Schwarz and the adjoint operator norm. Coordinate rounding incurs an additional $O(\log(m+1))$ bits. The unrounded norm is bounded, so these denominator bits also bound numerator bits.
+\end{proof}
+
+\begin{example}[Two distinct failures of unconditional strict separation]\label{ex:weak}
+For $P=\R_+^2$, $\mathcal L(X)=X_{11}$ and $b=-1$, the image is closed and the problem is strongly infeasible. Nevertheless every observation-supported separator is $\diag(y,0)$ and has zero margin at $e_2$. Thus a positive cone margin cannot be required without additional observability, even in a strongly infeasible problem.
+
+For $\mathcal M(X)=(X_{11},X_{12})$, the target $(0,1)$ has no positive-semidefinite lift, but is approached by the completely positive matrices
+\[
+ \begin{pmatrix}\varepsilon&1\\1&1/\varepsilon\end{pmatrix},\quad\varepsilon>0.
+\]
+This is weak infeasibility of a nonclosed image, so no strict separating functional exists. Both examples differ from Example~\ref{ex:arithmetic}, which is real feasible.
+\end{example}
+
+\begin{corollary}[Partial Gram completion with observed diagonal]\label{cor:diagonal}
+If the observation list contains every diagonal entry, then $\beta\ge1/\sqrt n$ (for the unweighted Euclidean list containing those entries). The real completion image is closed. Consequently rational partial data have the following exact trichotomy: a rational permitted Gram completion; a real completion but an arithmetic obstruction chain to rational completion; or real infeasibility with a rational observation-supported strictly positive cone separator. In each fixed dimension the alternatives are effective with the bounds of Section~\ref{sec:complexity}.
+\end{corollary}
+\begin{proof}
+For $X\succeq0$ of trace one, $\norm{\mathcal L(X)}_2\ge\norm{\diag X}_2\ge1/\sqrt n$. Apply Theorem~\ref{thm:main} and Propositions~\ref{prop:beta}--\ref{prop:strictsep}, rescaling $b$ by a positive rational number first if its norm exceeds one.
+\end{proof}
+
+A total finite-precision alternative also allows exact side constraints. First compute the carrier for a rational affine $H_0$. If it is empty, return its arithmetic obstruction. Otherwise decide
+\begin{equation}\label{eq:tolerance}
+ X\in C(\AC(P,H_0))\cap H_0,\qquad\norm{\mathcal M(X)-b}_2<\rho,
+\end{equation}
+where $\rho>0$ is rational. If feasible, \eqref{eq:closure} and openness of the last inequality give a rational Gram completion satisfying $H_0$ exactly and the tolerance strictly. It can be constructed by moving slightly toward a terminal reserve point and repairing observations as in the next section. If infeasible, every rational completion in $H_0$ has error at least $\rho$. This disjoint, exhaustive alternative does not confuse an approximate factor with exact membership and remains valid for nonclosed observation images.
+
