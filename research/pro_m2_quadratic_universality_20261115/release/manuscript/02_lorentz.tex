@@ -1,0 +1,56 @@
+\section{Lorentz cones, a sharp rank threshold, and exact spherical moments}
+Let $J_n=\diag(1,-1,\ldots,-1)$ and $\mathbb L^n=\{x:x_0\geq\sqrt{x_1^2+\cdots+x_{n-1}^2}\}$. The domain $P_{J_n}$ is the union of the two Lorentz nappes. Replacing a column by its negative does not change its square, and a nonzero null or timelike vector has nonzero time coordinate. Thus rational and real factorizations over $P_{J_n}$ and $\mathbb L^n$ are equivalent, with the same widths.
+
+\begin{theorem}[Complete rational Lorentz criterion]\label{thm:lorentz}
+Let $A\in\Sym^n(\Q)$ satisfy $A\succeq0$ and $\ip{J_n}{A}\geq0$. If the pairing is positive, $A$ has a rational Lorentz factorization. On the trace-zero face, let $V=\range A$. If the restricted form is zero, factorization also holds. Otherwise that restriction is nondegenerate of signature $(1,r-1)$, and rational Lorentz factorization is equivalent to its rational isotropy. In particular every such $A$ of rank at least five factors rationally. Failure is possible at each of ranks two, three, and four. The threshold five is optimal uniformly over matrix order.
+\end{theorem}
+\begin{proof}
+Only the nondegeneracy assertion is additional to Theorem~\ref{thm:main}. A nonzero trace-zero restriction is indefinite, so $V$ contains a timelike vector $v$. The orthogonal complement of $v$ for the Lorentz form is negative definite. If a vector is in the radical of the restriction to $V$, it lies in this orthogonal complement and has quadratic value zero; it must therefore be zero. There can be at most one positive direction. Apply Corollary~\ref{cor:localglobal}.
+\end{proof}
+
+\paragraph{Rank two.}
+Take
+\[
+ A_2=\begin{pmatrix}2&0&0\\0&1&1\\0&1&1\end{pmatrix}.
+\]
+Its range is $\{(t,u,u)\}$, and the restricted Lorentz form is $t^2-2u^2$. It has no nonzero rational zero. Nevertheless $A_2\succeq0$ and $\ip{J_3}{A_2}=0$, so it is real-feasible. Its two real columns can be $(1,\pm1/\sqrt2,\pm1/\sqrt2)^T$.
+
+\paragraph{Rank three.}
+Let $B_3(t,u,v)=(t,u,u,v,v,v)$ and set $A_3=B_3\diag(5,1,1)B_3^T$. The restricted form is $t^2-2u^2-3v^2$. If an integral primitive vector were null, reduction modulo three would force $3\mid t,u$. The equation would then force $3\mid v$, a contradiction. Thus no rational permitted factor exists. An explicit real representation uses the four coefficient columns $(1,\pm1/\sqrt2,0)$ and $(\sqrt{3/2},0,\pm1/\sqrt2)$, mapped by $B_3$.
+
+\paragraph{Rank four.}
+The particularly small example
+\[
+ A_4=\begin{pmatrix}
+48&36&0&0&0\\36&27&0&0&0\\
+0&0&7&0&0\\0&0&0&7&0\\0&0&0&0&7
+\end{pmatrix}
+\tag{R4}\label{eq:r4}
+\]
+has rank four and $\ip{J_5}{A_4}=0$. A rational range basis maps $(t,u,v,w)$ to $(4t,3t,u,v,w)$, so the restricted form is $7t^2-u^2-v^2-w^2$. A primitive integral zero cannot have odd $t$, since three squares cannot sum to seven modulo eight. If $t$ is even, reduction modulo four forces $u,v,w$ even as well, again contradicting primitiveness. It has no rational nonzero null vector. The six real columns $(2\sqrt2,3/\sqrt2,\pm\sqrt{7/2}e_i)$, $i=1,2,3$, do give the matrix. None of these examples contradicts the orthant theorems: their individual columns are constrained to a different cone.
+
+\begin{corollary}[Totally-real descent already fails on a curved cone]
+The rank-two matrix $A_2$ above has a Lorentz factorization over the totally real field $\Q(\sqrt2)$ but has no rational Lorentz factorization of any finite width.
+\end{corollary}
+\begin{proof}
+Its two displayed real columns belong to $\Q(\sqrt2)^3$. The field has two real embeddings, so it is totally real. The anisotropic range restriction already excludes all rational factorizations.
+\end{proof}
+Thus the earlier polyhedral constrained totally-real descent theorem cannot be extended to curved domains without a new hypothesis. The arithmetic local--global condition on the restricted quadratic form is the corrected criterion; the name or signature of a factor field alone is not sufficient.
+
+\subsection{An exact second-moment classification}
+For rational $\mu\in\Q^k$ and $S\in\Sym^k(\Q)$ put
+\[
+ M=\begin{pmatrix}1&\mu^T\\\mu&S\end{pmatrix}.
+\]
+A finite probability law supported on the unit ball, with first moment $\mu$ and second moment $S$, exists exactly when $M\succeq0$ and $\tr S\leq1$. For the unit sphere replace the last inequality by equality. This follows from Lemma~\ref{lem:balance}: orient each nonzero Lorentz column $(t,z)$ with $t>0$, and assign probability $t^2$ to $z/t$. Conversely a finite law is a Gram representation using columns $\sqrt p(1,z)$. The same equivalence holds for rational support and rational probabilities versus weighted rational Gram representations. Unweighted rational columns follow from four squares if needed.
+
+\begin{corollary}[Rational spherical moments]\label{cor:sphere}
+Assume $M\succeq0$ and $\tr S=1$. The prescribed moments have a finite realization on rational sphere points with rational probabilities if and only if the restricted Lorentz form on $\range M$ is zero or is isotropic over $\Q$. They always have such a realization when $\rank M\geq5$. For $\tr S<1$ there is always a rational realization supported strictly inside the ball.
+\end{corollary}
+The rank-four obstruction is geometrically transparent. Divide \eqref{eq:r4} by $48$. It prescribes first moment $(3/4,0,0,0)$ and second moments $\diag(9/16,7/48,7/48,7/48)$. Zero variance in the first coordinate forces every atom to have that coordinate $3/4$. The remaining coordinates must satisfy
+\[
+ z_2^2+z_3^2+z_4^2=7/16.
+\]
+There is a real six-atom law, but no rational point on this required latitude. Thus rational moment data and real feasibility do not by themselves give rational atoms, even on a smooth sphere.
+
+The same theorem covers an arbitrary rational ellipsoid described by a single quadratic inequality. Homogenize its defining polynomial using the first coordinate and apply Theorem~\ref{thm:main}; no rational square root or rational congruence to a standard ball is needed. More generally it applies to nonconvex regions described by one quadratic inequality, with homogeneous lifts when appropriate. An affine polynomial support problem must retain the positive homogenizing coordinate: in the ball and ellipsoid cases it is automatic for nonzero permitted columns; it is not automatic for arbitrary unbounded quadrics.
