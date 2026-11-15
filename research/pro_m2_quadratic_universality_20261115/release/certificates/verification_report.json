@@ -1,0 +1,30 @@
+{
+  "data_sha256": "2f432846643e31e100935ba1a4f3c58adb19bbce89bee89f2e652efc055969f7",
+  "deliberate_corruptions_rejected": 7,
+  "scope": "Separate exact code path; no generator imports. Not human review, a general solver, or formal proof.",
+  "status": "PASS",
+  "tests": {
+    "affine_carriers": {
+      "carriers": 2,
+      "viable_subtractions": 4
+    },
+    "cayley": {
+      "cases": 3,
+      "signed_charts": 44
+    },
+    "circuits": {
+      "cases": 3,
+      "psd_blocks": 22,
+      "quadratic_matrix_entries": 1602
+    },
+    "obstructions": {
+      "cases": 3,
+      "complete_modular_evaluations": 4889
+    },
+    "rational_factors": {
+      "cases": 4,
+      "unweighted_columns": 95,
+      "weighted_atoms": 28
+    }
+  }
+}
