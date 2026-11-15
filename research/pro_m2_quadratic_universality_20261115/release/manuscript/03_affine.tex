@@ -1,0 +1,76 @@
+\section{A canonical arithmetic carrier for every rational affine completion}
+We now allow the target matrix itself to be unknown. Let $H\subseteq\Sym^n$ be rational affine, and write
+\[
+ \mathcal F=H\cap\PSD^n\cap\{X:\ip{Q}{X}\geq0\}.
+\]
+The following construction needs a decision procedure for rational points in convex semialgebraic sets. Such a procedure, including strict inequalities, is a classical algorithmic primitive \cite{SEDZ}; it must not be confused with a general rational-point procedure for nonconvex varieties.
+
+\begin{lemma}[Maximal rational support]\label{lem:maxsupport}
+There is an effective procedure that either finds $\mathcal F\cap\Sym^n(\Q)=\varnothing$, or returns a rational $X_*\in\mathcal F$ with
+\[
+ S=\range X_*=\sum_{X\in\mathcal F\cap\Sym^n(\Q)}\range X.
+\]
+It uses at most $n+1$ rational-point queries. The same assertion holds when the inequality is omitted or the allowed matrix support is restricted to a rational subspace.
+\end{lemma}
+\begin{proof}
+Find a rational feasible matrix. If its range is $S$, form the rational Euclidean projector $\Pi$ onto $S^\perp$ and ask whether the convex semialgebraic set $\mathcal F\cap\{X:\tr(\Pi X)>0\}$ has a rational point. For a positive-semidefinite matrix, $\tr(\Pi X)=0$ is equivalent to $\range X\subseteq S$: factor $X$ and sum the squared projected column norms. When $S$ is the whole allowed ambient subspace, stop without a redundant query. A new point increases the range after averaging it with the previous point. Both feasibility and rationality are preserved, and the range of a sum of positive-semidefinite matrices is the sum of their ranges. There are at most $n$ increases, including the initial positive-rank step if one occurs.
+\end{proof}
+
+For a rational permitted column $u$, call it viable in $H$ when some rational permitted Gram matrix $X\in H$ has $X-\tau uu^T$ also rationally permitted for some rational $\tau>0$.
+
+\begin{theorem}[Quadratic arithmetic carrier]\label{thm:carrier}
+For every rational $Q,H$, the following algorithm is finite and computes either an empty rational Gram fiber or its unique closed arithmetic column carrier $P_*$. In the nonempty case
+\begin{align*}
+ \{\text{viable rational columns}\}&=P_*\cap\Q^n,\\
+ \{\text{rational permitted Gram matrices in }H\}
+ &=\{\text{rational }P_*\text{-Gram matrices in }H\},\\
+ \cl\{\text{rational permitted Gram matrices in }H\}&=C(P_*)\cap H.
+\end{align*}
+Moreover $H\cap\ri C(P_*)\ne\varnothing$, and one rational matrix there witnesses every viable rational column. The carrier is one of a rational subspace, a single quadratic cone inside a rational subspace, or its quadratic zero cone.
+
+The algorithm makes at most $2n+3$ rational convex-semialgebraic point queries and at most one rational quadratic-form isotropy decision.
+\end{theorem}
+\begin{proof}
+First compute the maximal rational support $S$ of $\mathcal F$ and a witness $X_*$. If there is no rational feasible matrix, there can be no rational factorization. If $S=\{0\}$, return carrier $\{0\}$, with the empty factorization.
+
+Ask whether there is a rational matrix in $\mathcal F$ with positive trace pairing. If yes, average it with $X_*$ so that $X_*$ has both range $S$ and positive pairing. Set
+\[
+ P_*=S\cap P_q.\tag{C1}
+\]
+Every rational feasible Gram column lies in $S$. Conversely, for any rational $u\in P_*$, a sufficiently small rational subtraction $X_*-\tau uu^T$ remains positive definite on $S$ and has positive trace pairing. Theorem~\ref{thm:main} supplies a rational representation of the residual. Thus every such column is viable.
+
+Otherwise every rational matrix in $\mathcal F$ has trace pairing zero. The restriction $q_S$ is either identically zero or indefinite, by the positive definiteness of $X_*$ on $S$. If it is zero, set
+\[
+ P_*=S.\tag{C2}
+\]
+If it is nonzero and its nondegenerate quotient is rationally isotropic, set
+\[
+ P_*=\{u\in S:q(u)=0\}.\tag{C3}
+\]
+In either case Theorem~\ref{thm:main} shows that $X_*$ and all sufficiently small rational residuals $X_*-\tau uu^T$ have permitted factors. Conversely every column in any rational permitted feasible representation is a rational null vector in $S$.
+
+In the remaining case, the rational null vectors of $q_S$ are exactly its radical $T$. Every rational permitted completion must therefore be supported in $T$. Apply Lemma~\ref{lem:maxsupport} to $H\cap\PSD(T)$. If no rational matrix exists, the rational Gram fiber is empty. Otherwise let $S_0\subseteq T$ be its maximal rational support, replace $X_*$ by that witness, and set
+\[
+ P_*=S_0.\tag{C4}
+\]
+The form is zero on $S_0$, so unrestricted rational PSD factors suffice. This completes the algorithm; there is no second isotropy test.
+
+In (C1), rational points are dense in $P_*$: the restricted form has a positive direction, null points are limits of strictly positive points, and rationals are dense in that open set. In (C3) density is Lemma~\ref{lem:null}; in (C2) and (C4) it is immediate. We have already proved exact equality of rational viable directions, so taking their closure proves that $P_*$ is canonical.
+
+In every case $X_*$ is in $\ri C(P_*)$: it is positive definite on the carrier span, with either strictly positive trace or the appropriate trace equality. The real cone $C(P_*)$ is closed, either by Lemma~\ref{lem:balance} or as a PSD face. Thus limits of rational feasible factors lie in its slice. Conversely, take $Y\in C(P_*)\cap H$. The segment $(1-t)Y+tX_*$, $t>0$, lies in the relative interior. In the rational affine space $H\cap\spanof C(P_*)$, approximate its points by rational points still in that relative interior. Theorem~\ref{thm:main} gives permitted rational factors for these points in cases (C1)--(C4). Letting the approximation error and then $t$ tend to zero proves the closure formula. This proof makes no claim that a nonclosed linear image is closed.
+\end{proof}
+
+\begin{corollary}[Exact observation-preserving regularization]
+Let $A\in H\cap C_q$ be rational, and compute $P_*$ from Theorem~\ref{thm:carrier}. There is rational $D$ with $\mathcal L(D)=0$ and rational permitted factorizations of $A+tD$ for every rational $0<t\leq1$ if and only if
+\[
+ A\in C(P_*).
+\]
+For sufficiency take $D=X_*-A$. Necessity follows from the closure identity. The result permits rank changes and is therefore stronger than Corollary~\ref{cor:directions}.
+\end{corollary}
+
+For the positively oriented Lorentz cone, intersect the computed carrier with the positive nappe. Sign changes preserve rank-one squares, so the proof and completion criterion remain valid.
+
+The carrier is not necessarily polyhedral. For $Q=\diag(1,1,-1)$ and $A=\diag(1,1,2)$, the full-matrix fiber has carrier $\{u:u_1^2+u_2^2-u_3^2=0\}$. A convex cone contained in one nappe of this null cone has only one ray; the null cone has infinitely many rays. Therefore no finite union of convex polyhedral cones can be its carrier. The earlier finite-polyhedral carrier conclusion does not extend literally to curved domains; the quadratic carrier above is its corrected replacement.
+
+\paragraph{Exact failure certificates.}
+If a real feasible fiber contains no rational matrix, the rational-point procedure supplies the relevant exact arithmetic decision, not a false real separator. If it contains rational matrices but the isotropy test fails, the certificate additionally identifies the maximal rational support and the radical restriction. The Hasse--Minkowski obstruction is a local arithmetic certificate, not a separating hyperplane from a real-feasible cone. Weak infeasibility of a measurement image remains possible and does not justify a strict real separator.
