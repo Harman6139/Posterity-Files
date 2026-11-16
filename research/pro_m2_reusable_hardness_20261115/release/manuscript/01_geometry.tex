@@ -1,0 +1,102 @@
+\section{Finite local models for a fixed quadratic block}\label{sec:geometry}
+The geometric statements in this section require only $H\succ0$, not perfection or an objective. Define
+\[
+ g_H(b)=\sup_{u\in\Z_+^r,\ y\in\Z_{\ge1}}
+ \frac{1-u\trans Hu-2yb\trans u}{y^2},\qquad
+ \mathcal E_H=\{(b,c):c\ge g_H(b)\}.
+\]
+Let $z$ minimize $x\trans Hx+2b\trans x$ over $x\ge0$, and write $\ell=b+Hz$. Strong convexity gives a unique minimizer and
+\begin{equation}\label{eq:kkt}
+ z,\ell\ge0,\qquad z_i\ell_i=0.
+\end{equation}
+Take $q_0,Y,A_H$ as above and $\kappa=(2q_0^{2r})^{-1}$.
+
+\begin{lemma}[Transverse gap, active denominators, and edge movement]\label{lem:gap}
+The supremum defining $g_H$ is attained and
+\[
+ z\trans Hz+\kappa\le g_H(b)\le z\trans Hz+1.
+\]
+At an active vector $(u,y)$, writing $e=u-yz$, one has
+\begin{equation}\label{eq:active}
+ y\le Y,\qquad e\trans He+2y\ell\trans u
+ =1-y^2(g_H(b)-z\trans Hz)\le1,\qquad |e_i|\le A_H.
+\end{equation}
+The epigraph is locally polyhedral. At a vertex, $0\le\ell_i\le1/2$ for every $i$. Along every bounded edge,
+\begin{equation}\label{eq:movement}
+ |b_i-b_i'|\le1/2+2\sqrt{H_{ii}}.
+\end{equation}
+Its recession cone is $\{(w,s):w\ge0,\ s\ge0\}$.
+\end{lemma}
+\begin{proof}
+Completing the square gives
+\[
+ \frac{1-H[u]-2yb\trans u}{y^2}
+ =H[z]+\frac{1-H[e]-2y\ell\trans u}{y^2}.
+\]
+This proves the upper bound. On the positive support of $z$, put the $q_0^s+1$ fractional vectors $jz$, $0\le j\le q_0^s$, into $q_0^s$ cubes of side $1/q_0$. Subtract two in the same cube. This gives $1\le y\le q_0^r$ and integers $u_i$ with $|u_i-yz_i|\le1/q_0$ on that support. The approximants are nonnegative; set the other coordinates to zero. Thus $\ell\trans u=0$ and $H[e]\le1/2$. If $z=0$, use $u=0,y=1$. This proves the lower bound. Denominators larger than $Y$ cannot attain the maximum. The finitely many remaining denominators have possible maximizing numerators in a bounded ellipsoid around $yz$. This proves attainment, \eqref{eq:active}, and local polyhedrality; the minimizer $z(b)$ is continuous by strong convexity.
+
+At a vertex the active normals $(2u/y,1)$ span $\R^{r+1}$. For each coordinate $i$, an active $u_i$ is positive; otherwise its cross-column variable is unconstrained in the active system. Equation~\eqref{eq:active} yields $2y\ell_i u_i\le1$ and hence $\ell_i\le1/2$.
+
+Endpoints of a bounded edge share an active $(u,y)$. At either endpoint,
+\[
+ b+Hu/y=\ell+He/y,
+\]
+and $|(He)_i|\le\sqrt{H_{ii}}$ by Cauchy--Schwarz in the $H$-metric. Both values of the left side lie in the same interval
+$[-\sqrt{H_{ii}}/y,\,1/2+\sqrt{H_{ii}}/y]$. This proves \eqref{eq:movement}. Finally a recession direction satisfies $s+2w\trans u/y\ge0$ for all $u,y$. Taking $u=0$, and then $u=je_i,y=1$ with $j\to\infty$, proves the asserted signs; they are sufficient.
+\end{proof}
+
+For an integer vector $k$, define the shear
+\begin{equation}\label{eq:shear}
+ \mathsf S_k(b,c)=(b-Hk,\ c-2k\trans b+k\trans Hk),\qquad
+ U_k=\begin{pmatrix}I_r&-k\\0&1\end{pmatrix}.
+\end{equation}
+It acts on matrices by $P\mapsto U_k\trans PU_k$. It need not preserve the whole orthant Ryshkov set. We use it to normalize local data, not as an unqualified symmetry.
+
+\begin{theorem}[Finite-template theorem]\label{thm:templates}
+Fix $H\succ0$. Every vertex $(b,c)$ of $\mathcal E_H$ can be written
+\[
+ (b,c)=\mathsf S_k(\bar b,\bar c),\qquad k\in\Z_+^r,
+\]
+where $(\bar b,\bar c)$ belongs to a finite set depending only on $H$. After this shear every active vector has integer coordinates bounded in absolute value by $Y+A_H$ and has last coordinate in $\{1,\ldots,Y\}$. The graph of bounded edges has uniformly bounded degree. If $H$ is rational, all vertices have a common bounded denominator.
+
+If additionally $H$ is perfect in $\Ry_r$, the \emph{full} tangent cones of $\Ry_n$ at vertices of $\mathcal F_H$ have finitely many local models under these integral shears. Each primitive integral extreme tangent ray has the form
+\begin{equation}\label{eq:raymodel}
+ R=U_k\trans\bar R U_k,\qquad
+ \bar R=\begin{pmatrix}X&w\\w\trans&s\end{pmatrix},\qquad
+ |\bar R_{ij}|\le F_H.
+\end{equation}
+Consequently, with $v_k=1+r\norm k_\infty$,
+\begin{equation}\label{eq:raybounds}
+ |X_{ij}|\le F_H,\quad |R_{in}|\le F_Hv_k,\quad
+ |R_{nn}|\le F_Hv_k^2,\quad \norm R_F\le nF_Hv_k^2.
+\end{equation}
+In particular the number of active vectors and the number of competing rays are bounded independently of position on the face.
+\end{theorem}
+\begin{proof}
+At a vertex put $k_i=\lfloor z_i\rfloor$ and $\bar z=z-k\in[0,1)^r$. Set
+\[
+ \bar b=b+Hk,\qquad \bar c=c+2k\trans b+k\trans Hk.
+\]
+Complementarity gives $k\trans\ell=0$, so
+\[
+ \bar b=\ell-H\bar z,\qquad
+ \bar c=H[\bar z]+c-H[z].
+\]
+These coordinates lie in a fixed compact set. An active vector transforms to $(\bar u,y)=(u-yk,y)$, and
+$|\bar u_i|\le y+A_H\le Y+A_H$. There are finitely many such integer vectors. At a vertex $r+1$ independent active affine equations determine $\bar b,\bar c$; therefore only finitely many normalized points occur. Some of them need not be feasible orthant vertices before the shear, which does not affect the conclusion. Local tangent cones are specified by subsets of this finite list, giving a uniform degree bound. For rational $H$, the finitely many normalized solutions are rational, and integral shears preserve a common denominator.
+
+For a full matrix vertex, include the fixed active vectors $(v,0)$, $v\in\mathcal M_H$. This finite set together with the transformed positive-last-coordinate vectors lies in the box of radius $M_H$ from \eqref{eq:constants}. The transformed tangent cone is full dimensional and pointed. An extreme ray annihilates $d-1$ independent rank-one equations whose integer coefficients are bounded by $2M_H^2$. Cofactors yield a primitive integral representative bounded by $F_H$. Congruence by the integral unimodular $U_k$ and its integral inverse preserves primitivity. Expanding the blocks of $U_k\trans\bar R U_k$ proves \eqref{eq:raybounds}.
+\end{proof}
+
+For clarity about the face used above, the active equations of $H$ force the leading block in \eqref{eq:face} to equal $H$, and the remaining inequalities give exactly $\mathcal E_H$. Every point of this face is strictly copositive: for $a=c-H[z]\ge\kappa$,
+\[
+ P[(x,y)]=H[x-yz]+2y\ell\trans x+ay^2>0\quad(0\ne(x,y)\ge0).
+\]
+A neighborhood therefore has a common strict margin; only finitely many integer constraints matter there. Vertices and edges of the face are genuine vertices and edges of the full Ryshkov set. Finite edge endpoints cannot disappear into a nonattained boundary.
+
+\begin{corollary}[Cheap complete local information]\label{cor:localcost}
+For fixed rational $H$, the complete active set, full tangent rays at a vertex of $\mathcal F_H$, and the neighbor along any bounded face edge can be computed in polynomial bit time in the encoding of the vertex and ray. The counts of lattice tests and linear systems depend on $H,n$, not on the vertex height.
+\end{corollary}
+\begin{proof}
+Find $z$ by solving the $2^r$ possible support systems of the positive-definite quadratic program and checking \eqref{eq:kkt}. This uses rational arithmetic. Compute $k=\lfloor z\rfloor$ and enumerate the finite normalized box of Theorem~\ref{thm:templates}, retaining $(\bar u+yk,y)\ge0$ and testing equality. Enumerate the extreme rays from the finite active system. For a bounded face neighbor, \eqref{eq:movement} and $z=H^{-1}(\ell-b)$ bound the change of $z$ by $K_H(L_H+1/2)$ in sup norm. Thus the endpoint's active numerators, normalized by the \emph{old} $k$, lie in another fixed box. Enumerate their positive constraint ratios along the ray. The smallest is the exact edge length because at least one newly active endpoint constraint is in this list. All enumerations have fixed size; rational arithmetic has polynomial bit cost. This is not a uniform polynomial bound when $H$ or $n$ varies.
+\end{proof}

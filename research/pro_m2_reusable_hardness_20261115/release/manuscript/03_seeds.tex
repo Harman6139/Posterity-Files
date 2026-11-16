@@ -1,0 +1,72 @@
+\section{Qualifying seeds without a five-cycle obstruction}\label{sec:seeds}
+The criterion in Definition~\ref{def:seed} is open in the seed data. The following class demonstrates that its scope is not restricted to rescaling or embedding the original order-five example. For every odd order it produces a nonmember all of whose proper principal submatrices are CP, even after making the matrix dense.
+
+Let $n\ge5$ be odd, let $G$ be the cycle on $(1,2,\ldots,n)$, and put
+\begin{equation}\label{eq:cycle}
+ t=\frac12+\frac1{16n^2},\quad F=I_n+t\operatorname{Adj}(G),\quad
+ M=I_{n-1}-t\operatorname{Adj}(P_{n-1}),\quad h=M^{-1}\mathbf1.
+\end{equation}
+Here $P_{n-1}$ is the path on the first $n-1$ coordinates. Define
+\[
+ D=\diag(h_1,\ldots,h_{n-1},1),\quad
+ C_{ij}=\min(i,j)(n+1-\max(i,j)),\quad
+ \varepsilon=\frac1{32n^5},\quad B=DFD+\varepsilon C.
+\]
+
+\begin{theorem}[Arbitrarily large principal-minimal seeds]\label{thm:cycles}
+The matrix $B$ is a qualifying seed for the canonical $H=T_{n-1}$. Every proper principal submatrix of $B$ belongs to the interior of its ordinary CP cone. It has an explicit rational weighted nonnegative Gram factorization. The normal-cone lifting theorem therefore gives canonical all-rule exponential lower bounds in every odd order, while all proper principal CP tests fail to detect nonmembership. By shrinking $\eta$ in \eqref{eq:robust} to at most $\varepsilon/8$, these properties persist throughout the entire robustness ball of the lifted targets.
+\end{theorem}
+\begin{proof}
+The least eigenvalue of $F$ is $1-2t\cos(\pi/n)$. Using
+$\cos(\pi/n)\le1-2/n^2$, obtained from the chord bound for $\sin$, gives
+\[
+ \lambda_{\min}(F)\ge\frac{15}{8n^2}+\frac1{4n^4}>\frac1{n^2}.
+\]
+The path matrix $M$ has the same least eigenvalue. Its inverse is nonnegative by the convergent Neumann series, and $h\ge\mathbf1$ is rational. In the leading block of $DFD$, the adjacent-pair interval square on $(i,i+1)$ has weight $t h_i h_{i+1}$. The remaining singleton coefficient is
+\[
+ h_i^2-t h_i\sum_{j:\,|i-j|=1}h_j=h_i>0.
+\]
+The canonical anchor $C$ is the sum of all consecutive-interval squares. Its leading block has coefficient at least one on every top-interval square. Thus $B_0\in\operatorname{int}\mathcal V_{T_{n-1}}$, and every entry of $B$ is positive.
+
+For any triangle-free graph, $Q=J-2\operatorname{Adj}(G)$ is copositive. A self-contained Motzkin--Straus argument \cite{MS} is as follows: maximize the edge sum on the nonnegative simplex and choose a maximizer of minimum support. Nonadjacent positive coordinates can be merged into one of them without decreasing the sum, so the support is a clique. It has at most two vertices and the edge sum is at most $1/4$. Therefore $Q[x]\ge0$.
+For the cycle,
+\[
+ \ip QF=n(1-2t)=-\frac1{8n}.
+\]
+Set $W=D^{-1}QD^{-1}$. Since $h_i\ge1$, $\norm W_F\le n$ and $\norm C_F\le\tr C\le n^3$. Consequently
+\[
+ \ip WB\le-\frac1{8n}+\varepsilon n^4=-\frac3{32n}.
+\]
+This proves nonmembership; one may use $\gamma=1/(16n)$, $\omega=n$, and $\mu=1/n^2$ as rational certificate parameters.
+
+Let $S$ be a proper set of coordinates. The induced graph is a disjoint union of paths. Its comparison matrix
+$M_S=I-t\operatorname{Adj}(G[S])$ is positive definite, since its path components have spectral radius at most $2\cos(\pi/n)$. Put $v=M_S^{-1}\mathbf1>0$. Then the following rational weighted factorization is exact:
+\begin{equation}\label{eq:properfactor}
+ F[S]=\sum_{i\in S}\frac1{v_i}e_ie_i\trans
+ +\sum_{\{i,j\}\in E(G[S])}t v_i v_j
+       (e_i/v_i+e_j/v_j)(e_i/v_i+e_j/v_j)\trans.
+\end{equation}
+Indeed the off-diagonal entries are $t$, and the diagonal at $i$ is
+$(1+t\sum_{j\sim i}v_j)/v_i=1$. Congruence by $D[S]$ gives factors of $(DFD)[S]$. Adding the restricted interval-square factors of $\varepsilon C[S]$ gives factors of $B[S]$.
+
+Moreover, these anchor atoms contain every consecutive-interval indicator in the induced ordering of $S$, with coefficient at least $\varepsilon$. Their squares span $\mathbb S^{|S|}$. Thus the factorization contains a positive reserve on a full rational basis and $B[S]\in\operatorname{int}\CP_{|S|}$. For a perturbation $Z$ with $\norm Z_F\le\varepsilon/8$, express $Z[S]$ in that interval basis. If entries outside the index range are set to zero, the coefficient of $[i,j]$ is
+\[
+ Z_{ij}-Z_{i-1,j}-Z_{i,j+1}+Z_{i-1,j+1}.
+\]
+Its magnitude is at most $4\norm Z_F\le\varepsilon/2$, so the positive reserve remains. For the lifted target use $S_N^{-1}ZS_N^{-1}$, whose norm cannot exceed $\norm Z_F$. Positive scaling and diagonal congruence preserve complete positivity and its interior. This proves the robust assertion for all proper subsets at once.
+\end{proof}
+
+The obstruction in order $n\ge7$ is therefore not a hidden order-five witness: every $5\times5$ principal submatrix, and even every $(n-1)\times(n-1)$ principal submatrix, is CP. Any copositive separator supported on a proper coordinate set has nonnegative pairing with the target. The difficulty is intrinsically global at that order. This remains a statement about \emph{ordinary} complete positivity, with no restrictions on Gram columns.
+
+\begin{corollary}[Weighted cycle class]
+Let $F$ be any rational positive-definite nonnegative matrix supported on an odd cycle of order $n\ge5$ and its diagonal. Suppose
+\[
+ \tr F<2\sum_{\{i,j\}\in E(G)}F_{ij}.
+\]
+There is a rational positive diagonal scaling of its first $n-1$ coordinates and an arbitrarily small positive rational canonical-anchor addition that produce a qualifying seed for $T_{n-1}$. All proper principal submatrices remain CP, and after the anchor addition they are interior CP. Thus the family includes a full range of nonuniform edge weights and diagonal data, not just the uniform matrices in \eqref{eq:cycle}.
+\end{corollary}
+\begin{proof}
+Deleting the last vertex leaves a path. The leading comparison matrix, obtained by negating its off-diagonal entries, is diagonally sign-congruent to the leading block of $F$, hence positive definite. Its inverse is nonnegative: write it as $sI-N$ with $N\ge0$ and $s>\rho(N)$. Take $h$ to be its inverse applied to $\mathbf1$. The same scaled diagonal-dominance identity gives positive singleton and adjacent-pair interval coefficients. The witness $J-2\operatorname{Adj}(G)$ pairs negatively by the displayed condition. Preserve that strict gap with a small anchor addition. Every proper principal graph is a forest; the same comparison-matrix construction, with its original diagonal entries in place of one, gives a weighted factorization as in \eqref{eq:properfactor}. The anchor supplies interiority.
+\end{proof}
+
+For even order $n\ge6$, one may insert a positive diagonal padding block immediately before the distinguished last coordinate of an odd-order seed, and add a sufficiently small full canonical anchor. The old leading path occupies consecutive coordinates, and the distinguished old last coordinate remains last. The resulting leading block still has a positive interval representation and the embedded seed witness still separates. This recovers all fixed orders $n\ge5$. The stronger assertion that \emph{every} proper principal submatrix is CP is made for the odd-order construction, not for such padded examples.

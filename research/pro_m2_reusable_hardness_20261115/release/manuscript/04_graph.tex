@@ -1,0 +1,67 @@
+\section{An independent theorem on intrinsic graph geometry}\label{sec:graph}
+Let $\mathscr G_H$ denote the graph whose vertices are the vertices of $\mathcal E_H$ and whose edges are its bounded one-dimensional faces. Distances below are intrinsic to this graph. They need not equal distances in a larger Ryshkov graph that permits leaving the fixed-block face.
+
+\begin{theorem}[Graph growth and lattice embedding]\label{thm:graph}
+For every real $H\succ0$ of order $r$, the graph $\mathscr G_H$ is connected and has uniformly bounded degree. For every vertex $v$, there are positive constants $c_{H,v},C_{H,v}$ and $R_{H,v}$ such that
+\[
+ c_{H,v}R^r\le |B_{\mathscr G_H}(v,R)|\le C_{H,v}(R+1)^r
+ \qquad(R\ge R_{H,v}).
+\]
+It contains a quasi-isometrically embedded copy of $\Z_+^r$: there are vertices $v_a$, $a\in\Z_+^r$, and constants $c_H,C_H>0$ with
+\[
+ c_H\norm{a-b}_\infty\le d_{\mathscr G_H}(v_a,v_b)
+ \le C_H\norm{a-b}_1.
+\]
+When $H$ is rational, there are pairs of vertices of $O_H(\log(N+1))$ binary encoding length at distance $\Theta_H(N)$. Thus exponential graph distance in binary height is a geometric phenomenon independent of a separating objective or any five-cycle construction.
+\end{theorem}
+\begin{proof}
+Uniform degree follows from Theorem~\ref{thm:templates}. The edge bound implies that a radius-$R$ graph ball about $(b_0,c_0)$ has
+$\norm b_\infty\le\norm{b_0}_\infty+L_HR$.
+At every vertex, $z=H^{-1}(\ell-b)$ and $\ell\in[0,1/2]^r$. Hence its shear index $k=\lfloor z\rfloor$ ranges over $O_{H,v}((R+1)^r)$ possibilities. There are only finitely many normalized templates, proving the upper bound.
+
+We record connectivity carefully, since an infinite locally polyhedral set cannot be treated as a finite polytope without justification. Every graph vertex with $c\le C$ has $H[z]\le C-\kappa$, hence bounded $z$, and then bounded $b=\ell-Hz$. The finite-template theorem implies that there are only finitely many such vertices. Since the constraint $(u,y)=(0,1)$ gives $c\ge1$, and every $b\ge0$ gives $g_H(b)=1$, the minimum of $c$ is one. At a vertex with $c>1$ there is an extreme tangent direction decreasing $c$; otherwise the vertex minimizes $c$ globally. It is not a recession direction, so it gives a bounded edge. Strict descent through a finite set of vertices reaches the face $c=1$.
+
+That face is a finite pointed polyhedron in the $b$ variables. Indeed, whenever $g_H(b)=1$, the gap estimate bounds $z$; every constraint active there has $y\le Y$ and $u=yz+e$ bounded. Thus only finitely many inequalities can become active anywhere on the face. These inequalities suffice globally: start at a strictly positive $b$, where every nonzero-$u$ constraint is strict, and take a segment to any alleged point satisfying the finite list but violating another constraint. At the first exit, local polyhedrality supplies an active defining constraint, which is one of the finite list, a contradiction. The recession cone of the face is $\R_+^r$. A positive linear objective has compact lower level sets on it, and after a generic perturbation uniquely minimizes at a vertex. Every other vertex has a bounded decreasing edge to that vertex, because the polyhedron has finitely many vertices and recession costs are positive. This proves connectivity of its vertex graph, and hence of $\mathscr G_H$.
+
+For the lower bound we use an auxiliary unrestricted-integer epigraph
+\[
+ g_H^{\Z}(b)=\sup_{u\in\Z^r,\ y\ge1}\frac{1-H[u]-2yb\trans u}{y^2},
+ \qquad \mathcal E_H^{\Z}=\{c\ge g_H^{\Z}(b)\}.
+\]
+Here $z=-H^{-1}b$, $\ell=0$, and the same gap, denominator and finite-template proofs apply, now with $k\in\Z^r$. Every $\mathsf S_k$ from \eqref{eq:shear} is an actual symmetry, since $u\mapsto u+yk$ permutes the integer numerators. The recession cone consists only of nonnegative vertical directions. The sublevel estimate
+$g_H^{\Z}(b)\ge b\trans H^{-1}b+\kappa$ gives finitely many vertices at each bounded height. The minimum-$c$ face is $c=1$ and is bounded: the inequalities for $u=\pm e_i,y=1$ imply $|b_i|\le H_{ii}/2$. It is a nonempty finite polytope, by the same finite-active-list argument. Its graph is connected; descending $c$ proves that the entire bounded-edge graph is connected as well.
+
+Choose a vertex $p$ of this auxiliary graph and, for each $i$, a finite edge path from $p$ to $\mathsf S_{e_i}p$. There are finitely many vertices in these paths and finitely many active vectors at each. Choose an integer $K\in\Z_+^r$ so large that $u+yK\ge0$ for all their active vectors. The same is true after adding any $a\in\Z_+^r$ to $K$. Each shifted vertex is a vertex of the orthant epigraph: it is feasible there, and all its spanning auxiliary active constraints are retained. Its orthant and unrestricted tangent cones coincide, because the auxiliary active set is fully retained. Consequently every shifted edge of each chosen path is also a bounded edge of $\mathcal E_H$. More explicitly, at the first endpoint the direction remains an extreme ray, and the same next endpoint retains the active constraint that prevents extension.
+
+Define $v_a=\mathsf S_{K+a}p$. Let $D$ be the largest length of the finitely many chosen generator paths. Translating these paths and reversing them when necessary gives
+\[
+ d_{\mathscr G_H}(v_a,v_b)\le D\norm{a-b}_1.
+\]
+One may change coordinates one at a time through nonnegative lattice indices, so no translated path requires a negative index. Their cross coordinates differ by $H(a-b)$. Along any graph path, \eqref{eq:movement} gives
+\[
+ d_{\mathscr G_H}(v_a,v_b)
+ \ge\frac{\norm{H(a-b)}_\infty}{L_H}
+ \ge\frac{\norm{a-b}_\infty}{K_HL_H}.
+\]
+This proves the embedding and supplies $\Omega_H(R^r)$ vertices within radius $R$ of $v_0$. Connectivity transfers the growth bound to any root with an additive distance shift.
+
+For rational $H$, the auxiliary vertex $p$ is rational, being determined by rational active equations. Its shear by $K+Ne_1$ has coordinates polynomial of degree at most two in $N$ with fixed rational coefficients. Its encoding is $O_H(\log(N+1))$, while the two distance bounds give $\Theta_H(N)$. This proves the last assertion.
+\end{proof}
+
+\begin{corollary}[A complete elementary model]\label{cor:grid}
+For $H=I_2$, the graph $\mathscr G_H$ is exactly the nearest-neighbor graph of $\Z_+^2$. Its vertices are
+\[
+ b_i=-k_i-\tfrac12,\qquad c=1+k_1(k_1+1)+k_2(k_2+1),
+ \qquad(k_1,k_2)\in\Z_+^2.
+\]
+The graph distance is $\ell^1$ distance and the ball of radius $R$ about $(k_1,k_2)=(0,0)$ has $\binom{\lfloor R\rfloor+2}{2}$ vertices.
+\end{corollary}
+\begin{proof}
+Let $z_i=\max(0,-b_i)$. Rounding each positive $z_i$ to its nearest nonnegative integer gives a denominator-one value at least $\norm z_2^2+1/2$. Every denominator $y\ge2$ gives at most $\norm z_2^2+1/4$ and is therefore inactive. Thus
+\[
+ g_{I_2}(b)=1+\sum_{i=1}^2\max_{u_i\in\Z_+}(-u_i^2-2b_i u_i).
+\]
+A vertex requires a tie in each coordinate, since otherwise the active affine normals fail to span $\R^3$. Ties occur exactly between $k_i$ and $k_i+1$ at $b_i=-k_i-1/2$. To obtain a bounded edge one tie is retained and the other moves between successive breakpoints. There are no diagonal edges: changing both ties leaves only one common active slope, which is insufficient for a one-dimensional face in three dimensions. The outward edges at $k_i=0$ are unbounded and are excluded from the graph. The distance and ball count follow.
+\end{proof}
+
+The auxiliary unrestricted epigraph is related to classical inhomogeneous quadratic forms and Delaunay geometry \cite{Erdahl,IE}. The assertions here include the positive-orthant truncation, all integer last-coordinate denominators, bounded local models at boundary vertices, and an intrinsic graph-growth conclusion. Periodicity of an unrestricted denominator-one lattice diagram alone would not prove these assertions.

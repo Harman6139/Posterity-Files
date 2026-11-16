@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,mathrsfs,amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\newcommand{\CP}{\mathcal{CP}}\newcommand{\COP}{\mathcal{COP}}
+\newcommand{\SPN}{\mathcal{SPN}}\newcommand{\Ry}{\mathcal R}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\cone}{\operatorname{cone}}\newcommand{\Min}{\operatorname{Min}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\trans}{^{\mathsf T}}
+\title{Long pivot paths and short certificates for completely positive matrices\\[3pt]\large Finite local models, a normal-cone lifting theorem, and intrinsic graph growth}
+\author{Manuscript II research revision}
+\date{15 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We give a verifiable sufficient-conditions theorem converting a completely positive nonmember into exponentially long improving paths on the copositive Ryshkov polyhedron. The leading block of the seed must expose a fixed positive-definite perfect form; no particular graph or exceptional copositive matrix is required. The geometric mechanism is a finite-template theorem: after an integral shear, every active vector and every primitive tangent ray along a fixed-block face belongs to a bounded finite set. Consequently a scale linear in the prescribed path length suffices, and each individual local step has polynomial bit complexity in fixed dimension. The bound covers every strictly improving adjacent rule and any fixed finite menu of starts on the face. It survives arbitrary positive-semidefinite corrections of local rays, by a classical copositive decomposition lemma. New qualifying families exist in every odd order and have all proper principal submatrices completely positive, excluding all lower-order principal certificate tests. Independently, every fixed-positive-definite-block quadratic epigraph has bounded degree and intrinsic graph-ball growth of order $R^{n-1}$, with exponentially separated vertices of logarithmic encoding length. The original canonical five-cycle construction is recovered without changing its validity.
+\end{abstract}
+
+\section{Introduction and the lifting principle}
+The ordinary completely positive and copositive cones are
+\[
+ \CP_n=\cone\{xx\trans:x\ge0\},\qquad
+ \COP_n=\{P:x\trans Px\ge0\ (x\ge0)\}.
+\]
+Their pairing is $\ip A P=\tr(AP)$. Let
+\[
+ \Ry_n=\{P:P[v]\ge1\text{ for }0\ne v\in\Z_+^n\},\qquad P[v]=v\trans Pv.
+\]
+A vertex is a perfect copositive form. Its finitely many active vectors generate its minimizing normal cone. These objects underlie the simplex algorithm of Dutour Sikiri\'c--Sch\"urmann--Vallentin \cite{DSV}; their geometry is developed in \cite{DS,OS}. We study the local model that chooses an arbitrary extreme tangent ray of strictly negative objective cost and traverses its bounded edge. We do not restrict the computation used to choose the ray.
+
+The preceding version of this manuscript treated a specific five-cycle seed from the canonical tridiagonal vertex. It used bounded edge movement and location-dependent cofactor estimates. Here the main object is instead the entire fixed-block face. Its finite local models yield a stronger scale bound, a criterion for arbitrary seeds, and an independent graph-growth theorem. Odd cycles are applications of the criterion, not assumptions of it.
+
+Put $r=n-1$, $d=n(n+1)/2$. Fix a rational positive-definite perfect form $H\in\Ry_r$, and define
+\[
+ \mathcal M_H=\{v\in\Z_+^r:H[v]=1\},\qquad
+ \mathcal V_H=\cone\{vv\trans:v\in\mathcal M_H\}.
+\]
+The set $\mathcal M_H$ is finite and its squares span $\mathbb S^r$. The face obtained by keeping these equalities in order $n$ is
+\begin{equation}\label{eq:face}
+ \mathcal F_H=\left\{P(b,c)=\begin{pmatrix}H&b\\b\trans&c\end{pmatrix}\in\Ry_n\right\}.
+\end{equation}
+It is nonempty and has dimension $r+1$; Section~\ref{sec:geometry} proves the needed local properties.
+
+\begin{definition}[Qualifying seed]\label{def:seed}
+A qualifying seed for $H$ is a rational matrix
+\[
+ B=\begin{pmatrix}B_0&a\\a\trans&\alpha\end{pmatrix}
+\]
+which is positive definite, strictly entrywise positive, outside $\CP_n$, and satisfies $B_0\in\operatorname{int}\mathcal V_H$.
+\end{definition}
+This is a finite verifiable criterion in each fixed dimension. Positive definiteness is an exact rational test. Strict exposure is a finite LP: require a representation of $B_0$ with positive coefficients on every vector in $\mathcal M_H$. Nonmembership can be supplied with a rational $W\in\COP_n$ and $\ip W B<0$. Copositivity of a rational seed witness can be checked by minimizing on all simplex supports; no variable-dimensional polynomial claim is made. The criterion does not require a five-cycle witness.
+
+Here are explicit constants for the main theorem. Choose an integer $q_0\ge2$ with $q_0^2\ge2r\norm H_2$, and rational upper bounds
+\[
+ A_H\ge\max_i\sqrt{(H^{-1})_{ii}},\quad
+ L_H\ge\max_i(1/2+2\sqrt{H_{ii}}).
+\]
+Set
+\begin{equation}\label{eq:constants}
+ \begin{split}
+ Y&=2q_0^r,\\
+ M_H&=\left\lceil\max\{1,Y+A_H,\max_{v\in\mathcal M_H}\norm v_\infty\}\right\rceil,\\
+ F_H&=(d-1)![2M_H^2]^{d-1},\\
+ K_H&=\norm{H^{-1}}_\infty.
+ \end{split}
+\end{equation}
+The matrix norm in $K_H$ is the maximum absolute row sum. Let $q_B$ be a positive integer clearing the denominators of $B_0$, and let $R_0$ bound $\norm b_\infty$ at every permitted initial vertex. Put
+\begin{equation}\label{eq:scale}
+ \begin{split}
+ T_B&=2\norm a_1+\alpha+n+1,\\
+ s_m&=1+rK_H(R_0+mL_H+1/2),\\
+ N_m&=\left\lceil8q_BF_HT_Bs_m\right\rceil,\\
+ S_N&=\diag(NI_r,1).
+ \end{split}
+\end{equation}
+In particular $N_m=\Theta_{H,B,R_0}(m+1)$.
+
+For robustness, fix rational data
+\[
+ B\succeq\mu I,\quad b_*\le\min_{i,j}B_{ij},\quad
+ W\in\COP_n,\quad\ip W B\le-\gamma,\quad\norm W_F\le\omega,
+\]
+where $\mu,b_*,\gamma>0$. Let $\beta\ge\max(1,\norm B_F)$ be rational, and define
+\begin{equation}\label{eq:robust}
+ t_B=\frac\gamma{4\tr B},\quad w_B=\omega+t_B,\quad
+ \eta=\min\{1,\mu/2,b_*/2,\gamma/(4w_B)\},\quad
+ A_N=\frac{S_NBS_N}{2\beta N^2}.
+\end{equation}
+Shrinking $\eta$ is always allowed.
+
+\begin{theorem}[Normal-cone lifting; all local choices]\label{thm:main}
+Let $H,B$ satisfy Definition~\ref{def:seed}, and let the initial vertex be any vertex of $\mathcal F_H$ with $\norm b_\infty\le R_0$. For every $m\ge1$, $N\ge N_m$, and symmetric $A$ with
+\begin{equation}\label{eq:ball}
+ \norm{A-A_N}_F\le\frac\eta{2\beta N^2},
+\end{equation}
+the following hold.
+\begin{enumerate}
+\item $A$ is positive definite, strictly entrywise positive, has norm at most one, and is not completely positive.
+\item Every strictly improving extreme-ray adjacent rule makes at least $m$ pivots. Throughout this prefix every improving ray is tangent to $\mathcal F_H$ and bounded; an improving ray exists at each departure vertex.
+\item No copositive matrix whose leading $r\times r$ principal block is PSD separates $A$. This excludes arbitrary PSD corrections, hence arbitrary nonnegative diagonal corrections, of any visited improving ray. It also excludes history-based certificates
+\[
+ \sum_j\lambda_jP_j+\sum_k\theta_kR_k+Q,
+ \qquad \sum_j\lambda_j\ge0,\quad\theta_k\in\R,\quad Q\succeq0,
+\]
+whenever they are copositive. The $P_j$ may come from different runs on the same face.
+\item The rational matrix
+\[
+ W_N=S_N^{-1}WS_N^{-1}+\frac{t_B}{N^2}I
+\]
+works for the whole ball, with
+\[
+ W_N[x]\ge\frac{t_B}{N^2}\norm x_2^2\ (x\ge0),\quad
+ \norm{W_N}_F\le w_B,\quad
+ \ip{W_N}A\le-\frac\gamma{4\beta N^2}.
+\]
+In particular the distance from $A$ to $\CP_n$ is at least $\gamma/(4\beta w_BN^2)$.
+\end{enumerate}
+For fixed seed and block, the centers $A_{N_m}$ have binary input-and-distance precision $\Theta(\log(m+1))$, while the forced path has length at least $m$. Each step inside the face, including the full active set, tangent rays, and the selected neighbor, can be computed in polynomial bit time in fixed dimension. A fixed finite menu of starts, parallel runs, and restarts within the stated initial region do not remove the required prefix on any successful run.
+\end{theorem}
+The number of starts need not be fixed in the assertion about the region; there are only finitely many vertices in that region. The theorem does not cover menus using different leading blocks, nonextreme descent directions, or unrestricted nonlocal separator searches. Its explicit separator is a global bypass. The robust encoding bound concerns the rational centers, not arbitrary rational perturbations.
+
+\input{01_geometry.tex}
+\input{02_lifting.tex}
+\input{03_seeds.tex}
+\input{04_graph.tex}
+\input{05_scope.tex}
+\begin{thebibliography}{9}
+\bibitem{DSV} M. Dutour Sikiri\'c, A. Sch\"urmann, F. Vallentin, A simplex algorithm for rational cp-factorization, Math. Program. 187 (2021), 25--45. doi:10.1007/s10107-020-01467-4.
+\bibitem{DS} V. Dannenberg, A. Sch\"urmann, Perfect copositive matrices, Commun. Math. 31 (2023), 137--156. doi:10.46298/cm.11141.
+\bibitem{OS} A. Oertel, A. Sch\"urmann, Generalized Perfect Matrices, arXiv:2602.05841v2 (2026).
+\bibitem{SM} N. Shaked-Monderer, SPN graphs: when copositive = SPN, Linear Algebra Appl. 509 (2016), 82--113. doi:10.1016/j.laa.2016.07.018. Lemma 3.1; arXiv:1604.02172v3.
+\bibitem{MS} T. S. Motzkin, E. G. Straus, Maxima for graphs and a new proof of a theorem of Tur\'an, Canad. J. Math. 17 (1965), 533--540. doi:10.4153/CJM-1965-053-6.
+\bibitem{Erdahl} R. M. Erdahl, A cone of inhomogeneous second-order polynomials, Discrete Comput. Geom. 8 (1992), 387--416. doi:10.1007/BF02293055.
+\bibitem{IE} M. Dutour Sikiri\'c, A. Sch\"urmann, F. Vallentin, Inhomogeneous extreme forms, Ann. Inst. Fourier 62 (2012), 2227--2255. doi:10.5802/aif.2748.
+\bibitem{Minimum} A. Oertel, A. Sch\"urmann, On Computing the Copositive Minimum and its Representatives, arXiv:2509.23696 (2025).
+\end{thebibliography}
+\end{document}
