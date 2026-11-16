@@ -2,13 +2,13 @@
   "title": "Pivot lower bounds and lattice geometry in completely positive matrix separation",
   "venue": "Linear Algebra and its Applications",
   "version": "2026-11-15 certified-seed editorial restructure",
-  "built_utc": "2026-11-16T04:07:37.061349+00:00",
+  "built_utc": "2026-11-16T04:10:48.756593+00:00",
   "pages": 25,
   "abstract_words": 166,
   "primary_codex_commit": "78a3ff709e14e49e95138f516fca85faec8eae72",
   "original_mathematical_commit": "11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc",
   "additional_mathematical_commit": "8e551996c8462cfe78c20e5edf18d18c0707f2c5",
-  "source_tree_sha256": "858bf754f642e2bc9d48b43adea7da06a6a15651b4e865ea213d5bf595ade429",
+  "source_tree_sha256": "233932098d1c90029d260d408d49bee334842d334ac9777a1bce2d3c8da10741",
   "files": {
     "main.tex": {
       "bytes": 3518,
@@ -16,11 +16,11 @@
     },
     "main.pdf": {
       "bytes": 467916,
-      "sha256": "a64d34094778cecd5da31ad6577521bad6440203f82b98e1e8d3a339da242f06"
+      "sha256": "1ac78c3ec95faf6f4b1f1b3952142c4c37c40a475e9264eb6a2eb4bf04bfb60f"
     },
     "build.py": {
-      "bytes": 2499,
-      "sha256": "4ea9a352a1b017db7fd81863a44a9db66911d514bb3b9bfe6f533a2d362cb7bd"
+      "bytes": 2807,
+      "sha256": "a42be5751cbd3c18bf6153f4d9063f7beaad6aec99e9b972897f0832e80b7031"
     },
     "highlights.txt": {
       "bytes": 389,
@@ -31,12 +31,12 @@
       "sha256": "4e5af95c3c680f1c5875d3c9a9e64ec74a823203487e4b459bfc04ac8e40d32e"
     },
     "README.md": {
-      "bytes": 3767,
-      "sha256": "a319b8384282759523a7f5d0859e03d760bdd84868a1e07fbcff3430b524ae80"
+      "bytes": 3824,
+      "sha256": "d499881388b058f550ae7c66fea14988c56e896a88788070fe0dcf45ad18037b"
     },
     "CP_Pivot_Verification.zip": {
       "bytes": 283622,
-      "sha256": "d4c8ebc67527896c23684566fcb572b7193057495a6a6ebd00dd5923e09906c1"
+      "sha256": "87785369ecbd86ad7fcbf0a57b2c2dfb76fc034f067f7a60d4ecf06b5b833083"
     },
     "sections/01_introduction.tex": {
       "bytes": 6933,

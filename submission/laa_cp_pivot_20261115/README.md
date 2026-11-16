@@ -11,7 +11,8 @@ Git history. This is a prepared revision, not a journal submission.
 ## Build and sources
 
 Run python build.py with Python 3.9+ and a current TeX installation. The script
-runs pdfLaTeX twice, rejects warnings and overfull/underfull boxes, and writes a
+runs at least two pdfLaTeX passes, up to four when references need to settle,
+rejects warnings and overfull/underfull boxes, and writes a
 build record with the PDF hash and the hashes of every project source. main.tex
 inputs sections/*.tex; the bibliography is sections/references.tex. Both figures
 are editable TikZ in the source. No external class, image or BibTeX file is needed.
