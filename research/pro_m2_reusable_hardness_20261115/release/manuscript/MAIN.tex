@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Long pivot paths and short certificates for completely positive matrices: Fixed-block amplification and lattice epigraph geometry},pdfauthor={Harman Singh},pdfsubject={Research manuscript: certified-seed amplification and intrinsic lattice graph geometry}}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\newcommand{\CP}{\mathcal{CP}}\newcommand{\COP}{\mathcal{COP}}\newcommand{\Ry}{\mathcal R}
+\newcommand{\SPN}{\mathcal{SPN}}\newcommand{\tr}{\operatorname{tr}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\cone}{\operatorname{cone}}\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\T}{^{\mathsf T}}\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\Min}{\operatorname{Min}}\newcommand{\dist}{\operatorname{dist}}
+\title{Long pivot paths and short certificates for completely positive matrices\\[3pt]\large Fixed-block amplification and lattice epigraph geometry}
+\author{Harman Singh}
+\date{15 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We give a sufficient-conditions theorem that turns a rational, positive definite, strictly entrywise-positive matrix outside the completely positive cone into an exponential lower-bound family for every strictly improving adjacent-pivot rule. The hypothesis is a finite positive rank-one certificate placing one principal block of the seed in the normal cone of a positive definite perfect form. The conclusion is uniform over all starting vertices in a bounded part of the associated face, and survives perturbations and arbitrary diagonal corrections of every tested ray. Integer shears reduce the face to finitely many bounded active-vector configurations. This gives linear-in-scale forced prefixes, uniform vertex denominators, and polynomial growth of its intrinsic edge graph. For the full-lattice epigraph the graph is quasi-isometric to the integer lattice. An exact Schur-complement criterion supplies entire classes of graphical seeds, including weighted path-forest-plus-hub obstructions, branched root-lattice blocks, and strictly positive nonmembers of arbitrarily large order whose every proper principal submatrix is completely positive. The latter defeat every proper-principal separator test on an explicit perturbation ball. Classical comparison-matrix and SPN results are identified as ingredients, rather than new classifications. The original canonical five-cycle theorem is preserved as a special case.
+\end{abstract}
+
+\section{Introduction and model}
+The difference between describing a certificate and reaching it by local search is especially visible for completely positive matrices. Put
+\[
+ \begin{gathered}
+ \CP_n=\cone\{xx\T:x\in\R_+^n\},\qquad
+ \COP_n=\{W:x\T Wx\ge0\ (x\ge0)\},\\
+ \Ry_n=\{P:P[v]\ge1\ (0\ne v\in\Z_+^n)\}.
+ \end{gathered}
+\]
+The trace pairing is $\ip X Y=\tr(XY)$ and $P[v]=v\T Pv$. A perfect copositive matrix is a vertex of $\Ry_n$. The simplex-type method of Dutour Sikiri\'c--Sch\"urmann--Vallentin \cite{DSV} moves along an extreme tangent ray $R$ with $\ip A R<0$, to its adjacent endpoint when the edge is bounded. The current vertex and a copositive improving ray can be separating certificates. Our earlier construction \cite{Baseline} gives robust exponentially long prefixes from the canonical tridiagonal vertex for every such choice, on positive definite and strictly positive ordinary $\CP_n$ nonmembers.
+
+The present paper isolates the mechanism rather than another trajectory. The main amplification theorem requires a finite normal-cone certificate for a principal block of an otherwise arbitrary seed. Its geometric input is a finite shear-normal-form theorem for lattice epigraphs. This strengthens location-dependent cofactor estimates: in sheared coordinates all active vectors and all primitive rays belong to fixed bounded lists. As a result, a scale $N$ proportional to the desired prefix length suffices. The same normal forms give an independent statement about denominators and intrinsic graph growth. Finally, a graphical Schur interval constructs qualifying seeds with no five-cycle principal obstruction.
+
+The permitted local model allows any strictly improving adjacent edge choice, any bounded portfolio of starting vertices in the stated face, the usual vertex and ray exits, and arbitrary copositivity tests on diagonal corrections or linear combinations of the stored face rays. We also identify larger sparsity-limited test classes. A globally constructed unrelated separator, input-dependent distant initialization, nonadjacent jumps, or non-descending moves is not charged as an adjacent-pivot rule. No claim about the eventual termination of every rule is needed for a finite lower-bound prefix.
+
+Dannenberg--Sch\"urmann \cite{DS} study perfect copositive matrices and their neighborhood graph; Oertel--Sch\"urmann \cite{OS} establish generalized perfectness and the qualitative Interior Ryshkov property. Simultaneous approximation is already an ingredient of that theory. Finiteness under affine lattice equivalence also has substantial antecedents in inhomogeneous reduction theory \cite{Inhom}. Here the fixed positive definite block, bounded denominator layers, orthant boundary, and the quantitative local-search consequence are essential. The graphical CP and SPN ingredients used below are classical \cite{Drew,Barioli,SPN}; we prove the specific elementary forms needed and distinguish their role from the new amplification statement.
+
+\input{01_geometry.tex}
+\input{02_amplification.tex}
+\input{03_seeds.tex}
+\input{04_scope_verification.tex}
+
+\begingroup\small
+\begin{thebibliography}{12}
+\setlength{\itemsep}{3pt}
+\bibitem{DSV} M. Dutour Sikiri\'c, A. Sch\"urmann, F. Vallentin, A simplex algorithm for rational cp-factorization, Mathematical Programming 187 (2021), 25--45. DOI: 10.1007/s10107-020-01467-4.
+\bibitem{DS} V. Dannenberg, A. Sch\"urmann, Perfect copositive matrices, Communications in Mathematics 31 (2023), 137--156. DOI: 10.46298/cm.11141.
+\bibitem{OS} A. Oertel, A. Sch\"urmann, Generalized perfect matrices, arXiv:2602.05841v2 (2026).
+\bibitem{Inhom} M. Dutour Sikiri\'c, A. Sch\"urmann, F. Vallentin, Inhomogeneous extreme forms, Annales de l'Institut Fourier 62 (2012), 2227--2255. DOI: 10.5802/aif.2748.
+\bibitem{SPN} N. Shaked-Monderer, SPN graphs: When copositive = SPN, Linear Algebra and its Applications 509 (2016), 82--113. DOI: 10.1016/j.laa.2016.07.018.
+\bibitem{Drew} J. H. Drew, C. R. Johnson, R. Loewy, Completely positive matrices associated with M-matrices, Linear and Multilinear Algebra 37 (1994), 303--310. DOI: 10.1080/03081089408818334.
+\bibitem{Kogan} N. Kogan, A. Berman, Characterization of completely positive graphs, Discrete Mathematics 114 (1993), 297--304. DOI: 10.1016/0012-365X(93)90374-3.
+\bibitem{Barioli} F. Barioli, Decreasing diagonal elements in completely positive matrices, Rendiconti del Seminario Matematico della Universit\`a di Padova 100 (1998), 13--25. Numdam identifier: RSMUP\_1998\_\_100\_13\_0.
+\bibitem{SPNcorr} N. Shaked-Monderer, Corrigendum to ``SPN graphs: when copositive = SPN'', Linear Algebra and its Applications 541 (2018), 285--286; arXiv:1712.05115.
+\bibitem{SPNsurvey} N. Shaked-Monderer, CP graphs and SPN graphs, Communications in Optimization Theory 2025 (2025), Article 3, 1--10. DOI: 10.23952/cot.2025.3.
+\bibitem{Baseline} H. Singh, Exponential local pivot complexity for ordinary completely positive separation, research manuscript, 15 November 2026. Immutable project source: Harman6139/Posterity-Files, commit 11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc. Original proof and tests retained unchanged in the accompanying release.
+\end{thebibliography}
+\endgroup
+\end{document}

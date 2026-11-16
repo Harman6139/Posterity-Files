@@ -1,0 +1,140 @@
+\section{Finite shear types and intrinsic graph geometry}
+Let $H\in\mathbb S^r$ be positive definite, not necessarily rational. Define
+\[
+ g_H(b)=\sup_{u\in\Z_+^r,\ y\in\Z_{\ge1}}
+ \frac{1-u\T Hu-2yb\T u}{y^2},\qquad
+ E_H=\{(b,c):c\ge g_H(b)\}.
+\]
+The edge graph uses vertices and bounded one-dimensional faces of this epigraph. It is the graph of a fixed-block face of $\Ry_{r+1}$ when $H$ is a perfect vertex of $\Ry_r$. For general $H$ it is still a well-defined lattice-convex object.
+
+\begin{lemma}[Uniform gap and edge movement]\label{lem:gap}
+Choose an integer $q\ge2$ with $r\norm H_2/q^2\le1/2$, and set
+\[
+ \kappa=(2q^{2r})^{-1},\quad Y=2q^r,\quad
+ t\in\Z_{\ge1},\quad t\ge\max_i\sqrt{(H^{-1})_{ii}},\quad K=Y+t.
+\]
+Let $z$ minimize $x\T Hx+2b\T x$ over $x\ge0$, and put $\ell=b+Hz$. Then
+\[
+ z,\ell\ge0,\quad z_i\ell_i=0,\qquad
+ z\T Hz+\kappa\le g_H(b)\le z\T Hz+1.
+\]
+The supremum is attained and $E_H$ is locally polyhedral. At any active $(u,y)$ on its graph,
+\begin{equation}\label{eq:residual}
+ y\le Y,\qquad (u-yz)\T H(u-yz)+2y\ell\T u
+ =1-y^2(g_H(b)-z\T Hz)\le1.
+\end{equation}
+At each vertex, $0\le\ell_i\le1/2$. Endpoints of every bounded edge satisfy
+\begin{equation}\label{eq:move}
+ |b'_i-b_i|\le\tfrac12+2\sqrt{H_{ii}}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $e=u-yz$, completing the square gives
+\[
+ \frac{1-u\T Hu-2yb\T u}{y^2}
+ =z\T Hz+\frac{1-e\T He-2y\ell\T u}{y^2}.
+\]
+The last numerator is at most one. Dirichlet's simultaneous approximation on the positive coordinates of $z$ gives $1\le y\le q^r$ and integers $u_i$ within $1/q$ of $yz_i$; take $u_i=0$ on the other coordinates. These integers are nonnegative, $\ell\T u=0$, and $e\T He\le1/2$. This proves the lower gap. If $z=0$, use $u=0,y=1$. The approximation follows directly by putting $q^s+1$ fractional-part vectors into $q^s$ boxes, where $s$ is the support size.
+
+Terms with $y>Y$ lie strictly below the lower gap. For the remaining denominators, a term reaching the gap has $e$ in a bounded ellipsoid. This proves attainment and local polyhedrality, uniformly on compact sets since $z(b)$ is continuous by strong convexity. At a vertex the active affine normals $(2u/y,1)$ span $\R^{r+1}$, so some active $u_i\ge1$ for each $i$. Equation \eqref{eq:residual} then gives $\ell_i\le1/2$.
+
+A bounded edge has a common active $(u,y)$ at its endpoints. At either endpoint,
+$b+Hu/y=\ell+He/y$, and $|(He)_i|\le\sqrt{H_{ii}}$ by Cauchy--Schwarz in the $H$-inner product. Thus both endpoint values of $b_i+(Hu/y)_i$ lie in the same interval $[-\sqrt{H_{ii}}/y,1/2+\sqrt{H_{ii}}/y]$, proving \eqref{eq:move}.
+\end{proof}
+
+Define the integral shear
+\[
+ S_a=\begin{pmatrix}I_r&a\\0&1\end{pmatrix},\qquad a\in\Z^r.
+\]
+For $P=\left(\begin{smallmatrix}H&b\\b\T&c\end{smallmatrix}\right)$ write
+\[
+ \overline P=S_a\T PS_a,
+ \quad\bar b=b+Ha,\quad\bar c=c+2b\T a+a\T Ha.
+\]
+
+\begin{theorem}[Finite shear-normal forms]\label{thm:templates}
+At every vertex of $E_H$, take $a=\lfloor z\rfloor\in\Z_+^r$. Then:
+\begin{enumerate}
+\item Every active vector $(u,y)$ has sheared coordinates $(v,y)=(u-ay,y)$ in the fixed finite set
+\[
+ \mathcal D_H=\{(v,y):v\in\Z^r,\ |v_i|\le K,\ 1\le y\le Y\}.
+\]
+\item The pairs $(\bar b,\bar c)$ belong to a finite explicitly enumerable containing list, depending only on $H$. More precisely,
+\[
+ |\bar b_i|\le\tfrac12+\sum_j|H_{ij}|,\qquad
+ \kappa\le\bar c\le1+r\norm H_2,
+\]
+and each pair is determined by $r+1$ independent equations selected from $\mathcal D_H$.
+\item If $D_HH$ is integral, all coordinates of all vertices of $E_H$ have a common denominator dividing
+\[
+ \Delta_H=D_H\operatorname{lcm}(1,2,\ldots,F_H),\qquad
+ F_H=(r+1)![2K^2]^{r+1}.
+\]
+This is an effective, nonoptimized bound, independent of the vertex's location.
+\item If $H$ is a positive definite perfect vertex of $\Ry_r$, let $n=r+1$, $d=n(n+1)/2$, and
+\[
+ E_*=(d-1)![2K^2]^{d-1}.
+\]
+Every full tangent cone of $\Ry_n$ at a vertex with leading block $H$, after the above shear, is defined by a subset of a fixed finite integer-normal list. Every primitive integral extreme ray $R$ has
+\begin{equation}\label{eq:shearedrays}
+ |(S_a\T RS_a)_{ij}|\le E_*.
+\end{equation}
+In particular, with $T=1+\norm a_1$, the original leading, cross, and last blocks of $R$ have entry bounds $E_*$, $E_*T$, and $E_*T^2$, respectively.
+\end{enumerate}
+The containing list may include unrealized templates; no decision of which template occurs at a prescribed integer translate is assumed.
+\end{theorem}
+\begin{proof}
+Put $f=z-a\in[0,1)^r$. From \eqref{eq:residual}, $|u_i-yz_i|\le\sqrt{(H^{-1})_{ii}}\le t$, hence $|v_i|\le Y+t=K$. Also $\bar b=\ell-Hf$. Complementarity gives $\ell\T a=0$: if $\ell_i>0$ then $z_i=a_i=0$. Consequently
+\[
+ \bar c=(c-z\T Hz)+f\T Hf.
+\]
+This proves the bounds in (2). Independence of active affine equations is preserved by the invertible shear. Each selected equation is
+\[
+ 2yv\T\bar b+y^2\bar c=1-v\T Hv.
+\]
+There are finitely many choices. Its coefficient entries have magnitude at most $2K^2$. Cramer's rule gives denominators dividing $D_H\det M$ with $0<|\det M|\le F_H$. Inverting the shear introduces only integral coefficients and entries of $H$, proving (3).
+
+For (4), an active vector with last coordinate zero satisfies $H[u]=1$, so $|u_i|\le t$ and is unchanged by the shear. All other active vectors belong to $\mathcal D_H$ after shearing. A full extreme tangent ray annihilates $d-1$ independent integer equations. Cofactors give a generator bounded by $E_*$. Integral unimodular congruence preserves the integral symmetric lattice and primitiveness, proving \eqref{eq:shearedrays}. The inverse shear changes blocks by
+\[
+ (D,w,s)\longmapsto(D,w-Da,s-2a\T w+a\T Da),
+\]
+which proves the last bounds.
+\end{proof}
+
+The denominator bound is stronger than a bit-height bound that grows with the vertex. The same finite alphabet bounds the number of active constraints and the degree of the edge graph, uniformly over a fixed positive definite block. It does not bound the number of vertices in the entire face.
+
+\begin{theorem}[Intrinsic graph growth]\label{thm:growth}
+For every real positive definite $H$, the bounded-edge graph of $E_H$ is connected, has uniformly bounded degree, and has polynomial ball growth of exact degree $r$: for each vertex $v$ there are constants $0<c_v\le C_v$ such that
+\[
+ c_vR^r\le |B_{\mathrm{graph}}(v,R)|\le C_v(1+R)^r
+\]
+for all sufficiently large integers $R$. In the variant $E_H^{\Z}$ obtained by allowing $u\in\Z^r$, the edge graph is quasi-isometric to $\Z^r$. On the region
+\[
+ z=-H^{-1}b,\qquad z_i>\sqrt{(H^{-1})_{ii}}\quad\text{for every }i,
+\]
+the two epigraphs coincide locally; the full-lattice graph is periodic under integral shears there.
+\end{theorem}
+\begin{proof}
+For $E_H$, its recession cone is $\{(w,s):w\ge0,s\ge0\}$: test $u=0$ and then arbitrarily large $u=ke_i$. The affine functional $p(b,c)=c+\sum_i b_i$ has compact sublevel sets on $E_H$. Indeed $c\ge1$ and, when $b_i<0$, taking the nearest nonnegative integer to $-b_i/H_{ii}$ in a $y=1$ constraint gives
+\[
+ c\ge1+(b_i^-)^2/H_{ii}-H_{ii}/4.
+\]
+Thus negative coordinates of $b$ are $O_H(\sqrt{c+1})$, so $p\le T$ first bounds $c$ and then the positive coordinates. Compact sets meet only finitely many active constraints and vertices. From any nonminimizing vertex a descending extreme ray for $p$ is bounded, since $p$ is positive on every nonzero recession direction. Descending within the finite sublevel graph reaches a minimizing face; this is a compact polytope with connected edge graph. This proves connectivity. The finite active alphabets give bounded degree.
+
+The movement bound gives $\norm b_\infty=O_{H,v}(R+1)$ in a radius-$R$ graph ball. At vertices $z=H^{-1}(\ell-b)$ and $\ell\in[0,1/2]^r$, so $a=\lfloor z\rfloor$ has only $O_{H,v}((R+1)^r)$ possibilities. There are finitely many templates over each $a$, proving the upper bound.
+
+For $E_H^{\Z}$, the continuous center is $z=-H^{-1}b$ and $\ell=0$. The gap, finite alphabets, and finite templates have the same proofs, now with $a\in\Z^r$. The transformations
+\[
+ \Psi_a(b,c)=(b-Ha,c-2b\T a+a\T Ha)
+\]
+are graph automorphisms. Their action on vertices is free and has a finite quotient. The functional $c$ has compact sublevels, since $c\ge b\T H^{-1}b+\kappa$, so the same descent argument proves graph connectivity. Connect a fixed representative to the other finitely many representatives and to its translates by $\pm e_i$. Translating these finitely many paths gives an upper distance bound linear in $\norm a_1$. The movement bound gives a matching lower bound up to additive constants. This proves the asserted quasi-isometry without invoking a group-action theorem.
+
+If all center coordinates exceed the stated thresholds, every constraint with a negative coordinate in $u$ has $e\T He>1$, by
+$e\T He\ge e_i^2/(H^{-1})_{ii}$. Such a constraint lies below the continuous quadratic value, whereas the nonnegative constraints exceed it by $\kappa$. Thus it does not affect the epigraph, proving local coincidence.
+
+Take the finite connecting paths from a full-lattice base vertex to its $+e_i$ translates. Translate all of them sufficiently far into the above open region. Every additional nonnegative integral translate remains there. This embeds a network indexed by $\Z_+^r$ in the bounded-edge graph of $E_H$, with generator paths of a fixed finite length. Distinct indices give distinct vertices. Therefore a graph ball at its base contains $\Omega_H(R^r)$ vertices. Connectivity transfers the lower bound, with a fixed distance offset, to any other base vertex.
+\end{proof}
+
+\begin{corollary}[Large intrinsic distance at small encoding height]
+For rational $H>0$, the graph of $E_H$ contains vertex pairs at graph distance $\Omega_H(M)$ and coordinate bit height $O_H(\log(M+1))$. For $H=T_r$ one may use canonical forms translated by $a=Me_1$; their cross columns differ by $MH e_1$. The distance lower bound follows from \eqref{eq:move}. This concerns the intrinsic face graph, not distances after allowing paths outside the face.
+\end{corollary}

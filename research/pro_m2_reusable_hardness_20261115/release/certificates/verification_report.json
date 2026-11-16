@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "seed_families": [
+    {
+      "label": "C5",
+      "order": 5,
+      "proper_principal_certificates": 5,
+      "normal_atoms": 17,
+      "scale_cases": 3,
+      "max_N_bits": 410,
+      "normal_span": 10
+    },
+    {
+      "label": "C7",
+      "order": 7,
+      "proper_principal_certificates": 7,
+      "normal_atoms": 32,
+      "scale_cases": 2,
+      "max_N_bits": 995,
+      "normal_span": 21
+    },
+    {
+      "label": "C9",
+      "order": 9,
+      "proper_principal_certificates": 9,
+      "normal_atoms": 51,
+      "scale_cases": 2,
+      "max_N_bits": 2229,
+      "normal_span": 36
+    },
+    {
+      "label": "two_C7",
+      "order": 13,
+      "proper_principal_certificates": 13,
+      "normal_atoms": 100,
+      "scale_cases": 2,
+      "max_N_bits": 6871,
+      "normal_span": 78
+    },
+    {
+      "label": "C5_C4",
+      "order": 8,
+      "proper_principal_certificates": 8,
+      "normal_atoms": 40,
+      "scale_cases": 2,
+      "max_N_bits": 1563,
+      "normal_span": 28
+    },
+    {
+      "label": "C5_leaf",
+      "order": 6,
+      "proper_principal_certificates": 6,
+      "normal_atoms": 23,
+      "scale_cases": 2,
+      "max_N_bits": 636,
+      "normal_span": 15
+    },
+    {
+      "label": "weighted_multi_attachment",
+      "order": 9,
+      "proper_principal_certificates": 9,
+      "normal_atoms": 51,
+      "scale_cases": 2,
+      "max_N_bits": 2490,
+      "normal_span": 36
+    },
+    {
+      "label": "branched_D7",
+      "order": 8,
+      "proper_principal_certificates": 8,
+      "normal_atoms": 41,
+      "scale_cases": 3,
+      "max_N_bits": 1690,
+      "normal_span": 28
+    }
+  ],
+  "geometry": {
+    "vertices": 20,
+    "active_equalities": 142,
+    "face_rays": 128,
+    "full_lattice_hull_cases": 3,
+    "full_lattice_templates": 7,
+    "largest_integer_shear": 18446744073709551616
+  },
+  "arrow_decompositions": 3,
+  "restrictions": {
+    "restriction_groups": 4,
+    "singular_block_cases": 3
+  },
+  "corruptions_rejected": [
+    "seed off-diagonal",
+    "comparison inverse",
+    "wrong deletion budget",
+    "normal reserve weight",
+    "under-scaled amplifier",
+    "invalid sheared active vector",
+    "omitted denominator template",
+    "incorrect arrow correction",
+    "false same-color gap"
+  ],
+  "certificate_sha256": "5d71cfecd478c21bda7e6cb09042b14c234a8c263019d5f420d887865a502095",
+  "scope": "Independent exact code path, no generator imports. Neither human review, formal proof-assistant checking, nor long-trajectory simulation."
+}

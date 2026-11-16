@@ -1,0 +1,149 @@
+\section{Graphical seeds: an exact interval and collective obstructions}
+The amplification theorem does not require a five-cycle or a Horn witness. We give an entire class of seeds and an exact structural criterion for when it works. Comparison-matrix facts in this section are classical \cite{Drew,Kogan}; the new use is to supply certified local-search obstructions and examples without a smaller principal obstruction.
+
+For a symmetric nonnegative matrix $X$, let $M(X)$ retain its diagonal and negate its off-diagonal entries.
+
+\begin{lemma}[Triangle-free comparison criterion]\label{lem:comparison}
+If $X\ge0$ is symmetric and $M(X)\succeq0$, then $X\in\CP$. Conversely, if the support graph of $X$ is triangle-free and $X\in\CP$, then $M(X)\succeq0$.
+\end{lemma}
+\begin{proof}
+For $M(X)\succ0$, its inverse is nonnegative: write it as $tI-K$ with $K\ge0$ and $t>\rho(K)$, and use the Neumann series. Thus $d=M(X)^{-1}{\bf1}>0$. The matrix $\diag(d)X\diag(d)$ is diagonally dominant and nonnegative, since its $i$th diagonal excess is $d_i(M(X)d)_i=d_i$. It is a positive combination of singleton squares and squares $(e_i+e_j)(e_i+e_j)\T$. Positive diagonal congruence preserves complete positivity. If $M(X)$ is only semidefinite, apply this argument to $X+\varepsilon I$ and use closedness of $\CP$ (its trace-one base is the convex hull of a compact set of normalized nonnegative rank-one matrices).
+
+For the converse, structural zeros force each nonnegative Gram column to be supported on a clique. A triangle-free graph has cliques of size at most two. Negating the off-diagonal entry of a two-supported rank-one matrix gives another PSD rank-one matrix. Summing these comparison matrices proves the assertion.
+\end{proof}
+
+Let $A_0\in\mathbb S^r(\Q)$ be positive definite, nonnegative, and supported on a disjoint union of paths, with strictly positive edge weights. Singletons are allowed. Label the components consecutively. Let $c\in\Q_+^r$, with no two adjacent positive entries. Joining a hub to the positive coordinates of $c$ gives a triangle-free graph $G$. Put
+\[
+ M_0=M(A_0),\quad v=M_0^{-1}c,\quad
+ \alpha=c\T A_0^{-1}c,\quad\beta=c\T M_0^{-1}c,\quad
+ F(a)=\begin{pmatrix}A_0&c\\c\T&a\end{pmatrix}.
+\]
+
+\begin{theorem}[Exact seed interval and normal-cone realization]\label{thm:seedinterval}
+For $a\ge0$,
+\[
+ F(a)\succ0\iff a>\alpha,\qquad
+ F(a)\in\CP_{r+1}\iff a\ge\beta.
+\]
+In particular the positive definite non-CP interval is exactly $(\alpha,\beta)$. It is nonempty precisely when, in some path component, the hub attaches to both bipartition classes. Under the no-adjacent-attachment assumption this is equivalent to $G$ containing an odd cycle of length at least five.
+
+Whenever $\alpha<a<\beta$ is rational, a rational positive diagonal congruence followed by an explicitly small CP reserve turns $F(a)$ into a certified seed for the canonical leading block $T_r$. Thus every such weighted graphical obstruction produces the all-rule canonical exponential lower bound, including the arbitrary-diagonal test and multi-start conclusions of Theorem~\ref{thm:amplification}.
+\end{theorem}
+\begin{proof}
+Bipartite sign switching gives $M_0=JA_0J\succ0$ for a diagonal $J$ with entries $\pm1$. Its inverse is nonnegative, and strictly positive within each nontrivial connected component. The two Schur complements and Lemma~\ref{lem:comparison} give the two equivalences. If the color classes are $U,V$, then
+\[
+ \beta-\alpha
+ =4\sum_{\substack{i\in U,\ j\in V}}c_ic_j(M_0^{-1})_{ij}.
+\]
+Terms between distinct components vanish. This proves the strictness criterion. A path between opposite-colored attachments has odd length; excluding adjacent attachments makes that length at least three, and adding the hub makes an odd cycle of length at least five. Conversely every cycle in a path forest plus a hub arises this way.
+
+The separator is explicit. Let $Q_G={\bf1}{\bf1}\T-2\operatorname{Adj}(G)$. This is copositive because a triangle-free graph satisfies
+$\sum_{ij\in E(G)}x_ix_j\le(\sum_i x_i)^2/4$. For clarity, on the simplex choose a maximizer with smallest support; merge nonadjacent positive coordinates into the one with larger neighbor sum, without reducing the objective. The support becomes a clique, of size at most two, where the bound is elementary. Hence
+\[
+ W_F=\diag(v,1)Q_G\diag(v,1)\in\COP_{r+1},\qquad
+ \ip{W_F}{F(a)}=a-\beta<0.
+\]
+Zero entries of $v$ cause no problem.
+
+Set $d=M_0^{-1}{\bf1}>0$ and $D=\diag(d,1)$. The leading block of $DF(a)D$ has the exact decomposition
+\[
+ \diag(d)A_0\diag(d)
+ =\sum_i d_i e_ie_i\T
+ +\sum_{ij\in E(A_0)}(A_0)_{ij}d_id_j(e_i+e_j)(e_i+e_j)\T.
+\]
+All displayed vectors are minimal for $T_r$, since each path edge joins consecutive coordinates. Let $C_n$ be the sum of all consecutive-interval squares in dimension $n=r+1$. Its entries are $\min(i,j)(n+1-\max(i,j))$. Put
+\[
+ W'=D^{-1}W_FD^{-1},\quad \gamma_0=\beta-a,\quad
+ w'=1+\sum_{ij}|W'_{ij}|,\qquad
+ \varepsilon=\frac{\gamma_0}{4w'\tr C_n}.
+\]
+Then
+\[
+ B=DF(a)D+\varepsilon C_n
+\]
+is positive definite and strictly positive. Its leading block is a positive combination of all top-interval squares, which span $\mathbb S^r$. Finally
+$\ip{W'}B\le-3\gamma_0/4<0$, because $\norm{C_n}_F\le\tr C_n$. These are the certified-seed conditions. The identity
+\[
+ T_j[x]=\tfrac12\left(x_1^2+x_j^2+\sum_{i<j}(x_i-x_{i+1})^2\right)
+\]
+proves integer minimum one, with positive consecutive-interval minimal vectors whose squares span. Thus $T_r$ is perfect, and the face contains the actual canonical start $T_n$.
+\end{proof}
+
+This is a sharp characterization \emph{within the stated graphical class}. If all attachments stay within one color class per component, $\alpha=\beta$ and no choice of hub diagonal can be both positive definite and non-CP. It does not classify arbitrary nonmembers or arbitrary support graphs.
+
+\subsection{Long odd cycles and collective minimal nonmembers}
+For a single even-length path with $s\ge4$ vertices, take
+\[
+ A_0=I_s+\tfrac14\operatorname{Adj}(P_s),\qquad c=e_1+e_s.
+\]
+The support of $F(a)$ is the chordless odd cycle of length $s+1$. The interval in Theorem~\ref{thm:seedinterval} is nonempty. Already at lengths seven and nine there is no five-cycle principal support, so these are not padded or diagonally rescaled five-cycle examples.
+
+More substantially, use any number of path components, each attached to the hub at both endpoints (and, optionally, singleton leaves). Require at least one even-length path with at least four vertices and no component that creates a triangle. All coordinates of $v=M_0^{-1}c$ are then positive and $\beta>\alpha$. For each top coordinate put
+\[
+ \Delta_i=\frac{v_i^2}{(M_0^{-1})_{ii}}>0,\qquad
+ \delta=\tfrac12\min\{\beta-\alpha,\min_i\Delta_i\},\qquad a=\beta-\delta.
+\]
+
+\begin{theorem}[Collective principal-minimal obstructions]\label{thm:minimal}
+The matrix $F(a)$ is rational, positive definite, nonnegative, and not completely positive, while \emph{every proper principal submatrix is completely positive}. The same is true after the normal-cone congruence and CP reserve in Theorem~\ref{thm:seedinterval}, except that the resulting seed is strictly entrywise positive. Thus the amplification theorem applies to positive definite, strictly positive nonmembers of unbounded order with no smaller principal nonmember. In particular this holds for bouquets of two or more chordless seven-cycles sharing only their hub, which contain no five-cycle.
+\end{theorem}
+\begin{proof}
+The full matrix has Schur complement $a-\alpha=\beta-\alpha-\delta>0$, while the comparison Schur complement is $a-\beta=-\delta<0$. For deletion of a top coordinate $i$, block inversion gives the exact identity
+\[
+ c\T M_0^{-1}c-c_{-i}\T(M_0[-i])^{-1}c_{-i}
+ =v_i^2/(M_0^{-1})_{ii}=\Delta_i.
+\]
+Thus the comparison matrix of $F(a)[-i]$ is positive definite: its Schur complement is $\Delta_i-\delta>0$. It is CP by Lemma~\ref{lem:comparison}. Deleting the hub leaves $A_0$, whose comparison matrix is positive definite, so it too is CP. Every smaller principal submatrix is contained in one of these. Positive diagonal congruence and addition of a CP matrix preserve complete positivity on every proper principal submatrix; the separator retains global nonmembership after the prescribed reserve.
+\end{proof}
+
+For two six-vertex paths, so $n=13$, each path has
+\[
+ \alpha_0=\frac{152}{71},\qquad \beta_0=\frac{88}{41},\qquad
+ \beta_0-\alpha_0=\frac{16}{2911}.
+\]
+The deletion margins in the two-block matrix exceed $16/2911$. More generally, the proof allows any $0<\delta<\min(\beta-\alpha,\min_i\Delta_i)$, so one may take $\delta=16/2911$ and
+\[
+ a=2\beta_0-\frac{16}{2911}=\frac{12480}{2911}.
+\]
+Each seven-cycle principal block is CP, as is every other proper principal block, yet the complete thirteen-dimensional matrix is not. The strict reserve preserves this fact. This is a shared-diagonal-budget obstruction, not an inherited bad five-dimensional principal block.
+
+The strict reserve also makes each proper principal submatrix an interior CP point: on any ordered subset, restricted interval vectors include all consecutive intervals of that subset. Their squares span. Therefore the principal-minimal property persists on a sufficiently small open ball. An effective rational radius is obtained from any such finite atom basis: if $B_I$ is its sum, the inverse basis map bounds the perturbation coefficients, and half the smallest positive reserve coefficient is an admissible threshold. Taking the minimum over the finitely many proper index sets and decreasing $\zeta$ in \eqref{eq:robustconstants} preserves the property throughout the amplified ball. This is a finite exact calculation for fixed order, not an unquantified claim of a uniform dimension-free radius.
+
+
+\begin{corollary}[All proper-principal certificate tests are ineffective]\label{cor:principaltests}
+For the principal-minimal amplified families, no copositive matrix supported on a proper principal index set can separate the input, nor can any nonnegative combination of such certificates. This holds throughout an explicitly computable perturbation ball. Thus even exact tests on \emph{all} proper principal submatrices do not bypass these examples.
+\end{corollary}
+\begin{proof}
+For every proper $I$, complete positivity of $A[I]$ gives $\ip{A[I]}{W[I]}\ge0$ for every copositive $W[I]$. Summation proves the assertion for conic combinations.
+
+Here is one finite radius that also makes the preceding robustness statement explicit. In the full CP reserve select $d=n(n+1)/2$ independent atom squares with coefficients at least one. Let $U$ have their upper-triangle coordinate vectors as columns, and set $L_U=\max_i\sum_j|(U^{-1})_{ij}|$. A perturbation $Z$ of Frobenius norm at most $\varepsilon/(2\max(1,L_U))$ has basis coefficients bounded by $\varepsilon/2$. Therefore $\varepsilon\mathcal B+Z$ is CP, where $\mathcal B$ is the reserve. For a proper principal set $I$, embed any perturbation of its block with zeros outside $I$, apply this fact, and restrict back to $I$. Adding the already-CP principal block of the unreserved seed proves the claim. Positive diagonal scaling with entries at least one does not enlarge a perturbation under its inverse. Consequently decreasing $\zeta$ in \eqref{eq:robustconstants} to this radius suffices. For the interval reserve $C_n$, the interval-weight inverse uses four-term differences, so $L_U\le4$ and $\varepsilon/8$ is sufficient. The tree reserve also has an explicit full atom basis, described in Proposition~\ref{prop:tree}; its inverse is a finite rational calculation. The supplied certificates include this calculation.
+\end{proof}
+
+\subsection{Canonical portfolios and noncanonical perfect blocks}
+The canonical choice is one admissible start, but not the only one. Integral shears of $T_n$ by any fixed nonnegative integer vector preserve its leading block and give perfect vertices: the inverse images of the original interval minimal vectors remain nonnegative and their squares still span. Any bounded collection of these, and indeed all vertices in any bounded cross-column region of the face, is covered simultaneously by Theorem~\ref{thm:amplification}. The general theorem also applies to other positive definite perfect leading blocks whenever the finite reserve certificate is provided. We do not claim that the interval construction automatically supplies seeds for every such block.
+
+
+\subsection{Branched leading blocks: a second normal geometry}
+The tridiagonal block is not essential even to the graphical realization. Let $T$ be a tree on $r$ vertices such that
+\[
+ H_T=I_r-\tfrac12\operatorname{Adj}(T)>0.
+\]
+For each unordered pair of vertices, including repeated pairs, let $p_{ij}$ be the indicator of their unique tree path. The integer quadratic form $H_T[x]=\sum_i x_i^2-\sum_{ij\in E(T)}x_ix_j$ is positive integral on nonzero integer vectors, and $H_T[p_{ij}]=1$. These path squares span $\mathbb S^r$: the four-term difference of path quadratic values, obtained by deleting either endpoint or both, is $2X_{ij}$. Thus $H_T$ is a positive definite perfect vertex.
+
+\begin{proposition}[Tree normal-cone realization]\label{prop:tree}
+Theorem~\ref{thm:seedinterval} and its principal-minimal construction extend when the leading support is a forest contained in such a tree $T$. The certified leading block is then $H_T$. In particular they apply to the branched $D_r$ trees, $r\ge4$, and to every bounded portfolio in their fixed-block faces.
+\end{proposition}
+\begin{proof}
+The comparison and Schur-complement proofs are unchanged. Every singleton and every support-edge pair is now a minimal vector of $H_T$, so the same positive diagonal scaling puts the leading block in the appropriate normal cone. For a strictly positive reserve use
+\[
+ \mathcal B_T=
+ \sum_{i\le j}\bigl[(p_{ij},0)(p_{ij},0)\T+
+                       (p_{ij},1)(p_{ij},1)\T\bigr]+e_ne_n\T.
+\]
+Its leading block is twice the sum of all path squares. All its entries are positive. The summands span $\mathbb S^n$: the unlifted terms span the leading block, $e_ne_n\T$ gives the last entry, and the singleton lifted terms supply the cross columns. Hence $\mathcal B_T$ is an interior CP matrix. Add $\varepsilon\mathcal B_T$, where $\varepsilon=(\beta-a)/(4w'\tr\mathcal B_T)$, exactly as before. This preserves the separator and provides a positive normal reserve. Proper principal matrices remain CP, and become interior after the reserve.
+
+For completeness the $D_r$ tree has edges $i(i+1)$ for $1\le i\le r-2$ and $(r-2)r$. Its matrix is half the Gram matrix of the independent vectors
+$e_1-e_2,\ldots,e_{r-1}-e_r,e_{r-1}+e_r$, so it is positive definite. Attach the last new vertex to vertex $1$ to obtain a $D_{r+1}$ tree; its perfect form is an explicit starting vertex with leading block $H_T$. The matrix $H_T$ is not a permutation or positive diagonal congruence of a tridiagonal block, since its off-diagonal support is branched.
+\end{proof}
+
+For example, on $D_7$ use $A_0=I+\operatorname{Adj}(D_7)/4$ and attach the hub to vertices $1$ and $6$. The resulting support has a seven-cycle and a pendant branch, and no five-cycle. The principal-minimal choice of the hub diagonal makes every proper principal matrix CP while the full order-eight seed is non-CP. The amplified family starts at a $D_8$ perfect form, whereas the path families above continue to start at the actual canonical $T_n$. The role of the new example is to demonstrate a different qualifying normal geometry, not to replace or weaken the canonical theorem.

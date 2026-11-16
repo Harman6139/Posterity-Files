@@ -1,0 +1,37 @@
+\section{Restrictions, provenance, and reproducibility}
+\subsection{Three failed extrapolations}
+Positive definiteness of the leading block is substantive for the finite-type geometry. For the singular but strictly copositive block $H={\bf1}{\bf1}\T$ of order two,
+\[
+ g_H(b_1,b_2)=g_1(\min(b_1,b_2)),
+\]
+since for a fixed integer $u_1+u_2$ all mass can be assigned to a coordinate of minimum $b_i$. For $H=1$, nearest-integer rounding shows that $y=1$ constraints suffice: for $b<0$ they give $g_1(b)\ge b^2+3/4$, whereas $y\ge2$ gives at most $b^2+1/4$; for $b\ge0$, $g_1(b)=1$. It follows that the vertices of $E_H$ are exactly
+\[
+ b_1=b_2=-(k+\tfrac12),\quad c=k^2+k+1,\qquad k=0,1,\ldots.
+\]
+At such a vertex the active last-coordinate-one vectors include every $(u_1,u_2,1)$ with $u_1+u_2=k$ or $k+1$, a total of $2k+3$. The bounded-edge graph is a ray: the increasing parts of $g_1$ force the two coordinates to coincide at a vertex, and consecutive common affine pieces join exactly successive $k$. Thus the active cardinality is unbounded and growth has degree one rather than the block order two. Strict copositivity cannot replace positive definiteness in Theorems~\ref{thm:templates}--\ref{thm:growth}.
+
+The triangle-free restriction in the comparison criterion also matters. The all-ones matrix of order three is CP, but its comparison matrix $2I-J$ has negative value on ${\bf1}$. Consequently the exact hub-budget criterion is not asserted for arbitrary graphs. Even within the triangle-free class, if all attachments stay in one bipartition class, the two thresholds coincide and there is no positive-definite nonmember interval.
+
+Finally, a positive definite top objective need not expose the intended face. At $H=T_2$, the tangent matrix
+\[
+ D=\begin{pmatrix}2&-1\\-1&0\end{pmatrix}
+\]
+is feasible at the three minimal vectors, but has pairing $-2$ with
+$C=\left(\begin{smallmatrix}1&2\\2&5\end{smallmatrix}\right)>0$.
+Thus mere positive definiteness of $C$ cannot replace the positive normal-cone reserve. The preceding discussion of distinct leading blocks further limits the multi-start conclusion.
+
+\subsection{What is new in the argument}
+The amplification theorem is the principal assertion. It makes the original lower-bound construction reusable for any certified seed, and its finite shear alphabet improves the sufficient scale to $N=\Gamma(m+1)$. The separate graph-growth theorem applies even when no nonmember objective is supplied. The principal-minimal families show that the additional scope is not an embedded five-cycle with unused coordinates. The branched $D_r$ example changes the normal geometry as well as the seed support.
+
+Several important ingredients are not new. The simplex method and perfect-form framework are due to \cite{DSV,DS}. Qualitative generalized Interior Ryshkov theory, including simultaneous approximation, appears in \cite{OS}. Affine lattice reduction and finiteness of inhomogeneous perfect forms have a substantial earlier theory \cite{Inhom}; the present claim concerns a fixed principal block, all bounded denominator layers, and the nonnegative-coordinate boundary. Comparison-matrix criteria and the CP graph characterization are classical \cite{Drew,Kogan}. Barioli \cite{Barioli} already studies the difference between the positive-semidefinite and CP thresholds for a bordered matrix, including odd cyclic and excellent graphs. Accordingly we do not claim the first such threshold phenomenon. Our exact graphical formulas are a constructive route into the amplification hypotheses, and their collective deletion margins prevent a smaller principal certificate from explaining the lower bound.
+
+The arrow SPN lemma and the SPN block-sum rule are prior results \cite{SPN}. We use the acyclic and order-at-most-four block statements, not the broader triangular-book claim affected by the corrigendum \cite{SPNcorr}. The current survey \cite{SPNsurvey} was also consulted. The new algorithmic statement is that all tested prefix directions, including linear combinations, remain in the arrow space, and that an entire principal-minimal amplified family defeats every proper-principal separator test. A proof of our sufficient conditions is not an assertion that all nonmembers satisfy them, and a targeted literature comparison is not an exhaustive historical first-priority certificate.
+
+\subsection{Exact checks and preservation}
+The universal conclusions above are analytical. The accompanying standard-library generator and separately written verifier test eight seed families: cycles of lengths five, seven, and nine; two seven-cycles with a common hub; a five-cycle and a four-cycle; a five-cycle with a leaf; a weighted multiple-attachment path; and a branched $D_7$ leading block. They check 65 maximal proper principal CP certificates, 18 exact scale choices, the positive normal decompositions, exact copositive witness pairings, and rational reserve inverses for principal stability. The greatest prescribed prefix is $m=2^{64}$; it is certified by the theorem, not simulated.
+
+The geometric checks cover 20 vertices, 142 active identities, and 128 tangent rays, including large integer shears. An independent upper-line-hull implementation reproduces seven full-lattice templates for $H=1,4,9$, including active denominators two and three. Three arbitrary-diagonal arrow decompositions and four failed-generalization groups are checked. Nine deliberately corrupted data sets are rejected. Integer Bareiss determinants, modular rank witnesses, and direct inverse-product checks provide a code path independent of the generator. These tests are not human peer review or proof-assistant verification.
+
+The original canonical theorem, its source, and its verification suite are retained unchanged in the release. The original suite was rerun successfully, preserving its certificate hash. The new manuscript neither changes the local-rule definition to evade that theorem nor substitutes a constrained-column cone for ordinary complete positivity. Every new family remains an ordinary $\CP_n$ nonmember.
+
+The mathematical limitation left by the present theory is precise: an arbitrary portfolio spanning distinct leading perfect blocks, arbitrary input-dependent restarts, nonlocal jumps, and unrestricted global certificate searches are not covered. The latter can succeed quickly on these families because the separator is explicitly available. The large constants are effective bounds, not a proposed practical hard-instance generator in high dimension.

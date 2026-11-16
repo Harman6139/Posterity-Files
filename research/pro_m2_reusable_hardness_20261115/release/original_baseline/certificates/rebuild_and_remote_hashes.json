@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "remote_source_commit": "aef2d010cbbfdc79e24116bc311a112960f81471",
+  "source_checks": [
+    {
+      "path": "manuscript/MAIN.tex",
+      "git_blob_sha": "13a3c83568128b039dacd48ec8c77606949891ec",
+      "local_matches_remote": true,
+      "sha256": "8e7cb1306a7ea25e6b861e28f8cfd43c4c5b64a5844bf43d0f0cc04b3fc04469"
+    },
+    {
+      "path": "code/generate_certificates.py",
+      "git_blob_sha": "8253826b2a0eff0dd8783b4282b4046ceb38368a",
+      "local_matches_remote": true,
+      "sha256": "ec879674216d906ee8c8016fb8b48897fbfee5b15c54850b2ded79f9522bfbfa"
+    },
+    {
+      "path": "code/verify_certificates.py",
+      "git_blob_sha": "26404a12f7c13f92062f8f405aad55fc0433b190",
+      "local_matches_remote": true,
+      "sha256": "6cc5d23d1f4c1d41cabb325c970e9cd6dbdd6339a53e0d3b0cb6c4ff1cef0434"
+    }
+  ],
+  "clean_rebuild": [
+    {
+      "path": "certificates/exact_certificates.json",
+      "byte_identical": true,
+      "sha256": "048031057335bfb9fc7c86df3ecba5f3cc55fc32c484e6013d9f79efd577f95f"
+    },
+    {
+      "path": "certificates/verification_report.json",
+      "byte_identical": true,
+      "sha256": "89e622c2f811dfe2a5982fcac217d993a8cec5cacd2eb30f5f01e08e27a6265c"
+    },
+    {
+      "path": "COMPLETE_PROOF.md",
+      "byte_identical": true,
+      "sha256": "e44eca38464d4e7e5c85dec738430d30c935d7b89ee496da5ba38df251882e30"
+    }
+  ],
+  "pdf_compiles": 2,
+  "pdf_pages": 9,
+  "visual_review": "All nine pages rendered and inspected; no overfull or undefined-reference warnings.",
+  "scope": "Git blob checks compare authenticated remote metadata to local exact source bytes. Clean rebuild starts only from these three sources."
+}

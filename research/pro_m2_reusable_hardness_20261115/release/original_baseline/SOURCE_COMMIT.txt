@@ -1,0 +1,4 @@
+Repository: Harman6139/Posterity-Files
+Branch: research/pro-m2-ordinary-cp-canonical-all-rules-20261115
+Commit: 11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc
+Directory: research/pro_m2_ordinary_canonical_20261115/release

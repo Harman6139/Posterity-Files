@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "base_commit": "11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc",
+  "files": [
+    {
+      "file": "README_AND_SCOPE.md",
+      "unchanged": true,
+      "sha256": "80f2dca4b0c7f14e9b496a93c8420e098895266cf510f2aff5d754ea6e18f3b1"
+    },
+    {
+      "file": "STATUS_PROVED_NOT_PROVED.md",
+      "unchanged": true,
+      "sha256": "d64c4201dc5fa11f535b7995cf0cf15e9b7cf1a4cb1e23736031916856a465f1"
+    },
+    {
+      "file": "SOURCE_COMMIT.txt",
+      "unchanged": true,
+      "sha256": "2cda6424e59fd6bd0a92a2e7bef2cbf99b05b384100e6942e236abfcf713653a"
+    },
+    {
+      "file": "COMPLETE_PROOF.md",
+      "unchanged": true,
+      "sha256": "e44eca38464d4e7e5c85dec738430d30c935d7b89ee496da5ba38df251882e30"
+    },
+    {
+      "file": "manuscript/MAIN.tex",
+      "unchanged": true,
+      "sha256": "8e7cb1306a7ea25e6b861e28f8cfd43c4c5b64a5844bf43d0f0cc04b3fc04469"
+    },
+    {
+      "file": "manuscript/MAIN.pdf",
+      "unchanged": true,
+      "sha256": "885af8733068efd3391d55be0d29919f2a912745c0c80ede2951683b842dd000"
+    },
+    {
+      "file": "code/generate_certificates.py",
+      "unchanged": true,
+      "sha256": "ec879674216d906ee8c8016fb8b48897fbfee5b15c54850b2ded79f9522bfbfa"
+    },
+    {
+      "file": "code/verify_certificates.py",
+      "unchanged": true,
+      "sha256": "6cc5d23d1f4c1d41cabb325c970e9cd6dbdd6339a53e0d3b0cb6c4ff1cef0434"
+    },
+    {
+      "file": "certificates/exact_certificates.json",
+      "unchanged": true,
+      "sha256": "048031057335bfb9fc7c86df3ecba5f3cc55fc32c484e6013d9f79efd577f95f"
+    },
+    {
+      "file": "certificates/verification_report.json",
+      "unchanged": true,
+      "sha256": "89e622c2f811dfe2a5982fcac217d993a8cec5cacd2eb30f5f01e08e27a6265c"
+    },
+    {
+      "file": "certificates/rebuild_and_remote_hashes.json",
+      "unchanged": true,
+      "sha256": "d61ebb8ed95561d5c8ff522b687515ffced83012f0e3bb72eb654a951a9e038a"
+    },
+    {
+      "file": "SHA256SUMS.json",
+      "unchanged": true,
+      "sha256": "2b685250c1ac6c8ce9267c380621b13509b1d07461733fef8b15b6beb05fc425"
+    }
+  ]
+}

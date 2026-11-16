@@ -1,0 +1,146 @@
+\section{A general fixed-block amplification theorem}
+We now separate a small, verifiable seed from the scale that makes local search difficult.
+
+\begin{definition}[Certified seed]\label{def:seed}
+Let $n=r+1$. A certified seed consists of:
+\begin{enumerate}
+\item a rational positive definite perfect vertex $H\in\Ry_r$;
+\item a rational matrix $B=\left(\begin{smallmatrix}C&c\\c\T&a\end{smallmatrix}\right)\succ0$ with all entries positive;
+\item nonnegative integer vectors $v_j$ with $H[v_j]=1$, whose squares span $\mathbb S^r$, and positive rational $\lambda_j$ such that
+\begin{equation}\label{eq:reserve} C=\sum_j\lambda_jv_jv_j\T;\end{equation}
+\item a rational $W\in\COP_n$ with $\ip W B=-\gamma<0$.
+\end{enumerate}
+A copositivity proof for $W$ is part of the seed certificate. No dimension-uniform polynomial copositivity oracle is assumed.
+\end{definition}
+
+These conditions are finite and exactly checkable. For $H>0$, integer-minimum feasibility is reduced to finitely many vectors using $\lambda_{\min}(H)\ge1/\tr(H^{-1})$. The spanning and positive-combination tests are rational linear algebra. In a fixed dimension copositivity also has exact finite decision procedures; the graphical seeds in the next section have direct copositivity proofs.
+
+Here are explicit constants for the theorem. They are deliberately generous. Use $q,Y,t,K,E_*$ from Theorem~\ref{thm:templates}, with $q$ chosen using $\norm H_\infty$ instead of $\norm H_2$. Fix $b_0\ge0$ bounding the cross-column norm at every allowed starting vertex. Set
+\[
+ \begin{split}
+ h&=\norm H_\infty,\quad j=\norm{H^{-1}}_\infty,\quad
+ L=1+2h,\quad B_*=b_0+L+1,\\
+ Z_*&=\max\{1,\lceil j(B_*+1/2)\rceil\},\quad T_*=1+rZ_*,\\
+ P_*&=rh+2rB_*+rhZ_*^2+1,\quad
+ \alpha=\ip C H>0.
+ \end{split}
+\]
+The norm $\norm{\cdot}_\infty$ here is the maximum absolute row sum. Let $D_C\ge1$ be an integer with $D_CC$ integral, $w=1+\sum_{ij}|W_{ij}|$, and define positive rational constants
+\begin{equation}\label{eq:robustconstants}
+ \begin{split}
+ \mu&=1/\tr(B^{-1}),\quad \theta=\gamma/(4\tr B),\\
+ \zeta&=\min\{1,\mu/2,\tfrac12\min_{ij}B_{ij},
+                    \gamma/[4(w+n\theta+1)]\},\\
+ s_0&=1+\sum_{ij}B_{ij}+\zeta.
+ \end{split}
+\end{equation}
+One may decrease $\zeta$ to retain further open properties of the seed. Finally put
+\[
+ \begin{split}
+ u&=2\norm c_1 E_*T_*,\qquad v=(a+n\zeta)E_*T_*^2,\\
+ u_2&=2\norm c_1 B_*,\qquad v_2=\zeta P_*,\\
+ \Gamma&=\left\lceil\max\{1,4D_C(u+v+1),4(u_2+v_2+1)/\alpha\}\right\rceil.
+ \end{split}
+\]
+All constants depend only on the certified seed and the bounded starting region.
+
+\begin{theorem}[Seed amplification, all choices and bounded portfolios]\label{thm:amplification}
+Given a certified seed, let $m\ge1$, $N=\Gamma(m+1)$, $D_N=\diag(NI_r,1)$, and
+\[
+ A_N=\frac{D_NBD_N}{s_0N^2},\qquad
+ W_N=D_N^{-1}WD_N^{-1}+\frac\theta{N^2}I.
+\]
+For every symmetric $A$ in the ball
+\begin{equation}\label{eq:ball}
+ \norm{A-A_N}_F\le\frac\zeta{s_0N^2},
+\end{equation}
+we have $\norm A_F\le1$, $A\succ0$, all entries of $A$ positive, and $A\notin\CP_n$. Starting at \emph{any} vertex of $\Ry_n$ with leading block $H$ and $\norm b_\infty\le b_0$, every strictly improving adjacent-pivot rule makes at least $m$ pivots before a current-vertex or selected-ray separator can occur. Every improving ray during this prefix remains tangent to the fixed-block face and has a bounded adjacent endpoint.
+
+No arbitrary diagonal correction of any of these rays can be a separator. The same holds for diagonal corrections of arbitrary real linear combinations of any stored prefix rays. More generally, every copositive candidate with a fixed SPN sparsity mask is ineffective on these inputs.
+
+One rational separator works on the entire ball:
+\[
+ W_N[x]\ge\theta N^{-2}\norm x_2^2\quad(x\ge0),\qquad
+ \norm{W_N}_F\le w+n\theta,\qquad
+ \ip{W_N}A\le-\frac\gamma{2s_0N^2}.
+\]
+Thus $\dist_F(A,\CP_n)\ge\gamma/[2s_0(w+n\theta)N^2]$. For each fixed seed the rational centers have input-and-distance bit parameter $\Theta(\log(m+1))$, whereas their forced pivot count is at least $m$. The separator entries and all objects visited in the prefix have $O(\log(m+1))$ bit height. Generation from a certified seed is polynomial in the seed-certificate length and $\log(m+1)$ for fixed dimension.
+\end{theorem}
+
+\begin{proof}[Geometric and arithmetic confinement]
+The equalities $P[(v_j,0)]=1$ define the face with leading block $H$, because the squares in \eqref{eq:reserve} span. This face is $E_H$. Every point in it is strictly copositive: with the notation of Lemma~\ref{lem:gap},
+\[
+ P[(x,y)]=(x-yz)\T H(x-yz)+2y\ell\T x+(c-z\T Hz)y^2>0
+\]
+for nonzero $(x,y)\ge0$. Hence the full Ryshkov set is locally polyhedral there, with the usual pointed tangent cone at a vertex.
+
+Write $M=m+1$. Any vertex reachable in at most $m$ bounded face edges from the allowed starting region has
+\[
+ \norm b_\infty\le B_*M,\quad \norm z_\infty\le Z_*M,\quad
+ 1+\norm{\lfloor z\rfloor}_1\le T_*M,\quad \norm P_F\le P_*M^2.
+\]
+These follow from the movement bound and $z=H^{-1}(\ell-b)$; $c\le z\T Hz+1$ gives the last estimate. For any full primitive integral extreme ray write $R=\left(\begin{smallmatrix}D&w_R\\w_R\T&s_R\end{smallmatrix}\right)$. Theorem~\ref{thm:templates} yields
+\[
+ |D_{ij}|\le E_*,\quad |(w_R)_i|\le E_*T_*M,\quad
+ |s_R|\le E_*T_*^2M^2,\quad \norm R_F\le nE_*T_*^2M^2.
+\]
+Feasibility at the top minimal vectors gives
+\[
+ \ip C D\ge0,\qquad \ip C D=0\ \Longleftrightarrow\ D=0.
+\]
+Since $R$ is integral, a positive value is at least $1/D_C$.
+
+Write the positively rescaled perturbed objective as
+$\widetilde B=s_0N^2A=D_NBD_N+Z$, $\norm Z_F\le\zeta$.
+Every ray with $D\ne0$ consequently satisfies
+\[
+ \ip{\widetilde B}R\ge N^2/D_C-uNM-vM^2
+ \ge\frac{3N^2}{4D_C}>0.
+\]
+So every improving ray has $D=0$. The recession directions of $E_H$ have nonnegative cross column and nonnegative last entry; the strictly positive objective makes their costs positive. Thus an improving ray is bounded and reaches a face neighbor. Also, since $c_P\ge1$ and $a>0$,
+\[
+ \ip{\widetilde B}P\ge\alpha N^2-u_2NM-v_2M^2
+ \ge3\alpha N^2/4>0.
+\]
+No current vertex separates.
+
+Nonmembership ensures an improving extreme ray exists: otherwise the objective lies in the minimizing normal cone generated by the active nonnegative rank-one matrices, hence in $\CP_n$. This contradicts the separator below. The argument applies inductively to all choices, simultaneously from every allowed start. The finite-prefix induction does not require eventual termination or uniqueness.
+\end{proof}
+
+\begin{proof}[Robust separator and resource statements]
+Since $N\ge1$, the least eigenvalue and least entry of $D_NBD_N$ are bounded below by $\mu$ and $\min B_{ij}$. The choices of $\zeta$ preserve strict positivity and positive definiteness. The normalization $s_0$ bounds the Frobenius norm by one. Positive diagonal congruence preserves copositivity, and
+\[
+ \ip{D_N^{-1}WD_N^{-1}}{D_NBD_N}=-\gamma,
+ \qquad \tr(D_NBD_N)\le N^2\tr B.
+\]
+The diagonal correction costs at most $\gamma/4$, and the perturbation costs at most $\gamma/4$. This proves the pairing bound, positive cone margin, and distance estimate.
+
+All seed-dependent constants are fixed. Since $N=\Gamma(m+1)$, center and separator heights are $O(\log(m+1))$. The nonzero last diagonal of $A_N$ is a fixed rational multiple of $N^{-2}$, giving the reverse encoding bound. The distance estimate gives the upper precision bound. The finite-template denominator theorem and inverse-shear formulas bound every visited vertex; the sheared-ray bound does the same for rays. All square roots in parameter upper bounds can be replaced by integer ceilings obtained by rational comparisons. Determinants and inverses have polynomial bit growth in a fixed dimension. No cost of discovering or proving the seed's copositivity certificate is hidden in the generation claim.
+\end{proof}
+
+\subsection{Why arbitrary diagonal corrections do not help}
+The following is the arrow case of the classical SPN theory \cite[Theorem 5.4]{SPN}; its direct proof makes the algorithmic consequence transparent.
+
+\begin{lemma}[Copositive arrow matrices]\label{lem:arrow}
+If
+\[
+ Q=\begin{pmatrix}\diag(p)&w\\w\T&a\end{pmatrix}
+\]
+is copositive, it is a sum of a positive semidefinite matrix and an entrywise nonnegative matrix. In particular it cannot have negative pairing with a doubly nonnegative matrix.
+\end{lemma}
+\begin{proof}
+We have $p_i,a\ge0$, and $p_i=0$ forces $w_i\ge0$. Restricting the quadratic form to the indices with $w_i<0$ and minimizing at last coordinate one gives
+\[
+ a\ge\sum_{w_i<0} w_i^2/p_i.
+\]
+Replace all positive spokes by zero. The resulting arrow matrix is positive semidefinite by this Schur-complement inequality; what was removed is entrywise nonnegative. The trace pairing with a doubly nonnegative matrix is nonnegative on both summands.
+\end{proof}
+
+Every prefix ray has zero leading block. Its arbitrary diagonal correction, and the diagonal correction of any linear combination of stored rays, is an arrow matrix. This proves the corresponding clauses of Theorem~\ref{thm:amplification}, even if the diagonal correction has signed entries, provided the resulting matrix is copositive.
+
+A graph is called SPN when every copositive matrix supported on it is PSD plus nonnegative. Any separator test confined to that matrix support is therefore ineffective on a doubly nonnegative input, regardless of its internal computation. As a concrete larger test class, partition the leaf indices into groups of at most three and allow arbitrary entries inside each group, as well as all spokes and diagonals. The resulting graph is a vertex-sum of cliques of order at most four, hence SPN \cite[Corollaries 4.4 and 5.3]{SPN}. This allows entire small-block corrections, not just a scalar or diagonal update. The graph fact is prior work; its application to every stored tangent direction is the present algorithmic conclusion.
+
+\subsection{What the seed hypotheses do and do not imply}
+Strict exposure in \eqref{eq:reserve} is a sufficient condition, not asserted necessary for every possible hard instance. It is necessary for this positive-gap confinement argument: if $C$ is outside the normal cone of $H$, a top tangent direction $D$ has $\ip C D<0$. At a fixed starting vertex it extends to a full tangent direction by choosing a sufficiently large last entry. Decomposition into finitely many extreme rays gives one with negative top cost; for large $N$ that ray improves and leaves the fixed-block face.
+
+Arbitrary fixed portfolios with \emph{different} leading perfect blocks are not covered. No single $C$ can be in the interiors of the minimizing normal cones of two distinct perfect blocks: it would make both the unique minimizer. This is an obstruction to applying the present certificate simultaneously, not a proof that a different hardness construction for such portfolios is impossible.

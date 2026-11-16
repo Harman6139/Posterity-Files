@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Fresh directory, generated certificate and expanded proof outputs deleted before run; both verifiers rerun. PDFs compiled from source, but timestamp-dependent PDF byte identity is not asserted.",
+  "files": [
+    {
+      "file": "certificates/exact_certificates.json",
+      "identical": true,
+      "sha256": "5d71cfecd478c21bda7e6cb09042b14c234a8c263019d5f420d887865a502095"
+    },
+    {
+      "file": "certificates/verification_report.json",
+      "identical": true,
+      "sha256": "dc827728ff687372cf9c3ff52c1427817cfef482b24857e740ab49892aec8c2c"
+    },
+    {
+      "file": "manuscript/MAIN_standalone.tex",
+      "identical": true,
+      "sha256": "f556a31bc046b612d80b76007cb0f6b451e34908ae18c180366e92f6ff73acbb"
+    },
+    {
+      "file": "COMPLETE_PROOFS.md",
+      "identical": true,
+      "sha256": "7831515e0d423f8637656e8c2db7e9c0fe6df5b9f5a9edcec1e58dfe1fd11aa2"
+    }
+  ]
+}
