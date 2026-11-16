@@ -1,0 +1,169 @@
+\section{Amplification from a certified seed}\label{sec:amplification}
+The seed supplies a fixed positive leading-block contribution. The geometry bounds every possible local direction after an integer shear. Scaling the seed makes the leading contribution dominate every direction that could leave the face; separate bounds prevent a certificate from ending the walk inside it.
+
+\subsection{Constants and uniform bounds}
+We give the constants explicitly so that the perturbation ball and scale can be recovered from the finite seed. Their sizes are not optimized. All matrix infinity norms in this section are maximum absolute row sums; vector infinity norms are maximum coordinate norms. Fix a rational bound $b_0\ge0$ for the starting cross columns. Any fixed bounded region admits such a bound.
+
+Put $h=\norm H_\infty$ and $j=\norm{H^{-1}}_\infty$. Choose an integer $q\ge2$ with $rh/q^2\le1/2$, and use $Y,t_H,K,E_*$ from \eqref{eq:gapconstants}, \eqref{eq:alphabet}, and \eqref{eq:shearedrays}. Choose $t_H$ by rational upper bounds if necessary. Define
+\begin{equation}\label{eq:heightconstants}
+\begin{split}
+ L&=1+2h,\qquad B_*=b_0+L+1,\\
+ Z_*&=\max\{1,\lceil j(B_*+1/2)\rceil\},\qquad T_*=1+rZ_*,\\
+ P_*&=rh+2rB_*+rhZ_*^2+1,\qquad \alpha=\ip C H>0.
+\end{split}
+\end{equation}
+Let $D_C\ge1$ be an integer with $D_CC$ integral, and $w=1+\sum_{ij}|W_{ij}|$. The positive reserves for the input and separator are
+\begin{equation}\label{eq:robustconstants}
+\begin{split}
+ \mu&=\frac1{\tr(B^{-1})},\qquad \theta=\frac{\gamma}{4\tr B},\\
+ \zeta&=\min\left\{1,\frac\mu2,\frac12\min_{ij}B_{ij},
+                      \frac{\gamma}{4(w+n\theta+1)}\right\},\\
+ s_0&=1+\sum_{ij}B_{ij}+\zeta.
+\end{split}
+\end{equation}
+One may decrease the positive rational $\zeta$, for example to preserve complete positivity of specified principal submatrices. The following constants are then computed using that choice:
+\begin{equation}\label{eq:Gamma}
+\begin{aligned}
+ u&=2\norm c_1E_*T_*,&
+ v&=(a+n\zeta)E_*T_*^2,\\
+ u_2&=2\norm c_1B_*,&
+ v_2&=\zeta P_*,\\
+ \Gamma&=\left\lceil\max\left\{1,\,
+           4D_C(u+v+1),\,
+           \frac{4(u_2+v_2+1)}{\alpha}\right\}\right\rceil .
+\end{aligned}
+\end{equation}
+The constants depend only on the seed and the bounded starting region. The role of the shear is to make $E_*$ independent of the location of the vertex.
+
+We first collect bounds valid along every short walk in the face, before choosing any objective direction.
+
+\begin{lemma}[Vertex and full-ray bounds]\label{lem:heights}
+Put $M=m+1$. At every vertex reachable by at most $m$ bounded face edges from a start with $\norm b_\infty\le b_0$,
+\begin{gather}\label{eq:vertexbounds}
+ \norm b_\infty\le B_*M,\qquad
+ \norm z_\infty\le Z_*M,\qquad
+ 1+\norm{\lfloor z\rfloor}_1\le T_*M,\\
+ \norm P_F\le P_*M^2.
+\end{gather}
+Every full primitive integral extreme tangent ray $R=\begin{pmatrix}D&w_R\\w_R\T&s_R\end{pmatrix}$ satisfies
+\begin{equation}\label{eq:fullraybounds}
+ |D_{ij}|\le E_*,\quad |(w_R)_i|\le E_*T_*M,\quad
+ |s_R|\le E_*T_*^2M^2,\quad \norm R_F\le nE_*T_*^2M^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Since $H\in\Ry_r$, its diagonal entries are at least one. Hence the movement constant in \eqref{eq:movement} is at most $1+2h=L$. After $m$ edges,
+$\norm b_\infty\le b_0+Lm\le B_*M$. The identity $z=H^{-1}(\ell-b)$ and $0\le\ell_i\le1/2$ give the next two bounds. Also
+$c_P\le z\T Hz+1\le rhZ_*^2M^2+1$.
+Bounding the Frobenius norm by the sum of the absolute entries gives
+\[
+ \norm P_F\le rh+2rB_*M+rhZ_*^2M^2+1\le P_*M^2.
+\]
+Finally apply Lemma~\ref{lem:shearedrays} with $1+\norm{\lfloor z\rfloor}_1\le T_*M$. There are $n^2$ entries, each bounded by the largest block bound, giving the last assertion.
+\end{proof}
+
+\subsection{Confinement and exclusion of the vertex test}
+The reserve \eqref{eq:reserve} makes a nonzero top block costly. Integrality turns strict positivity into a numerical gap, which the scaling can dominate uniformly.
+
+\begin{lemma}[Objective domination]\label{lem:confinement}
+Let $\widetilde B=D_NBD_N+Z$, where $\norm Z_F\le\zeta$ and $N\ge\Gamma M$. At every vertex covered by Lemma~\ref{lem:heights}, every improving extreme tangent ray has zero leading block and reaches a finite adjacent vertex in $\mathcal F_H$. Moreover,
+\begin{equation}\label{eq:vertexgap}
+ \ip{\widetilde B}P\ge\frac{3\alpha N^2}{4}>0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Normalize a ray to its primitive integral generator and write it as in \eqref{eq:fullraybounds}. Feasibility at the active vectors $(v_j,0)$ gives $D[v_j]\ge0$. Consequently
+\[
+ h(R):=\ip C D=\sum_j\lambda_jD[v_j]\ge0.
+\]
+Because all $\lambda_j$ are positive and their rank-one matrices span $\mathbb S^r$, equality holds exactly when $D=0$. If $D\ne0$, the integral entries of $D$ and the denominator $D_C$ of $C$ give $h(R)\ge1/D_C$.
+
+The objective splits into its top, cross, and last contributions:
+\[
+ \ip{\widetilde B}R=N^2h(R)+2Nc\T w_R+a s_R+\ip Z R.
+\]
+Using \eqref{eq:fullraybounds}, every ray with $D\ne0$ has
+\begin{equation}\label{eq:dominance}
+ \ip{\widetilde B}R
+ \ge\frac{N^2}{D_C}-uNM-vM^2
+ \ge\frac{3N^2}{4D_C}>0.
+\end{equation}
+For the last step, $N\ge\Gamma M$ and $\Gamma\ge1$ imply
+$uM/N+vM^2/N^2\le(u+v)/\Gamma\le1/(4D_C)$.
+Thus every improving extreme ray has $D=0$.
+
+The equation $h=0$ exposes a face of the full tangent cone, namely the tangent cone of $\mathcal F_H$. A full extreme ray lying in this face is also extreme there. The entries of $\widetilde B$ are positive, by \eqref{eq:robustconstants}. Its pairing with any nonzero recession direction \eqref{eq:recession} is therefore positive. An improving ray is not a recession direction and reaches a finite neighbor, as shown in Section~\ref{sec:face}.
+
+For the vertex cost, $c_P\ge1$ and the seed's last diagonal entry $a$ is positive. Only the cross term and perturbation can reduce the fixed top contribution $\alpha N^2$. Therefore
+\[
+ \ip{\widetilde B}P\ge
+ \alpha N^2-2N\norm c_1\norm b_\infty-\zeta\norm P_F
+ \ge\alpha N^2-u_2NM-v_2M^2
+ \ge\frac{3\alpha N^2}{4}.
+\]
+The second requirement in \eqref{eq:Gamma} gives the last inequality.
+\end{proof}
+
+This is where the linear scale arises. After shearing, the leading, cross, and last blocks of a primitive ray grow respectively like $1,M,M^2$. Thus $N^2$ dominates both possible negative terms when $N$ is a sufficiently large fixed multiple of $M$. No location-dependent bound on all entries of the ray is needed.
+
+\subsection{Diagonal corrections and stored directions}
+Confinement leaves only arrows: a ray with zero top block has nonzero entries only in its last row and column. The following classical decomposition explains why arbitrary diagonal corrections still cannot separate \cite[Theorem~5.4]{SPN}. We give the proof, including zero diagonal cases.
+
+\begin{lemma}[Copositive arrow matrices]\label{lem:arrow}
+If
+\[
+ Q=\begin{pmatrix}\diag(p)&w\\w\T&a\end{pmatrix}
+\]
+is copositive, it is the sum of a positive semidefinite matrix and an entrywise nonnegative matrix. Hence it has nonnegative pairing with every doubly nonnegative matrix.
+\end{lemma}
+\begin{proof}
+Testing coordinate vectors gives $p_i,a\ge0$. If $p_i=0$ and $w_i<0$, the quadratic form at $(te_i,1)$ becomes negative for large $t$; thus $p_i=0$ forces $w_i\ge0$.
+
+Let $J=\{i:w_i<0\}$. Its $p_i$ are positive. At last coordinate one, set $x_i=-w_i/p_i$ for $i\in J$ and zero elsewhere. Copositivity gives the Schur-complement bound
+\[
+ a\ge\sum_{i\in J}\frac{w_i^2}{p_i}.
+\]
+Keep the diagonal and negative spokes of $Q$, replacing positive spokes by zero. Completing the square on $J$ shows that the resulting arrow matrix is positive semidefinite; all other leaf diagonals are nonnegative and uncoupled. The removed matrix is entrywise nonnegative. A positive semidefinite input pairs nonnegatively with the first summand, and an entrywise nonnegative input with the second.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:stored}]
+Every stored ray has zero leading block by Lemma~\ref{lem:confinement}. Thus every candidate \eqref{eq:storedtest} is an arrow matrix. If it is copositive, Lemma~\ref{lem:arrow} gives $\ip A Q\ge0$, since $A$ is doubly nonnegative. There is no restriction on the real combination coefficients or on the signs of the diagonal correction, apart from copositivity of the final candidate. The same reasoning covers every currently available improving extreme ray.
+\end{proof}
+
+\subsection{The common separator and the all-choice induction}
+We now verify nonmembership on the whole ball. This also supplies the improving direction needed at every stage of the induction.
+
+\begin{proof}[Proof of Theorem~\ref{thm:amplification}]
+For $A$ in \eqref{eq:ball}, write
+$s_0N^2A=D_NBD_N+Z$ with $\norm Z_F\le\zeta$.
+The eigenvalue bound $\lambda_{\min}(B)\ge\mu$ gives
+$x\T D_NBD_Nx\ge\mu\norm{D_Nx}_2^2\ge\mu\norm x_2^2$.
+Every entry of this matrix is at least the corresponding positive seed entry. The choices $\zeta\le\mu/2$ and $\zeta\le\min B_{ij}/2$ therefore preserve positive definiteness and strict entrywise positivity. Also
+\[
+ \norm A_F\le\frac{\sum_{ij}B_{ij}+\zeta}{s_0}<1.
+\]
+
+Positive diagonal congruence preserves copositivity, so the definition of $W_N$ gives \eqref{eq:ampmargin}, including
+$\norm{W_N}_F\le w+n\theta$. Its pairing with the unperturbed, unnormalized input is at most
+\[
+ \ip{D_N^{-1}WD_N^{-1}}{D_NBD_N}
+       +\frac{\theta}{N^2}\tr(D_NBD_N)
+ \le-\gamma+\theta\tr B=-\frac{3\gamma}{4}.
+\]
+The perturbation contributes at most
+$\norm{W_N}_F\zeta\le\gamma/4$. Dividing by $s_0N^2$ proves the pairing bound in \eqref{eq:ampdistance}. For every $X\in\CP_n$,
+\[
+ \norm{A-X}_F\ge
+ \frac{-\ip{W_N}A}{\norm{W_N}_F}
+ \ge\frac{\gamma}{2s_0(w+n\theta)N^2},
+\]
+which proves the distance bound and nonmembership.
+
+At any covered vertex, an improving extreme ray exists. Otherwise the objective would be nonnegative on the full tangent cone \eqref{eq:tangent}. Polyhedral duality would put it in the cone generated by the active matrices $vv\T$, and hence in $\CP_n$, contradicting nonmembership. The pointed tangent cone is generated by its extreme rays, so a negative tangent direction implies a negative extreme direction.
+
+Start at any vertex with the prescribed leading block and cross-column bound. If fewer than $m$ pivots have occurred and all previous ones remained in the face, Lemma~\ref{lem:heights} applies. Lemma~\ref{lem:confinement} confines every improving extreme ray to a finite face edge and excludes the vertex test. Lemma~\ref{lem:arrow} excludes the selected ray and every corrected stored combination. Since an improving ray exists, another adjacent pivot is required. Induction proves the prefix simultaneously for every choice, every allowed start, and every realization of a randomized rule.
+
+Finally, all seed-dependent constants are fixed and $N=\Gamma(m+1)$. The entries of $A_N,W_N$ have $O(\log(m+1))$ binary length. Conversely the last diagonal of $A_N$ is the fixed positive rational $a/s_0$ divided by $N^2$. Reduction can cancel only a bounded factor from its numerator, so the input length is $\Theta(\log(m+1))$. The distance lower bound makes the reciprocal-distance term $O(\log(m+1))$; it is nonnegative since $0\in\CP_n$ and $\norm{A_N}_F\le1$. This proves the augmented encoding claim. The fixed vertex denominator from Proposition~\ref{prop:templates}, the bounds \eqref{eq:vertexbounds}, and the integral ray bounds \eqref{eq:fullraybounds} give the stated bit heights for normalized geometric data. These assertions do not bound the encoding of arbitrary real test coefficients or perturbed inputs.
+\end{proof}
+
+The strict reserve is a sufficient hypothesis for this argument. The minimizing normal cone of $H$ is the cone generated by its active matrices $vv\T$. If $C$ lies outside it, some top tangent direction has negative pairing with $C$; extending it to a full tangent direction and decomposing into extreme rays yields an improving escape for large scale. At its boundary a nonzero tangent direction can have zero top cost, so the strict gap used in \eqref{eq:dominance} disappears. Neither observation proves that the reserve is necessary for every possible lower-bound construction.

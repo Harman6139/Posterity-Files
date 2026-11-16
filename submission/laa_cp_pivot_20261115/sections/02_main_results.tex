@@ -1,0 +1,137 @@
+\section{Certificates, pivots, and main results}\label{sec:model}
+The search compares the input with one vertex at a time. It may stop with a separating certificate or move along an improving edge. We first specify those choices; the geometry theorem below concerns the underlying set independently of any search.
+
+\subsection{The local model}
+Let $\mathbb S^n$ denote the real symmetric matrices, with pairing $\ip A P=\tr(AP)$ and Frobenius norm $\norm P_F^2=\tr(P^2)$. We write $P[v]=v\T Pv$. The notation $A\succeq0$ means positive semidefiniteness, whereas $A\ge0$ means that every entry is nonnegative. A matrix with both properties is called \emph{doubly nonnegative}. The closed dual cones of interest are
+\[
+ \CP_n=\cone\{uu\T:u\in\R_+^n\},\qquad
+ \COP_n=\{P:P[x]\ge0\text{ for every }x\ge0\}.
+\]
+The duality follows by testing the rank-one generators. Closedness of $\CP_n$ follows, for example, by intersecting with the trace-one hyperplane: this base is the convex hull of the compact set $\{uu\T:u\ge0,\norm u_2=1\}$.
+
+The normalized integer constraints define the copositive Ryshkov set
+\begin{equation}\label{eq:ryshkov}
+ \Ry_n=\{P\in\mathbb S^n:P[v]\ge1\text{ for every }0\ne v\in\Z_+^n\}.
+\end{equation}
+An integer vector with $P[v]=1$ is \emph{active}, or minimizing. If its active matrices $vv\T$ span $\mathbb S^n$, then $P$ is a vertex, also called a normalized perfect copositive matrix. The vertices used here are strictly copositive, meaning $P[x]>0$ for every nonzero $x\ge0$. This ensures that finitely many constraints describe a neighborhood, as proved in Section~\ref{sec:face}. Their tangent cones are therefore the polyhedral cones
+\begin{equation}\label{eq:tangent}
+ \mathcal T(P)=\{R:R[v]\ge0\text{ for every active }v\}.
+\end{equation}
+An extreme ray is a one-dimensional face of this cone. It is \emph{improving} for $A$ when $\ip A R<0$. Following it either reaches a neighboring vertex along a bounded edge or continues in a recession direction. A move along a bounded edge is one \emph{adjacent pivot}. A rational ray has a \emph{primitive integral generator}: clear the entry denominators and divide by their greatest common divisor.
+
+At a departure vertex the rule may test the current $P$, the selected improving ray $R$, or
+\begin{equation}\label{eq:storedtest}
+ Q=\sum_{j=0}^k\beta_jR_j+\Lambda,
+ \qquad \beta_j\in\R,\quad\Lambda\text{ real diagonal},
+\end{equation}
+where the $R_j$ are previously stored improving directions and the currently selected direction. A test succeeds only when its candidate is copositive and has negative pairing with $A$. This includes $R+\tau I$ for every real $\tau$, and arbitrary diagonal corrections of a single ray. If no test succeeds, the rule makes the adjacent pivot. Choosing among improving extreme rays may use the full input and history, or randomization; no computational restriction is imposed on that choice.
+
+The current-vertex and ray tests are the nonmembership exits of Procedure~3 in \cite{DSV}. The tests \eqref{eq:storedtest} enlarge that local model. A separate construction of an unrelated certificate, a nonadjacent move, or an initial vertex outside the prescribed region is outside it. No claim about the cost of recognizing an arbitrary copositive matrix is implicit in this definition.
+
+\subsection{Amplification from a finite seed}
+Informally, a seed is a small nonmember with a known separator and a principal block that favors one perfect matrix strictly. The strict preference has a finite certificate: a positive combination of its active rank-one matrices. It will make leaving the corresponding face expensive after scaling.
+
+\begin{definition}[Certified seed]\label{def:seed}
+Let $n=r+1$. A certified seed consists of the following rational data:
+\begin{enumerate}[label=(\roman*),itemsep=2pt]
+\item a positive definite perfect vertex $H\in\Ry_r$;
+\item a positive definite matrix $B=\begin{pmatrix}C&c\\c\T&a\end{pmatrix}$, every entry of which is strictly positive;
+\item vectors $v_j\in\Z_+^r$ with $H[v_j]=1$, whose matrices $v_jv_j\T$ span $\mathbb S^r$, and positive coefficients $\lambda_j\in\Q$ satisfying
+\begin{equation}\label{eq:reserve}
+ C=\sum_j\lambda_jv_jv_j\T;
+\end{equation}
+\item a rational $W\in\COP_n$ with $\ip W B=-\gamma<0$, together with a proof of its copositivity.
+\end{enumerate}
+\end{definition}
+
+These are sufficient conditions, not a characterization of all nonmembers. For rational $H\succ0$, the integer constraints below one can be checked in a finite ball, using $\lambda_{\min}(H)\ge1/\tr(H^{-1})$. The spanning and reserve conditions are exact rational linear algebra. Copositivity still requires the supplied proof or an exact finite decision method. Finite certification here does not mean polynomial-time verification as the order varies.
+
+The following theorem turns every such seed into an input family. The scale grows linearly with the requested number of pivots, while the number of binary digits grows logarithmically. All initial vertices in the stated bounded region are covered at once.
+
+\begin{theorem}[Certified-seed amplification]\label{thm:amplification}
+Fix a certified seed, a number $b_0\ge0$, and the positive rational constants $s_0,\theta,\zeta$ and integer $\Gamma$ in \eqref{eq:robustconstants}--\eqref{eq:Gamma}. For $m\ge1$, set
+\begin{equation}\label{eq:amplified}
+ N=\Gamma(m+1),\quad D_N=\diag(NI_r,1),\quad
+ A_N=\frac{D_NBD_N}{s_0N^2},\quad
+ W_N=D_N^{-1}WD_N^{-1}+\frac\theta{N^2}I_n.
+\end{equation}
+Every symmetric $A$ satisfying
+\begin{equation}\label{eq:ball}
+ \norm{A-A_N}_F\le\frac\zeta{s_0N^2}
+\end{equation}
+has the following properties.
+\begin{enumerate}[label=(\alph*),itemsep=3pt]
+\item $\norm A_F\le1$, $A\succ0$, every entry is positive, and $A\notin\CP_n$.
+\item From every vertex of $\Ry_n$ with leading block $H$ and cross column of norm at most $b_0$ in $\norm\cdot_\infty$, every local rule above makes at least $m$ adjacent pivots. At every departure vertex before the $m$th pivot, an improving extreme ray exists, every such ray reaches a finite neighbor in the same fixed-block face, and none of the permitted certificates separates.
+\item The same rational $W_N$ separates the entire ball, with
+\begin{gather}\label{eq:ampmargin}
+ W_N[x]\ge\frac\theta{N^2}\norm x_2^2\quad(x\ge0),\qquad
+ \norm{W_N}_F\le w+n\theta,\\
+ \label{eq:ampdistance}
+ \ip{W_N}A\le-\frac\gamma{2s_0N^2},\qquad
+ \dist_F(A,\CP_n)\ge\frac\gamma{2s_0(w+n\theta)N^2},
+\end{gather}
+where $w=1+\sum_{ij}|W_{ij}|$.
+\end{enumerate}
+For this fixed seed and starting region, the binary lengths of the rational centers and separators are $O(\log(m+1))$. The center's input length, also when augmented by the logarithm of reciprocal distance to $\CP_n$, is $\Theta(\log(m+1))$. The forced prefix is therefore exponential in either measure. Every visited vertex and primitive integral extreme-ray generator in the prefix has $O(\log(m+1))$ bit height.
+\end{theorem}
+
+The initial vertex can be chosen using the input within this fixed region. The theorem does not allow the region to grow with $m$. Nor is the bit-length conclusion asserted for arbitrary rational points of the ball, which can have arbitrarily long encodings.
+
+The stronger correction clause has a useful exact formulation. Its force comes from the shape of the stored directions, rather than from bounds on the test coefficients.
+
+\begin{corollary}[Stored-direction correction barrier]\label{cor:stored}
+At any covered prefix vertex, let $R_1,\ldots,R_k$ be any stored improving rays from covered departure vertices. For arbitrary real $\beta_j$ and arbitrary real diagonal $\Lambda$, if $Q=\sum_j\beta_jR_j+\Lambda$ is copositive, then $\ip A Q\ge0$. The same holds for any combination also including a currently tested improving extreme ray.
+\end{corollary}
+
+\subsection{The independent fixed-block geometry}
+For arbitrary real $H\succ0$ of order $r$, the inequalities involving a positive last integer coordinate define
+\begin{equation}\label{eq:epigraph}
+ \mathcal E_H=\{(b,c):c\ge g_H(b)\},\qquad
+ g_H(b)=\sup_{\substack{u\in\Z_+^r\\y\in\Z_{\ge1}}}
+ \frac{1-u\T Hu-2yb\T u}{y^2}.
+\end{equation}
+Its bounded-edge graph has the vertices of $\mathcal E_H$ as nodes and bounded edges as graph edges. When $H$ is a perfect vertex of $\Ry_r$, this is the graph inside the face with leading block $H$. For a general $H$, \eqref{eq:epigraph} is studied on its own; the zero-last-coordinate inequalities need not hold.
+
+An integer shear replaces the first $r$ coordinates $u$ by $u-ay$ for an integral vector $a$. The next result says that this removes the unbounded location of a vertex from its local description.
+
+\begin{theorem}[Finite local configurations]\label{thm:finite}
+Let $H\succ0$ be real of order $r\ge1$. There are constants $Y_H,K_H$ such that every active pair has $1\le y\le Y_H$, and at each vertex an integral shear puts every active numerator in $[-K_H,K_H]^r$. The sheared vertices and their local adjacency configurations in this graph belong to finite containing lists depending only on $H$.
+
+If $H$ is rational, one common integer denominator works for the coordinates of every vertex of $\mathcal E_H$. If in addition $H$ is a perfect vertex, all primitive integral extreme rays of the full Ryshkov tangent cones have uniformly bounded entries after the same shear. Explicit bounds are given in Proposition~\ref{prop:templates} and Lemma~\ref{lem:shearedrays}.
+\end{theorem}
+
+The containing lists may include configurations that never occur. No algorithm deciding realization at an arbitrary integral translate is asserted. In particular, the full Ryshkov ray conclusion uses more than a bound on rays within the face.
+
+The graph consequence holds without a seed or an objective. Here and below, graph distance counts edges within this fixed-block set.
+
+\begin{theorem}[Intrinsic graph growth]\label{thm:growth}
+For every real $H\succ0$ of order $r\ge1$, the bounded-edge graph of $\mathcal E_H$ is connected and has bounded degree. For each vertex $v$, there are constants $c_v,C_v>0$ such that, for all sufficiently large integers $R$,
+\begin{equation}\label{eq:growth}
+ c_vR^r\le |B_{\mathrm{graph}}(v,R)|\le C_v(1+R)^r.
+\end{equation}
+For the full-lattice epigraph $\mathcal E_H^{\Z}$, defined by allowing $u\in\Z^r$ in \eqref{eq:epigraph}, the graph is quasi-isometric to $\Z^r$. The two epigraphs coincide locally wherever
+\begin{equation}\label{eq:deep}
+ z=-H^{-1}b,\qquad z_i>\sqrt{(H^{-1})_{ii}}\quad(1\le i\le r).
+\end{equation}
+\end{theorem}
+
+Quasi-isometry means that graph and lattice distances differ by at most fixed multiplicative and additive constants, with every graph vertex a bounded distance from the chosen lattice-indexed vertices. Integral shears are automorphisms of the full-lattice graph. They need not preserve the orthant epigraph. Neither theorem compares intrinsic distance with a path allowed to leave the face.
+
+\subsection{An explicit canonical family}
+Let $T_j$ be the tridiagonal matrix with diagonal $1$, adjacent off-diagonal entries $-1/2$, and other entries zero. Section~\ref{sec:canonicalseed} gives a five-cycle seed with leading block $T_{n-1}$. It yields the following fully explicit specialization, including numerical robustness and separator bounds. The constants defining $A_{n,t},W_{n,t}$ and $N$ appear in Appendix~\ref{app:canonical}.
+
+\begin{corollary}[Canonical start and five-cycle seed]\label{cor:canonical}
+For every $n\ge5$ and integer $t\ge1$, there are explicit rational $A_{n,t}$ and $W_{n,t}$ such that every $A$ with
+\[
+ \norm{A-A_{n,t}}_F\le\frac1{1600n^4N^2}
+\]
+is positive definite, strictly entrywise positive, outside $\CP_n$, and has $\norm A_F\le1$. Every permitted improving adjacent rule from $T_n$ makes at least $t$ pivots. No vertex, selected ray, scalar identity correction, or corrected stored-ray combination separates during this prefix. One separator works throughout the ball and satisfies
+\begin{gather}\label{eq:canonicalmargins}
+ W_{n,t}[x]\ge\frac{\norm x_2^2}{20nN^2}\quad(x\ge0),\qquad
+ \norm{W_{n,t}}_F\le6,\\
+ \ip A{W_{n,t}}\le-\frac1{6nN^2},\qquad
+ \dist_F(A,\CP_n)\ge\frac1{36nN^2}.
+\end{gather}
+For fixed $n$, input and separator lengths are $O_n(\log(t+1))$, and the pivot count is exponential in the input length, also with the reciprocal-distance term included.
+\end{corollary}

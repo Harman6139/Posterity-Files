@@ -30,14 +30,25 @@ for line in (ROOT / "main.fls").read_text(errors="replace").splitlines():
         if path.is_file() and path.suffix not in (".aux", ".out"):
             inputs[str(path.resolve())] = hashlib.sha256(path.read_bytes()).hexdigest()
 pdf = (ROOT / "main.pdf").read_bytes()
+project_sources = {
+    path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+    for path in sorted(ROOT.rglob("*.tex"))
+    if "build" not in path.relative_to(ROOT).parts
+}
+project_sources["build.py"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+source_tree_sha256 = hashlib.sha256(
+    "\n".join(name + "\0" + digest for name, digest in sorted(project_sources.items())).encode()
+).hexdigest()
 record = {
     "pages": int(re.search(r"Output written on main.pdf \((\d+) pages", log).group(1)),
     "pdf_bytes": len(pdf), "pdf_sha256": hashlib.sha256(pdf).hexdigest(),
     "source_sha256": hashlib.sha256((ROOT / "main.tex").read_bytes()).hexdigest(),
+    "source_tree_sha256": source_tree_sha256,
+    "project_sources": project_sources,
     "warnings": issues,
     "engine": subprocess.check_output(["pdflatex", "--version"]).decode().splitlines()[0],
     "class": "article 2025/01/22 v1.4n; 11pt; A4; 27mm margins",
     "input_dependencies": inputs,
 }
 (BUILD / "build_record.json").write_bytes((json.dumps(record, indent=2) + "\n").encode())
-print(json.dumps({k: v for k, v in record.items() if k != "input_dependencies"}, indent=2))
+print(json.dumps({k: v for k, v in record.items() if k not in ("input_dependencies", "project_sources")}, indent=2))

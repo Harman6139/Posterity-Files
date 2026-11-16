@@ -1,0 +1,101 @@
+\section{Explicit canonical constants}\label{app:canonical}
+This appendix gives a fully numerical specialization of the seed theorem. It also shows that the same confinement argument applies at larger scales, with the stated normalization and separator margins.
+
+Use $B,W_0,\epsilon$ from Section~\ref{sec:canonicalseed}. Write
+$B=\begin{pmatrix}B_0&c_0\\c_0\T&a_0\end{pmatrix}$ and put
+\begin{equation}\label{eq:canonicalparameters}
+\begin{gathered}
+ r=n-1,\quad d=n(n+1)/2,\quad q=2n,\quad Y=2q^r,\\
+ U=2Yn^2(t+1),\qquad
+ E=(d-1)!(2U^2)^{d-1},\qquad N=20000n^3E^2.
+\end{gathered}
+\end{equation}
+The matrices in Corollary~\ref{cor:canonical} are
+\begin{equation}\label{eq:canonicalcenters}
+ S_N=\diag(NI_r,1),\qquad
+ A_{n,t}=\frac{S_NBS_N}{4nN^2},\qquad
+ W_{n,t}=S_N^{-1}W_0S_N^{-1}+\frac{I_n}{20nN^2}.
+\end{equation}
+
+\subsection{Seed and separator reserves}
+The seed has
+\begin{equation}\label{eq:canonicalreserves}
+ B\succ I_n/40,\quad B_{ij}\ge\epsilon,\quad
+ \norm B_F\le3n,\quad
+ 0<a_0<2,\quad c_0>0,\quad \norm{c_0}_1<2.
+\end{equation}
+Indeed all diagonal entries of $D$ are at least one, and the least eigenvalue of $F$ is greater than $1/40$. The interval representation of $C_n$ makes it positive definite with positive entries. Its trace is $n(n+1)(n+2)/6\le n^3$, so $\norm{C_n}_F\le n^3$. Every seed diagonal and off-diagonal entry is less than three, which gives the Frobenius estimate. Finally,
+\[
+ a_0=1+\epsilon n,\qquad
+ (c_0)_i=\tfrac35(\mathbf1_{i=1}+\mathbf1_{i=4})+\epsilon i,
+\]
+proving the last assertions.
+
+The leading block of $DFD$ is a sum of the interval squares with nonzero weights
+\[
+\begin{array}{c|rrrrrrr}
+ \text{interval}&[1]&[2]&[3]&[4]&[1,2]&[2,3]&[3,4]\\ \hline
+ \text{weight}&1/25&8/125&8/125&1/25&24/25&192/125&24/25
+\end{array}
+\]
+and singleton weight one at every further top coordinate. These weights give off-diagonal entries $24/25,192/125,24/25$ and diagonal entries $1,64/25,64/25,1$. Adding $\epsilon C_n$ gives every top interval a coefficient at least $\epsilon$. Its squares span by \eqref{eq:Tidentity} and the four-term interval identity. Moreover their unreserved weights sum to $r-42/125>1$, so
+\[
+ \ip{B_0}{T_r}\ge1.
+\]
+The seed entries have common denominator $500n^3$: the unreserved part has denominator dividing $125$, and the reserve denominator divides $100n^3$.
+
+The Horn witness has $\norm{W_0}_F\le5$, since inverse diagonal congruence contracts its entries. Its pairing with $DFD$ is $5-6=-1$. Hence
+\[
+ \ip{W_0}B\le-1+5\epsilon\norm{C_n}_F\le-\frac{19}{20}.
+\]
+This proves all seed requirements analytically.
+
+The identity addition in \eqref{eq:canonicalcenters} changes its unnormalized pairing by at most $3/20$, since $\tr(S_NBS_N)\le3nN^2$. Thus
+\begin{equation}\label{eq:canonicalpairing}
+ \ip{W_{n,t}}{S_NBS_N}\le-\frac45,\qquad
+ \ip{W_{n,t}}{A_{n,t}}\le-\frac1{5nN^2},
+ \qquad \norm{W_{n,t}}_F\le6.
+\end{equation}
+Copositivity of the first summand gives the strict margin in \eqref{eq:canonicalmargins}. The center satisfies
+\[
+ \norm{A_{n,t}}_F\le\frac34,\qquad
+ \lambda_{\min}(A_{n,t})>\frac1{160nN^2},\qquad
+ (A_{n,t})_{ij}\ge\frac1{400n^4N^2}.
+\]
+A Frobenius perturbation of radius $\rho=1/(1600n^4N^2)$ preserves positive definiteness, strict entrywise positivity, and norm at most one. It increases the witness pairing by at most $6\rho$, leaving the bound $-1/(6nN^2)$. Division by the witness norm gives distance at least $1/(36nN^2)$. This proves all numerical claims in the corollary.
+
+\subsection{The confinement scale}
+We check that \eqref{eq:canonicalparameters} is large enough for every improving choice. In the height and domination constants, take $H=T_r$, $b_0=1/2$, and $\zeta_{\mathrm{can}}=\epsilon/4$. This last choice is the bound on the perturbation after rescaling by $4nN^2$. Only $\zeta_{\mathrm{can}}\le\min B_{ij}/2$ is needed for the objective argument; nonmembership and robustness have just been proved.
+
+Use $q,Y$ in \eqref{eq:canonicalparameters}, choose $t_H=n$, and write
+$K=Y+n$ and $E_*=(d-1)!(2K^2)^{d-1}$. The inverse formula
+\[
+ (T_r^{-1})_{ij}=\frac{2\min(i,j)(n-\max(i,j))}{n}
+\]
+gives $h\le2$ and $j\le n^2/4$. The constants \eqref{eq:heightconstants} then satisfy
+\[
+ B_*\le13/2,\quad Z_*\le2n^2,\quad T_*\le2n^3,\quad
+ P_*\le9n^5,\quad\alpha\ge1.
+\]
+Together with $D_C=500n^3$ and \eqref{eq:canonicalreserves}, these imply
+\[
+ u\le8n^3E_*,\quad v\le9n^6E_*,\quad
+ u_2\le26,\quad v_2\le9n^2/400.
+\]
+Consequently the threshold in \eqref{eq:Gamma} for the domination inequalities is at most $30000n^9E_*$. Put $M=t+1$. Since $Y\ge n$,
+\[
+ \frac UK\ge n^2M,\qquad
+ \frac E{E_*}\ge(n^2M)^{2(d-1)}
+                   \ge n^4M^2\ge2n^3M.
+\]
+It follows that
+\[
+ \frac NM=\frac{20000n^3E^2}{M}
+       \ge80000n^9ME_*^2\ge30000n^9E_*.
+\]
+Thus Lemma~\ref{lem:confinement} applies to the rescaled objective
+$4nN^2A=S_NBS_N+Z$, with $\norm Z_F\le\epsilon/4$.
+Its vertex gap, finite endpoints, and the arrow barrier give the induction exactly as in Theorem~\ref{thm:amplification}. This proves the pivot assertion of Corollary~\ref{cor:canonical} with all of its allowed tests.
+
+For fixed $n$, the scale is a constant times $(t+1)^{4(d-1)}$, so the center and witness have $O_n(\log(t+1))$ binary length. Conversely,
+$(A_{n,t})_{nn}=(1+\epsilon n)/(4nN^2)$ has a fixed nonzero rational numerator before reduction. Its denominator supplies the matching lower bound. The reciprocal-distance term is bounded by \eqref{eq:canonicalmargins}, completing the encoding claim.

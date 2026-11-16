@@ -1,0 +1,72 @@
+\subsection{Comparison with the continuous minimum}
+Let $z=z(b)$ be the unique minimizer of
+$x\trans Hx+2b\trans x$ over $x\ge0$, and put $\ell=b+Hz$.
+Positive definiteness gives existence and uniqueness. The optimality conditions are
+\begin{equation}\label{eq:kkt}
+ z\ge0,\qquad \ell\ge0,\qquad z_i\ell_i=0\quad(1\le i\le r).
+\end{equation}
+Thus the continuous minimum is $-z\trans Hz$. We choose a fixed approximation scale to compare the discrete constraints uniformly with this minimum. The constants below will measure a positive gap and bound the last coordinate of active integer vectors. Choose an integer $q\ge2$ such that $\norm H_2r/q^2\le1/2$, where $\norm H_2$ is the spectral norm, and set
+\begin{equation}\label{eq:gapconstants}
+ \kappa=\frac1{2q^{2r}},\qquad Y=2q^r.
+\end{equation}
+
+\begin{lemma}[A positive gap and bounded active vectors]\label{lem:gap}
+For every $b\in\R^r$,
+\begin{equation}\label{eq:gap}
+ z\trans Hz+\kappa\le g_H(b)\le z\trans Hz+1.
+\end{equation}
+The supremum in \eqref{eq:epigraph} is attained. Every active pair $(u,y)$ at $(b,g_H(b))$ satisfies, with $e=u-yz$,
+\begin{equation}\label{eq:active}
+ y\le Y,\qquad
+ e\trans He+2y\ell\trans u
+   =1-y^2\bigl(g_H(b)-z\trans Hz\bigr)\le1.
+\end{equation}
+The epigraph is locally polyhedral. At every vertex, $0\le\ell_i\le1/2$ for each $i$.
+\end{lemma}
+\begin{proof}
+The comparison is based on the identity
+\begin{equation}\label{eq:complete}
+ \frac{1-u\trans Hu-2yb\trans u}{y^2}
+ =z\trans Hz+\frac{1-e\trans He-2y\ell\trans u}{y^2}.
+\end{equation}
+To obtain it, substitute $b=\ell-Hz$ and use $\ell\trans z=0$. Both terms subtracted from $1$ on the right are nonnegative. Since $y\ge1$, this proves the upper bound in \eqref{eq:gap}.
+
+For the lower bound we need one integer pair close to the continuous minimizer after scaling. Let $S=\{i:z_i>0\}$ and $s=|S|$, and let $z_S$ be the restriction of $z$ to $S$. If $s=0$, the pair $u=0,y=1$ gives the assertion. Otherwise place the $q^s+1$ coordinatewise fractional-part vectors
+\[
+ \{kz_S\},\qquad 0\le k\le q^s,
+\]
+in $q^s$ half-open boxes of side $1/q$. Two lie in the same box. Subtracting them gives $1\le y\le q^s\le q^r$ and integers $u_i$ such that $|u_i-yz_i|\le1/q$ on $S$. Put $u_i=0$ outside $S$. These integers are nonnegative: a negative integer would have distance at least one from the nonnegative number $yz_i$. Complementarity gives $\ell\trans u=0$, and
+\[
+ (u-yz)\trans H(u-yz)\le\norm H_2\frac r{q^2}\le\frac12.
+\]
+The last fraction in \eqref{eq:complete} is therefore at least $1/(2q^{2r})$. This proves the lower bound using the elementary simultaneous approximation argument, without any restriction on rationality of $b$ or $z$.
+
+If $y>Y$, the right side of \eqref{eq:complete} is at most
+$z\trans Hz+1/y^2<z\trans Hz+\kappa$.
+For the finitely many remaining $y$, any value at least $z\trans Hz+\kappa$ requires $(u-yz)\trans H(u-yz)\le1$. A bounded ellipsoid contains only finitely many integer vectors. Thus the supremum is attained; multiplying \eqref{eq:complete} by $y^2$ proves \eqref{eq:active}.
+
+These are local finiteness bounds as well. The minimizer $z(b)$ is continuous; this follows from the variational inequalities and strong convexity, which give
+$\norm{z(b)-z(b')}_2\le\norm{b-b'}_2/\lambda_{\min}(H)$.
+On a small neighborhood, $z$ stays bounded. All constraints that can attain the supremum there have $y\le Y$ and $(u-yz)\trans H(u-yz)\le1$, hence come from one finite list. This proves local polyhedrality.
+
+Finally, a vertex must lie on the graph of $g_H$. Its active affine normals $(2u/y,1)$ span $\R^{r+1}$. For each $i$ at least one active $u$ has $u_i\ge1$, since otherwise their $i$th components would all vanish. Equation~\eqref{eq:active} then gives
+$2y\ell_i u_i\le1$, and hence $\ell_i\le1/2$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:movement}]
+The epigraph is full dimensional and locally polyhedral. A bounded edge has a common active constraint $(u,y)$ at its endpoints: the equalities defining its relative interior remain equalities at both ends. At the first endpoint,
+\begin{equation}\label{eq:shared}
+ b+H(u/y)=\ell+He/y.
+\end{equation}
+Cauchy--Schwarz for the inner product defined by $H$ gives
+\[
+ |(He)_i|^2\le H_{ii}\,e\trans He\le H_{ii}.
+\]
+Together with $0\le\ell_i\le1/2$, this puts the $i$th coordinate of \eqref{eq:shared} in the interval
+\[
+ \left[-\frac{\sqrt{H_{ii}}}{y},\,
+       \frac12+\frac{\sqrt{H_{ii}}}{y}\right].
+\]
+The second endpoint has the same $u$ and $y$, so subtracting cancels the term $H(u/y)$. The interval length is at most $1/2+2\sqrt{H_{ii}}$, proving \eqref{eq:movement}. Neither simplicity of a vertex nor $y=1$ has been assumed.
+\end{proof}
+
