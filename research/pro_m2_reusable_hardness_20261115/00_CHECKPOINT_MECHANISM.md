@@ -1,0 +1,21 @@
+# Reusable hardness theory — checkpoint 0
+
+Parent: 11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc. Original sources are unchanged.
+
+The current task is an upgrade from one five-cycle objective to a reusable sufficient-conditions theorem. The following arguments are being developed and audited, not a completed novelty or benchmark claim.
+
+## Proposed normal-cone lifting theorem
+Fix a rational positive-definite perfect leading block H of order n-1. Let V(H) be its finite cone of active nonnegative rank-one normals. A rational strictly positive, positive-definite non-CP seed B qualifies when its leading block B0 is in the interior of V(H). Scale B by S_N=diag(N,...,N,1). The old bounded-edge movement argument and an integer cofactor height bound apply uniformly to every vertex within m edges of ANY fixed finite set of initial vertices on the fixed-H face. If q B0 is integral, every primitive integral tangent ray not tangent to that face has leading cost at least 1/q. Therefore N of order E_m, not E_m squared, excludes all improving escaping rays. Here E_m grows as (m+1)^{2(d-1)}, d=n(n+1)/2. This yields a verifiable general all-rule criterion and a stronger precision exponent.
+
+## Correction tests: classical structural lemma, new algorithmic consequence
+A copositive symmetric matrix with a PSD principal submatrix of order n-1 is SPN (PSD plus entrywise nonnegative). This is prior art: Shaked-Monderer, SPN graphs: when copositive = SPN, LAA 509 (2016), Lemma 3.1. A self-contained proof will be included but not advertised as new.
+Consequently, once every visited ray has zero leading block, no copositive PSD correction of any ray, and in particular no arbitrary nonnegative diagonal correction, can separate a doubly nonnegative target. More generally, no certificate with a PSD leading block can separate such a target. This also excludes certificates formed from nonnegative combinations of visited vertices, arbitrary linear combinations of retained rays, and an arbitrary PSD correction. It removes the scalar-correction bottleneck in the previous scale bound.
+
+## Genuinely different candidate qualifying families
+For every odd ell>=5, choose rational 1/2<t<1/(2 cos(pi/ell)). The matrix I+t Adj(C_ell) is PD and is separated by J-2 Adj(C_ell). Every proper principal submatrix is CP, because its graph is a disjoint union of paths and its comparison matrix is positive definite. Scale the first ell-1 coordinates by the rational positive vector (I-t Adj(P_(ell-1)))^{-1}1. The resulting leading block is strictly diagonally dominant on a path and hence a positive combination of singleton and adjacent-pair interval normals. Add a sufficiently small rational multiple of the canonical CP anchor to make all entries and all interval coefficients positive, while retaining nonmembership. All proper principal submatrices remain CP. Thus larger odd orders are not embedded five-cycle examples: their nonmembership cannot be detected on any smaller principal block.
+
+## Independent geometry under proof audit
+For any fixed H positive definite, normalize a vertex of its quadratic epigraph by the integral shear k=floor(z), where z is the nonnegative quadratic minimizer. The KKT residual ell lies in [0,1/2]^r, the shifted minimizer lies in [0,1)^r, and active denominators and shifted numerators are uniformly bounded. Hence every vertex belongs to finitely many integral-shear templates; degrees are uniformly bounded. The bounded-edge graph embeds quasi-isometrically an orthant lattice via a periodic unrestricted-integer core. The intended consequence is graph-ball growth Theta(R^r), independent of the five-cycle construction. Connectivity, boundary templates, and the embedding are being checked before this is promoted to a theorem.
+
+## Restrictions retained
+Multiple starts are currently covered only when they share H (or lie in a fixed bounded part of that face). Distinct H have disjoint interiors of minimizing normal cones, so one strict leading exposure cannot confine several distinct blocks simultaneously. Arbitrary initial menus remain an open extension. No top-three benchmark designation is claimed; the supplied ranking is treated as user-reported until its actual sample is inspected.
