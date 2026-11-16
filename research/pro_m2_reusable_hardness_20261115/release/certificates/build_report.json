@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "files": {
+    "manuscript/MAIN.tex": "5534ca1d36fde878cc8bb4b877f0c3453fc927cf06d55a9ebe5f8a6a3c4570b3",
+    "manuscript/MAIN_standalone.tex": "08cb6264fad7745c3b9f7135fa26c97a36d3b1e1f53720f9134f8b28ef0860ba",
+    "certificates/exact_certificates.json": "0700e5c45c8df954a140b7d6bc3b5175aaead8f572b438fce213f4be1fdaea5a",
+    "certificates/verification_report.json": "27e08494b56d96aae339d2fe2fe303f5f42ce02666d73c475fca50cb26eef96a",
+    "COMPLETE_PROOFS.md": "957a5bfb95d43f3390c98c1d499641591d854e61fd5ab3872b9927fcb6d6282a"
+  },
+  "scope": "Rebuild hashes. PDF hashes are not assumed reproducible across TeX versions or timestamps."
+}

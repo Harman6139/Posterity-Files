@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": {
+    "seed_families": 5,
+    "proper_principal_factors": 39,
+    "weighted_factor_atoms": 2092,
+    "scale_cases": 15,
+    "sheared_vertices": 6,
+    "extreme_rays": 129,
+    "improving_rays": 12,
+    "graph_vertices": 25,
+    "graph_pair_tests": 300,
+    "spn_cases": 2
+  },
+  "corruptions_rejected": [
+    "setB",
+    "setW",
+    "setCP",
+    "setN",
+    "setR",
+    "setG",
+    "setS"
+  ],
+  "certificate_sha256": "0700e5c45c8df954a140b7d6bc3b5175aaead8f572b438fce213f4be1fdaea5a",
+  "largest_analytic_prefix": "18446744073709551616",
+  "order_five_N_bits": 575,
+  "scope": "Exact independent code path, no generator imports. Analytical proofs cover all parameters; no long trajectory was simulated. Not human review or proof-assistant verification."
+}
