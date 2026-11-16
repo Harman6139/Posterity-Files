@@ -10,7 +10,7 @@ The simplest seed uses a five-cycle on the coordinates $(1,2,3,4,n)$. Let $G$ be
 \end{equation}
 The matrix $F$ is positive definite: its least eigenvalue on the cycle is $(7-3\sqrt5)/10>1/40$. The matrix $C_n$ is the sum of the consecutive-interval squares and has positive entries. Thus $B$ is positive definite and strictly positive. Its leading block is a positive combination of the minimizing-vector squares of $T_{n-1}$; Appendix~\ref{app:canonical} gives the weights and numerical reserves.
 
-The Horn matrix $J_5-2\operatorname{Adj}(C_5)$ is copositive \cite{HN,SZ}; here $J_5$ is the all-ones matrix. Embed it on the cycle and call it $\widehat H_5$. Then
+The Horn matrix $J_5-2\operatorname{Adj}(C_5)$ is copositive \cite{HN,SZ}; here $J_5$ is the all-ones matrix. The triangle-free graph argument in the proof of Theorem~\ref{thm:seedinterval} also proves its copositivity directly. Embed it on the cycle and call it $\widehat H_5$. Then
 $W_0=D^{-1}\widehat H_5D^{-1}$ has pairing $-1$ with $DFD$. The small addition $\epsilon C_n$ preserves negative pairing. This is a certified seed for the canonical face containing $T_n$, not merely an example of a long path.
 
 \subsection{A nonmember whose smaller principal blocks all pass}
@@ -38,8 +38,12 @@ The bordered matrix $F(a)=\begin{pmatrix}A_0&c\\c\T&a\end{pmatrix}$ has order th
 \foreach \i in {1,...,6} {\fill (r\i) circle (2pt);}
 \end{scope}
 \fill (0,0) circle (2.5pt) node[below=4pt] {hub};
+\node[above=2pt] at (l1) {$1$};
+\node[below=2pt] at (l6) {$6$};
+\node[below=2pt] at (r1) {$7$};
+\node[above=2pt] at (r6) {$12$};
 \end{tikzpicture}
-\caption{The support of the order-thirteen seed before the positive completely positive reserve is added. Every proper principal block is completely positive; the full matrix is not.}
+\caption{The support of the order-thirteen seed before the completely positive reserve is added. The left path is numbered $1,\ldots,6$ and the right path $7,\ldots,12$. Every proper principal block is completely positive; the full matrix is not.}
 \label{fig:bouquet}
 \end{figure}
 
@@ -126,7 +130,12 @@ For completeness,
  T_j[x]=\frac12\left(x_1^2+x_j^2+
                  \sum_{i=1}^{j-1}(x_i-x_{i+1})^2\right).
 \end{equation}
-This is positive for every nonzero real $x$ and is an integer for integer $x$. Its minimum on nonzero nonnegative integer vectors is one, attained at interval indicators. Their squares span: singleton values determine the diagonal, and the four-term difference obtained by deleting either endpoint or both from an interval recovers $2X_{ij}$. Thus $T_r$ is perfect and the reserve meets Definition~\ref{def:seed}. Finally,
+This is positive for every nonzero real $x$ and is an integer for integer $x$. Its minimum on nonzero nonnegative integer vectors is one, attained at interval indicators. To see that their squares span, take any symmetric test matrix $X$ and let $v_{ab}$ indicate $[a,b]$, with an empty interval assigned the zero vector. Singleton values give the diagonal, and for $a<b$,
+\begin{equation}\label{eq:spaninterval}
+ X[v_{ab}]-X[v_{a+1,b}]-X[v_{a,b-1}]+X[v_{a+1,b-1}]
+ =2X_{ab}.
+\end{equation}
+Thus $T_r$ is perfect and the reserve meets Definition~\ref{def:seed}. Finally,
 $|\ip{W'}{\varepsilon C_n}|\le\varepsilon w'\tr C_n=\gamma_0/4$,
 so $\ip{W'}B\le-3\gamma_0/4<0$. The face contains $T_n$ by \eqref{eq:Tidentity}.
 \end{proof}
@@ -180,7 +189,7 @@ Single even-order paths give another family. With $s\in2\Z$, $s\ge4$, take $A_0=
 
 \subsection{Branched perfect blocks and bounded starting regions}
 The leading normal geometry need not be tridiagonal. Let $T$ be a tree with
-$H_T=I_r-\operatorname{Adj}(T)/2\succ0$. For every unordered pair, including a repeated pair, let $p_{ij}$ be the indicator of the unique tree path. Then $H_T[p_{ij}]=1$. These are a spanning collection of minimal vectors, not necessarily the complete list. Their squares span $\mathbb S^r$: deleting either endpoint or both from a path gives a four-term difference equal to $2X_{ij}$, and repeated pairs give the diagonal. Since $H_T[x]$ is positive and integral on nonzero integer vectors, $H_T$ is a positive definite perfect vertex.
+$H_T=I_r-\operatorname{Adj}(T)/2\succ0$. For every unordered pair, including a repeated pair, let $p_{ij}$ be the indicator of the unique tree path. Then $H_T[p_{ij}]=1$. These are a spanning collection of minimal vectors, not necessarily the complete list. For any symmetric test matrix $X$, the endpoint-deletion identity \eqref{eq:spaninterval} applies to that path and its three shorter subpaths, giving $2X_{ij}$. Repeated pairs give the diagonal, so the path squares span $\mathbb S^r$. Since $H_T[x]$ is positive and integral on nonzero integer vectors, $H_T$ is a positive definite perfect vertex.
 
 The same construction works whenever the leading support is a forest contained in $T$. The hypotheses that the hub attachments are nonadjacent and the resulting graph is triangle-free remain in force. The comparison and Schur arguments are unchanged, and the singleton and support-edge vectors in \eqref{eq:normalrealization} are minimal for $H_T$. Use the reserve
 \begin{equation}\label{eq:treereserve}
@@ -201,6 +210,6 @@ $P_a=S_a^{-\mathsf T}T_nS_a^{-1}$ for fixed $a\in\Z_+^r$. Indeed $S_a^{-1}(u,y)=
 \subsection{Further sparsity-limited tests}
 A symmetric matrix is called \emph{SPN} if it is a sum of a positive semidefinite matrix and an entrywise nonnegative matrix. A graph is SPN if every copositive matrix with off-diagonal support contained in that graph is SPN. Any copositive candidate confined to such a support has nonnegative pairing with a doubly nonnegative input, regardless of how the candidate is found.
 
-For example, partition the leaf coordinates into groups of at most three. Allow every entry within each group, all hub spokes, and all diagonals. This support is a union of cliques of order at most four meeting only at the hub, and is SPN \cite[Corollaries~4.4 and~5.3]{SPN}. It permits small full-block corrections beyond the diagonal correction in Corollary~\ref{cor:stored}. The forest and small-block results used here are classical and unaffected by the corrigendum \cite{SPNcorr}; no general triangular-book assertion is used.
+For example, partition the leaf coordinates into groups of at most three. Allow every entry within each group, all hub spokes, and all diagonals. This support is a union of cliques of order at most four meeting only at the hub, and is SPN \cite[Corollaries~4.4 and~5.3]{SPN}. It permits small full-block corrections beyond the diagonal correction in Corollary~\ref{cor:stored}. These classical forest and small-block statements are unaffected by the corrigendum \cite{SPNcorr}.
 
 The new algorithmic consequence of Lemma~\ref{lem:arrow} is simultaneous failure for every stored direction, because confinement puts them all in the arrow space. The principal-minimal seeds supply a different barrier: all proper principal tests fail on the whole certified ball. Neither assertion covers arbitrary off-diagonal corrections or combinations with unrelated non-arrow matrices.

@@ -24,7 +24,7 @@ At a departure vertex the rule may test the current $P$, the selected improving 
  Q=\sum_{j=0}^k\beta_jR_j+\Lambda,
  \qquad \beta_j\in\R,\quad\Lambda\text{ real diagonal},
 \end{equation}
-where the $R_j$ are previously stored improving directions and the currently selected direction. A test succeeds only when its candidate is copositive and has negative pairing with $A$. This includes $R+\tau I$ for every real $\tau$, and arbitrary diagonal corrections of a single ray. If no test succeeds, the rule makes the adjacent pivot. Choosing among improving extreme rays may use the full input and history, or randomization; no computational restriction is imposed on that choice.
+where each $R_j$ is an improving extreme tangent ray selected at a previous departure vertex or at the current one. A test succeeds only when its candidate is copositive and has negative pairing with $A$. This includes $R+\tau I$ for every real $\tau$, and arbitrary diagonal corrections of a single ray. If no test succeeds, the rule makes the adjacent pivot. Choosing among improving extreme rays may use the full input and history, or randomization; no computational restriction is imposed on that choice.
 
 The current-vertex and ray tests are the nonmembership exits of Procedure~3 in \cite{DSV}. The tests \eqref{eq:storedtest} enlarge that local model. A separate construction of an unrelated certificate, a nonadjacent move, or an initial vertex outside the prescribed region is outside it. No claim about the cost of recognizing an arbitrary copositive matrix is implicit in this definition.
 
@@ -49,7 +49,7 @@ These are sufficient conditions, not a characterization of all nonmembers. For r
 The following theorem turns every such seed into an input family. The scale grows linearly with the requested number of pivots, while the number of binary digits grows logarithmically. All initial vertices in the stated bounded region are covered at once.
 
 \begin{theorem}[Certified-seed amplification]\label{thm:amplification}
-Fix a certified seed, a number $b_0\ge0$, and the positive rational constants $s_0,\theta,\zeta$ and integer $\Gamma$ in \eqref{eq:robustconstants}--\eqref{eq:Gamma}. For $m\ge1$, set
+Fix a certified seed, a rational bound $b_0\ge0$, and the positive rational constants $s_0,\theta,\zeta$ and integer $\Gamma$ in \eqref{eq:robustconstants}--\eqref{eq:Gamma}. For every integer $m\ge1$, set
 \begin{equation}\label{eq:amplified}
  N=\Gamma(m+1),\quad D_N=\diag(NI_r,1),\quad
  A_N=\frac{D_NBD_N}{s_0N^2},\quad
@@ -76,12 +76,12 @@ where $w=1+\sum_{ij}|W_{ij}|$.
 For this fixed seed and starting region, the binary lengths of the rational centers and separators are $O(\log(m+1))$. The center's input length, also when augmented by the logarithm of reciprocal distance to $\CP_n$, is $\Theta(\log(m+1))$. The forced prefix is therefore exponential in either measure. Every visited vertex and primitive integral extreme-ray generator in the prefix has $O(\log(m+1))$ bit height.
 \end{theorem}
 
-The initial vertex can be chosen using the input within this fixed region. The theorem does not allow the region to grow with $m$. Nor is the bit-length conclusion asserted for arbitrary rational points of the ball, which can have arbitrarily long encodings.
+We encode each rational entry by its reduced numerator and positive denominator in binary; matrix length records the upper-triangular entries. Bit height is the largest entry length. If $L$ is the input length, the augmented measure is $L+\lceil\log_2(1/\dist_F(A,\CP_n))\rceil+2$. The initial vertex can be chosen using the input within the fixed region, which does not grow with $m$. The bit-length conclusion is not asserted for arbitrary rational points of the ball, which can have arbitrarily long encodings.
 
 The stronger correction clause has a useful exact formulation. Its force comes from the shape of the stored directions, rather than from bounds on the test coefficients.
 
 \begin{corollary}[Stored-direction correction barrier]\label{cor:stored}
-At any covered prefix vertex, let $R_1,\ldots,R_k$ be any stored improving rays from covered departure vertices. For arbitrary real $\beta_j$ and arbitrary real diagonal $\Lambda$, if $Q=\sum_j\beta_jR_j+\Lambda$ is copositive, then $\ip A Q\ge0$. The same holds for any combination also including a currently tested improving extreme ray.
+At any covered prefix vertex, let $R_1,\ldots,R_k$ be stored improving extreme tangent rays selected at covered departure vertices. For arbitrary real $\beta_j$ and arbitrary real diagonal $\Lambda$, if $Q=\sum_j\beta_jR_j+\Lambda$ is copositive, then $\ip A Q\ge0$. The same holds for a combination also including a currently tested improving extreme ray.
 \end{corollary}
 
 \subsection{The independent fixed-block geometry}
@@ -91,7 +91,7 @@ For arbitrary real $H\succ0$ of order $r$, the inequalities involving a positive
  g_H(b)=\sup_{\substack{u\in\Z_+^r\\y\in\Z_{\ge1}}}
  \frac{1-u\T Hu-2yb\T u}{y^2}.
 \end{equation}
-Its bounded-edge graph has the vertices of $\mathcal E_H$ as nodes and bounded edges as graph edges. When $H$ is a perfect vertex of $\Ry_r$, this is the graph inside the face with leading block $H$. For a general $H$, \eqref{eq:epigraph} is studied on its own; the zero-last-coordinate inequalities need not hold.
+An active pair $(u,y)$ attains the supremum at a boundary point; $u$ and $y$ are the numerator and denominator of $u/y$. Its bounded-edge graph has the vertices of $\mathcal E_H$ as nodes and bounded edges as graph edges. When $H$ is a perfect vertex of $\Ry_r$, this is the graph inside the face with leading block $H$. For a general $H$, \eqref{eq:epigraph} is studied on its own; the zero-last-coordinate inequalities need not hold.
 
 An integer shear replaces the first $r$ coordinates $u$ by $u-ay$ for an integral vector $a$. The next result says that this removes the unbounded location of a vertex from its local description.
 
@@ -126,7 +126,7 @@ For every $n\ge5$ and integer $t\ge1$, there are explicit rational $A_{n,t}$ and
 \[
  \norm{A-A_{n,t}}_F\le\frac1{1600n^4N^2}
 \]
-is positive definite, strictly entrywise positive, outside $\CP_n$, and has $\norm A_F\le1$. Every permitted improving adjacent rule from $T_n$ makes at least $t$ pivots. No vertex, selected ray, scalar identity correction, or corrected stored-ray combination separates during this prefix. One separator works throughout the ball and satisfies
+is positive definite, strictly entrywise positive, outside $\CP_n$, and has $\norm A_F\le1$. Every permitted improving adjacent rule from $T_n$ makes at least $t$ pivots. At every departure before the $t$th pivot, an improving extreme ray exists and every such ray reaches a finite neighbor in the same face. No vertex, selected ray, scalar identity correction, or corrected stored-ray combination separates during this prefix. One separator works throughout the ball and satisfies
 \begin{gather}\label{eq:canonicalmargins}
  W_{n,t}[x]\ge\frac{\norm x_2^2}{20nN^2}\quad(x\ge0),\qquad
  \norm{W_{n,t}}_F\le6,\\

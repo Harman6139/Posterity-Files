@@ -170,7 +170,7 @@ The transformations
 \begin{equation}\label{eq:translation}
  \Psi_a(b,c)=(b-Ha,c-2b\T a+a\T Ha),\qquad a\in\Z^r,
 \end{equation}
-are automorphisms of the full-lattice epigraph and graph. They change $z$ to $z+a$. Their action on vertices is free, and the finite normalized list gives a finite quotient. Choose representatives $v_1,\ldots,v_s$. Connect $v_1$ to every $v_j$ and to $\Psi_{\pm e_i}v_1$ by finitely many fixed paths. Translates of these paths give
+are automorphisms of the full-lattice epigraph and graph. They change $z$ to $z+a$. No nonzero translate fixes a vertex, and the finite normalized list means that every vertex is a translate of one of finitely many representatives $v_1,\ldots,v_s$. Connect $v_1$ to every $v_j$ and to $\Psi_{\pm e_i}v_1$ by finitely many fixed paths. Translates of these paths give
 \[
  d(\Psi_a v_i,\Psi_{a'}v_j)\le C\norm{a-a'}_1+C.
 \]
@@ -195,4 +195,8 @@ For rational $H\succ0$, there are vertex pairs of $\mathcal E_H$ at intrinsic di
 A full-lattice vertex is rational by Proposition~\ref{prop:templates}. Translate one into the coincidence region and compare it with its $\Psi_{Me_1}$ translate. These are orthant vertices. Their cross columns differ by $MH e_1$, so \eqref{eq:movement} gives the distance lower bound. The coordinates in \eqref{eq:translation} grow at most quadratically in $M$, with fixed denominators, proving the height bound.
 \end{proof}
 
-Positive definiteness is essential. For the singular but strictly copositive $H=\mathbf1\mathbf1\T$ of order two, fixing $u_1+u_2$ lets all mass move to the coordinate of smaller $b_i$, so the epigraph is determined by $g_1(\min(b_1,b_2))$. For $b<0$, nearest-integer rounding at $y=1$ gives $g_1(b)\ge b^2+3/4$, whereas $y\ge2$ gives at most $b^2+1/4$; for $b\ge0$, $g_1(b)=1$. Its successive affine pieces therefore have vertices $b=-(k+1/2)$, $c=k^2+k+1$. In the two-coordinate epigraph a vertex must have both coordinates at the same break point: otherwise one coordinate can vary in a line segment while the active affine pieces stay fixed. Thus its vertices have $b_1=b_2=-(k+1/2)$ and $c=k^2+k+1$. The active vectors include all $(u_1,u_2,1)$ with $u_1+u_2=k$ or $k+1$, a total of $2k+3$, and the common affine pieces join successive vertices into a ray. Neither finite active types nor growth of degree equal to block order extends to this singular example.
+Positive definiteness is essential. For the singular but strictly copositive $H=\mathbf1\mathbf1\T$ of order two, fixing $u_1+u_2$ lets all mass move to the coordinate of smaller $b_i$, so the epigraph is determined by $g_1(\min(b_1,b_2))$.
+
+For $b<0$, nearest-integer rounding at $y=1$ gives $g_1(b)\ge b^2+3/4$, whereas $y\ge2$ gives at most $b^2+1/4$; for $b\ge0$, $g_1(b)=1$. Its successive affine pieces have vertices $b=-(k+1/2)$, $c=k^2+k+1$. In the two-coordinate epigraph a vertex must have both coordinates at the same break point: otherwise one coordinate can vary in a line segment while the active affine pieces stay fixed.
+
+Thus the vertices have $b_1=b_2=-(k+1/2)$ and $c=k^2+k+1$. The active vectors include all $(u_1,u_2,1)$ with $u_1+u_2=k$ or $k+1$, a total of $2k+3$, and the common affine pieces join successive vertices into a ray. Neither finite active types nor growth of degree equal to block order extends to this singular example.
