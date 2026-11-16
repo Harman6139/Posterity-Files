@@ -1,41 +1,78 @@
 {
-  "title": "Long pivot paths and short certificates for completely positive matrices",
+  "title": "Pivot lower bounds and lattice geometry in completely positive matrix separation",
   "venue": "Linear Algebra and its Applications",
-  "version": "2026-11-15 author-requested illustrated revision",
-  "date": "2026-11-15",
-  "time_zone": "America/New_York",
-  "built_utc": "2026-11-16T00:19:28.383791+00:00",
-  "pages": 16,
-  "abstract_words": 165,
+  "version": "2026-11-15 certified-seed editorial restructure",
+  "built_utc": "2026-11-16T04:07:37.061349+00:00",
+  "pages": 25,
+  "abstract_words": 166,
+  "primary_codex_commit": "78a3ff709e14e49e95138f516fca85faec8eae72",
   "original_mathematical_commit": "11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc",
+  "additional_mathematical_commit": "8e551996c8462cfe78c20e5edf18d18c0707f2c5",
+  "source_tree_sha256": "858bf754f642e2bc9d48b43adea7da06a6a15651b4e865ea213d5bf595ade429",
   "files": {
     "main.tex": {
-      "bytes": 52279,
-      "sha256": "20840280a91b773393d393618765da4ea43ebc079199cc3ddb8648a51078bd2f"
+      "bytes": 3518,
+      "sha256": "5e67c622b324b9e6a7ba8e497dbf8241d06d383fcc76fc0f78409ef72bb25912"
     },
     "main.pdf": {
-      "bytes": 403179,
-      "sha256": "a65c13b2d40c2cf9bcdafbd0434f4b228f1f4c257ac664600139dd3b92a0d25e"
+      "bytes": 467916,
+      "sha256": "a64d34094778cecd5da31ad6577521bad6440203f82b98e1e8d3a339da242f06"
     },
     "build.py": {
-      "bytes": 1952,
-      "sha256": "808f4c7fcf7ea170146c6b976ec66875d663a2fd635cac650f867b9b2c1d15a4"
+      "bytes": 2499,
+      "sha256": "4ea9a352a1b017db7fd81863a44a9db66911d514bb3b9bfe6f533a2d362cb7bd"
     },
     "highlights.txt": {
-      "bytes": 293,
-      "sha256": "774b2f3e39538c08dc68f19a6f2b9549eaafb6dcbd84415c8dd92d54c7ab3e74"
+      "bytes": 389,
+      "sha256": "9be4bd4dac62c6eac19b45da11ed935f7f4f719ab953b6a49ade5393d4311f4e"
+    },
+    "BUILD_README.txt": {
+      "bytes": 376,
+      "sha256": "4e5af95c3c680f1c5875d3c9a9e64ec74a823203487e4b459bfc04ac8e40d32e"
+    },
+    "README.md": {
+      "bytes": 3767,
+      "sha256": "a319b8384282759523a7f5d0859e03d760bdd84868a1e07fbcff3430b524ae80"
     },
     "CP_Pivot_Verification.zip": {
-      "bytes": 94004,
-      "sha256": "6e6c6f0163a5baeb4ef22294e894a33c2d0243a9ab75a633ce9e0cafd3a6dd61"
+      "bytes": 283622,
+      "sha256": "d4c8ebc67527896c23684566fcb572b7193057495a6a6ebd00dd5923e09906c1"
     },
-    "supplemental/code/generate_certificates.py": {
-      "bytes": 8007,
-      "sha256": "b12ef1f9ddab5d0ed8746993f9dc37f7a7af9b20ef240e042a6887ad24d870c1"
+    "sections/01_introduction.tex": {
+      "bytes": 6933,
+      "sha256": "160687aac0b081074e863b075d8759e16fe36e13063eca9bbece5d20ab01eeeb"
     },
-    "supplemental/code/verify_certificates.py": {
-      "bytes": 12507,
-      "sha256": "2382bf0ca51ec33c502129c5f6be66b4a0b93389ee189f72971b7b2aac709ea0"
+    "sections/02_main_results.tex": {
+      "bytes": 12894,
+      "sha256": "8044585466d4d48fd3c59808c59310e007c0403b44ef5d1ad17432cd446b6728"
+    },
+    "sections/03_geometry.tex": {
+      "bytes": 16653,
+      "sha256": "fd4ac878437330323b78e43e9f9a5b275b412bf26ef1c2d528b67a5b4fa24d7c"
+    },
+    "sections/04_amplification.tex": {
+      "bytes": 12196,
+      "sha256": "f0cff1af029a344d5505c0ce482f030c6719195d934f6cbdc67df4a78657cdac"
+    },
+    "sections/05_seeds.tex": {
+      "bytes": 20548,
+      "sha256": "080b9ecb5fbd9f5d574c164de6975bf5bcae2e27d43b4b18121ad90973af7746"
+    },
+    "sections/06_limits.tex": {
+      "bytes": 1258,
+      "sha256": "2c19234706e207b29fdd04f61b97aef1d1bc93a74f83d9cd6e70cd92e5a97b61"
+    },
+    "sections/07_canonical_constants.tex": {
+      "bytes": 5443,
+      "sha256": "ba3a186a8dd0fc99f7581bb1043c0ae465f3a9fcedaa77b5b539a36697b13a81"
+    },
+    "sections/geometry_codex_core.tex": {
+      "bytes": 4688,
+      "sha256": "a4d74065321817d26c0f09c55ff8fe5b8ba79b82262cfe7edd5f70b329dfd5b3"
+    },
+    "sections/references.tex": {
+      "bytes": 3375,
+      "sha256": "39e47876aff1c304387af7c440ce21f314de18fc1939838458df42555b94979c"
     },
     "supplemental/certificates/exact_certificates.json": {
       "bytes": 705219,
@@ -45,9 +82,41 @@
       "bytes": 759,
       "sha256": "89e622c2f811dfe2a5982fcac217d993a8cec5cacd2eb30f5f01e08e27a6265c"
     },
+    "supplemental/code/generate_certificates.py": {
+      "bytes": 8007,
+      "sha256": "b12ef1f9ddab5d0ed8746993f9dc37f7a7af9b20ef240e042a6887ad24d870c1"
+    },
+    "supplemental/code/verify_certificates.py": {
+      "bytes": 12507,
+      "sha256": "2382bf0ca51ec33c502129c5f6be66b4a0b93389ee189f72971b7b2aac709ea0"
+    },
     "supplemental/README.md": {
-      "bytes": 1623,
-      "sha256": "b055a65d02500066bdd5c0613a36260e615e1c6fc844ba14c22669079f26a3c5"
+      "bytes": 2102,
+      "sha256": "2bf16a8f2e9d7664340886ef785c0f88496a42d24daa0bc6315580255c0fadbe"
+    },
+    "supplemental/reusable_seed/certificates/exact_certificates.json": {
+      "bytes": 1070279,
+      "sha256": "5d71cfecd478c21bda7e6cb09042b14c234a8c263019d5f420d887865a502095"
+    },
+    "supplemental/reusable_seed/certificates/verification_report.json": {
+      "bytes": 2517,
+      "sha256": "dc827728ff687372cf9c3ff52c1427817cfef482b24857e740ab49892aec8c2c"
+    },
+    "supplemental/reusable_seed/code/generate_certificates.py": {
+      "bytes": 12263,
+      "sha256": "d30e763f8330192c7c6438d3b90fcd9984e9776f1d162d65e04cdc7b5fdb93e3"
+    },
+    "supplemental/reusable_seed/code/verify_certificates.py": {
+      "bytes": 18370,
+      "sha256": "e628dde694257d0c5a1fb0933731160e6d6850abd8ab7f7837711b2ca6a4999f"
+    },
+    "supplemental/reusable_seed/inputs/inherited_prefix.json": {
+      "bytes": 75992,
+      "sha256": "c2292336a71bbdd322a24712e0f9e64379708b12133d690fa06b8eb1349b6353"
+    },
+    "supplemental/reusable_seed/README.txt": {
+      "bytes": 1823,
+      "sha256": "71053b05a764506bfd20c71ab3aeeb3cff73a4c5b50a6fefa1fdc0e62095b2d3"
     }
   }
 }

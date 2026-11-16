@@ -1,69 +1,66 @@
-# Completely positive separation — LAA manuscript
+# Completely positive matrix separation — LAA revision
 
-Title: *Long pivot paths and short certificates for completely positive matrices*.
+Title: *Pivot lower bounds and lattice geometry in completely positive matrix separation*.
 
-This directory contains the complete 16-page article, matching editable source,
-and exact verification supplement. It is a prepared manuscript, not a journal
-submission. Read `LAA_EDITORIAL_CHECK.md` for remaining workflow and venue checks.
+This directory contains the complete 25-page Codex-authored revision, modular
+editable LaTeX source and exact verification supplement. It continues Codex
+commit 78a3ff709e14e49e95138f516fca85faec8eae72; it does not replace that manuscript
+with the additional research release's MAIN.tex. The original versions remain in
+Git history. This is a prepared revision, not a journal submission.
 
-## Build
+## Build and sources
 
-Requires Python 3.9+ and a TeX installation containing the standard packages listed
-in `main.tex`. The bibliography is embedded in that file; there are no external
-figures, bibliography databases, or nonstandard local class dependencies.
+Run python build.py with Python 3.9+ and a current TeX installation. The script
+runs pdfLaTeX twice, rejects warnings and overfull/underfull boxes, and writes a
+build record with the PDF hash and the hashes of every project source. main.tex
+inputs sections/*.tex; the bibliography is sections/references.tex. Both figures
+are editable TikZ in the source. No external class, image or BibTeX file is needed.
+The source archive contains all these dependencies, highlights and the complete
+computational companion. Build timestamps may change a recompiled PDF's hash.
 
-```sh
-python build.py
-python supplemental/code/generate_certificates.py
-python supplemental/code/verify_certificates.py
-```
+The shipped main.pdf has 25 pages, at 11pt with A4 paper and 27mm margins.
+Every final page was rendered at 110dpi and inspected; the figures and technical
+proof passages were also checked in the earlier comprehensive editorial pass.
+No typography was reduced to force a shorter page count.
 
-`build.py` runs pdfLaTeX twice, rejects warnings and overfull/underfull boxes, and
-records exact input and output hashes in `build/build_record.json`. PDF metadata
-contains a compilation timestamp, so independent recompilations need not produce
-the same PDF hash. The source and the shipped PDF are a matching pair.
-The generator and verifier use only Python's standard library. Do not run with
-`python -O`, since the original generator uses assertions.
+## Mathematical sources and changes
 
-For visual inspection, run `pdftoppm -r 110 -png main.pdf page` in an existing
-inspection directory. Text extraction does not replace rendered-page inspection.
+The additional research source is Posterity-Files commit
+8e551996c8462cfe78c20e5edf18d18c0707f2c5,
+research/pro_m2_reusable_hardness_20261115/release/. Its 34 files are preserved
+unchanged in a separate checkout and named Git history. Its results were
+analytically audited before import, with exact checks rerun. The manuscript
+preserves Codex's measured continuous-minimum/movement proof and the entire
+canonical n>=5 result, including its original normalization and numerical bounds.
 
-## Original input and editorial changes
+The first theorem is now certified-seed amplification. The fixed-block geometry
+is a separate result for arbitrary real positive-definite blocks; rationality
+enters denominator/encoding statements, and perfectness is needed for full
+Ryshkov tangent-ray bounds. Graph distance is intrinsic to the fixed-block set.
+The graphical constructions, all-proper-principal barrier and stored-direction
+diagonal-correction barrier are developed with complete proofs.
 
-The mathematical source of record is Posterity-Files commit
-`11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc`, path
-`research/pro_m2_ordinary_canonical_20261115/release/manuscript/MAIN.tex`.
-This results branch starts from the editorial-brief commit
-`ea7700fe645e238edf1d052cb29ab0de87a9dd0e`.
-Original research files and branches have not been overwritten.
+See EDITORIAL_CHANGELOG.md for the section map, preserved results, imported
+results and qualifications. PROOF_AND_SCOPE_AUDIT.md records the proof scope and
+finite-check limits; NOVELTY_VS_2021_2023_2026.md records the historical comparison.
 
-The rewritten article preserves the theorem, construction, constants, robustness
-radius, all-choice quantifier, certificate tests, and fixed-order encoding claims.
-Its main expository features are:
+## Exact verification
 
-1. A plain-language opening defines the factorization question and states the
-   distinction between local search and short global certificates immediately.
-2. The fixed-block movement estimate is presented as a separate geometric result,
-   with uniform local finiteness, common-constraint cancellation, and finite
-   adjacent-endpoint arguments made explicit.
-3. The certificate construction precedes the all-choice confinement proof;
-   arithmetic dominance, every allowed exit, and the binary estimate are explained
-   in separate measured steps with precise credit to prior work.
-4. A two-dimensional example illustrates neighboring pivots and a short global
-   separator, with its limitations stated explicitly. Two vector diagrams explain
-   the shared active constraint and the induction in Sections 3 and 5.
+The original canonical suite is in supplemental/code; the added suite is in
+supplemental/reusable_seed/code. Each has a generator, an independent verifier
+and exact data. Read supplemental/README.md and the extension's README.txt before
+running them in a writable extracted copy. Both use only Python's standard
+library. Do not use python -O. CP_Pivot_Verification.zip contains both suites.
+Finite checks do not replace the universal analytic proofs or simulate the
+exponentially long prefix.
 
-The two supplemental scripts are the original exact scripts with only UTF-8/LF
-output serialization made platform independent. No mathematical or test logic was
-changed. This fixes Windows newline translation and reproduces the original
-certificate SHA-256:
-`048031057335bfb9fc7c86df3ecba5f3cc55fc32c484e6013d9f79efd577f95f`.
+## Status
 
-The article's proof is self-contained. The supplement is reproducibility evidence,
-not a substitute for the universal proof or a simulation of the long prefix.
-`highlights.txt` is a separate editable optional companion prepared to Elsevier's
-general size guidance; the current LAA-specific obligation remains to be verified.
-
-Private author records, internal reports, policy actions, and ordinary-web review
-records are maintained separately in the authorized private workflow repository.
-They are excluded from the clean submission source archive.
+Internal analytic audits and complete-source editorial reading were performed.
+The recorded ordinary-web Extra High R1 reviewed the earlier 14-page input,
+not this substantially expanded revision; no new ordinary-web round was claimed
+or initiated. This revision is not labeled Final Submission Ready. The current
+LAA-specific author guide returned HTTP403, so complete venue compliance remains
+unverified. The author should review the final text and disclosure before use.
+Private author records, referee reports and administrative evidence are excluded
+from the clean submission source package.

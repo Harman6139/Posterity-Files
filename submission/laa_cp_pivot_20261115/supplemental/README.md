@@ -32,3 +32,13 @@ Original mathematics and scripts: Posterity-Files commit
 `research/pro_m2_ordinary_canonical_20261115/release`.
 The delivered scripts change only output serialization to UTF-8/LF bytes so that
 Windows reproduces the original data hash.
+
+
+## Reusable seed extension
+
+The reusable_seed directory adds the independent exact instance programs and
+data from the pinned reusable-hardness release. Its README gives commands,
+provenance, platform behavior and the precise limits of its geometric checks.
+Both suites are included in CP_Pivot_Verification.zip. Their analytic results
+are proved in the manuscript; finite computation does not certify the universal
+statements or prove completeness of the geometric templates.

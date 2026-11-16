@@ -1,4 +1,5 @@
-- Every improving adjacent rule can require exponentially many pivots.
-- The lower bound starts at the standard tridiagonal perfect matrix.
-- Positive definite, entrywise positive inputs have short exact separators.
-- A fixed-block edge bound controls all improving choices and perturbations.
+Every improving adjacent pivot can be slow despite a short separator.
+A finite certified seed gives robust lower bounds from bounded starting regions.
+Fixed-block epigraphs have finite local types and exact polynomial graph growth.
+Graphical seeds include nonmembers whose proper principal blocks all pass.
+Stored pivot directions remain insufficient after arbitrary diagonal corrections.
