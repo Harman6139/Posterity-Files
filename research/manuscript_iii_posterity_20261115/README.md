@@ -9,9 +9,10 @@
 1. [Theorem and status catalogue](00_THEOREM_CATALOGUE_AND_STATUS.md) — exact theorems, proven model boundaries, current open gap.
 2. [Full proof and provenance map](01_FULL_PROOF_MAP_AND_PROVENANCE.md) — navigable filenames and immutable source references, with the complete proof text preserved inside the local PROOF_ARCHIVE subtrees.
 3. [Publication benchmark / 80-percentile decision](03_PUBLISHED_PAPER_BENCHMARK_2025.md) — preregistered paper selection, DOI-level article comparisons, and proof-access caveats.
-4. [Venue selection and novelty audit](04_VENUE_DECISION_AND_NOVELTY.md) — JCA realistic; SIOPT ambitious conditional; MOR and Mathematical Programming considerations.
-5. [Reproducibility / outstanding verifications](05_VERIFICATION_AND_OPEN_TASKS.md).
-6. [Original 2026-11-14 handoff](HANDOFFS/01_INITIAL_MANUSCRIPT_III_HANDOFF_20261114.md) and [grand 2026-11-15 handoff](HANDOFFS/02_GRAND_ARITHMETIC_SPECTRAL_HANDOFF_20261115.md), preserved verbatim.
+4. [Fresh 80th-percentile paper sample and stronger-model resource decision](06_LIVE_80TH_PERCENTILE_AND_COMPUTE_DECISION.md) — ten fully accessible 2025 JCA paper theorem/proof passages, SIOPT/MOR comparisons, strict 80% status and staged multi-thread math plan.
+5. [Venue selection and novelty audit](04_VENUE_DECISION_AND_NOVELTY.md) — JCA realistic; SIOPT ambitious conditional; MOR and Mathematical Programming considerations.
+6. [Reproducibility / outstanding verifications](05_VERIFICATION_AND_OPEN_TASKS.md).
+7. [Original 2026-11-14 handoff](HANDOFFS/01_INITIAL_MANUSCRIPT_III_HANDOFF_20261114.md) and [grand 2026-11-15 handoff](HANDOFFS/02_GRAND_ARITHMETIC_SPECTRAL_HANDOFF_20261115.md), preserved verbatim.
 
 ## Four full inherited proof corpora (not short summaries)
 
