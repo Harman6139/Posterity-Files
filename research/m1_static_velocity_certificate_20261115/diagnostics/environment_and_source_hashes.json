@@ -1,0 +1,28 @@
+{
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "numba": "0.65.1",
+  "note": "These hashes bind the locally executed script bytes. Each Git blob SHA was checked against the archived GitHub diagnostics directory. They certify file identity, not the mathematical theorems.",
+  "files": {
+    "averaging_admm_check.py": {
+      "bytes": 2007,
+      "sha256": "ac754128de56998f763139d32b07c52821b1dbf48e538c6d801944202526c8c1",
+      "git_blob_sha": "ce5d3542a8698dccfcbb9af23a4fe6f46144851d"
+    },
+    "certificate_and_drs_check.py": {
+      "bytes": 3611,
+      "sha256": "08cd71493bdff2e6ed2b17eb6a4ddd723948efd1e7e0c438648235cf09d21057",
+      "git_blob_sha": "6c5b30c465032c1e9eddb8c3c0229c84b938a7c8"
+    },
+    "coupled_four_by_four_check.py": {
+      "bytes": 1777,
+      "sha256": "f4eedd32f409eb8811f5764e84f12da62b89b87350789572d85eb619fabd80a7",
+      "git_blob_sha": "c498a79557835f7e9fc9ecc0d739b56dc620ae77"
+    },
+    "singular_leading_spectrum_check.py": {
+      "bytes": 1523,
+      "sha256": "8f008621ecba4e6dce3896bfa799469669c83f8f0e6fa83cc7c3c0e98dd4680a",
+      "git_blob_sha": "9e6d1c4246c0bafe414d61a8bb400c55c8f97fbf"
+    }
+  }
+}
