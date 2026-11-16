@@ -47,7 +47,7 @@ so one such $W$ certifies nonmembership. Finding the certificate and describing 
 
 Dutour Sikiri\'c, Sch\"urmann, and Vallentin \cite{DSV} introduced the simplex-type search studied here in 2021. Its vertices are \emph{perfect copositive matrices}: after normalizing their nonnegative integer minimum to one, the vectors attaining that minimum determine the matrix. A pivot moves to a neighboring vertex while decreasing $P\mapsto\tr(AP)$. Their Procedure~3 seeks either a completely positive factorization or a copositive separator. Their Conjecture~3.2 asks for finite termination under a suitable pivot rule; it does not assert a polynomial pivot bound.
 
-In 2023, Dannenberg and Sch\"urmann \cite{DS} studied the geometry of these vertices. They exhibited explicit neighboring sequences \cite[Corollary~5.3(3)]{DS} and showed that every classically perfect positive definite matrix has a perfect copositive representative under an integer change of basis with determinant $\pm1$ \cite[Theorem~6.1]{DS}. The 2021 work supplies the search framework; the 2023 work supplies structural and adjacency results. Our contribution is an input family that forces \emph{every improving choice} from the canonical starting vertex to take exponentially many pivots, although a short separator exists. Exhibiting a long neighboring sequence alone would not give this conclusion: the objective might allow a different improving edge or an earlier separating exit.
+In 2023, Dannenberg and Sch\"urmann \cite{DS} studied the geometry of these vertices. They exhibited explicit neighboring sequences \cite[Corollary~5.3(3)]{DS}. They also showed that every classically perfect positive definite matrix---a form determined by its minimum and minimizing vectors over $\Z^n$---has a perfect copositive representative under an integer change of basis with determinant $\pm1$ \cite[Theorem~6.1]{DS}. The 2021 work supplies the search framework; the 2023 work supplies structural and adjacency results. Our contribution is an input family that forces \emph{every improving choice} from the canonical starting vertex to take exponentially many pivots, although a short separator exists. Exhibiting a long neighboring sequence alone would not give this conclusion: the objective might allow a different improving edge or an earlier separating exit.
 
 Strict objective decrease gives a natural measure of progress, but it does not control the number of pivots in terms of the digits needed to specify $A$. Our main result makes this distinction explicit. For every fixed $n\ge5$ and every integer $t\ge1$, we construct a rational input with $O_n(\log(t+1))$ bits on which \emph{every} improving extreme-direction choice, from the standard tridiagonal initial vertex, requires at least $t$ adjacent pivots. The input is positive definite and strictly entrywise positive, so neither an eigenvalue test nor a negative-entry test rejects it. The conclusion holds throughout an explicit small ball. During the forced prefix, neither the current vertex nor the chosen ray yields a separator; adding any scalar multiple of the identity to that ray does not help. Yet one explicitly given rational, strictly copositive matrix separates the whole ball and has $O_n(\log(t+1))$ bits.
 
@@ -133,7 +133,7 @@ since $H_t=\Theta_n(\log(t+1))$.
 
 All constants implicit in this corollary may depend on the fixed order $n$. The robust ball in Theorem~\ref{thm:main} gives a pivot guarantee for every real input in that ball. Its rational points can have arbitrarily long encodings, so the binary-size conclusion is stated for the explicit centers. The theorem gives a forced finite prefix, without asserting eventual termination or a unique trajectory. The arithmetic cost of one pivot is a separate resource.
 
-\subsection{A two-dimensional example}
+\subsection{A two-dimensional example}\label{sec:example}
 A small example shows what a pivot preserves and why the vertex test along an improving path may reach a certificate slowly. We use the two-dimensional family discussed in \cite[Section~5, p.~146]{DS}, with coordinates interchanged and minimum normalized to one. For an integer $M\ge3$, put
 \[
  B_M=\begin{pmatrix}M^2-2&M\\M&1\end{pmatrix},\qquad
@@ -186,7 +186,7 @@ If $(b,c)$ and $(b',c')$ are the endpoints of a bounded edge of $\mathcal E_H$, 
 In particular, for $H=T_r$ the bound is $\norm{b'-b}_\infty\le5/2$ in every order.
 \end{theorem}
 
-Figure~\ref{fig:edge} illustrates the shared constraint when $H=(1)$. The two adjacent vertices $(-1/2,1)$ and $(-3/2,3)$ both satisfy $2b+c=0$, the equality associated with $(u,y)=(1,1)$. More generally, a shared pair $(u,y)$ supplies the same term $Hu/y$ at both endpoints. Subtracting cancels that term. The proof bounds what remains by comparing with the continuous nonnegative quadratic minimum.
+Figure~\ref{fig:edge} illustrates the shared constraint when $H=(1)$. Its highlighted edge is the pivot $P_0\to P_1$ from Section~\ref{sec:example}, expressed in $(b,c)$ coordinates. The two adjacent vertices $(-1/2,1)$ and $(-3/2,3)$ both satisfy $2b+c=0$, the equality associated with $(u,y)=(1,1)$. More generally, a shared pair $(u,y)$ supplies the same term $Hu/y$ at both endpoints. Subtracting cancels that term. The proof bounds what remains by comparing with the continuous nonnegative quadratic minimum.
 
 \begin{figure}[htbp]
 \centering
@@ -200,8 +200,8 @@ Figure~\ref{fig:edge} illustrates the shared constraint when $H=(1)$. The two ad
 \fill (1.5,3) circle (1.8pt) node[right] {\small $(-3/2,3)$};
 \fill (2.5,7) circle (1.8pt);
 \node[align=center] at (1.2,6.8) {\small $c\ge g_1(b)$};
-\node[anchor=east] at (0.65,3.1) {\small $2b+c=0$};
-\draw[thin] (0.68,2.9)--(0.95,1.9);
+\node at (0.9,4.4) {\small $2b+c=0$};
+\draw[thin] (0.95,4.0)--(0.95,1.9);
 \end{tikzpicture}
 \caption{Part of the epigraph for $H=(1)$. Vertex labels give $(b,c)$, while the horizontal axis is $-b$. The highlighted edge preserves one active integer constraint.}
 \label{fig:edge}
@@ -463,10 +463,10 @@ The final argument has three stages. First, the movement estimate bounds active 
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[>=stealth,box/.style={draw,align=center,text width=3.7cm,minimum height=1.65cm,font=\small}]
-\node[box] (bounds) at (0,0) {A short walk in $\mathcal F$ bounds vertex and ray sizes};
-\node[box] (face) at (4.7,0) {The scaled objective keeps every improving ray in $\mathcal F$};
-\node[box] (pivot) at (9.4,0) {Local tests fail; an improving ray exists, so another pivot is required};
+\begin{tikzpicture}[>=stealth,box/.style={draw,align=center,text width=3.7cm,minimum height=1.85cm,font=\small}]
+\node[box] (bounds) at (0,0) {A short walk in $\mathcal F$\\bounds the sizes of\\vertices and rays};
+\node[box] (face) at (4.7,0) {The scaled objective\\keeps every improving\\extreme ray in $\mathcal F$};
+\node[box] (pivot) at (9.4,0) {Local tests fail.\\An improving ray\\exists, so another\\pivot is required.};
 \draw[->,thick] (bounds)--(face);
 \draw[->,thick] (face)--(pivot);
 \end{tikzpicture}
@@ -601,7 +601,7 @@ It follows that a copositive correction satisfies
  \ip{\widetilde B}{R+\tau I_n}
  \ge-7NE+\frac{N^2}{2E}>0,
 \end{equation}
-because $N>14E^2$. It therefore cannot separate. Taking $\tau=0$ also excludes the uncorrected improving-ray exit.
+because $N>14E^2$. It therefore cannot separate. The necessary bound $\tau\ge1/(2E)>0$ also shows that the uncorrected improving ray is not copositive.
 \end{proof}
 
 \subsection{Completion of the proof and binary size}

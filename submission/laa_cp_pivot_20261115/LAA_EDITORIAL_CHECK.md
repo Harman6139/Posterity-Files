@@ -1,6 +1,6 @@
 # LAA editorial and production check
 
-Prepared 2026-11-15. The complete article is 15 pages including nine references,
+Prepared 2026-11-15. The complete article is 16 pages including nine references,
 with a 165-word single-paragraph abstract, five keywords and verified MSC codes.
 It uses ordinary numbered mathematical sections, a single-column 11pt article
 layout on A4, 27mm margins, a verified author byline and matching editable source.
@@ -28,9 +28,10 @@ these are explained, not eliminated. A separate fresh cold-reader report and fin
 integrity report are maintained privately with their exact snapshot identities.
 
 Two pdfLaTeX passes succeeded with no warnings, missing references or overfull/
-underfull boxes. All 15 actual rendered pages were inspected at 110 dpi, including
+underfull boxes. All 16 actual rendered pages were inspected at 110 dpi, including
 the first-page opening, full theorem, heaviest proofs, weight table, and references.
-Spacing, symbols and equation labels are legible. Reading density was assessed
+The two-dimensional example and the diagrams in Sections 3 and 5 were also
+checked. Spacing, symbols and equation labels are legible. Reading density was assessed
 separately from TeX fit. The bibliography uses verified primary-source metadata,
 including the corrected Maxfield–Minc DOI.
 
@@ -50,3 +51,23 @@ addendum are preserved privately. This is an R1-corrected manuscript, not a
 Final Submission Ready workflow claim. Current LAA-specific checklist verification
 and author-managed policy actions remain separate. No submission or acceptance
 prediction is made.
+
+Author-requested follow-up: shortened title, a two-dimensional neighboring-pivot
+example, a tighter 2021/2023 comparison, conventional descriptive headings, and
+two vector diagrams. The example illustrates vertex tests along the displayed
+path; it explicitly allows earlier exits by other tests and an elementary PSD
+test. Its source is the two-dimensional display on p.146 of Dannenberg--Schurmann,
+not their lifted three-dimensional Corollary 5.3(3). Internal testing commentary
+was removed from the article and replaced by one neutral supplement pointer.
+
+Current Elsevier research-data guidance encourages sharing in general; individual
+journals may require it. The inaccessible LAA guide prevents certifying a specific
+script requirement or exemption. The existing exact-arithmetic archive is supplied
+as a companion, with no claim that it is compulsory. The current general Elsevier
+AI policy requires disclosure for substantive AI manuscript-preparation use. At
+the author's explicit request, the manuscript now includes a declaration adapted
+from the retained TLMS submission; it preserves the actual drafting, literature,
+and LaTeX assistance and describes the computational use as exact-arithmetic
+verification and supplement preparation. Author review and responsibility remain
+author actions. These follow-up changes have not undergone another ordinary-web
+referee round.

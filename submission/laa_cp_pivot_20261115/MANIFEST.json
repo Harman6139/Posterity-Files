@@ -1,22 +1,21 @@
 {
-  "title": "Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation",
+  "title": "Long pivot paths and short certificates for completely positive matrices",
   "venue": "Linear Algebra and its Applications",
-  "version": "2026-11-15 revised manuscript",
+  "version": "2026-11-15 author-requested illustrated revision",
   "date": "2026-11-15",
   "time_zone": "America/New_York",
-  "built_utc": "2026-11-15T23:39:35.255599+00:00",
-  "pages": 15,
+  "built_utc": "2026-11-16T00:19:28.383791+00:00",
+  "pages": 16,
   "abstract_words": 165,
   "original_mathematical_commit": "11ffd7fe0e83b7eda47459d1d9b90b7358a4fcfc",
-  "R1_input_commit": "4e40a073d8efeab1094105f9f19757ee510e31bc",
   "files": {
     "main.tex": {
-      "bytes": 48506,
-      "sha256": "a368f012d5900febcc7c611e7b98651882897b2035c58c4327d488219579d468"
+      "bytes": 52279,
+      "sha256": "20840280a91b773393d393618765da4ea43ebc079199cc3ddb8648a51078bd2f"
     },
     "main.pdf": {
-      "bytes": 379446,
-      "sha256": "c3d5c60afac7e65d282bfeca60cfe078a0b9513409e2aeba286c6768fc8fc088"
+      "bytes": 403179,
+      "sha256": "a65c13b2d40c2cf9bcdafbd0434f4b228f1f4c257ac664600139dd3b92a0d25e"
     },
     "build.py": {
       "bytes": 1952,

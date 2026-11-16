@@ -1,8 +1,8 @@
 # Completely positive separation — LAA manuscript
 
-Title: *Exponential paths for every improving adjacent-pivot rule in completely positive matrix separation*.
+Title: *Long pivot paths and short certificates for completely positive matrices*.
 
-This directory contains the complete 15-page article, matching editable source,
+This directory contains the complete 16-page article, matching editable source,
 and exact verification supplement. It is a prepared manuscript, not a journal
 submission. Read `LAA_EDITORIAL_CHECK.md` for remaining workflow and venue checks.
 
@@ -21,7 +21,7 @@ python supplemental/code/verify_certificates.py
 `build.py` runs pdfLaTeX twice, rejects warnings and overfull/underfull boxes, and
 records exact input and output hashes in `build/build_record.json`. PDF metadata
 contains a compilation timestamp, so independent recompilations need not produce
-the same PDF hash. The source and the shipped PDF are the matched reviewed pair.
+the same PDF hash. The source and the shipped PDF are a matching pair.
 The generator and verifier use only Python's standard library. Do not run with
 `python -O`, since the original generator uses assertions.
 
@@ -39,7 +39,7 @@ Original research files and branches have not been overwritten.
 
 The rewritten article preserves the theorem, construction, constants, robustness
 radius, all-choice quantifier, certificate tests, and fixed-order encoding claims.
-It makes three substantive expository improvements:
+Its main expository features are:
 
 1. A plain-language opening defines the factorization question and states the
    distinction between local search and short global certificates immediately.
@@ -49,6 +49,9 @@ It makes three substantive expository improvements:
 3. The certificate construction precedes the all-choice confinement proof;
    arithmetic dominance, every allowed exit, and the binary estimate are explained
    in separate measured steps with precise credit to prior work.
+4. A two-dimensional example illustrates neighboring pivots and a short global
+   separator, with its limitations stated explicitly. Two vector diagrams explain
+   the shared active constraint and the induction in Sections 3 and 5.
 
 The two supplemental scripts are the original exact scripts with only UTF-8/LF
 output serialization made platform independent. No mathematical or test logic was
