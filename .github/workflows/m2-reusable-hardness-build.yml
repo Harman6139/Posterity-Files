@@ -1,0 +1,42 @@
+name: M2 reusable hardness proof build
+on:
+  push:
+    branches:
+      - research/pro-m2-reusable-hardness-theory-20261115
+    paths:
+      - research/pro_m2_reusable_hardness_20261115/REBUILD_TRIGGER
+permissions:
+  contents: write
+concurrency:
+  group: m2-reusable-hardness-proof-build
+  cancel-in-progress: false
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install manuscript dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-fonts-recommended lmodern pandoc
+      - name: Regenerate and independently verify all certificates
+        run: python3 research/pro_m2_reusable_hardness_20261115/release/code/build_release.py --pdf --markdown --baseline
+      - name: Commit regenerated paper and reproducibility records
+        run: |
+          ROOT=research/pro_m2_reusable_hardness_20261115/release
+          git add "$ROOT/manuscript/MAIN.pdf" "$ROOT/manuscript/MAIN_standalone.tex" "$ROOT/COMPLETE_PROOFS.md" "$ROOT/certificates/exact_certificates.json" "$ROOT/certificates/verification_report.json" "$ROOT/certificates/baseline_verification_report.json" "$ROOT/certificates/build_report.json"
+          git config user.name "Manuscript II verification build"
+          git config user.email "117675835+Harman6139@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate verified M2 reusable hardness manuscript PDF and exact certificates [skip ci]"
+            git push origin HEAD:research/pro-m2-reusable-hardness-theory-20261115
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m2-reusable-hardness-verified-paper
+          path: |
+            research/pro_m2_reusable_hardness_20261115/release/manuscript/MAIN.pdf
+            research/pro_m2_reusable_hardness_20261115/release/certificates/*report.json
